@@ -4,3 +4,4 @@ trustcomm-launch/renders/frames/
 trustcomm-launch/renders/draft*.mp4
 trustcomm-launch/renders/sheet*.png
 .hyperframes/
+trustcomm-launch/renders/work-*/
