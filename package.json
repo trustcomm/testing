@@ -1,0 +1,17 @@
+{
+  "name": "trustcomm-launch-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "trustcomm launch motion-graphics film built with HyperFrames + GSAP",
+  "scripts": {
+    "lint": "cd trustcomm-launch && hyperframes lint",
+    "preview": "cd trustcomm-launch && hyperframes preview",
+    "audio": "python3 trustcomm-launch/scripts/make_audio.py",
+    "render": "cd trustcomm-launch && hyperframes render --quality standard --output renders/video-silent.mp4 && ffmpeg -y -i renders/video-silent.mp4 -i assets/audio/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 256k -shortest renders/trustcomm-launch.mp4"
+  },
+  "engines": { "node": ">=22" },
+  "devDependencies": {
+    "gsap": "3.14.2",
+    "hyperframes": "0.7.109"
+  }
+}

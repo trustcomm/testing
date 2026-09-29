@@ -1,0 +1,6 @@
+node_modules/
+trustcomm-launch/node_modules
+trustcomm-launch/renders/frames/
+trustcomm-launch/renders/draft*.mp4
+trustcomm-launch/renders/sheet*.png
+.hyperframes/
