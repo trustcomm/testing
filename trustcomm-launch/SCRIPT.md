@@ -1,5 +1,7 @@
 # trustcomm launch film: voiceover script
 
+> **Frame-matched ElevenLabs version (recommended): see [ELEVENLABS.md](ELEVENLABS.md).**
+
 **Length:** 47 s · **Pace:** ~2.5 words/sec (calm, warm, "Google keynote" delivery)
 **Voice direction:** friendly and confident, smiling, not salesy. Short pauses at each full stop.
 Record each line as its own take, then drop it in at the start time below. The music and SFX
