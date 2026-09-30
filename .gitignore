@@ -9,3 +9,4 @@ dots-reel/node_modules
 dots-reel/renders/work-*/
 dots-reel/renders/draft*.mp4
 dots-reel/renders/frames/
+__pycache__/
