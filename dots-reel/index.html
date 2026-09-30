@@ -77,7 +77,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
 .laptop .lid .scr i { position: absolute; left: 30px; height: 18px; border-radius: 9px; background: rgba(62, 230, 255, 0.5); }
 .laptop .deck { position: absolute; left: 0; top: 380px; width: 700px; height: 44px; border-radius: 6px 6px 30px 30px; background: #3b4868; }
 .laptop .deck i { position: absolute; left: 290px; top: 0; width: 120px; height: 14px; border-radius: 0 0 12px 12px; background: #26324d; }
-.floaty { position: absolute; left: 240px; top: 40px; width: 600px; padding: 34px 38px; display: flex; flex-direction: column; gap: 22px; }
+.floaty { position: absolute; left: 240px; top: 190px; width: 600px; padding: 34px 38px; display: flex; flex-direction: column; gap: 22px; }
 .floaty .row { display: flex; align-items: center; gap: 18px; font-size: 32px; font-weight: 600; }
 .floaty .row .pb { flex: 1; height: 16px; border-radius: 8px; background: var(--panel2); position: relative; overflow: hidden; }
 .floaty .row .pb b { position: absolute; inset: 0; background: var(--cyan); transform-origin: left center; }
@@ -174,17 +174,17 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
 .sumdoc .sr .ck { width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: #052b1b; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none; }
 
 /* V9 apps */
-.apps { position: absolute; left: 90px; top: 60px; width: 900px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+.apps { position: absolute; left: 170px; top: 40px; width: 740px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
 .apps i { display: block; aspect-ratio: 1; border-radius: 30px; }
-.appcnt { position: absolute; left: 0; right: 0; top: 640px; text-align: center; }
+.appcnt { position: absolute; left: 0; right: 0; top: 700px; text-align: center; }
 
 /* V11 club */
 .door { position: absolute; left: 330px; top: 60px; width: 420px; height: 600px; border-radius: 210px 210px 20px 20px; background: linear-gradient(#2b1c3f, #160f24); border: 8px solid #c9a44a; display: flex; flex-direction: column; align-items: center; padding-top: 70px; gap: 16px; }
 .door .dn { font-family: "Outfit"; font-weight: 800; font-size: 50px; color: #f3d27a; letter-spacing: 0.08em; }
 .door .ds { font-size: 26px; color: #bfa6e8; }
-.door .pass { padding: 14px 30px; border-radius: 30px; font-family: "Outfit"; font-weight: 800; font-size: 34px; }
+.door .pass { padding: 14px 26px; border-radius: 30px; font-family: "Outfit"; font-weight: 800; font-size: 30px; white-space: nowrap; }
 .rope { position: absolute; left: 110px; top: 560px; width: 860px; height: 160px; }
-.freeu { position: absolute; left: 110px; top: 360px; width: 190px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.freeu { position: absolute; left: 70px; top: 250px; width: 190px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
 .freeu .head { width: 90px; height: 90px; border-radius: 50%; background: #8a96b3; }
 .freeu .bd { width: 150px; height: 110px; border-radius: 70px 70px 20px 20px; background: #8a96b3; }
 .freeu .ft { font-family: "Outfit"; font-weight: 800; font-size: 34px; color: var(--muted); }
@@ -208,7 +208,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
 .pw { position: absolute; left: 140px; top: 80px; width: 800px; padding: 44px 50px; display: flex; flex-direction: column; gap: 22px; }
 .pw .pl { font-size: 30px; color: var(--muted); font-weight: 600; }
 .pw .pf { height: 96px; border-radius: 24px; background: var(--panel2); display: flex; align-items: center; gap: 22px; padding: 0 30px; font-size: 54px; letter-spacing: 0.2em; }
-.shield { position: absolute; left: 340px; top: 400px; width: 400px; height: 400px; }
+.shield { position: absolute; left: 360px; top: 330px; width: 360px; height: 360px; }
 
 /* V15 vs */
 .vs { position: absolute; top: 90px; width: 440px; height: 520px; padding: 44px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
@@ -235,7 +235,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
 /* V17 follow */
 .follow { position: absolute; left: 0; right: 0; top: 260px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
 .follow .fa { width: 220px; height: 220px; border-radius: 50%; background: conic-gradient(var(--yellow), var(--red), var(--violet), var(--cyan), var(--yellow)); padding: 10px; }
-.follow .fa i { display: block; width: 100%; height: 100%; border-radius: 50%; background: var(--bg); display: flex; align-items: center; justify-content: center; font-family: "Outfit"; font-weight: 800; font-size: 60px; }
+.follow .fa i { width: 100%; height: 100%; border-radius: 50%; background: var(--bg); display: flex; align-items: center; justify-content: center; font-family: "Outfit"; font-weight: 800; font-size: 110px; }
 .follow .fb { position: relative; padding: 28px 90px; border-radius: 50px; background: var(--cyan); color: #04212a; font-family: "Outfit"; font-weight: 800; font-size: 54px; }
 .follow .fb .fd { position: absolute; inset: 0; border-radius: 50px; background: var(--panel2); color: var(--text); display: flex; align-items: center; justify-content: center; gap: 12px; opacity: 0; }
 
@@ -273,7 +273,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
         <div class="row"><span>Emails</span><div class="pb"><b></b></div><span class="ck">✓</span></div>
         <div class="row"><span>Report</span><div class="pb"><b></b></div><span class="ck">✓</span></div>
       </div>
-      <div class="hooktxt big" id="h2" style="top:640px">KAAM <span class="y">JAARI.</span> 🤯</div>
+      <div class="hooktxt big" id="h2" style="top:30px">KAAM <span class="y">JAARI.</span> 🤯</div>
     </div>
 
     <!-- V2 reveal -->
@@ -349,7 +349,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
         <div class="dt">Invoice bhej du? 📨</div>
         <div class="btns"><span class="btn no">Ruko</span><span class="btn ok" id="okbtn">OK ✓</span></div>
       </div>
-      <div class="tapdot" id="tap7" style="left:600px;top:560px"></div>
+      <div class="tapdot" id="tap7" style="left:612px;top:476px"></div>
       <div class="plane" id="plane">📨</div>
     </div>
 
@@ -586,7 +586,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
   hero(32.25, 33.7);
   tl.to('#bg .redwash', { opacity: 1, duration: 0.3 }, 32.3);
   tl.to('#bg .redwash', { opacity: 0, duration: 0.5 }, 39.2);
-  tl.to('#gy', { scale: 1.2, duration: 0.4, ease: 'back.out(2)' }, 59.7);
+  tl.to('#gy', { scale: 1.1, duration: 0.4, ease: 'back.out(2)' }, 59.7);
 
   // ---------- vignette helpers ----------
   function vin(sel, t) { tl.fromTo(sel, { opacity: 0, scale: 0.9, y: 50 }, { opacity: 1, scale: 1, y: 0, duration: 0.32, ease: 'back.out(1.8)' }, t); }
@@ -598,7 +598,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
   tl.from('#h1', { y: -60, opacity: 0, duration: 0.3, ease: 'back.out(2)' }, 0.1);
   tl.to('#v1 .lid', { scaleY: 0.05, duration: 0.18, ease: 'power4.in' }, 0.62);
   tl.to('#v1 .laptop', { y: 12, duration: 0.08, yoyo: true, repeat: 1 }, 0.80);
-  tl.to('#h1', { opacity: 0.25, duration: 0.3 }, 2.2);
+  tl.to('#h1', { opacity: 0, y: -30, duration: 0.25 }, 2.25);
   tl.from('#floaty', { y: 260, scale: 0.5, opacity: 0, duration: 0.5, ease: 'back.out(1.6)' }, 2.35);
   tl.from('#floaty .pb b', { scaleX: 0, duration: 1.1, ease: 'power1.inOut', stagger: 0.25 }, 2.6);
   tl.from('#floaty .ck', { scale: 0, duration: 0.3, ease: 'back.out(3)', stagger: 0.25 }, 3.5);
@@ -692,7 +692,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
   tl.from('#v11 .door', { y: 100, opacity: 0, duration: 0.4, ease: 'back.out(1.6)' }, 33.85);
   tl.from('#v11 .rope', { scaleX: 0.3, opacity: 0, duration: 0.35, ease: 'back.out(1.6)' }, 34.1);
   tl.from('#freeu', { x: 200, opacity: 0, duration: 0.3, ease: 'power2.out' }, 34.3);
-  tl.to('#freeu', { x: -80, rotation: -12, duration: 0.25, ease: 'back.out(3)' }, 35.15);
+  tl.to('#freeu', { x: -50, rotation: -12, duration: 0.25, ease: 'back.out(3)' }, 35.15);
   tl.to('#freeu', { opacity: 0.4, duration: 0.3 }, 35.5);
   pop('#p1', 36.35);
   pop('#p2', 36.85);
