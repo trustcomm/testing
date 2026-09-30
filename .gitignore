@@ -10,3 +10,4 @@ dots-reel/renders/work-*/
 dots-reel/renders/draft*.mp4
 dots-reel/renders/frames/
 __pycache__/
+dots-reel/renders/video-render.mp4
