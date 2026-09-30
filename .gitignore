@@ -5,3 +5,7 @@ trustcomm-launch/renders/draft*.mp4
 trustcomm-launch/renders/sheet*.png
 .hyperframes/
 trustcomm-launch/renders/work-*/
+dots-reel/node_modules
+dots-reel/renders/work-*/
+dots-reel/renders/draft*.mp4
+dots-reel/renders/frames/

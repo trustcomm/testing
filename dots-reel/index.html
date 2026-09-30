@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<title>ChatGPT Dots — Gyaani Reel</title>
+<script src="assets/gsap.min.js"></script>
+<script src="assets/timing.js"></script>
+<script src="assets/vo_env.js"></script>
+<style>
+@font-face { font-family: "Outfit"; src: url("assets/fonts/Outfit.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+@font-face { font-family: "Inter"; src: url("assets/fonts/Inter.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+@font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono.woff2") format("woff2"); font-weight: 100 900; font-display: block; }
+@font-face { font-family: "Noto Color Emoji"; src: local("Noto Color Emoji"); }
+
+:root {
+  --bg: #070a12;
+  --panel: #121a2b;
+  --panel2: #1a2438;
+  --line: #26324d;
+  --cyan: #3ee6ff;
+  --yellow: #ffd23f;
+  --red: #ff4d5e;
+  --green: #3ddc97;
+  --violet: #8b7bff;
+  --text: #f4f7ff;
+  --muted: #8a96b3;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); color: var(--text); font-family: "Inter", "Noto Color Emoji", sans-serif; }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+.layer { position: absolute; inset: 0; }
+.o { font-family: "Outfit", "Noto Color Emoji", sans-serif; }
+.card { background: var(--panel); border: 2px solid var(--line); border-radius: 36px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45); }
+.v { position: absolute; left: 0; top: 230px; width: 1080px; height: 860px; opacity: 0; }
+.center { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.big { font-family: "Outfit", "Noto Color Emoji", sans-serif; font-weight: 800; font-size: 104px; line-height: 1; letter-spacing: -0.02em; text-align: center; }
+.y { color: var(--yellow); }
+.c { color: var(--cyan); }
+.r { color: var(--red); }
+.g { color: var(--green); }
+.tag { display: inline-flex; align-items: center; gap: 14px; padding: 18px 32px; border-radius: 60px; font-family: "Outfit", "Noto Color Emoji"; font-weight: 700; font-size: 46px; }
+
+/* background */
+#bg .glow1 { position: absolute; width: 1100px; height: 1100px; left: -300px; top: -380px; border-radius: 50%; background: radial-gradient(circle, rgba(62, 230, 255, 0.20), transparent 62%); }
+#bg .glow2 { position: absolute; width: 1200px; height: 1200px; right: -420px; bottom: -300px; border-radius: 50%; background: radial-gradient(circle, rgba(139, 123, 255, 0.20), transparent 62%); }
+#bg .grid { position: absolute; inset: -60px; background-image: radial-gradient(rgba(138, 150, 179, 0.16) 2px, transparent 2.5px); background-size: 54px 54px; }
+#bg .redwash { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(255, 77, 94, 0.28), transparent 70%); opacity: 0; }
+#bg .pt { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); opacity: 0.35; }
+
+/* HUD */
+#hud { z-index: 40; }
+#hud .label { position: absolute; left: 50px; top: 84px; display: flex; align-items: center; gap: 14px; padding: 14px 26px 14px 16px; border-radius: 40px; background: rgba(18, 26, 43, 0.85); border: 2px solid rgba(62, 230, 255, 0.5); font-family: "Outfit"; font-weight: 800; font-size: 36px; letter-spacing: 0.04em; }
+#hud .label .dotic { width: 40px; height: 40px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--cyan) 55%, #0a7fa0); box-shadow: 0 0 22px rgba(62, 230, 255, 0.8); }
+#hud .handle { position: absolute; right: 50px; top: 98px; font-family: "Outfit"; font-weight: 600; font-size: 30px; color: var(--muted); }
+#hud .bar { position: absolute; left: 50px; right: 50px; top: 172px; height: 6px; border-radius: 3px; background: rgba(138, 150, 179, 0.2); overflow: hidden; }
+#hud .bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; background: linear-gradient(90deg, var(--cyan), var(--violet)); transform-origin: left center; transform: scaleX(0); }
+
+/* captions */
+#cap { z-index: 30; }
+.capcard { position: absolute; left: 60px; right: 60px; top: 1105px; height: 190px; display: flex; flex-wrap: wrap; align-content: center; justify-content: center; gap: 4px 20px; opacity: 0; }
+.capcard .cw { font-family: "Outfit", "Noto Color Emoji"; font-weight: 800; font-size: 76px; line-height: 1.08; color: #fff; text-shadow: 0 5px 0 rgba(0, 0, 0, 0.55), 0 0 30px rgba(0, 0, 0, 0.6); display: inline-block; }
+.capcard .cw.hi { color: var(--yellow); }
+
+/* Gyaani hologram */
+#gy { position: absolute; left: 380px; top: 1320px; width: 320px; height: 380px; z-index: 20; transform-origin: 50% 100%; }
+#gy .beam { position: absolute; left: 30px; bottom: 26px; width: 260px; height: 330px; background: linear-gradient(to top, rgba(62, 230, 255, 0.35), rgba(62, 230, 255, 0)); clip-path: polygon(38% 100%, 62% 100%, 100% 0, 0 0); }
+#gy .base { position: absolute; left: 70px; bottom: 0; width: 180px; height: 44px; border-radius: 50%; background: radial-gradient(ellipse, #bff7ff, var(--cyan) 40%, rgba(62, 230, 255, 0) 72%); }
+#gy .body { position: absolute; left: 0; top: 0; width: 320px; height: 340px; filter: drop-shadow(0 0 18px rgba(62, 230, 255, 0.75)); }
+#gy .scan { position: absolute; left: 20px; top: 10px; width: 280px; height: 320px; background: repeating-linear-gradient(to bottom, rgba(7, 10, 18, 0.28) 0 3px, transparent 3px 8px); pointer-events: none; -webkit-mask: radial-gradient(ellipse at 50% 45%, #000 55%, transparent 72%); }
+
+/* ---- vignettes ---- */
+/* V1 laptop */
+.laptop { position: absolute; left: 190px; top: 300px; width: 700px; height: 470px; }
+.laptop .lid { position: absolute; left: 70px; top: 0; width: 560px; height: 380px; border-radius: 26px 26px 6px 6px; background: #2a3550; border: 6px solid #3b4868; transform-origin: 50% 100%; overflow: hidden; }
+.laptop .lid .scr { position: absolute; inset: 14px; border-radius: 14px; background: linear-gradient(160deg, #13325a, #0d1a33); }
+.laptop .lid .scr i { position: absolute; left: 30px; height: 18px; border-radius: 9px; background: rgba(62, 230, 255, 0.5); }
+.laptop .deck { position: absolute; left: 0; top: 380px; width: 700px; height: 44px; border-radius: 6px 6px 30px 30px; background: #3b4868; }
+.laptop .deck i { position: absolute; left: 290px; top: 0; width: 120px; height: 14px; border-radius: 0 0 12px 12px; background: #26324d; }
+.floaty { position: absolute; left: 240px; top: 40px; width: 600px; padding: 34px 38px; display: flex; flex-direction: column; gap: 22px; }
+.floaty .row { display: flex; align-items: center; gap: 18px; font-size: 32px; font-weight: 600; }
+.floaty .row .pb { flex: 1; height: 16px; border-radius: 8px; background: var(--panel2); position: relative; overflow: hidden; }
+.floaty .row .pb b { position: absolute; inset: 0; background: var(--cyan); transform-origin: left center; }
+.floaty .row .ck { width: 44px; height: 44px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 800; color: #062; }
+.hooktxt { position: absolute; left: 0; right: 0; top: 30px; }
+
+/* V2 reveal */
+.bigdot { position: absolute; left: 390px; top: 170px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, var(--cyan) 45%, #0a6e8c 80%); box-shadow: 0 0 90px rgba(62, 230, 255, 0.7); }
+.ringo { position: absolute; left: 290px; top: 70px; width: 500px; height: 500px; border-radius: 50%; border: 3px dashed rgba(62, 230, 255, 0.45); }
+.revtitle { position: absolute; left: 0; right: 0; top: 590px; text-align: center; }
+.revtitle .s { font-family: "Outfit"; font-weight: 600; font-size: 50px; color: var(--muted); }
+
+/* V3 chat */
+.chatwin { position: absolute; left: 110px; top: 80px; width: 860px; height: 640px; overflow: hidden; }
+.chatwin .tabs { height: 84px; background: var(--panel2); display: flex; align-items: flex-end; padding: 0 20px; }
+.chatwin .tabs .tb { width: 360px; height: 64px; border-radius: 18px 18px 0 0; background: var(--panel); display: flex; align-items: center; justify-content: space-between; padding: 0 22px; font-size: 28px; font-weight: 600; }
+.chatwin .tabs .tb .x { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(255, 77, 94, 0.2); color: var(--red); font-weight: 800; }
+.chatwin .msgs { padding: 36px; display: flex; flex-direction: column; gap: 22px; }
+.chatwin .m { max-width: 560px; padding: 22px 28px; border-radius: 26px; font-size: 30px; line-height: 1.35; }
+.chatwin .m.u { align-self: flex-end; background: #2b3a5c; }
+.chatwin .m.a { background: var(--panel2); color: #cfd8ee; }
+.cursor { position: absolute; width: 54px; height: 54px; }
+.stamp { position: absolute; left: 0; right: 0; top: 330px; text-align: center; }
+
+/* V4 cloud */
+.cloud { position: absolute; left: 90px; top: 110px; width: 900px; height: 560px; }
+.cloud svg { position: absolute; inset: 0; }
+.desk { position: absolute; left: 330px; top: 250px; width: 260px; height: 220px; }
+.desk .mon { position: absolute; left: 60px; top: 0; width: 170px; height: 120px; border-radius: 14px; background: #0d1a33; border: 6px solid #3b4868; }
+.desk .mon i { position: absolute; left: 16px; height: 10px; border-radius: 5px; background: var(--cyan); }
+.desk .tbl { position: absolute; left: 0; top: 150px; width: 260px; height: 16px; border-radius: 8px; background: #3b4868; }
+.desk .bot { position: absolute; left: -40px; top: 60px; width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, var(--cyan) 50%, #0a6e8c); box-shadow: 0 0 30px rgba(62, 230, 255, 0.8); }
+.desk .bot::before, .desk .bot::after { content: ""; position: absolute; top: 34px; width: 12px; height: 18px; border-radius: 6px; background: #07202b; }
+.desk .bot::before { left: 50px; }
+.desk .bot::after { left: 70px; }
+.bw { position: absolute; width: 230px; height: 150px; border-radius: 18px; overflow: hidden; }
+.bw .bh { height: 34px; background: var(--panel2); display: flex; align-items: center; gap: 8px; padding: 0 14px; }
+.bw .bh i { width: 12px; height: 12px; border-radius: 50%; background: #3b4868; }
+.bw .bb { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.bw .bb i { height: 12px; border-radius: 6px; background: rgba(62, 230, 255, 0.45); }
+.lbl { position: absolute; left: 0; right: 0; top: 720px; display: flex; justify-content: center; }
+
+/* V5 night */
+.moon { position: absolute; left: 700px; top: 40px; width: 180px; height: 180px; border-radius: 50%; box-shadow: -40px 20px 0 0 #ffe9a3; }
+.star { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #fff; }
+.zzz { position: absolute; left: 180px; top: 120px; font-family: "Outfit"; font-weight: 800; color: var(--muted); }
+.goal { position: absolute; left: 110px; top: 300px; width: 860px; padding: 44px 50px; display: flex; flex-direction: column; gap: 26px; }
+.goal .gh { display: flex; justify-content: space-between; align-items: center; font-family: "Outfit"; font-weight: 700; font-size: 44px; }
+.goal .gp { height: 34px; border-radius: 17px; background: var(--panel2); overflow: hidden; position: relative; }
+.goal .gp b { position: absolute; inset: 0; background: linear-gradient(90deg, var(--cyan), var(--green)); transform-origin: left center; }
+.goal .gl { display: flex; gap: 14px; font-size: 30px; color: var(--muted); }
+.clock { position: absolute; left: 110px; top: 610px; display: flex; align-items: center; gap: 22px; }
+.clock .dial { width: 120px; height: 120px; border-radius: 50%; border: 6px solid var(--cyan); position: relative; }
+.clock .dial i { position: absolute; left: 51px; top: 14px; width: 6px; height: 46px; border-radius: 3px; background: var(--yellow); transform-origin: 50% 100%; }
+
+/* V6 slack bug */
+.alert { position: absolute; left: 90px; top: 60px; width: 900px; padding: 34px 40px; }
+.alert .ch { font-size: 30px; color: var(--muted); font-weight: 600; margin-bottom: 18px; }
+.alert .msg { display: flex; gap: 22px; align-items: flex-start; }
+.alert .av { width: 80px; height: 80px; border-radius: 20px; background: var(--red); display: flex; align-items: center; justify-content: center; font-size: 44px; flex: none; }
+.alert .mt { font-size: 34px; line-height: 1.35; }
+.alert .mt b { color: var(--red); }
+.code { position: absolute; left: 90px; top: 360px; width: 900px; padding: 34px 40px; font-family: "JetBrains Mono"; font-size: 28px; line-height: 1.7; }
+.code .ln { position: relative; color: #b8c3de; white-space: pre; }
+.code .ln.bad::after { content: ""; position: absolute; left: -16px; right: -16px; top: 0; bottom: 0; border-radius: 10px; background: rgba(255, 77, 94, 0.22); z-index: -1; }
+.mag { position: absolute; left: 120px; top: 380px; width: 150px; height: 150px; }
+.report { position: absolute; left: 560px; top: 700px; }
+
+/* V7 invoice */
+.inv { position: absolute; left: 230px; top: 40px; width: 620px; height: 700px; background: #f5f7fc; border-radius: 30px; color: #151b2b; padding: 50px; display: flex; flex-direction: column; gap: 22px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); }
+.inv .ih { display: flex; justify-content: space-between; font-family: "Outfit"; font-weight: 800; font-size: 48px; }
+.inv .ih span { color: #8a93a8; font-size: 30px; font-weight: 600; align-self: center; }
+.inv .il { height: 18px; border-radius: 9px; background: #dbe1ee; }
+.inv .tot { margin-top: auto; display: flex; justify-content: space-between; font-family: "Outfit"; font-weight: 800; font-size: 50px; border-top: 3px solid #dbe1ee; padding-top: 22px; }
+.dlg { position: absolute; left: 170px; top: 330px; width: 740px; padding: 44px; display: flex; flex-direction: column; gap: 30px; align-items: center; text-align: center; }
+.dlg .dt { font-family: "Outfit"; font-weight: 700; font-size: 48px; }
+.dlg .btns { display: flex; gap: 26px; }
+.dlg .btn { padding: 22px 52px; border-radius: 40px; font-family: "Outfit"; font-weight: 700; font-size: 40px; }
+.dlg .ok { background: var(--green); color: #052b1b; }
+.dlg .no { background: var(--panel2); color: var(--muted); }
+.plane { position: absolute; left: 470px; top: 560px; font-size: 110px; }
+.tapdot { position: absolute; width: 70px; height: 70px; border-radius: 50%; background: rgba(255, 255, 255, 0.35); border: 4px solid #fff; }
+
+/* V8 tabs */
+.brow { position: absolute; left: 50px; top: 90px; width: 980px; height: 520px; overflow: hidden; }
+.brow .tabrow { height: 74px; background: var(--panel2); position: relative; }
+.brow .t { position: absolute; top: 14px; height: 60px; border-radius: 14px 14px 0 0; background: var(--panel); border: 2px solid var(--line); border-bottom: 0; }
+.brow .page { padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+.brow .page i { height: 22px; border-radius: 11px; background: #26324d; }
+.cnt47 { position: absolute; left: 0; right: 0; top: 650px; text-align: center; }
+.sumdoc { position: absolute; left: 190px; top: 120px; width: 700px; padding: 44px 50px; display: flex; flex-direction: column; gap: 22px; }
+.sumdoc .sh { font-family: "Outfit"; font-weight: 800; font-size: 50px; }
+.sumdoc .sr { display: flex; gap: 18px; align-items: center; font-size: 32px; }
+.sumdoc .sr .ck { width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: #052b1b; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none; }
+
+/* V9 apps */
+.apps { position: absolute; left: 90px; top: 60px; width: 900px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+.apps i { display: block; aspect-ratio: 1; border-radius: 30px; }
+.appcnt { position: absolute; left: 0; right: 0; top: 640px; text-align: center; }
+
+/* V11 club */
+.door { position: absolute; left: 330px; top: 60px; width: 420px; height: 600px; border-radius: 210px 210px 20px 20px; background: linear-gradient(#2b1c3f, #160f24); border: 8px solid #c9a44a; display: flex; flex-direction: column; align-items: center; padding-top: 70px; gap: 16px; }
+.door .dn { font-family: "Outfit"; font-weight: 800; font-size: 50px; color: #f3d27a; letter-spacing: 0.08em; }
+.door .ds { font-size: 26px; color: #bfa6e8; }
+.door .pass { padding: 14px 30px; border-radius: 30px; font-family: "Outfit"; font-weight: 800; font-size: 34px; }
+.rope { position: absolute; left: 110px; top: 560px; width: 860px; height: 160px; }
+.freeu { position: absolute; left: 110px; top: 360px; width: 190px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.freeu .head { width: 90px; height: 90px; border-radius: 50%; background: #8a96b3; }
+.freeu .bd { width: 150px; height: 110px; border-radius: 70px 70px 20px 20px; background: #8a96b3; }
+.freeu .ft { font-family: "Outfit"; font-weight: 800; font-size: 34px; color: var(--muted); }
+.mkts { position: absolute; left: 0; right: 0; top: 740px; display: flex; justify-content: center; }
+
+/* V12 India */
+.pin { position: absolute; left: 380px; top: 40px; width: 320px; height: 420px; }
+.acct { position: absolute; left: 150px; top: 460px; width: 780px; padding: 36px 44px; display: flex; flex-direction: column; gap: 20px; }
+.acct .ar { display: flex; justify-content: space-between; align-items: center; font-size: 34px; font-weight: 600; }
+.acct .q { width: 64px; height: 64px; border-radius: 50%; background: var(--panel2); display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 800; color: var(--yellow); }
+
+/* V13 rules */
+.rules { position: absolute; left: 90px; top: 60px; width: 900px; padding: 44px 50px; display: flex; flex-direction: column; gap: 26px; }
+.rules .rh { font-family: "Outfit"; font-weight: 800; font-size: 54px; display: flex; justify-content: space-between; align-items: center; }
+.rules .rh span { font-size: 28px; color: var(--muted); font-weight: 600; }
+.rules .rr { display: flex; align-items: center; gap: 24px; padding: 26px 30px; border-radius: 26px; background: var(--panel2); font-size: 36px; font-weight: 600; }
+.rules .rr .ic { width: 72px; height: 72px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 40px; flex: none; }
+.rules .rr .st { margin-left: auto; padding: 10px 22px; border-radius: 22px; font-size: 26px; font-weight: 700; }
+
+/* V14 password */
+.pw { position: absolute; left: 140px; top: 80px; width: 800px; padding: 44px 50px; display: flex; flex-direction: column; gap: 22px; }
+.pw .pl { font-size: 30px; color: var(--muted); font-weight: 600; }
+.pw .pf { height: 96px; border-radius: 24px; background: var(--panel2); display: flex; align-items: center; gap: 22px; padding: 0 30px; font-size: 54px; letter-spacing: 0.2em; }
+.shield { position: absolute; left: 340px; top: 400px; width: 400px; height: 400px; }
+
+/* V15 vs */
+.vs { position: absolute; top: 90px; width: 440px; height: 520px; padding: 44px; display: flex; flex-direction: column; align-items: center; gap: 22px; text-align: center; }
+.vs .vn { font-family: "Outfit"; font-weight: 800; font-size: 72px; }
+.vs .vb { font-size: 32px; color: var(--muted); font-weight: 600; }
+.vs .orb { width: 200px; height: 200px; border-radius: 50%; }
+.vsl { left: 50px; }
+.vsr { left: 590px; }
+.vsx { position: absolute; left: 440px; top: 280px; width: 200px; height: 200px; border-radius: 50%; background: var(--yellow); color: #1a1400; display: flex; align-items: center; justify-content: center; font-family: "Outfit"; font-weight: 900; font-size: 84px; box-shadow: 0 0 60px rgba(255, 210, 63, 0.6); }
+.wars { position: absolute; left: 0; right: 0; top: 680px; text-align: center; }
+
+/* V16 comment */
+.cmt { position: absolute; left: 90px; top: 110px; width: 900px; padding: 40px 44px; display: flex; flex-direction: column; gap: 26px; }
+.cmt .ct { font-size: 32px; color: var(--muted); font-weight: 600; }
+.cmt .cb { height: 110px; border-radius: 55px; background: var(--panel2); display: flex; align-items: center; padding: 0 20px 0 40px; gap: 20px; }
+.cmt .cb .typed { font-family: "Outfit"; font-weight: 800; font-size: 58px; color: var(--yellow); letter-spacing: 0.06em; }
+.cmt .cb .car { width: 4px; height: 60px; background: var(--yellow); }
+.cmt .cb .send { margin-left: auto; padding: 18px 36px; border-radius: 40px; background: var(--cyan); color: #04212a; font-family: "Outfit"; font-weight: 800; font-size: 36px; }
+.dm { position: absolute; left: 190px; top: 450px; width: 700px; padding: 34px 40px; display: flex; gap: 26px; align-items: center; }
+.dm .di { width: 110px; height: 110px; border-radius: 30px; background: linear-gradient(135deg, var(--violet), var(--cyan)); display: flex; align-items: center; justify-content: center; font-size: 60px; flex: none; }
+.dm .dt { font-size: 34px; line-height: 1.35; }
+.dm .dt b { font-family: "Outfit"; font-size: 40px; }
+
+/* V17 follow */
+.follow { position: absolute; left: 0; right: 0; top: 260px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+.follow .fa { width: 220px; height: 220px; border-radius: 50%; background: conic-gradient(var(--yellow), var(--red), var(--violet), var(--cyan), var(--yellow)); padding: 10px; }
+.follow .fa i { display: block; width: 100%; height: 100%; border-radius: 50%; background: var(--bg); display: flex; align-items: center; justify-content: center; font-family: "Outfit"; font-weight: 800; font-size: 60px; }
+.follow .fb { position: relative; padding: 28px 90px; border-radius: 50px; background: var(--cyan); color: #04212a; font-family: "Outfit"; font-weight: 800; font-size: 54px; }
+.follow .fb .fd { position: absolute; inset: 0; border-radius: 50px; background: var(--panel2); color: var(--text); display: flex; align-items: center; justify-content: center; gap: 12px; opacity: 0; }
+
+/* V18 end */
+.endtxt { position: absolute; left: 0; right: 0; top: 40px; }
+.endpill { position: absolute; left: 0; right: 0; top: 760px; display: flex; justify-content: center; }
+#fadeout { position: absolute; inset: 0; background: var(--bg); opacity: 0; z-index: 60; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="dots-reel" data-start="0" data-duration="61.5" data-width="1080" data-height="1920">
+
+  <div id="bg" class="layer clip" data-start="0" data-duration="61.5" data-track-index="0">
+    <div class="grid"></div>
+    <div class="glow1"></div>
+    <div class="glow2"></div>
+    <div class="redwash"></div>
+    <div id="parts"></div>
+  </div>
+
+  <!-- AUDIO: premixed VO + music + SFX -->
+  <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="61.5" data-track-index="9" data-volume="1"></audio>
+
+  <div id="stage" class="layer clip" data-start="0" data-duration="61.5" data-track-index="1" style="z-index:10">
+
+    <!-- V1 laptop hook -->
+    <div class="v" id="v1">
+      <div class="hooktxt big" id="h1">LAPTOP <span class="c">BAND.</span></div>
+      <div class="laptop">
+        <div class="lid"><div class="scr"><i style="top:40px;width:300px"></i><i style="top:80px;width:420px"></i><i style="top:120px;width:250px"></i><i style="top:160px;width:380px"></i></div></div>
+        <div class="deck"><i></i></div>
+      </div>
+      <div class="floaty card" id="floaty">
+        <div class="row"><span>Research</span><div class="pb"><b></b></div><span class="ck">✓</span></div>
+        <div class="row"><span>Emails</span><div class="pb"><b></b></div><span class="ck">✓</span></div>
+        <div class="row"><span>Report</span><div class="pb"><b></b></div><span class="ck">✓</span></div>
+      </div>
+      <div class="hooktxt big" id="h2" style="top:640px">KAAM <span class="y">JAARI.</span> 🤯</div>
+    </div>
+
+    <!-- V2 reveal -->
+    <div class="v" id="v2">
+      <div class="ringo"></div>
+      <div class="bigdot"></div>
+      <div class="revtitle"><div class="big">ChatGPT <span class="c">Dots</span></div><div class="s" style="margin-top:24px">always-on AI agents</div></div>
+    </div>
+
+    <!-- V3 normal chat -->
+    <div class="v" id="v3">
+      <div class="chatwin card">
+        <div class="tabs"><div class="tb">ChatGPT <span class="x">×</span></div></div>
+        <div class="msgs">
+          <div class="m u">Mere liye market research kar do</div>
+          <div class="m a">Zaroor! Main shuru karta hoon…</div>
+          <div class="m u">Ok, baad mein dekhta hoon 👋</div>
+        </div>
+      </div>
+      <svg class="cursor" id="cur3" viewBox="0 0 24 24" style="left:470px;top:170px"><path d="M4 2l16 10-7 1.5L9.5 21z" fill="#fff" stroke="#070a12" stroke-width="1.4" stroke-linejoin="round"/></svg>
+      <div class="stamp big"><span class="r">KHATAM.</span> 💀</div>
+    </div>
+
+    <!-- V4 cloud computer -->
+    <div class="v" id="v4">
+      <div class="cloud">
+        <svg viewBox="0 0 900 560"><path d="M200 470 C 90 470 40 390 70 320 C 95 260 160 240 210 250 C 220 150 320 90 420 110 C 490 40 620 50 670 140 C 760 130 840 200 830 290 C 900 320 890 440 800 470 Z" fill="rgba(62,230,255,0.10)" stroke="#3ee6ff" stroke-width="5"/></svg>
+        <div class="desk"><div class="mon"><i style="top:18px;width:110px"></i><i style="top:40px;width:80px"></i><i style="top:62px;width:120px"></i></div><div class="tbl"></div><div class="bot"></div></div>
+      </div>
+      <div class="bw card" style="left:60px;top:40px"><div class="bh"><i></i><i></i><i></i></div><div class="bb"><i style="width:80%"></i><i style="width:60%"></i><i style="width:70%"></i></div></div>
+      <div class="bw card" style="left:790px;top:60px"><div class="bh"><i></i><i></i><i></i></div><div class="bb"><i style="width:70%"></i><i style="width:85%"></i><i style="width:50%"></i></div></div>
+      <div class="bw card" style="left:800px;top:520px"><div class="bh"><i></i><i></i><i></i></div><div class="bb"><i style="width:60%"></i><i style="width:75%"></i><i style="width:65%"></i></div></div>
+      <div class="lbl"><span class="tag card">☁️ Apna computer + browser</span></div>
+    </div>
+
+    <!-- V5 night / 24x7 -->
+    <div class="v" id="v5">
+      <div class="moon"></div>
+      <div id="stars5"></div>
+      <div class="zzz"><span style="font-size:60px">Z</span><span style="font-size:80px">Z</span><span style="font-size:104px">Z</span> 😴</div>
+      <div class="goal card">
+        <div class="gh"><span>🎯 Tumhara goal</span><span class="g" id="gpct">0%</span></div>
+        <div class="gp"><b></b></div>
+        <div class="gl"><span>Dot is working…</span><span>· cloud computer</span><span>· 24/7</span></div>
+      </div>
+      <div class="clock"><div class="dial"><i></i></div><span class="tag card" style="font-size:52px">24/7 kaam</span></div>
+    </div>
+
+    <!-- V6 slack bug -->
+    <div class="v" id="v6">
+      <div class="alert card">
+        <div class="ch">Slack · #dev-alerts</div>
+        <div class="msg"><div class="av">🐞</div><div class="mt"><b>Bug:</b> checkout page crash ho raha hai!</div></div>
+      </div>
+      <div class="code card">
+        <div class="ln">function checkout(cart) {</div>
+        <div class="ln">  const total = sum(cart)</div>
+        <div class="ln bad">  return pay(totl)  // ?</div>
+        <div class="ln">}</div>
+      </div>
+      <svg class="mag" viewBox="0 0 100 100"><circle cx="40" cy="40" r="26" fill="rgba(62,230,255,0.15)" stroke="#3ee6ff" stroke-width="8"/><path d="M60 60 L88 88" stroke="#3ee6ff" stroke-width="12" stroke-linecap="round"/></svg>
+      <div class="report"><span class="tag card"><span class="g">✓</span> Report ready</span></div>
+    </div>
+
+    <!-- V7 invoice -->
+    <div class="v" id="v7">
+      <div class="inv">
+        <div class="ih">INVOICE <span>#0142</span></div>
+        <div class="il" style="width:70%"></div><div class="il" style="width:90%"></div><div class="il" style="width:55%"></div><div class="il" style="width:80%"></div><div class="il" style="width:65%"></div>
+        <div class="tot"><span>Total</span><span>₹48,000</span></div>
+      </div>
+      <div class="dlg card">
+        <div class="dt">Invoice bhej du? 📨</div>
+        <div class="btns"><span class="btn no">Ruko</span><span class="btn ok" id="okbtn">OK ✓</span></div>
+      </div>
+      <div class="tapdot" id="tap7" style="left:600px;top:560px"></div>
+      <div class="plane" id="plane">📨</div>
+    </div>
+
+    <!-- V8 47 tabs -->
+    <div class="v" id="v8">
+      <div class="brow card"><div class="tabrow" id="tabrow"></div><div class="page"><i style="width:80%"></i><i style="width:65%"></i><i style="width:90%"></i><i style="width:50%"></i></div></div>
+      <div class="cnt47 big"><span class="y" id="n47">0</span> tabs 😵</div>
+      <div class="sumdoc card" id="sumdoc">
+        <div class="sh">📑 Research summary</div>
+        <div class="sr"><span class="ck">✓</span>47 tabs padh liye</div>
+        <div class="sr"><span class="ck">✓</span>Key points nikale</div>
+        <div class="sr"><span class="ck">✓</span>Report ready</div>
+      </div>
+    </div>
+
+    <!-- V9 apps -->
+    <div class="v" id="v9">
+      <div class="apps" id="apps"></div>
+      <div class="appcnt big"><span class="c" id="n4k">0</span>+ apps</div>
+    </div>
+
+    <!-- V10 bad news -->
+    <div class="v" id="v10">
+      <div class="big" style="position:absolute;left:0;right:0;top:650px">BURA <span class="r">NEWS</span> 😬</div>
+    </div>
+
+    <!-- V11 club -->
+    <div class="v" id="v11">
+      <div class="door">
+        <div class="dn">DOTS CLUB</div>
+        <div class="ds">members only</div>
+        <div class="pass" id="p1" style="background:#8b7bff;color:#fff;margin-top:40px">PRO ✓</div>
+        <div class="pass" id="p2" style="background:#ffd23f;color:#1a1400">BUSINESS PREMIUM ✓</div>
+      </div>
+      <svg class="rope" viewBox="0 0 860 160"><rect x="20" y="10" width="26" height="150" rx="10" fill="#c9a44a"/><rect x="814" y="10" width="26" height="150" rx="10" fill="#c9a44a"/><path d="M40 30 Q 430 150 820 30" fill="none" stroke="#c0203a" stroke-width="18" stroke-linecap="round"/></svg>
+      <div class="freeu" id="freeu"><div class="head"></div><div class="bd"></div><div class="ft">FREE 🙁</div></div>
+      <div class="mkts"><span class="tag card">🌍 Sirf eligible markets</span></div>
+    </div>
+
+    <!-- V12 India -->
+    <div class="v" id="v12">
+      <svg class="pin" viewBox="0 0 320 420"><path d="M160 20 C 80 20 30 80 30 150 C 30 250 160 400 160 400 C 160 400 290 250 290 150 C 290 80 240 20 160 20 Z" fill="#ff9933"/><path d="M160 20 C 80 20 30 80 30 150 C 30 190 45 230 65 265 L 255 265 C 275 230 290 190 290 150 C 290 80 240 20 160 20 Z" fill="#ffffff" opacity=".0"/><circle cx="160" cy="150" r="70" fill="#fff"/><circle cx="160" cy="150" r="26" fill="none" stroke="#000080" stroke-width="6"/></svg>
+      <div class="big" id="indq" style="position:absolute;left:690px;top:60px;font-size:150px">?</div>
+      <div class="acct card">
+        <div class="ar"><span>ChatGPT → Settings</span><span class="c">›</span></div>
+        <div class="ar"><span>Dots available?</span><span class="q" id="qmark">?</span></div>
+        <div class="ar"><span class="y o" style="font-weight:800;font-size:40px">Apna account check karo 👀</span></div>
+      </div>
+    </div>
+
+    <!-- V13 rules -->
+    <div class="v" id="v13">
+      <div class="rules card">
+        <div class="rh">⚙️ Custom Rules <span>tum decide karo</span></div>
+        <div class="rr" id="r1"><span class="ic" style="background:rgba(61,220,151,.18)">✅</span>Khud karega<span class="st" style="background:rgba(61,220,151,.18);color:#3ddc97">ALLOW</span></div>
+        <div class="rr" id="r2"><span class="ic" style="background:rgba(255,210,63,.18)">✋</span>Pehle permission maangega<span class="st" style="background:rgba(255,210,63,.18);color:#ffd23f">ASK</span></div>
+        <div class="rr" id="r3"><span class="ic" style="background:rgba(255,77,94,.18)">⛔</span>Bilkul nahi<span class="st" style="background:rgba(255,77,94,.18);color:#ff4d5e">BLOCK</span></div>
+      </div>
+    </div>
+
+    <!-- V14 password -->
+    <div class="v" id="v14">
+      <div class="pw card">
+        <div class="pl">Change password</div>
+        <div class="pf">🔒 <span>••••••••</span></div>
+      </div>
+      <svg class="shield" viewBox="0 0 200 200"><path d="M100 12 L172 40 V100 C172 145 140 175 100 190 C60 175 28 145 28 100 V40 Z" fill="rgba(61,220,151,0.16)" stroke="#3ddc97" stroke-width="8" stroke-linejoin="round"/><path d="M68 102 L92 126 L136 80" fill="none" stroke="#3ddc97" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="big" id="human" style="position:absolute;left:0;right:0;top:760px;font-size:80px">SIRF <span class="g">INSAAN</span> 🧍</div>
+    </div>
+
+    <!-- V15 vs -->
+    <div class="v" id="v15">
+      <div class="vs vsl card"><div class="orb" style="background:radial-gradient(circle at 35% 30%,#fff,#8b7bff 50%,#3a2a9c)"></div><div class="vn">Muse</div><div class="vb">by Meta</div></div>
+      <div class="vs vsr card"><div class="orb" style="background:radial-gradient(circle at 35% 30%,#fff,#3ee6ff 50%,#0a6e8c)"></div><div class="vn">Dots</div><div class="vb">by OpenAI</div></div>
+      <div class="vsx">VS</div>
+      <div class="wars big" style="font-size:84px">AGENT WARS <span class="y">SHURU</span> ⚔️</div>
+    </div>
+
+    <!-- V16 comment -->
+    <div class="v" id="v16">
+      <div class="cmt card">
+        <div class="ct">💬 Add a comment…</div>
+        <div class="cb"><span class="typed" id="typed"></span><span class="car" id="car"></span><span class="send">Post</span></div>
+      </div>
+      <div class="dm card"><div class="di">📩</div><div class="dt"><b>Setup notes</b><br>seedha tumhare DM mein</div></div>
+    </div>
+
+    <!-- V17 follow -->
+    <div class="v" id="v17">
+      <div class="follow">
+        <div class="fa"><i>🧙</i></div>
+        <div class="big" style="font-size:64px">@baqur.ai</div>
+        <div class="fb">Follow<div class="fd">Following ✓</div></div>
+      </div>
+    </div>
+
+    <!-- V18 end -->
+    <div class="v" id="v18">
+      <div class="laptop" style="top:280px">
+        <div class="lid"><div class="scr"><i style="top:40px;width:300px"></i><i style="top:80px;width:420px"></i><i style="top:120px;width:250px"></i></div></div>
+        <div class="deck"><i></i></div>
+      </div>
+      <div class="endtxt big" style="font-size:88px">…aur <span class="y">bhool jaoge</span> 😏</div>
+      <div class="endpill"><span class="tag card" style="font-size:50px">Comment <span class="y">"DOTS"</span> 👇</span></div>
+    </div>
+  </div>
+
+  <!-- Gyaani hologram -->
+  <div id="gyl" class="layer clip" data-start="0" data-duration="61.5" data-track-index="2" style="z-index:20">
+    <div id="gy">
+      <div class="beam"></div>
+      <div class="base"></div>
+      <svg class="body" viewBox="0 0 320 340">
+        <defs>
+          <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ff3ff" stop-opacity=".95"/><stop offset="1" stop-color="#3ee6ff" stop-opacity=".55"/></linearGradient>
+        </defs>
+        <!-- shoulders / robe -->
+        <path d="M40 330 C 50 250 100 230 160 230 C 220 230 270 250 280 330 Z" fill="url(#hg)" opacity=".65"/>
+        <path d="M160 232 L 132 330 M160 232 L 188 330" stroke="#dffcff" stroke-width="4" opacity=".6"/>
+        <!-- head -->
+        <g id="ghead">
+          <ellipse cx="160" cy="135" rx="82" ry="92" fill="url(#hg)" opacity=".85"/>
+          <!-- turban wrap -->
+          <path d="M80 110 C 80 45 130 25 160 25 C 190 25 240 45 240 110 C 215 80 190 72 160 72 C 130 72 105 80 80 110 Z" fill="#8b7bff" opacity=".85"/>
+          <circle cx="160" cy="62" r="11" fill="#ffd23f"/>
+          <!-- glasses -->
+          <g id="geyes">
+            <circle cx="128" cy="128" r="22" fill="#07202b" stroke="#dffcff" stroke-width="5"/>
+            <circle cx="192" cy="128" r="22" fill="#07202b" stroke="#dffcff" stroke-width="5"/>
+            <path d="M150 128 L170 128" stroke="#dffcff" stroke-width="5"/>
+            <circle id="pl" cx="130" cy="128" r="8" fill="#3ee6ff"/>
+            <circle id="pr" cx="194" cy="128" r="8" fill="#3ee6ff"/>
+            <rect id="lidl" x="104" y="104" width="48" height="0" fill="#5fd7ea"/>
+            <rect id="lidr" x="168" y="104" width="48" height="0" fill="#5fd7ea"/>
+          </g>
+          <path id="browl" d="M104 96 Q 128 86 150 96" stroke="#07202b" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path id="browr" d="M170 96 Q 192 86 216 96" stroke="#07202b" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <!-- beard -->
+          <path d="M100 170 C 110 235 140 250 160 252 C 180 250 210 235 220 170 C 200 190 180 196 160 196 C 140 196 120 190 100 170 Z" fill="#dffcff" opacity=".75"/>
+          <!-- mouth -->
+          <ellipse id="mouth" cx="160" cy="190" rx="20" ry="9" fill="#07202b"/>
+        </g>
+      </svg>
+      <div class="scan"></div>
+    </div>
+  </div>
+
+  <!-- captions -->
+  <div id="cap" class="layer clip" data-start="0" data-duration="61.5" data-track-index="3"></div>
+
+  <!-- HUD -->
+  <div id="hud" class="layer clip" data-start="0" data-duration="61.5" data-track-index="4">
+    <div class="label"><span class="dotic"></span>ChatGPT DOTS 🤖</div>
+    <div class="handle">@baqur.ai</div>
+    <div class="bar"><i></i></div>
+  </div>
+
+  <div id="fx" class="layer clip" data-start="0" data-duration="61.5" data-track-index="5" style="z-index:60"><div id="fadeout"></div></div>
+</div>
+
+<script>
+(function () {
+  var T = window.TIMING, ENV = window.VO_ENV, DUR = 61.5;
+  function mulberry32(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  var rnd = mulberry32(930);
+
+  // ---------- build dynamic DOM (synchronous) ----------
+  var parts = document.getElementById('parts'), ph = '';
+  for (var i = 0; i < 26; i++) ph += '<i class="pt" style="left:' + Math.round(rnd() * 1080) + 'px;top:' + Math.round(rnd() * 1920) + 'px;opacity:' + (0.15 + rnd() * 0.3).toFixed(2) + '"></i>';
+  parts.innerHTML = ph;
+  var st5 = document.getElementById('stars5'), sh = '';
+  for (i = 0; i < 18; i++) sh += '<i class="star" style="left:' + Math.round(40 + rnd() * 1000) + 'px;top:' + Math.round(10 + rnd() * 260) + 'px"></i>';
+  st5.innerHTML = sh;
+  var tabrow = document.getElementById('tabrow'), th = '';
+  for (i = 0; i < 47; i++) th += '<i class="t" style="left:' + (20 + i * 19.5) + 'px;width:' + (i < 3 ? 180 : 60) + 'px;z-index:' + (100 - i) + '"></i>';
+  tabrow.innerHTML = th;
+  var apps = document.getElementById('apps'), ah = '', AC = ['#3ee6ff', '#8b7bff', '#ffd23f', '#ff4d5e', '#3ddc97', '#ff8a3d', '#4d7dff', '#e05cff'];
+  for (i = 0; i < 30; i++) ah += '<i style="background:' + AC[Math.floor(rnd() * AC.length)] + ';opacity:' + (0.55 + rnd() * 0.45).toFixed(2) + '"></i>';
+  apps.innerHTML = ah;
+  // captions
+  var cap = document.getElementById('cap'), chtml = '';
+  T.captions.forEach(function (c, ci) {
+    chtml += '<div class="capcard" id="cc' + ci + '">' + c.words.map(function (w, wi) {
+      return '<span class="cw' + (w.hi ? ' hi' : '') + '" id="cw' + ci + '_' + wi + '">' + w.w.replace(/[<>&]/g, '') + '</span>';
+    }).join('') + '</div>';
+  });
+  cap.innerHTML = chtml;
+
+  var tl = gsap.timeline({ paused: true });
+
+  // ---------- ambient ----------
+  tl.to('#bg .grid', { y: -54, duration: DUR, ease: 'none' }, 0);
+  tl.to('#bg .glow1', { x: 140, y: 120, scale: 1.12, duration: DUR, ease: 'sine.inOut' }, 0);
+  tl.to('#bg .glow2', { x: -160, y: -140, scale: 1.15, duration: DUR, ease: 'sine.inOut' }, 0);
+  tl.to('#parts .pt', { y: function (k) { return -120 - (k % 5) * 40; }, duration: DUR, ease: 'none' }, 0);
+  tl.fromTo('#hud .bar i', { scaleX: 0 }, { scaleX: 1, duration: 61.0, ease: 'none' }, 0);
+  tl.from('#hud .label', { y: -40, opacity: 0, duration: 0.4, ease: 'back.out(2)' }, 0.05);
+  tl.from('#hud .handle', { opacity: 0, duration: 0.4 }, 0.3);
+
+  // ---------- captions: word-by-word pop ----------
+  T.captions.forEach(function (c, ci) {
+    tl.set('#cc' + ci, { opacity: 1 }, c.t - 0.02);
+    c.words.forEach(function (w, wi) {
+      tl.fromTo('#cw' + ci + '_' + wi, { opacity: 0, y: 26, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.16, ease: 'back.out(3)' }, w.t);
+    });
+    tl.set('#cc' + ci, { opacity: 0 }, c.e);
+  });
+
+  // ---------- Gyaani: float, flicker, lip flap, expressions ----------
+  tl.from('#gy', { y: 80, opacity: 0, duration: 0.5, ease: 'back.out(1.8)' }, 0.0);
+  tl.to('#gy .body', { y: -10, duration: 1.6, ease: 'sine.inOut', yoyo: true, repeat: Math.max(0, Math.floor(DUR / 1.6) - 1) }, 0);
+  [3.1, 12.4, 20.8, 33.2, 44.6, 55.9].forEach(function (t) {
+    tl.fromTo('#gy .body', { opacity: 1 }, { opacity: 0.45, duration: 0.05, yoyo: true, repeat: 3, ease: 'steps(1)', immediateRender: false }, t);
+  });
+  var mouth = document.getElementById('mouth');
+  tl.to({ p: 0 }, { p: 1, duration: DUR, ease: 'none', onUpdate: function () {
+    var t = this.time(), k = Math.min(ENV.length - 1, Math.max(0, Math.round(t * 30)));
+    var v = ENV[k];
+    mouth.setAttribute('ry', (4 + v * 18).toFixed(1));
+    mouth.setAttribute('rx', (20 - v * 4).toFixed(1));
+  } }, 0);
+  function smug(t) { tl.to('#browl', { y: 0, rotation: 0, duration: 0.2 }, t); tl.to('#browr', { y: -12, rotation: -8, transformOrigin: '50% 50%', duration: 0.2 }, t); tl.to('#lidl, #lidr', { attr: { height: 18 }, duration: 0.2 }, t); }
+  function shock(t) { tl.to('#browl, #browr', { y: -16, rotation: 0, duration: 0.15 }, t); tl.to('#lidl, #lidr', { attr: { height: 0 }, duration: 0.15 }, t); tl.to('#pl, #pr', { attr: { r: 11 }, duration: 0.15 }, t); }
+  function calm(t) { tl.to('#browl, #browr', { y: 0, rotation: 0, duration: 0.2 }, t); tl.to('#lidl, #lidr', { attr: { height: 6 }, duration: 0.2 }, t); tl.to('#pl, #pr', { attr: { r: 8 }, duration: 0.2 }, t); }
+  function sad(t) { tl.to('#browl', { y: -4, rotation: -12, transformOrigin: '50% 50%', duration: 0.2 }, t); tl.to('#browr', { y: -4, rotation: 12, transformOrigin: '50% 50%', duration: 0.2 }, t); tl.to('#lidl, #lidr', { attr: { height: 16 }, duration: 0.2 }, t); }
+  smug(0.1); shock(2.35); smug(4.2); calm(6.8); smug(8.2); calm(10.0); smug(14.0); calm(17.1); smug(24.3); calm(29.4);
+  sad(32.4); smug(34.0); calm(36.2); shock(39.5); calm(41.4); smug(46.1); calm(49.0); shock(52.5); smug(54.1); smug(58.3);
+  tl.to('#gy', { y: -24, duration: 0.12, yoyo: true, repeat: 3, ease: 'sine.inOut' }, 27.16); // laugh bounce
+  // hero moves (Gyaani centre stage)
+  function hero(t, back) {
+    tl.to('#gy', { x: 0, y: -860, scale: 1.5, duration: 0.45, ease: 'back.out(1.4)' }, t);
+    if (back) tl.to('#gy', { x: 0, y: 0, scale: 1, duration: 0.4, ease: 'power3.inOut' }, back);
+  }
+  hero(32.25, 33.7);
+  tl.to('#bg .redwash', { opacity: 1, duration: 0.3 }, 32.3);
+  tl.to('#bg .redwash', { opacity: 0, duration: 0.5 }, 39.2);
+  tl.to('#gy', { scale: 1.2, duration: 0.4, ease: 'back.out(2)' }, 59.7);
+
+  // ---------- vignette helpers ----------
+  function vin(sel, t) { tl.fromTo(sel, { opacity: 0, scale: 0.9, y: 50 }, { opacity: 1, scale: 1, y: 0, duration: 0.32, ease: 'back.out(1.8)' }, t); }
+  function vout(sel, t) { tl.to(sel, { opacity: 0, scale: 0.94, y: -30, duration: 0.16, ease: 'power2.in' }, t); }
+  function pop(sel, t, d) { tl.from(sel, { scale: 0, opacity: 0, duration: d || 0.35, ease: 'back.out(2.4)' }, t); }
+
+  // V1 laptop hook (0 – 4.1)
+  vin('#v1', 0.0);
+  tl.from('#h1', { y: -60, opacity: 0, duration: 0.3, ease: 'back.out(2)' }, 0.1);
+  tl.to('#v1 .lid', { scaleY: 0.05, duration: 0.18, ease: 'power4.in' }, 0.62);
+  tl.to('#v1 .laptop', { y: 12, duration: 0.08, yoyo: true, repeat: 1 }, 0.80);
+  tl.to('#h1', { opacity: 0.25, duration: 0.3 }, 2.2);
+  tl.from('#floaty', { y: 260, scale: 0.5, opacity: 0, duration: 0.5, ease: 'back.out(1.6)' }, 2.35);
+  tl.from('#floaty .pb b', { scaleX: 0, duration: 1.1, ease: 'power1.inOut', stagger: 0.25 }, 2.6);
+  tl.from('#floaty .ck', { scale: 0, duration: 0.3, ease: 'back.out(3)', stagger: 0.25 }, 3.5);
+  tl.from('#h2', { scale: 1.5, opacity: 0, duration: 0.3, ease: 'back.out(2)' }, 2.9);
+  vout('#v1', 4.08);
+  // V2 reveal (4.13 – 6.7)
+  vin('#v2', 4.13);
+  tl.from('#v2 .bigdot', { scale: 0, duration: 0.6, ease: 'elastic.out(1, 0.5)' }, 4.2);
+  tl.from('#v2 .ringo', { scale: 0.4, opacity: 0, rotation: -90, duration: 0.8, ease: 'expo.out' }, 4.3);
+  tl.to('#v2 .ringo', { rotation: 60, duration: 1.5, ease: 'none' }, 5.12);
+  tl.from('#v2 .revtitle .big', { y: 40, opacity: 0, duration: 0.4, ease: 'back.out(2)' }, 5.0);
+  tl.fromTo('#v2 .bigdot', { scale: 1 }, { scale: 1.12, duration: 0.15, yoyo: true, repeat: 1, immediateRender: false }, 6.05);
+  tl.from('#v2 .revtitle .s', { opacity: 0, duration: 0.4 }, 5.6);
+  vout('#v2', 6.65);
+  // V3 normal chat (6.76 – 9.9)
+  vin('#v3', 6.72);
+  tl.from('#v3 .m', { y: 30, opacity: 0, duration: 0.3, stagger: 0.3, ease: 'power2.out' }, 6.9);
+  tl.from('#cur3', { x: 200, y: 300, opacity: 0, duration: 0.5, ease: 'power3.out' }, 7.6);
+  tl.to('#cur3', { x: -135, y: -95, duration: 0.35, ease: 'power2.inOut' }, 8.12);
+  tl.to('#v3 .chatwin', { scale: 0, rotation: -12, opacity: 0, duration: 0.35, ease: 'back.in(1.6)' }, 8.55);
+  tl.to('#cur3', { opacity: 0, duration: 0.2 }, 8.6);
+  tl.from('#v3 .stamp', { scale: 2.2, opacity: 0, rotation: -10, duration: 0.3, ease: 'back.out(2)' }, 9.0);
+  vout('#v3', 9.9);
+  // V4 cloud computer (9.96 – 13.95)
+  vin('#v4', 9.96);
+  tl.from('#v4 .cloud svg path', { scale: 0.6, opacity: 0, transformOrigin: '50% 60%', duration: 0.5, ease: 'back.out(1.6)' }, 10.0);
+  tl.from('#v4 .desk', { y: 60, opacity: 0, duration: 0.4, ease: 'back.out(2)' }, 10.5);
+  tl.from('#v4 .desk .mon i', { scaleX: 0, transformOrigin: 'left center', duration: 0.3, stagger: 0.15 }, 11.0);
+  tl.to('#v4 .desk .bot', { y: -14, duration: 0.25, yoyo: true, repeat: 7, ease: 'sine.inOut' }, 11.0);
+  tl.from('#v4 .bw', { scale: 0, opacity: 0, duration: 0.35, ease: 'back.out(2.4)', stagger: 0.12 }, 12.95);
+  tl.from('#v4 .lbl', { y: 30, opacity: 0, duration: 0.35, ease: 'back.out(2)' }, 11.8);
+  vout('#v4', 13.95);
+  // V5 night (14.03 – 17.0)
+  vin('#v5', 14.0);
+  tl.from('#v5 .moon', { y: -80, opacity: 0, duration: 0.5, ease: 'power3.out' }, 14.05);
+  tl.from('#stars5 .star', { opacity: 0, scale: 0, duration: 0.25, stagger: 0.03 }, 14.1);
+  tl.from('#v5 .zzz span', { y: 30, opacity: 0, duration: 0.25, stagger: 0.12 }, 14.1);
+  tl.from('#v5 .goal', { y: 60, opacity: 0, duration: 0.4, ease: 'back.out(1.8)' }, 14.9);
+  var gp = { v: 0 };
+  tl.fromTo('#v5 .gp b', { scaleX: 0 }, { scaleX: 1, duration: 1.8, ease: 'power1.inOut' }, 15.0);
+  tl.to(gp, { v: 100, duration: 1.8, ease: 'power1.inOut', onUpdate: function () { document.getElementById('gpct').textContent = Math.round(gp.v) + '%'; } }, 15.0);
+  tl.from('#v5 .clock', { x: -60, opacity: 0, duration: 0.35, ease: 'back.out(2)' }, 15.4);
+  tl.to('#v5 .clock .dial i', { rotation: 1080, duration: 1.5, ease: 'power1.in' }, 15.4);
+  vout('#v5', 16.98);
+  // V6 slack bug (17.07 – 19.5)
+  vin('#v6', 17.05);
+  tl.from('#v6 .alert', { x: -300, opacity: 0, duration: 0.35, ease: 'back.out(1.6)' }, 17.07);
+  tl.to('#v6 .alert .av', { rotation: 12, duration: 0.07, yoyo: true, repeat: 5 }, 17.4);
+  tl.from('#v6 .code', { y: 80, opacity: 0, duration: 0.3, ease: 'power3.out' }, 18.15);
+  tl.from('#v6 .mag', { x: 500, opacity: 0, duration: 0.3, ease: 'power3.out' }, 18.2);
+  tl.to('#v6 .mag', { y: 80, x: 200, duration: 0.55, ease: 'sine.inOut' }, 18.5);
+  tl.from('#v6 .report', { scale: 0, opacity: 0, duration: 0.3, ease: 'back.out(2.6)' }, 19.05);
+  vout('#v6', 19.52);
+  // V7 invoice (19.58 – 24.1)
+  vin('#v7', 19.56);
+  tl.from('#v7 .inv', { rotation: -8, y: 120, opacity: 0, duration: 0.4, ease: 'back.out(1.6)' }, 19.6);
+  tl.from('#v7 .il', { scaleX: 0, transformOrigin: 'left center', duration: 0.25, stagger: 0.12 }, 20.1);
+  tl.from('#v7 .tot', { opacity: 0, y: 20, duration: 0.3 }, 20.9);
+  tl.to('#v7 .inv', { scale: 0.85, y: -60, opacity: 0.45, duration: 0.3 }, 21.95);
+  tl.from('#v7 .dlg', { scale: 0.6, opacity: 0, duration: 0.35, ease: 'back.out(2)' }, 21.99);
+  tl.fromTo('#tap7', { opacity: 0, scale: 1.8, x: 120, y: 160 }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.35, ease: 'power3.out' }, 22.55);
+  tl.to('#tap7', { scale: 0.75, duration: 0.08, yoyo: true, repeat: 1 }, 22.95);
+  tl.to('#okbtn', { scale: 1.12, duration: 0.1, yoyo: true, repeat: 1 }, 22.97);
+  tl.to('#tap7', { opacity: 0, duration: 0.2 }, 23.2);
+  tl.to('#v7 .dlg', { scale: 0.8, opacity: 0, duration: 0.2 }, 23.3);
+  tl.fromTo('#plane', { opacity: 0, x: -200, y: 200, scale: 0.6 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.25 }, 23.3);
+  tl.to('#plane', { x: 500, y: -500, rotation: -20, duration: 0.5, ease: 'power2.in' }, 23.55);
+  vout('#v7', 24.1);
+  // V8 47 tabs (24.25 – 29.2)
+  vin('#v8', 24.2);
+  tl.from('#tabrow .t', { y: 70, opacity: 0, duration: 0.12, stagger: 0.045, ease: 'power2.out' }, 24.35);
+  var n47 = { v: 0 };
+  tl.to(n47, { v: 47, duration: 2.1, ease: 'none', onUpdate: function () { document.getElementById('n47').textContent = Math.round(n47.v); } }, 24.35);
+  tl.to('#v8 .brow', { rotation: 2, duration: 0.06, yoyo: true, repeat: 7 }, 26.5);
+  tl.to('#v8 .brow, #v8 .cnt47', { scale: 0.2, opacity: 0, y: -100, duration: 0.35, ease: 'back.in(1.4)' }, 27.8);
+  tl.from('#sumdoc', { scale: 0.5, opacity: 0, duration: 0.4, ease: 'back.out(2)' }, 27.95);
+  tl.from('#sumdoc .sr', { x: -40, opacity: 0, duration: 0.25, stagger: 0.25 }, 28.3);
+  vout('#v8', 29.28);
+  // V9 apps (29.34 – 31.8)
+  vin('#v9', 29.3);
+  tl.from('#apps i', { scale: 0, opacity: 0, duration: 0.25, ease: 'back.out(2.4)', stagger: { each: 0.025, from: 'center', grid: [5, 6] } }, 29.35);
+  var n4k = { v: 0 };
+  tl.to(n4k, { v: 4000, duration: 1.4, ease: 'power2.out', onUpdate: function () { document.getElementById('n4k').textContent = Math.round(n4k.v).toLocaleString('en-IN'); } }, 29.6);
+  tl.to('#apps', { scale: 1.04, duration: 1.8, ease: 'sine.inOut' }, 29.9);
+  vout('#v9', 31.75);
+  // V10 bad news (Gyaani hero) (32.25 – 33.7)
+  vin('#v10', 32.3);
+  vout('#v10', 33.7);
+  // V11 club (33.82 – 39.45)
+  vin('#v11', 33.8);
+  tl.from('#v11 .door', { y: 100, opacity: 0, duration: 0.4, ease: 'back.out(1.6)' }, 33.85);
+  tl.from('#v11 .rope', { scaleX: 0.3, opacity: 0, duration: 0.35, ease: 'back.out(1.6)' }, 34.1);
+  tl.from('#freeu', { x: 200, opacity: 0, duration: 0.3, ease: 'power2.out' }, 34.3);
+  tl.to('#freeu', { x: -80, rotation: -12, duration: 0.25, ease: 'back.out(3)' }, 35.15);
+  tl.to('#freeu', { opacity: 0.4, duration: 0.3 }, 35.5);
+  pop('#p1', 36.35);
+  pop('#p2', 36.85);
+  tl.from('#v11 .mkts', { y: 30, opacity: 0, duration: 0.35, ease: 'back.out(2)' }, 38.1);
+  vout('#v11', 39.45);
+  // V12 India (39.52 – 41.35)
+  vin('#v12', 39.5);
+  tl.from('#v12 .pin', { y: -200, opacity: 0, duration: 0.4, ease: 'bounce.out' }, 39.5);
+  tl.from('#indq', { scale: 0, rotation: 30, duration: 0.3, ease: 'back.out(3)' }, 39.7);
+  tl.from('#v12 .acct', { y: 60, opacity: 0, duration: 0.3, ease: 'back.out(2)' }, 40.1);
+  tl.to('#qmark', { rotation: 360, duration: 0.6, ease: 'power2.inOut' }, 40.5);
+  vout('#v12', 41.35);
+  // V13 rules (41.44 – 46.0)
+  vin('#v13', 41.42);
+  tl.from('#v13 .rules .rh', { opacity: 0, y: 20, duration: 0.3 }, 41.5);
+  pop('#r1', 43.05, 0.3);
+  pop('#r2', 44.1, 0.3);
+  pop('#r3', 45.0, 0.3);
+  vout('#v13', 46.02);
+  // V14 password (46.12 – 48.85)
+  vin('#v14', 46.08);
+  tl.from('#v14 .pw', { y: 60, opacity: 0, duration: 0.3, ease: 'back.out(2)' }, 46.12);
+  tl.to('#v14 .pf', { x: 14, duration: 0.05, yoyo: true, repeat: 5 }, 46.6);
+  tl.from('#v14 .shield', { scale: 0, rotation: -20, duration: 0.45, ease: 'back.out(2.4)' }, 47.24);
+  tl.from('#human', { y: 40, opacity: 0, duration: 0.3, ease: 'back.out(2)' }, 47.6);
+  vout('#v14', 48.88);
+  // V15 vs (49.04 – 54.0)
+  vin('#v15', 48.98);
+  tl.from('#v15 .vsl', { x: -500, duration: 0.45, ease: 'expo.out' }, 49.04);
+  tl.from('#v15 .vsr', { x: 500, duration: 0.45, ease: 'expo.out' }, 50.85);
+  tl.from('#v15 .vsx', { scale: 0, rotation: 180, duration: 0.45, ease: 'back.out(2.4)' }, 51.5);
+  tl.from('#v15 .wars', { scale: 1.8, opacity: 0, duration: 0.3, ease: 'back.out(2)' }, 52.5);
+  tl.to('#v15', { x: 10, duration: 0.05, yoyo: true, repeat: 7 }, 52.6);
+  vout('#v15', 53.98);
+  // V16 comment + DM (54.03 – 57.1)
+  vin('#v16', 54.0);
+  var ty = { n: 0 }, WORD = 'DOTS';
+  tl.to(ty, { n: 4, duration: 0.5, ease: 'none', onUpdate: function () { document.getElementById('typed').textContent = WORD.slice(0, Math.round(ty.n)); } }, 54.35);
+  tl.fromTo('#car', { opacity: 1 }, { opacity: 0, duration: 0.25, repeat: 5, yoyo: true, ease: 'steps(1)' }, 54.1);
+  tl.to('#v16 .send', { scale: 1.15, duration: 0.1, yoyo: true, repeat: 1 }, 55.0);
+  tl.from('#v16 .dm', { y: 120, opacity: 0, duration: 0.4, ease: 'back.out(2)' }, 55.4);
+  tl.to('#v16 .dm .di', { rotation: 10, duration: 0.08, yoyo: true, repeat: 5 }, 56.0);
+  vout('#v16', 57.1);
+  // V17 follow (57.15 – 58.3)
+  vin('#v17', 57.12);
+  tl.to('#v17 .fb', { scale: 0.9, duration: 0.08, yoyo: true, repeat: 1 }, 57.6);
+  tl.to('#v17 .fd', { opacity: 1, duration: 0.15 }, 57.68);
+  vout('#v17', 58.3);
+  // V18 end callback (58.37 – 61.5)
+  vin('#v18', 58.35);
+  tl.to('#v18 .lid', { scaleY: 0.05, duration: 0.18, ease: 'power4.in' }, 59.2);
+  tl.to('#v18 .laptop', { y: 12, duration: 0.08, yoyo: true, repeat: 1 }, 59.38);
+  tl.from('#v18 .endtxt', { y: -40, opacity: 0, duration: 0.3, ease: 'back.out(2)' }, 59.75);
+  tl.from('#v18 .endpill', { scale: 0.6, opacity: 0, duration: 0.35, ease: 'back.out(2.4)' }, 60.3);
+  tl.to('#fadeout', { opacity: 1, duration: 0.45, ease: 'power2.in' }, 61.05);
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines['dots-reel'] = tl;
+})();
+</script>
+</body>
+</html>
