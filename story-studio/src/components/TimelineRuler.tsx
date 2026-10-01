@@ -20,7 +20,7 @@ export const TimelineRuler: React.FC<TimelineRulerProps> = ({ years, activeYear,
   const p = progress(frame, 0, "standard");
   const step = years.length > 1 ? width / (years.length - 1) : 0;
   return (
-    <div style={{ position: "relative", width, height: 90, opacity: p }}>
+    <div style={{ position: "relative", width, height: 104, opacity: p }}>
       <div style={{ position: "absolute", left: 0, top: 30, width: width * p, height: stroke.hairline, backgroundColor: fg }} />
       {years.map((y, i) => {
         const active = y === activeYear;
@@ -40,9 +40,9 @@ export const TimelineRuler: React.FC<TimelineRulerProps> = ({ years, activeYear,
             <div
               style={{
                 position: "absolute",
-                left: x - 60,
-                width: 120,
-                top: 58,
+                left: x - 70,
+                width: 140,
+                top: 56,
                 textAlign: "center",
                 fontFamily: fonts.numeric,
                 fontWeight: active ? weights.heavy : weights.regular,

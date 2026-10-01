@@ -5,9 +5,10 @@
   "description": "Reusable Remotion brand system for a Hindi business-story YouTube channel",
   "scripts": {
     "studio": "remotion studio",
-    "render": "remotion render ByjusDemo out/ByjusDemo.mp4",
+    "render": "remotion render ByjusDemo out/ByjusDemo-raw.mp4 && npm run master",
     "still": "remotion still ByjusDemo out/still.png",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "master": "ffmpeg -y -v error -i out/ByjusDemo-raw.mp4 -c:v copy -af loudnorm=I=-14:TP=-1.5:LRA=11 -c:a aac -b:a 192k out/ByjusDemo.mp4"
   },
   "dependencies": {
     "@remotion/cli": "4.0.532",

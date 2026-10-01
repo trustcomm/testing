@@ -23,7 +23,7 @@ public/
 ```sh
 npm ci
 npm run studio                       # live preview
-npm run render                       # → out/ByjusDemo.mp4 (1920×1080, 30 fps)
+npm run render                       # → out/ByjusDemo.mp4 (1920×1080, 30 fps, mastered to −14 LUFS)
 python3 scripts/make_placeholder_audio.py   # regenerate placeholder music/SFX
 ```
 

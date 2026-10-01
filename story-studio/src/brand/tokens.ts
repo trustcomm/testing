@@ -50,13 +50,13 @@ export const weights = {
 
 /** Type scale in px (1080p). */
 export const type = {
-  label: 34,
+  label: 44,
   body: 44,
   title: 64,
   wordmark: 150,
   number: 210,
   verdict: 220,
-  year: 30,
+  year: 40,
 } as const;
 
 /** Apply to every number so counters never wobble. */
