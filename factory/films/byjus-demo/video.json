@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "slug": "byjus-demo",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "lead": 0.5,
+    "tail": 0.55,
+    "captions": true,
+    "captionScript": "roman",
+    "channelName": "[CHANNEL NAME]",
+    "voice": { "engine": "manual", "source": "voice/master.mp3" }
+  },
+  "scenes": [
+    {
+      "id": "s010",
+      "type": "stat",
+      "theme": "paper",
+      "chapter": "The peak",
+      "narration": "Twenty twenty-two mein, Byju's ki value thi twenty-two billion dollars. India ka sabse bada startup.",
+      "data": {
+        "wordmark": "BYJU'S",
+        "year": 2022,
+        "from": 0,
+        "value": 22,
+        "format": "usdBillion",
+        "semantic": "neutral",
+        "label": "India's most valuable startup"
+      },
+      "anchor": { "counter": "twenty-two billion" },
+      "sfx": [{ "name": "tick", "onWord": "twenty-two billion", "gain": 0.4 }]
+    },
+    {
+      "id": "s020",
+      "type": "stat",
+      "theme": "paper",
+      "narration": "Reports ke mutabik, sirf do saal baad... investors ne apni stake ki value lagbhag zero likh di.",
+      "data": {
+        "from": 22,
+        "value": 0,
+        "approx": true,
+        "format": "usdBillion",
+        "semantic": "loss",
+        "label": "Investor write-downs, reported"
+      },
+      "anchor": { "counter": "zero" }
+    },
+    {
+      "id": "s030",
+      "type": "reasons",
+      "theme": "paper",
+      "chapter": "Three mistakes",
+      "narration": "Paisa gaya kahaan? Teen galtiyan. Ek, mehenge acquisitions. Do, har keemat par growth. Aur teen, one point two billion dollar ka loan, jo gale ki phaans ban gaya.",
+      "data": {
+        "items": [
+          { "title": "Costly acquisitions", "icon": "stack" },
+          { "title": "Growth at any cost", "icon": "steepArrow" },
+          { "title": "$1.2B loan", "icon": "weight" }
+        ]
+      },
+      "anchor": { "items": ["acquisitions", "growth", "loan"] }
+    },
+    {
+      "id": "s040",
+      "type": "verdict",
+      "theme": "ink",
+      "wipeIn": true,
+      "chapter": "The fall",
+      "narration": "Aur twenty twenty-four mein... insolvency.",
+      "data": { "year": 2024, "word": "INSOLVENCY" },
+      "anchor": { "word": "insolvency" },
+      "sfx": [
+        { "name": "swipe", "at": 0, "gain": 0.5 },
+        { "name": "hit", "onWord": "insolvency", "gain": 0.6 }
+      ]
+    },
+    {
+      "id": "s050",
+      "type": "outro",
+      "theme": "paper",
+      "narration": "India ke sabse bade startup ka girna. Poori kahani, frame by frame.",
+      "data": { "line": "Poori kahani — frame by frame" },
+      "sfx": [{ "name": "logo", "at": 0.3, "gain": 0.5 }]
+    }
+  ]
+}

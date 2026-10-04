@@ -3,8 +3,8 @@
 | Stage | Status |
 |---|---|
 | 1 Plan (file tree + scene schemas) | ✅ approved (choices recorded below) |
-| 2 Tokens + format.ts + Paper/Ink stills | ✅ done, ⏸ **awaiting approval** |
-| 3 Scene library + contact sheet | not started |
+| 2 Tokens + format.ts + Paper/Ink stills | ✅ approved |
+| 3 Scene library + contact sheet | ✅ done, ⏸ **awaiting approval** |
 | 4 Pipeline scripts + Byju's draft | not started (needs your video.json) |
 | 5 Final render + report.json + QA | not started |
 | 6 NOTES.md, FROZEN headers, tag | not started |
@@ -211,3 +211,45 @@ Speech begins at ≈0.1 s, so there is no leading silence to trim.
 ### Open issues for later stages
 - **huggingface.co still 403** (re-tested in Stage 2). Re-test at align; fallback (c) if still blocked.
 - **Validator vs. script:** s040 narration "Aur twenty twenty-four mein... insolvency." is **5 words**; the rule is 6–55 → `validate` will fail. Needs your call: allow 5 for `verdict`, lower the global minimum, or change the line (I won't change narration myself).
+
+## Stage 3: scene library
+
+### Decisions taken (unfrozen engine; change any before Stage 6)
+- **s040 / word minimum:** you approved Stage 2 without choosing, so I applied my suggestion. `verdict` scenes may have **3–55** words; every other type 6–55. Enforced in Stage 4 `validate`.
+- **Phrase anchors:** in s010 the narration contains "twenty-two" twice ("Twenty **twenty-two** mein … thi **twenty-two** billion"). The anchor and tick were set to **"twenty-two billion"** so they hit the $22B, not the year. Narration and figures are unchanged.
+- **`sfx.at`** = seconds from the scene's frame 0 (so swipe at 0 lines up with the wipe; logo at 0.3).
+- **Stat counts down:** `from` / `value` in either direction (s020: 22 → 0). `approx` adds "~" only once the count lands → "~$0".
+
+### Built (files)
+| File | What |
+|---|---|
+| `src/engine/types.ts` | `SceneProps<D>`, `Word` (scene-local seconds) |
+| `src/engine/manifest.ts` | Zod `Meta` (your keys: lead, tail, captions, captionScript, channelName, voice{engine,source}), `Sfx` (tick/swipe/hit/logo, gain ≤ 0.6, onWord XOR at), `Scene` = discriminated union over the 11 types, `Video` |
+| `src/engine/SceneRunner.tsx` | resolves anchors (word/phrase → frame), renders SceneFrame + scene + captions |
+| `src/engine/SceneFrame.tsx` | theme bg, 0.2 s fade from/to bg at both ends, saffron wipe-in from the previous scene's bg |
+| `src/engine/Captions.tsx` | in-canvas Roman captions, ≤ 7 words per line, active word saffron, `fit()` to the band |
+| `src/engine/ui.tsx` | `Words` (per-word reveal, Devanagari-safe), `Enter`, `Wordmark`, `Counter` (up/down, Indian format, tabular), `Bar`, `Label`, `Year` |
+| `src/engine/fit.ts` | `fit()` via canvas measureText (single or multi-line) |
+| `src/engine/pace.ts` | `findWordIndices` (words + phrases), `revealFrames` (anchored or spread over the voice span), `evenTimings` (fallback c) |
+| `src/engine/icons.tsx` | flat icons: stack, steepArrow, fallingArrow, weight, coin, people, building, document |
+| `src/scenes/*.tsx` (11) | each exports `schema`, `anchorNames`, `Component` |
+| `films/byjus-demo/video.json` | your manifest, adapted to the schemas (see decisions above) |
+
+### Scene types: anchors
+title (–) · stat (`counter`) · bars (`items[]`) · timeline (`events[]`) · moneyMap (`flows[]`) · versus (`left`, `right`) · xray (`segments[]`) · reasons (`items[]`) · founder (–) · verdict (`word`) · outro (–)
+
+### Results
+| Check | Result |
+|---|---|
+| `tsc --noEmit` | 0 errors |
+| `scripts/stills-demo.ts` | **12 stills / 11 types** rendered (stat twice: count up s010, count down s020). Sheet: `docs/stage3-contact.png` |
+| Wipe-in pixels (s040, prev = paper) | f0 #F2EFE8 · f7 #FF7A00 · f15 #FF7A00 (fully covered) · f22 #121212 · last frames #121212 (fade to ink bg) |
+| Accent count per demo frame | ≤ 3 in every still (bars: green + crimson + saffron caption) |
+| Demo content | Byju's types use your video.json; the other 7 types use labelled placeholders ("DEMO", "Company A"), not data |
+
+### Fixed during review
+- **moneyMap:** flow labels overlapped arrows/nodes → moved above the arrow (re-rendered, verified).
+
+### Known issues (for Stage 4)
+- **xray:** a segment under ~8% of the total squeezes its label (demo: 5% "profit"). Plan: validator rejects segments < 8%.
+- **Remotion log noise:** each renderer call prints a "differing memory amounts" warning (cgroup reports ~8.8 PB). Harmless; filtered from step output.
