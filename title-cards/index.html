@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Title Cards</title>
+<style>
+  @font-face {
+    font-family: "Space Grotesk";
+    src: url("fonts/SpaceGrotesk-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+  }
+  html, body { margin: 0; background: #0b0b0f; overflow: hidden; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script type="module">
+  import {
+    W, H, FPS, COLORS, FONT_FAMILY, FONT_WEIGHT, FONT_SIZE, MARGIN, LINES,
+    FADE_IN, RISE, FADE_OUT, holdFor, LEAD_IN, GAP, TAIL,
+  } from "./tokens.js";
+
+  const canvas = document.getElementById("c");
+  canvas.width = W;
+  canvas.height = H;
+  const ctx = canvas.getContext("2d");
+
+  // Card schedule (pure constants)
+  const cards = [];
+  let cursor = LEAD_IN;
+  for (const line of LINES) {
+    const words = line.text.split(" ");
+    const hold = holdFor(words.length);
+    cards.push({ ...line, words, start: cursor, inEnd: cursor + FADE_IN, outStart: cursor + FADE_IN + hold, end: cursor + FADE_IN + hold + FADE_OUT });
+    cursor += FADE_IN + hold + FADE_OUT + GAP;
+  }
+  const DURATION = cursor - GAP + TAIL;
+
+  const easeOutCubic = (x) => 1 - Math.pow(1 - x, 3);
+  const clamp01 = (x) => Math.min(1, Math.max(0, x));
+  const font = (px) => `${FONT_WEIGHT} ${px}px "${FONT_FAMILY}"`;
+
+  function drawCard(card, t) {
+    let alpha = 1, dy = 0;
+    if (t < card.inEnd) {
+      const p = easeOutCubic(clamp01((t - card.start) / FADE_IN));
+      alpha = p;
+      dy = (1 - p) * RISE;
+    } else if (t > card.outStart) {
+      alpha = 1 - clamp01((t - card.outStart) / FADE_OUT);
+    }
+    if (alpha <= 0) return;
+
+    // fit inside the margin
+    let size = FONT_SIZE;
+    ctx.font = font(size);
+    const space = ctx.measureText(" ").width;
+    const total = () => card.words.reduce((s, w) => s + ctx.measureText(w).width, 0) + space * (card.words.length - 1);
+    const maxW = W - MARGIN * 2;
+    const w0 = total();
+    if (w0 > maxW) {
+      size = Math.floor(size * maxW / w0);
+      ctx.font = font(size);
+    }
+    const sp = ctx.measureText(" ").width;
+    const widths = card.words.map((w) => ctx.measureText(w).width);
+    const lineW = widths.reduce((a, b) => a + b, 0) + sp * (card.words.length - 1);
+
+    ctx.globalAlpha = alpha;
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "left";
+    let x = (W - lineW) / 2;
+    const y = H / 2 + dy;
+    card.words.forEach((w, i) => {
+      ctx.fillStyle = i === card.accent ? COLORS.accent : COLORS.ink;
+      ctx.fillText(w, x, y);
+      x += widths[i] + sp;
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  // Deterministic: depends only on t and constants.
+  window.renderFrame = (t) => {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = COLORS.bg;
+    ctx.fillRect(0, 0, W, H);
+    for (const card of cards) {
+      if (t >= card.start && t <= card.end) drawCard(card, t);
+    }
+  };
+
+  window.DURATION = DURATION;
+  window.FPS = FPS;
+  window.CARD_STILLS = cards.map((c) => (c.inEnd + c.outStart) / 2);
+
+  await document.fonts.load(`${FONT_WEIGHT} ${FONT_SIZE}px "${FONT_FAMILY}"`);
+  await document.fonts.ready;
+  window.renderFrame(0);
+  window.READY = true;
+</script>
+</body>
+</html>

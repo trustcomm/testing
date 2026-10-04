@@ -1,0 +1,14 @@
+{
+  "name": "title-cards",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render": "node render.mjs",
+    "stills": "node render.mjs --stills",
+    "encode": "ffmpeg -y -framerate 30 -i frames/f%05d.png -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p -movflags +faststart out/title_cards.mp4"
+  },
+  "dependencies": {
+    "puppeteer": "^25.12.0"
+  }
+}
