@@ -7,7 +7,19 @@
   "scripts": {
     "studio": "remotion studio",
     "typecheck": "tsc --noEmit",
-    "stills:frames": "tsx scripts/stills-frames.ts"
+    "validate": "tsx scripts/validate.ts",
+    "split": "tsx scripts/split.ts",
+    "tts": "tsx scripts/tts.ts",
+    "align": "python3 scripts/align.py",
+    "plan": "tsx scripts/plan.ts",
+    "render": "tsx scripts/render.ts",
+    "mix": "tsx scripts/mix.ts",
+    "sfx": "python3 scripts/sfx.py",
+    "tools:scene-at": "tsx scripts/tools/scene-at.ts",
+    "tools:chapters": "tsx scripts/tools/chapters.ts",
+    "tools:srt": "tsx scripts/tools/srt.ts",
+    "test": "tsx scripts/test-format.ts && tsx scripts/test-validate.ts",
+    "stills:demo": "tsx scripts/stills-demo.ts"
   },
   "dependencies": {
     "@remotion/cli": "4.0.532",

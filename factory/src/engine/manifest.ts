@@ -47,6 +47,8 @@ const Base = z.object({
   /** Caption text override (Roman). Default: narration. */
   captions: z.string().optional(),
   theme: z.enum(["paper", "ink"]).default("paper"),
+  /** Per-scene tail override (seconds after the voice). plan may still extend it for the hold rule. */
+  tail: z.number().min(0).max(4).optional(),
   /** Saffron wipe at the start (act change). */
   wipeIn: z.boolean().default(false),
   chapter: z.string().max(60).optional(),

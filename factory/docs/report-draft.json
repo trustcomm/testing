@@ -1,0 +1,91 @@
+{
+  "slug": "byjus-demo",
+  "variant": "draft",
+  "output": "build/film-draft.mp4",
+  "length": {
+    "plannedSec": 43.0667,
+    "plannedFrames": 1292,
+    "videoSec": 43.0667,
+    "audioSec": 43.066,
+    "deltaVideoSec": 0,
+    "deltaAudioSec": 0.0007,
+    "toleranceSec": 0.1,
+    "pass": true
+  },
+  "loudness": {
+    "integratedLUFS": -14.5,
+    "truePeakDBFS": -4.3,
+    "LRA": 3.5,
+    "target": {
+      "I": -14,
+      "TP": -1.5
+    }
+  },
+  "scenes": [
+    {
+      "id": "s010",
+      "type": "stat",
+      "start": 0,
+      "frames": 264,
+      "voiceDur": 7.7256,
+      "tail": 0.55,
+      "tailExtended": false,
+      "align": "fallback-syllable"
+    },
+    {
+      "id": "s020",
+      "type": "stat",
+      "start": 8.8,
+      "frames": 291,
+      "voiceDur": 8.4945,
+      "tail": 0.7055,
+      "tailExtended": true,
+      "align": "fallback-syllable"
+    },
+    {
+      "id": "s030",
+      "type": "reasons",
+      "start": 18.5,
+      "frames": 383,
+      "voiceDur": 11.7096,
+      "tail": 0.55,
+      "tailExtended": false,
+      "align": "fallback-syllable"
+    },
+    {
+      "id": "s040",
+      "type": "verdict",
+      "start": 31.2667,
+      "frames": 138,
+      "voiceDur": 2.8334,
+      "tail": 1.2666,
+      "tailExtended": true,
+      "align": "fallback-syllable"
+    },
+    {
+      "id": "s050",
+      "type": "outro",
+      "start": 35.8667,
+      "frames": 216,
+      "voiceDur": 6.1219,
+      "tail": 0.55,
+      "tailExtended": false,
+      "align": "fallback-syllable"
+    }
+  ],
+  "sfx": [
+    "s010 tick @ 3.815 s (scene) / 3.815 s (film) gain 0.4",
+    "s040 swipe @ 0.000 s (scene) / 31.267 s (film) gain 0.5",
+    "s040 hit @ 2.295 s (scene) / 33.562 s (film) gain 0.6",
+    "s050 logo @ 0.300 s (scene) / 36.167 s (film) gain 0.5"
+  ],
+  "music": {
+    "file": "public/music/bed.wav",
+    "gainDb": -24,
+    "ducking": "sidechaincompress threshold=0.015 ratio=8 attack=15ms release=350ms (key = voice)",
+    "placeholder": true
+  },
+  "alignment": [
+    "fallback-syllable"
+  ]
+}

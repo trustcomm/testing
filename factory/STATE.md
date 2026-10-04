@@ -5,8 +5,8 @@
 | 1 Plan (file tree + scene schemas) | ✅ approved (choices recorded below) |
 | 2 Tokens + format.ts + Paper/Ink stills | ✅ approved |
 | 3 Scene library + contact sheet | ✅ approved (changes applied, below) |
-| 4 Pipeline scripts + Byju's draft | ⏳ in progress, ⏸ **cut table awaiting approval** (no audio written) |
-| 5 Final render + report.json + QA | not started |
+| 4 Pipeline scripts + Byju's draft | ✅ draft done, ⏸ **awaiting approval** |
+| 5 Final render + report.json + QA | 🚫 **BLOCKED**: needs real word timings (see blocker) |
 | 6 NOTES.md, FROZEN headers, tag | not started |
 
 ---
@@ -299,3 +299,55 @@ Keyword cross-check (pocketsphinx English model, rough): "reports" 8.1 s (1st wo
 Options: (a) per-scene `tail` override (s020 tail ≈ 1.5 s → hold ≈ 63 f); (b) land the count on an earlier word
 (e.g. "value"), (c) accept. The same thing affects the verdict (s040 "insolvency" is the last word → ~36 f still),
 though that's a word, not a number.
+
+## Stage 4: results (draft)
+
+### 🚫 BLOCKER for Stage 5 (final)
+The final render must use **real word timings**: multilingual Whisper (faster-whisper `small`), or ElevenLabs alignment.
+The draft used fallback (c) (syllable estimate) because **`huggingface.co:443`** is refused by the proxy
+(`ProxyError: 403 Forbidden`; proxy log `connect_rejected … host huggingface.co:443`, last at 19:25:12Z).
+Note: model weights may also be served from Hugging Face CDN hosts (`*.hf.co`, e.g. `cdn-lfs.hf.co`,
+`cas-bridge.xethub.hf.co`). Allow those too if the model download starts but stalls.
+Visible effect in the draft: s010's count lands ~0.3 s before "twenty-two billion" is spoken; card 2 in s030 is late versus "growth".
+
+### Loudness check before writing audio (EBU R128 integrated, per scene)
+| s010 | s020 | s030 | s040 | s050 | median |
+|---|---|---|---|---|---|
+| −23.1 | −24.0 | −23.6 | −23.8 | −22.9 | −23.6 |
+s010 is +0.5 dB from the median (< 3 dB) → **no per-scene normalisation, no re-record**. Spread 1.1 dB. 0–5.48 s alone = −23.4 LUFS.
+
+### Step output lines
+```
+validate byjus-demo: OK · 5 scenes · 77 words · est. 0.51 min (31 s @ 2.5 w/s) · 0 warnings · 0 errors
+split    → wrote audio/s010…s050.wav (48 kHz mono 24-bit): 7.726 / 8.495 / 11.710 / 2.833 / 6.122 s
+tts byjus-demo: skipped (voice.engine = manual; provided audio is used)
+align byjus-demo: 5 scenes · method fallback-syllable×5 · reason: ProxyError: 403 Forbidden | blocked host: huggingface.co:443
+EXTEND s020 (stat): landing f231, hold 56 f < 60 → tail 0.550 s → 0.705 s (frames 287 → 291)
+EXTEND s040 (verdict): landing f78, hold 39 f < 60 → tail 0.550 s → 1.267 s (frames 117 → 138)
+plan byjus-demo: 5 scenes · 1292 frames · 43.067 s · 2 tail extension(s) → build/timeline.json
+render byjus-demo --draft: 5 scenes · 5 rendered (first run, 22.8 s) / 0 rendered · 5 cached (re-run, 1.6 s)
+mix byjus-demo --draft: PASS · planned 43.067 s · video 43.067 s (Δ 0.000) · audio 43.066 s (Δ 0.001) · -14.5 LUFS · TP -4.3 dBFS
+chapters byjus-demo: OK · 3 chapters (0:00 The peak · 0:18 Three mistakes · 0:31 The fall)
+srt byjus-demo: 21 cues → build/captions.srt
+```
+Tests: `test-format` 12/12 · `test-validate` 10/10 (digits, verdict 13 words, ambiguous anchor, `#2` OK, anchor missing,
+3-in-a-row, duplicate id, unknown type, bars ratio 50, sfx gain 0.9).
+Per-scene renders: exact planned frame counts (264/291/383/138/216), no audio stream, 960×540 draft.
+Voice stem: 2,067,200 samples = 1292 frames × 1600 exactly.
+
+### Auto-extended tails (hold rule, on ESTIMATED timings; recomputed with real timings in Stage 5)
+| scene | landing | hold before | tail | frames |
+|---|---|---|---|---|
+| s020 (stat → ~$0 on "zero") | f231 | 56 f | 0.550 → **0.705 s** | 287 → 291 |
+| s040 (verdict INSOLVENCY, visible at word + 9 f) | f78 | 39 f | 0.550 → **1.267 s** | 117 → 138 |
+
+### Fixed during draft review (frames extracted and inspected)
+1. **s020 empty for ~4 s** (only captions) → label + starting "$22B" now appear at voice start; the count still lands on "zero".
+2. **s030 empty for ~3 s** ("Paisa gaya kahaan? Teen galtiyan.") → numbered card outlines (muted) appear at voice start and fill in on each word. Structure only, no added data.
+3. **s010 showed "$0" next to BYJU'S before counting** (a false visual claim, introduced by fix 1) → a count starting from 0 stays hidden until it starts; a non-zero start (s020's $22B) still shows immediately.
+Cache proof: after fixes 1–2 only stat×2 + reasons re-rendered (s040/s050 cached); after fix 3 only stat×2.
+
+### Known issues (open)
+- **Loudness:** final integrated −14.5 LUFS vs −14 target (loudnorm linear mode, then AAC). TP −4.3 dBFS has headroom; will tighten in Stage 5 (target ±0.3 LU).
+- **Pixel format:** per-scene MP4s report `yuvj420p` (full range) although `yuv420p` is requested. Will set an explicit BT.709 TV-range colour space for the final and verify with ffprobe.
+- **Music:** placeholder bed at −24 dB, ducked by sidechaincompress (voice key).

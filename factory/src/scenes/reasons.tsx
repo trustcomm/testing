@@ -36,9 +36,14 @@ export const Component: React.FC<SceneProps<Data>> = ({ data, anchors, theme, vo
         </div>
       ) : null}
       {data.items.map((it, i) => {
+        // The card frames (number + outline, in muted) are laid out as the voice starts, so the scene
+        // is never empty while the narration builds up. Icon + title fill in on each item's word;
+        // the active card's outline turns fg, earlier cards dim back to muted.
+        const shell = progress(frame, Math.round(voiceStart * fps) + i * 3, "standard");
         const p = progress(frame, at[i], "standard");
         const dim = i < n - 1 ? progress(frame, at[i + 1], "fast") : 0;
-        const c = interpolateColors(dim, [0, 1], [fg, muted]);
+        const active = interpolateColors(p, [0, 1], [muted, fg]);
+        const c = interpolateColors(dim, [0, 1], [active, muted]);
         const drop = it.icon === "weight" ? progress(frame, at[i] + 3, "standard") : p;
         const titleSize = fit(it.title, { maxWidth: cardW - 88, max: 58, min: 32, family: fonts.display, weight: weights.bold, maxLines: 2 });
         return (
@@ -56,8 +61,8 @@ export const Component: React.FC<SceneProps<Data>> = ({ data, anchors, theme, vo
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              opacity: p,
-              transform: `translateX(${(1 - p) * -distance.standard}px)`,
+              opacity: shell,
+              transform: `translateX(${(1 - shell) * -distance.standard}px)`,
               color: c,
             }}
           >
@@ -67,7 +72,7 @@ export const Component: React.FC<SceneProps<Data>> = ({ data, anchors, theme, vo
                 <Icon name={it.icon} color={c} size={130} text={it.iconText} textColor={bg} />
               </div>
             </div>
-            <div style={{ fontFamily: fonts.display, fontWeight: weights.bold, fontSize: titleSize, lineHeight: 1.08 }}>{it.title}</div>
+            <div style={{ fontFamily: fonts.display, fontWeight: weights.bold, fontSize: titleSize, lineHeight: 1.08, opacity: p, transform: `translateY(${(1 - p) * distance.rise}px)` }}>{it.title}</div>
           </div>
         );
       })}

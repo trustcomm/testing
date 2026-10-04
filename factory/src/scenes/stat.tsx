@@ -34,11 +34,18 @@ export const Component: React.FC<SceneProps<Data>> = ({ data, anchors, theme, vo
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const fg = themes[theme].fg;
-  const [tWord, tLabel] = revealFrames(2, fps, voiceStart, voiceEnd);
+  // Everything is on screen as the voice starts (no empty frame while the narration builds up);
+  // only the COUNT waits for its anchor word. `revealFrames` keeps pacing voice-relative.
+  const [tWord] = revealFrames(1, fps, voiceStart, voiceEnd);
+  const tLabel = tWord + durations.fast;
+  // A starting value is only shown early when it is a real figure (e.g. 22 → 0 shows "$22B" first).
+  // A count from 0 stays hidden until it starts, so the screen never claims "$0" for the subject.
+  const tNumberRaw = tWord + durations.standard;
   const land = anchors.counter?.[0] ?? Math.round((voiceStart + 0.8) * fps) + durations.slow;
   const countAt = Math.max(0, land - durations.slow);
   const color = data.semantic === "neutral" ? fg : tweenColor(frame, countAt, fg, semanticColor(data.semantic, theme), "fast");
   const max = Math.max(Math.abs(data.from), Math.abs(data.value)) || 1;
+  const tNumber = data.from === 0 ? countAt : Math.min(countAt, tNumberRaw);
   const barValue = tween(frame, countAt, data.from, data.value, "slow");
   const left = colX(0);
   const leftW = span(8);
@@ -59,7 +66,7 @@ export const Component: React.FC<SceneProps<Data>> = ({ data, anchors, theme, vo
           <Label text={data.label} color={fg} maxWidth={leftW} />
         </Enter>
       ) : null}
-      <Enter at={Math.min(countAt, tLabel)} from="none" style={{ position: "absolute", left, top: data.wordmark ? safe.top + 360 : safe.top + 200 }}>
+      <Enter at={tNumber} from="none" style={{ position: "absolute", left, top: data.wordmark ? safe.top + 360 : safe.top + 200 }}>
         <Counter from={data.from} to={data.value} at={countAt} format={data.format} approx={data.approx} color={color} maxWidth={leftW} />
       </Enter>
       {data.note ? (
@@ -68,7 +75,7 @@ export const Component: React.FC<SceneProps<Data>> = ({ data, anchors, theme, vo
         </Enter>
       ) : null}
       {data.bar ? (
-        <Enter at={countAt} from="none" style={{ position: "absolute", left: colX(9), top: safe.bottom - 560 }}>
+        <Enter at={tNumber} from="none" style={{ position: "absolute", left: colX(9), top: safe.bottom - 560 }}>
           <Bar value={Math.abs(barValue)} max={max} color={color} baseColor={fg} width={220} height={560} />
         </Enter>
       ) : null}
