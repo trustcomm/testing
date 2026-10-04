@@ -4,8 +4,8 @@
 |---|---|
 | 1 Plan (file tree + scene schemas) | ✅ approved (choices recorded below) |
 | 2 Tokens + format.ts + Paper/Ink stills | ✅ approved |
-| 3 Scene library + contact sheet | ✅ done, ⏸ **awaiting approval** |
-| 4 Pipeline scripts + Byju's draft | not started (needs your video.json) |
+| 3 Scene library + contact sheet | ✅ approved (changes applied, below) |
+| 4 Pipeline scripts + Byju's draft | ⏳ in progress, ⏸ **cut table awaiting approval** (no audio written) |
 | 5 Final render + report.json + QA | not started |
 | 6 NOTES.md, FROZEN headers, tag | not started |
 
@@ -253,3 +253,49 @@ title (–) · stat (`counter`) · bars (`items[]`) · timeline (`events[]`) · 
 ### Known issues (for Stage 4)
 - **xray:** a segment under ~8% of the total squeezes its label (demo: 5% "profit"). Plan: validator rejects segments < 8%.
 - **Remotion log noise:** each renderer call prints a "differing memory amounts" warning (cgroup reports ~8.8 PB). Harmless; filtered from step output.
+
+## Stage 3 approval: changes applied
+| Change | Status |
+|---|---|
+| verdict word count 3–12 (others 6–55) | recorded → enforced in `validate` |
+| Anchor rule: a word that occurs > 1× in the narration must be a phrase or use `word#n` | `pace.ts` supports `word#n` (1-based) + `occurrences()`; rule enforced in `validate` |
+| `sfx.at` = seconds from scene start · approx "~" on landing | kept |
+| s020 `data.label` → "Investors' stake value, written down (reported)" | **done** in video.json |
+| xray small segments | **engine fixed**: share < 8% → label outside the bar with a 2 px ink leader; consecutive small segments alternate above/below; the total moved to top-right so nothing collides. Validator will WARN only. Verified still: segments 6% + 4% adjacent, no overlap |
+
+## Devanagari shaping check (before Stage 4)
+`scripts/stills-devanagari.ts` → `docs/devanagari-check.png`: title "क्षेत्र प्रतिष्ठा स्टार्टअप" mid per-word
+reveal (frame 29) and settled (frame 75), plus reasons cards mid-entrance (frame 80) and settled (frame 130), with 1:1 crops.
+Conjuncts क्ष, त्र, प्र, ष्ठ, स्ट, reph र्ट and matras ि ा े all render shaped; each word fades as one unit.
+(First attempt picked frame 150 of 152, which is inside the scene fade-out; re-rendered at 130.)
+
+## Stage 4: progress
+- **huggingface.co:** still refused at the proxy (CONNECT 403, curl code 000). Re-tested after you allowed it; the exact domain from Whisper's error will be reported at align.
+- **split.ts:** written. Dry run only (no files):
+
+| boundary | expected (syllable share) | chosen pause | **CUT (midpoint)** | next-nearest |
+|---|---|---|---|---|
+| s010→s020 | 8.38 | 7.70–8.14 (0.45 s) | **7.92** | 11.09 (Δ 2.71 s) |
+| s020→s030 | 16.46 | 16.58–17.21 (0.63 s) | **16.89** | 15.27 (Δ 1.19 s) |
+| s030→s040 | 28.73 | 28.86–29.36 (0.50 s) | **29.11** | 30.96 (Δ 2.23 s) |
+| s040→s050 | 32.02 | 32.13–32.52 (0.39 s) | **32.32** | 30.96 (Δ 1.07 s) |
+
+| scene | words | voice start–end (s) | **voice duration** | planned frames (lead 0.5 + voice + tail 0.55) |
+|---|---|---|---|---|
+| s010 | 15 | 0.00–7.73 | **7.726 s** | 264 |
+| s020 | 17 | 8.11–16.61 | **8.495 s** | 287 |
+| s030 | 28 | 17.18–28.89 | **11.710 s** | 383 |
+| s040 | 5 | 29.33–32.16 | **2.833 s** | 117 |
+| s050 | 12 | 32.49–38.61 | **6.122 s** | 216 |
+| total | 77 | | 36.886 s | 1267 frames = 42.23 s |
+
+Keyword cross-check (pocketsphinx English model, rough): "reports" 8.1 s (1st word of s020 ✓) · "investors" 11.3 (s020 ✓) ·
+"acquisitions" 19.7 (s030 ✓) · "one point two billion dollar" 24.3–26.0 (s030 ✓) · "twenty twenty" 29.5–29.9 (s040 ✓) · "frame … frame" 37.1–37.9 (s050 ✓).
+
+### ⚠ Rule conflict found (needs your decision)
+**Key numbers hold ≥ 60 frames.** s020's counter lands on "zero", which is near the END of its sentence
+("…lagbhag **zero** likh di."). Estimated "zero" ≈ 16.0 s → lands ≈ 8.4 s into the scene; the scene ends at 9.55 s →
+**hold ≈ 34 frames (< 60)**. (Timing estimate until real alignment; error ±0.15 s.)
+Options: (a) per-scene `tail` override (s020 tail ≈ 1.5 s → hold ≈ 63 f); (b) land the count on an earlier word
+(e.g. "value"), (c) accept. The same thing affects the verdict (s040 "insolvency" is the last word → ~36 f still),
+though that's a word, not a number.

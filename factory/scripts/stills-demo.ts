@@ -22,7 +22,9 @@ const browserExecutable = process.env.REMOTION_BROWSER || null;
 const serveUrl = await bundle({ entryPoint: path.join(ROOT, "src/index.ts"), publicDir: path.join(ROOT, "public") });
 const files: string[] = [];
 let prevTheme: "paper" | "ink" = "paper";
+const ONLY = process.env.ONLY;
 for (const [i, d] of DEMOS.entries()) {
+  if (ONLY && !d.name.startsWith(ONLY)) continue;
   const scene = Scene.parse(d.scene);
   const frames = Math.ceil((lead + d.seconds + tail) * fps - 1e-6);
   const words = evenTimings(scene.captions ?? scene.narration, lead, lead + d.seconds);

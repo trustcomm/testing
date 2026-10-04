@@ -8,23 +8,34 @@ export const normWord = (w: string) =>
     .replace(/[“”"‘’]/g, "")
     .replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "");
 
+/** Parse an anchor: "loan", "twenty-two billion" (phrase), or "zero#2" (2nd occurrence, 1-based). */
+export const parseAnchor = (a: string): { words: string[]; occurrence: number | null } => {
+  const m = a.match(/^(.*?)#(\d+)$/);
+  const body = m ? m[1] : a;
+  return { words: body.split(/\s+/).map(normWord).filter(Boolean), occurrence: m ? Number(m[2]) : null };
+};
+
+/** All start indices where `target` (normalised words) occurs in `norm`. */
+export const occurrences = (norm: string[], target: string[]) => {
+  const out: number[] = [];
+  for (let i = 0; i + target.length <= norm.length; i++) if (target.every((t, k) => norm[i + k] === t)) out.push(i);
+  return out;
+};
+
 /**
- * Find word indices for anchors, in order (each search starts after the previous hit).
- * An anchor may be one word ("loan") or a phrase ("twenty-two billion"); the index returned is
- * the phrase's FIRST word. Returns -1 when not found (the validator rejects that).
+ * Find word indices for anchors, in order. An anchor may be one word ("loan"), a phrase
+ * ("twenty-two billion") or carry an occurrence index ("zero#2"). Without an index, each search
+ * starts after the previous hit. Returns the FIRST word of the match, or -1 if not found.
  */
 export const findWordIndices = (scriptWords: string[], anchors: string[]): number[] => {
   const norm = scriptWords.map(normWord);
   let from = 0;
   return anchors.map((a) => {
-    const target = a.split(/\s+/).map(normWord).filter(Boolean);
-    for (let i = from; i + target.length <= norm.length; i++) {
-      if (target.every((t, k) => norm[i + k] === t)) {
-        from = i + 1;
-        return i;
-      }
-    }
-    return -1;
+    const { words, occurrence } = parseAnchor(a);
+    const hits = occurrences(norm, words);
+    const i = occurrence !== null ? (hits[occurrence - 1] ?? -1) : (hits.find((h) => h >= from) ?? -1);
+    if (i >= 0) from = i + 1;
+    return i;
   });
 };
 

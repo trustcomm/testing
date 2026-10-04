@@ -9,7 +9,10 @@
     "captions": true,
     "captionScript": "roman",
     "channelName": "[CHANNEL NAME]",
-    "voice": { "engine": "manual", "source": "voice/master.mp3" }
+    "voice": {
+      "engine": "manual",
+      "source": "voice/master.mp3"
+    }
   },
   "scenes": [
     {
@@ -27,8 +30,16 @@
         "semantic": "neutral",
         "label": "India's most valuable startup"
       },
-      "anchor": { "counter": "twenty-two billion" },
-      "sfx": [{ "name": "tick", "onWord": "twenty-two billion", "gain": 0.4 }]
+      "anchor": {
+        "counter": "twenty-two billion"
+      },
+      "sfx": [
+        {
+          "name": "tick",
+          "onWord": "twenty-two billion",
+          "gain": 0.4
+        }
+      ]
     },
     {
       "id": "s020",
@@ -41,9 +52,11 @@
         "approx": true,
         "format": "usdBillion",
         "semantic": "loss",
-        "label": "Investor write-downs, reported"
+        "label": "Investors' stake value, written down (reported)"
       },
-      "anchor": { "counter": "zero" }
+      "anchor": {
+        "counter": "zero"
+      }
     },
     {
       "id": "s030",
@@ -53,12 +66,27 @@
       "narration": "Paisa gaya kahaan? Teen galtiyan. Ek, mehenge acquisitions. Do, har keemat par growth. Aur teen, one point two billion dollar ka loan, jo gale ki phaans ban gaya.",
       "data": {
         "items": [
-          { "title": "Costly acquisitions", "icon": "stack" },
-          { "title": "Growth at any cost", "icon": "steepArrow" },
-          { "title": "$1.2B loan", "icon": "weight" }
+          {
+            "title": "Costly acquisitions",
+            "icon": "stack"
+          },
+          {
+            "title": "Growth at any cost",
+            "icon": "steepArrow"
+          },
+          {
+            "title": "$1.2B loan",
+            "icon": "weight"
+          }
         ]
       },
-      "anchor": { "items": ["acquisitions", "growth", "loan"] }
+      "anchor": {
+        "items": [
+          "acquisitions",
+          "growth",
+          "loan"
+        ]
+      }
     },
     {
       "id": "s040",
@@ -67,11 +95,24 @@
       "wipeIn": true,
       "chapter": "The fall",
       "narration": "Aur twenty twenty-four mein... insolvency.",
-      "data": { "year": 2024, "word": "INSOLVENCY" },
-      "anchor": { "word": "insolvency" },
+      "data": {
+        "year": 2024,
+        "word": "INSOLVENCY"
+      },
+      "anchor": {
+        "word": "insolvency"
+      },
       "sfx": [
-        { "name": "swipe", "at": 0, "gain": 0.5 },
-        { "name": "hit", "onWord": "insolvency", "gain": 0.6 }
+        {
+          "name": "swipe",
+          "at": 0,
+          "gain": 0.5
+        },
+        {
+          "name": "hit",
+          "onWord": "insolvency",
+          "gain": 0.6
+        }
       ]
     },
     {
@@ -79,8 +120,16 @@
       "type": "outro",
       "theme": "paper",
       "narration": "India ke sabse bade startup ka girna. Poori kahani, frame by frame.",
-      "data": { "line": "Poori kahani — frame by frame" },
-      "sfx": [{ "name": "logo", "at": 0.3, "gain": 0.5 }]
+      "data": {
+        "line": "Poori kahani — frame by frame"
+      },
+      "sfx": [
+        {
+          "name": "logo",
+          "at": 0.3,
+          "gain": 0.5
+        }
+      ]
     }
   ]
 }
