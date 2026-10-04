@@ -2,8 +2,8 @@
 
 | Stage | Status |
 |---|---|
-| 1 Plan (file tree + scene schemas) | ✅ written, ⏸ **awaiting approval** |
-| 2 Tokens + format.ts + Paper/Ink stills | not started |
+| 1 Plan (file tree + scene schemas) | ✅ approved (choices recorded below) |
+| 2 Tokens + format.ts + Paper/Ink stills | ✅ done, ⏸ **awaiting approval** |
 | 3 Scene library + contact sheet | not started |
 | 4 Pipeline scripts + Byju's draft | not started (needs your video.json) |
 | 5 Final render + report.json + QA | not started |
@@ -18,8 +18,8 @@
 | Item | Value |
 |---|---|
 | Supplied voice file | `ElevenLabs_2026-10-04T18_58_01_…mp3`: **38.61 s**, mono, 44.1 kHz, one file for the whole film |
-| Pauses ≥ 0.35 s (−35 dB) | 7.70–8.14, 10.89–11.29, 15.00–15.54, 16.58–17.21, 17.96–18.46, 20.53–20.89, 23.09–23.46, 28.86–29.36, 30.76–31.16, 32.13–32.52, 35.52–36.11 |
-| Start of file | below −35 dB until **5.48 s** (quiet intro or real leading silence; checked in Stage 4 before any cut) |
+| Pauses ≥ 0.35 s (−35 dB) | **corrected in Stage 2**, see below |
+| Start of file | ~~silent until 5.48 s~~ **wrong, see correction**: speech starts at ~0.1 s |
 | Whisper model hosts | huggingface.co → **403**, openaipublic.azureedge.net → **403** (blocked by network policy) |
 | Remotion's Chrome download | blocked; Playwright's headless shell is installed and worked for the earlier Remotion project |
 | Google Fonts from Chrome | fails (cert); fonts are vendored as .woff2 (same files) |
@@ -157,3 +157,57 @@ captions band y 880–1040; every variable-length string goes through `fit()`; n
 - Per-scene Remotion renders each start a browser, which adds per-scene overhead. Measured in Stage 4.
 - `-c copy` concat needs identical encoder settings for every scene. Enforced via one render config.
 - Placing SFX by word index depends on alignment quality (see decision 2).
+
+---
+
+## Stage 1 approval: choices (recorded)
+1. **Split:** cut at the **midpoint** of the pause nearest each scene boundary, never inside a breath or word tail. 5 scenes (s010–s050). Trim leading silence to `meta.lead`. Show the cut table before writing. Stop if 0–5.48 s is quiet speech.
+2. **Align:** multilingual Whisper (not `.en`) via huggingface.co. Keep script words, borrow timings. If still blocked at align → fallback (c) for this demo only, logged as a known issue.
+3. **Fingerprint:** includes the scene type file **plus** the shared pixel files: scene frame (fades/wipe), captions, tokens.ts, format.ts, bundled font files. Exact list goes into NOTES.md.
+4. **Placeholder audio:** quiet neutral bed (no melody), ducked; SFX kit = tick, swipe, hit, logo only; SFX gain ≤ 0.6; replaceable at the same paths; marked PLACEHOLDER in NOTES.md.
+5. **Script:** the supplied video.json. Key names adapted to the schemas; narration and figures unchanged; schemas extended in Stage 3 where needed (e.g. stat counting down 22 → ~0).
+- **Fonts:** Anek Latin, Anek Devanagari, Inter bundled locally (SIL OFL). No Google Fonts at render time.
+
+## Stage 2: tokens, format.ts, frame stills
+
+### Correction (measurement error in Stage 1)
+The Stage 1 pause table paired ffmpeg's `silence_start`/`silence_end` lines off by one. Re-measured
+(`silencedetect=noise=-35dB:d=0.35`), correctly paired:
+
+| # | pause (s) | length | midpoint |
+|---|---|---|---|
+| 1 | 5.11–5.48 | 0.36 | 5.29 |
+| 2 | 7.70–8.14 | 0.45 | 7.92 |
+| 3 | 10.89–11.29 | 0.41 | 11.09 |
+| 4 | 15.00–15.54 | 0.54 | 15.27 |
+| 5 | 16.58–17.21 | 0.63 | 16.89 |
+| 6 | 17.96–18.46 | 0.50 | 18.21 |
+| 7 | 20.53–20.89 | 0.36 | 20.71 |
+| 8 | 23.09–23.46 | 0.37 | 23.27 |
+| 9 | 28.86–29.36 | 0.50 | 29.11 |
+| 10 | 30.76–31.16 | 0.40 | 30.96 |
+| 11 | 32.13–32.52 | 0.39 | 32.32 |
+| 12 | 35.52–36.11 | 0.60 | 35.81 |
+
+0–5.48 s is **normal-level speech** (RMS ≈ −20 dB, peak −3.9 dBFS), not quiet speech and not silence.
+Speech begins at ≈0.1 s, so there is no leading silence to trim.
+
+### Done
+- **Project:** `factory/` (Remotion 4.0.532, zod 3.23.8, tsx). Static assets live in `public/` (Remotion's static dir), which replaces `assets/` from the plan.
+- **`src/brand/tokens.ts`:** colours + roles, `semanticColor()` (saffron excluded), themes, type scale, the one ease, 9/15/24 f, `SCENE_FADE_S = 0.2`, safe area x 160–1760 / y ≤ 860, captions band 880–1040, 12-col grid.
+- **`src/brand/format.ts`:** `groupIndian`, `formatValue(value, fmt, {decimals, approx, style})` with formats `count | pct | inr | inrLakh | inrCrore | inrLakhCrore | usd | usdMillion | usdBillion`, plus `inrCrore / inrLakhCrore / usdBillion` helpers. Zero in short $ style prints `$0`, so approx gives `~$0`.
+- **`src/brand/fonts.ts`:** 4 bundled woff2 files (Anek Latin, Anek Devanagari latin + devanagari subsets, Inter); no network fonts.
+- **`src/brand/motion.ts`:** `progress / tween / tweenColor / rand(seed)`.
+
+### Results
+| Check | Result |
+|---|---|
+| `scripts/test-format.ts` | **12/12 passed** (1,80,000 · 12,34,567 · ₹1,200 crore · ₹1.8 lakh crore · $22B · $22 billion · $1.2B · ~$0 · 42% · ₹1,80,000 …) |
+| `tsc --noEmit` | 0 errors |
+| `out/stills/frame-paper.png` | 1920×1080, 1 unique colour, #F2EFE8 |
+| `out/stills/frame-ink.png` | 1920×1080, 1 unique colour, #121212 |
+| `out/stills/frame-*-guides.png` | safe area + captions band overlays (debug only) |
+
+### Open issues for later stages
+- **huggingface.co still 403** (re-tested in Stage 2). Re-test at align; fallback (c) if still blocked.
+- **Validator vs. script:** s040 narration "Aur twenty twenty-four mein... insolvency." is **5 words**; the rule is 6–55 → `validate` will fail. Needs your call: allow 5 for `verdict`, lower the global minimum, or change the line (I won't change narration myself).

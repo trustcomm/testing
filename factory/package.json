@@ -1,0 +1,29 @@
+{
+  "name": "story-factory",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Manifest-driven Remotion video factory for a Hindi/Hinglish business-story channel",
+  "scripts": {
+    "studio": "remotion studio",
+    "typecheck": "tsc --noEmit",
+    "stills:frames": "tsx scripts/stills-frames.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.532",
+    "@remotion/fonts": "4.0.532",
+    "@remotion/media-utils": "4.0.532",
+    "@remotion/renderer": "4.0.532",
+    "@remotion/bundler": "4.0.532",
+    "remotion": "4.0.532",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.0",
+    "@types/react": "19.1.8",
+    "tsx": "4.19.4",
+    "typescript": "5.8.3"
+  }
+}
