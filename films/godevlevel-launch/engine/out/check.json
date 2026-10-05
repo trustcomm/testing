@@ -333,7 +333,7 @@
         15820,
         15829
       ],
-      "wholeFrameScore": 0.9994,
+      "wholeFrameScore": 0.99948,
       "pass": true
     },
     {
@@ -407,13 +407,13 @@
         "w": 474,
         "h": 816
       },
-      "pixelScore": 0.9992,
+      "pixelScore": 0.99931,
       "maskIoU": 0.97104,
       "maskPixels": [
         13921,
         14324
       ],
-      "wholeFrameScore": 0.99985,
+      "wholeFrameScore": 0.99987,
       "pass": true
     },
     {
@@ -453,7 +453,7 @@
         35895,
         35895
       ],
-      "wholeFrameScore": 0.99834,
+      "wholeFrameScore": 0.9984,
       "pass": true
     }
   ],
@@ -519,8 +519,8 @@
       {
         "beat": "b04",
         "frames": 112,
-        "nearStillPct": 48.6,
-        "nearStillSec": 1.8,
+        "nearStillPct": 46.8,
+        "nearStillSec": 1.733,
         "blurredFrames": 27,
         "maxSpeedPxPerFrame": 311.4
       },

@@ -1,6 +1,7 @@
 // Approved brand values (STATE.md). Every other tone on screen is a blend of these three.
 export const C = { charcoal: "#323743", orange: "#FD4B25", ink: "#F5F3EF" };
-export const FONT = { display: '"Inter Tight"', mono: '"JetBrains Mono"' };
+// Display face approved by the user 2026-10-05: Archivo ExtraBold (OFL). Inter Tight stays loaded for comparison only.
+export const FONT = { display: '"Archivo"', mono: '"JetBrains Mono"' };
 // Orange is never used for text under this many screen pixels (contrast on charcoal ≈ 3.5:1).
 export const ORANGE_TEXT_MIN_PX = 48;
 

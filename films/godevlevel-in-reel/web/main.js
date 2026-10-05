@@ -6,7 +6,7 @@ import card from "./card.js";
 
 const q = new URLSearchParams(location.search);
 window.REEL_LANG = q.get("lang") ?? "en";
-// PROVISIONAL display face until the user picks from the Inter Tight / Archivo comparison (leaning Archivo).
+// Display face: Archivo (approved 2026-10-05).
 const family = q.get("font") ?? "Archivo";
 FONT.display = `"${family}"`;
 

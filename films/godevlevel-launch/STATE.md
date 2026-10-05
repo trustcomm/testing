@@ -49,7 +49,7 @@ Updated after every step. Asset-level detail (Canva IDs, export jobs) lives in `
 ## Open items
 | Item | Owner | Status |
 |---|---|---|
-| Pick the display face from `engine/out/font-compare/compare.png` (user leans Archivo) | user | waiting ⏸ |
+| Display face | user | **Archivo APPROVED** 2026-10-05 (engine default) |
 | Review the full asset-free draft and approve the interpretations above (reversed wordmark, URL .com or .in) | user | waiting ⏸ |
 | Motion notes on the exemplars | user | waiting |
 | Replace the SAMPLE frame content with a real client example | user | later |
@@ -73,8 +73,8 @@ Updated after every step. Asset-level detail (Canva IDs, export jobs) lives in `
   - Samples are accumulated as integers, so output is deterministic.
   - Discrete steps (the typed caret) are not tracked.
 - **Rules enforced in code:** orange text under 48 screen px throws an error. Placeholders are flat and labelled "PLACEHOLDER", never fake imagery.
-- **Fonts (PROVISIONAL until the user picks):**
-  - Display: Inter Tight ExtraBold, used now. Alternative offered: Archivo ExtraBold. Both OFL.
+- **Fonts:**
+  - Display: **Archivo ExtraBold, approved 2026-10-05**. Inter Tight stays vendored for comparison only. Both OFL.
   - Code: JetBrains Mono (OFL).
   - Fonts are vendored in `engine/fonts/` with their licences.
 - **Commands** (run in `engine/`):
@@ -173,4 +173,6 @@ Updated after every step. Asset-level detail (Canva IDs, export jobs) lives in `
   - Built Beats 2, 3, 6, 7, 9, 10 and 11.
   - The checker covers all 10 boundaries and all pass, after fixes to 2→3, 3→4 and 7→8, the blur spacing and three engine bugs.
   - Stopped for review.
+  - User approved Archivo; it is now the engine default. Launch re-checked in Archivo: all 10 carry scores pass, determinism passes, draft re-rendered.
+  - The reversed logo is approved for the reel's end card. The same asset is used in launch Beats 10–11; confirm it applies here too.
   - Engine was extended for the godevlevel.in reel (see that film's STATE.md): films/-rooted server, hard-cut handling, per-beat pre-roll, shared rhythm rule (accelerating runs may repeat lengths), tempo.py. The launch checker was re-run with unchanged scores.

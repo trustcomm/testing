@@ -12,7 +12,7 @@ This file is updated after every step. The reel is separate from the launch film
   - even cards: orange ground, charcoal type
   - Exception from the brief: card 24 (the logo) sits on charcoal, so the 23→24 cut does not invert.
 - Type: one word or phrase per card, centred, lowercase. Regular size is 132 px (never below 120 px). Emphasis aims for 2.2× (290 px), capped to a 900 px line width.
-- Display face: **Archivo ExtraBold (PROVISIONAL)**, pending your pick from the Inter Tight / Archivo comparison. Switching is one parameter (`--font "Inter Tight"`).
+- Display face: **Archivo ExtraBold. APPROVED** (user, 2026-10-05).
 - Flat colour. No glow, gradients or decorative blur. Optional specks were left out of v1.
 - Motion:
   - Each card drifts linearly in scale, 1.00 → 1.02.
@@ -23,7 +23,7 @@ This file is updated after every step. The reel is separate from the launch film
 ## Timeline (PROVISIONAL 128 BPM)
 - **Grid:** quarter beats are preferred and eighth beats are allowed at a cost (`scripts/plan.mjs`). At 128 BPM a quarter beat is 3.5 frames. Snapping to quarters only turns Part B into `14,14,14,14,14,14,11,11,7×7` (kept in `out/timeline.quarter-only.json`).
   - Allowing eighth beats on just 3 cuts keeps the acceleration: `14,14,14,12,12,11,10,9,9,9,9,7,7,7,7`.
-  - The brief asked for beats, halves or quarters, so this is flagged for your call.
+  - **APPROVED** (user, 2026-10-05): keep the eighth-beat cuts.
 - **Logo cut:** frame 308 = 10.2667 s, on a downbeat; the grid phase is set so it lands there. The music stops dead at that cut.
 - Max snap error is 16.1 ms.
 
@@ -71,7 +71,7 @@ This file is updated after every step. The reel is separate from the launch film
 **Honest notes:**
 - **Emphasis is width-limited.** "customers." reaches only ×1.2 and "enough." ×1.67, because a long word at 2.2× doesn't fit 1080 px. Options: accept this; use a narrower Archivo width for emphasis words (Archivo has a width axis; not vendored yet); or rewrite to shorter emphasis words.
 - **Stillness is 77–80%, above the ~70% target.** At this size the drift barely changes pixels between frames. If you want it closer to 70%, the drift could go to 1.00→1.04, or the specks could be added.
-- **Logo card:** the reversed logo (Go and Level in off-white, Dev in orange) is the one element outside the two colours. On charcoal, the logo's own charcoal letters would be invisible. The alternative is an all-orange logo. Your call.
+- **Logo card: APPROVED** (user, 2026-10-05). The reversed logo (Go and Level in off-white, Dev in orange) is the one approved exception to the two colours.
 - **Hinglish two-line phrase:** "hum / banate hain". "aapko chahiye" fits on one line at 124.4 px.
 
 ## Inputs and open items
@@ -80,9 +80,9 @@ This file is updated after every step. The reel is separate from the launch film
 | Music: `canva/music/reel.mp4` (Canva, vocal-free) | waiting. When it lands: extract `reel.wav`, run `tempo.py`, re-run `plan.mjs` (it picks the downbeat that puts Part B on the busiest bars and stops the music on the logo cut), then render + loudnorm to −14 LUFS / −1.5 dBTP |
 | Reference film in `refs/` (9:16 kinetic montage) | not present, so no measurements to read or compare yet |
 | Attached audio (`refs/attached-audio.mp3`, 9.38 s, −14.5 LUFS, no source metadata) | measured as info only: 105.8 BPM, confidence 3.4×, downbeats 0.035 / 2.303 / 4.572 / 6.840 / 9.108 s. **Not used in the reel**: it isn't confirmed as the Canva track. Gitignored, not committed |
-| Display face | waiting on your pick (Archivo provisional) |
-| Eighth-beat cuts on 3 boundaries | your call |
-| Reversed logo on the end card | your call |
+| Display face | Archivo, APPROVED |
+| Eighth-beat cuts on 3 boundaries | APPROVED, keep |
+| Reversed logo on the end card | APPROVED |
 
 ## Files
 - `scripts/plan.mjs`: timeline and snapping.
@@ -107,3 +107,5 @@ This file is updated after every step. The reel is separate from the launch film
   - Created the reel on the launch engine.
   - Built a PROVISIONAL 128 BPM timeline (eighth-beat compromise on 3 cuts).
   - Rendered English and Hinglish (silent) and ran checks. Stopped for review.
+  - The user approved Archivo, the eighth-beat cuts and the reversed logo. The renders were already in Archivo, so the outputs are unchanged.
+  - Still waiting on canva/music/reel.mp4 and the reference film.
