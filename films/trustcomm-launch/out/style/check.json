@@ -1,0 +1,214 @@
+{
+ "engine": "films/godevlevel-launch/engine (imported)",
+ "music": "none yet: pulse in Beat 10 is a code-synthesised placeholder",
+ "beats": {
+  "b06": {
+   "file": "out/style/beat06.mp4",
+   "frames": 117,
+   "sec": 3.9,
+   "vo": "VO6_t1.mp3",
+   "blurredFrames": 41,
+   "stills": [
+    "out/style/stills/beat06-00-carry-in.png",
+    "out/style/stills/beat06-01-scan-lock.png",
+    "out/style/stills/beat06-02-page-open.png",
+    "out/style/stills/beat06-03-no-app.png",
+    "out/style/stills/beat06-04-no-signin.png",
+    "out/style/stills/beat06-05-carry-out.png"
+   ],
+   "contract": {
+    "id": "b06",
+    "built": true,
+    "in": [],
+    "out": []
+   },
+   "sound": [
+    {
+     "t": 0.03333333333333333,
+     "frame": 1,
+     "sfx": "SFX04",
+     "src": "sfx/SFX04.mp3",
+     "what": "phone slides in",
+     "offFrameMs": 0
+    },
+    {
+     "t": 0.6333333333333333,
+     "frame": 19,
+     "sfx": "SFX02",
+     "src": "sfx/SFX02.mp3",
+     "what": "viewfinder corners snap on (scan lock)",
+     "offFrameMs": 0
+    },
+    {
+     "t": 0.9666666666666667,
+     "frame": 29,
+     "sfx": "SFX01",
+     "src": "sfx/SFX01.mp3",
+     "what": "rating page opens",
+     "offFrameMs": 0
+    },
+    {
+     "t": 1.1666666666666665,
+     "frame": 35,
+     "sfx": "SFX03",
+     "src": "sfx/SFX03.mp3",
+     "what": "'No app' stamp",
+     "offFrameMs": 0
+    },
+    {
+     "t": 1.7333333333333332,
+     "frame": 52,
+     "sfx": "SFX03",
+     "src": "sfx/SFX03.mp3",
+     "what": "'No sign-in' stamp",
+     "offFrameMs": 0
+    },
+    {
+     "t": 2.433333333333333,
+     "frame": 73,
+     "sfx": "SFX04",
+     "src": "sfx/SFX04.mp3",
+     "what": "camera pushes into the screen",
+     "offFrameMs": 0
+    }
+   ],
+   "loudness": {
+    "integratedLUFS": -14.2,
+    "truePeakDBTP": -4.7,
+    "pass": true
+   }
+  },
+  "b10": {
+   "file": "out/style/beat10.mp4",
+   "frames": 114,
+   "sec": 3.8,
+   "vo": "VO10_t2.mp3",
+   "blurredFrames": 18,
+   "stills": [
+    "out/style/stills/beat10-00-carry-in.png",
+    "out/style/stills/beat10-01-split.png",
+    "out/style/stills/beat10-02-paths.png",
+    "out/style/stills/beat10-03-hover.png",
+    "out/style/stills/beat10-04-carry-out.png"
+   ],
+   "contract": {
+    "id": "b10",
+    "built": true,
+    "in": [],
+    "out": []
+   },
+   "sound": [
+    {
+     "t": 0.5,
+     "frame": 15,
+     "sfx": "SFX04",
+     "src": "sfx/SFX04.mp3",
+     "what": "the screen splits into two paths",
+     "offFrameMs": 0
+    },
+    {
+     "t": 0.9666666666666667,
+     "frame": 29,
+     "sfx": "SFX04",
+     "src": "sfx/SFX04.mp3",
+     "what": "thumb rises into frame",
+     "offFrameMs": 0
+    },
+    {
+     "t": 1.4666666666666666,
+     "frame": 44,
+     "sfx": "HEART",
+     "src": "synth placeholder",
+     "what": "pulse (music stand-in)",
+     "offFrameMs": 0
+    },
+    {
+     "t": 1.6333333333333333,
+     "frame": 49,
+     "sfx": "HEART",
+     "src": "synth placeholder",
+     "what": "pulse, second thump",
+     "offFrameMs": 0
+    },
+    {
+     "t": 2.433333333333333,
+     "frame": 73,
+     "sfx": "HEART",
+     "src": "synth placeholder",
+     "what": "pulse (music stand-in)",
+     "offFrameMs": 0
+    },
+    {
+     "t": 2.6,
+     "frame": 78,
+     "sfx": "HEART",
+     "src": "synth placeholder",
+     "what": "pulse, second thump",
+     "offFrameMs": 0
+    },
+    {
+     "t": 3.4,
+     "frame": 102,
+     "sfx": "HEART",
+     "src": "synth placeholder",
+     "what": "pulse (music stand-in)",
+     "offFrameMs": 0
+    },
+    {
+     "t": 3.566666666666667,
+     "frame": 107,
+     "sfx": "HEART",
+     "src": "synth placeholder",
+     "what": "pulse, second thump",
+     "offFrameMs": 0
+    }
+   ],
+   "loudness": {
+    "integratedLUFS": -14.3,
+    "truePeakDBTP": -4.7,
+    "pass": true
+   }
+  }
+ },
+ "equalSplit": {
+  "geometryMaxDiffPx": 1.1368683772161603e-13,
+  "pulseMaxDiff": 0,
+  "thumb": {
+   "meanX": 960,
+   "minX": 936.03,
+   "maxX": 983.97,
+   "note": "hovers on the centre line, sways symmetrically, never touches either card"
+  },
+  "cardLuminance": {
+   "left": 245.27,
+   "right": 243.6,
+   "diffPct": 0.68,
+   "note": "difference = the two icons/labels only"
+  },
+  "pass": true
+ },
+ "compliance": {
+  "drawn": [
+   "Meera's Tiffin Room",
+   "How was the food?",
+   "No app",
+   "No sign-in",
+   "The food",
+   "The staff",
+   "Filter Coffee",
+   "Post on",
+   "Google",
+   "Tell the owner",
+   "privately"
+  ],
+  "notInBrief": [],
+  "forbidden": [],
+  "googleAssets": "none: 'Google' appears only as plain text in Poppins, ink colour; no logo, no Google UI, no Google font or colours",
+  "pass": true
+ },
+ "determinism": {
+  "frames": 24,
+  "identicalInFreshBrowser": 24,
+  "pass": true
+ }
+}

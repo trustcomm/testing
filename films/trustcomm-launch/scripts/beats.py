@@ -8,6 +8,7 @@ Starts from the BRIEF §4 beat sheet (60 s, 124 BPM grid) and applies the user's
   words), 1 frame ahead of the sound (picture leads audio). The voice reads the names at an even pace, so the flip
   intervals follow the voice; the acceleration is carried by each flip's transition getting shorter (0.30 → 0.08 s)
   and the SFX07 tick-pop rising in pitch on each flip.
+Each VO file starts at its beat's start (voIn/voOut; voFits checks it ends inside the beat).
 Picks come from vo/picks.json (the user's) if present, else the pre-picks in vo/takes/takes.json.
 """
 import json
@@ -64,7 +65,9 @@ def main():
     beats, t = [], 0.0
     for n, a, b in SHEET:
         L = len8 if n == 8 else b - a
-        beats.append({"beat": n, "vo": f"VO{n}", "voTake": picks[f"VO{n}"], "start": round(t, 4), "end": round(t + L, 4), "dur": round(L, 4),
+        vlen = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(ROOT / "vo" / "takes" / picks[f"VO{n}"])], capture_output=True, text=True).stdout)
+        beats.append({"beat": n, "vo": f"VO{n}", "voTake": picks[f"VO{n}"], "voIn": round(t, 4), "voOut": round(t + vlen, 4), "voFits": vlen <= L,
+                      "start": round(t, 4), "end": round(t + L, 4), "dur": round(L, 4),
                       "startFrame": round(t * FPS), "briefStart": a, "shiftedBy": round(t - a, 4)})
         t += L
     flips = []
@@ -72,12 +75,17 @@ def main():
         f = round(on * FPS) - LEAD_FRAMES
         flips.append({"lang": lang, "voOnset": round(on, 3), "frameInBeat": f, "atSec": round(beats[7]["start"] + f / FPS, 4),
                       "transition": round(0.30 - (0.30 - 0.08) * i / 5, 3), "tickPopSemitones": 2 * i})
+    for a, b in zip(beats, beats[1:] + [None]):
+        a["endFrame"] = b["startFrame"] if b else round(t * FPS)
     gaps = [round(b["atSec"] - a["atSec"], 3) for a, b in zip(flips, flips[1:])]
     beats[7].update({"lengthenedFor": f"{picks['VO8']} speech ends {speech_end:.3f} s + {TAIL} s tail → {beats8} beats", "segmentation": how,
                      "flips": flips, "flipGaps": gaps, "holdAfterLastFlip": round(beats[7]["end"] - flips[-1]["atSec"], 3)})
     out = {"film": "trustcomm-launch hero", "provisional": True, "fps": FPS, "bpm": BPM, "beat": round(BEAT, 5),
-           "picksFrom": "vo/picks.json" if user.exists() else "pre-picks (vo/takes/takes.json)", "duration": round(t, 4), "overBriefBy": round(delta, 4), "beats": beats}
+           "picksFrom": "vo/picks.json" if user.exists() else "pre-picks (vo/takes/takes.json)", "duration": round(t, 4), "frames": round(t * FPS), "overBriefBy": round(delta, 4), "beats": beats}
     (ROOT / "beats.json").write_text(json.dumps(out, indent=1))
+    over = [b["beat"] for b in beats if not b["voFits"]]
+    if over:
+        print(f"WARNING: VO file runs past its beat in beats {over}")
     b8 = beats[7]
     print(f"Beat 8: {b8['dur']:.3f} s ({beats8} beats; was 3.9 s) for {picks['VO8']} (speech ends {speech_end:.2f} s). Film {t:.3f} s (+{delta:.3f} s vs brief).")
     print("flips (s into beat 8): " + "  ".join(f"{x['lang']} {x['frameInBeat'] / FPS:.2f}" for x in flips) + f" · gaps {gaps} · hold after last flip {b8['holdAfterLastFlip']} s")

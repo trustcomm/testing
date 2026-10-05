@@ -1,5 +1,5 @@
 {
- "status": "provisional defaults until the user listens (2026-10-05). SFX01, SFX10, SFX11 set by the user; the rest are Claude's picks from measurements only (length closest to the brief, less clipping), not from listening.",
+ "status": "accepted by the user after listening (2026-10-05); copied to sfx/SFXnn.*",
  "picks": {
   "SFX01": "sfx/takes/SFX01_v2.mp3",
   "SFX02": "sfx/takes/SFX02_v2.mp3",
@@ -14,5 +14,9 @@
   "SFX11": "sfx/synth/SFX11_synth.wav",
   "SFX12": "sfx/takes/SFX12_v2.mp3"
  },
- "setBy": {"SFX01": "user", "SFX10": "user", "SFX11": "user"}
+ "setBy": {
+  "SFX01": "user",
+  "SFX10": "user",
+  "SFX11": "user"
+ }
 }

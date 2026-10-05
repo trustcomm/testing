@@ -133,6 +133,15 @@ Removed: three free-tier test takes of VO1 (2026-10-05). They were deleted at th
 - Waiting for the user's OK, or for a licensed track + LICENSE in `music/`.
 - 2026-10-05: on hold while the user checks ElevenLabs' music terms. Do not generate.
 
+## Fonts
+| File | Source | Licence |
+|---|---|---|
+| fonts/poppins-latin(-ext)-{500,600,700,800}-normal.woff2 | npm @fontsource/poppins 5.3.0 | SIL OFL 1.1 (`fonts/LICENSE-Poppins.txt`). A proposal, pending the client's own font. |
+
+## Code-built (no generation, no credits)
+- Style frames for Beats 6 and 10 (`out/style/`). All vector art is drawn in `web/`; there are no stock or third-party images.
+- Beat 10's heartbeat pulse: a code-synthesised placeholder in `scripts/mix.py`. It is replaced by the music.
+
 ## Stock (Canva, optional)
 None yet.
 

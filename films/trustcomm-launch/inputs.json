@@ -1,0 +1,248 @@
+{
+ "missing": [
+  "vo/VO1_hi",
+  "vo/VO2_hi",
+  "vo/VO3_hi",
+  "vo/VO4_hi",
+  "vo/VO5_hi",
+  "vo/VO6_hi",
+  "vo/VO7_hi",
+  "vo/VO8_hi",
+  "vo/VO9_hi",
+  "vo/VO10_hi",
+  "vo/VO11_hi",
+  "vo/VO12_hi",
+  "vo/VO13_hi",
+  "vo/VO14_hi",
+  "vo/VO15_hi",
+  "vo/VO16_hi",
+  "music/<track>",
+  "music/LICENSE (commercial licence for the track)",
+  "client/*.svg (logo)",
+  "client/ brand colours file (e.g. colours.md)",
+  "client/FACTS.md (client sign-offs)",
+  "ui/ screenshots of trustcomm.app and /r/demo",
+  "refs/: 2–3 reference films, or refs/REFS.md saying to use BRIEF §3 targets"
+ ],
+ "warnings": [
+  "client/: no font files: will propose Poppins (geometric, OFL, Devanagari) + an alternative"
+ ],
+ "vo": {
+  "VO1": {
+   "file": "VO1.mp3",
+   "sec": 1.802,
+   "sampleRate": "44100",
+   "LUFS": -27.5,
+   "truePeak": -10.4,
+   "wpm": 100
+  },
+  "VO2": {
+   "file": "VO2.mp3",
+   "sec": 2.508,
+   "sampleRate": "44100",
+   "LUFS": -27.0,
+   "truePeak": -9.5,
+   "wpm": 167
+  },
+  "VO3": {
+   "file": "VO3.mp3",
+   "sec": 2.325,
+   "sampleRate": "44100",
+   "LUFS": -28.6,
+   "truePeak": -10.3,
+   "wpm": 155
+  },
+  "VO4": {
+   "file": "VO4.mp3",
+   "sec": 1.332,
+   "sampleRate": "44100",
+   "LUFS": -28.2,
+   "truePeak": -11.5,
+   "wpm": 90
+  },
+  "VO5": {
+   "file": "VO5.mp3",
+   "sec": 2.22,
+   "sampleRate": "44100",
+   "LUFS": -27.1,
+   "truePeak": -9.9,
+   "wpm": 162
+  },
+  "VO6": {
+   "file": "VO6.mp3",
+   "sec": 2.769,
+   "sampleRate": "44100",
+   "LUFS": -28.0,
+   "truePeak": -10.5,
+   "wpm": 152
+  },
+  "VO7": {
+   "file": "VO7.mp3",
+   "sec": 1.515,
+   "sampleRate": "44100",
+   "LUFS": -27.0,
+   "truePeak": -12.0,
+   "wpm": 158
+  },
+  "VO8": {
+   "file": "VO8.mp3",
+   "sec": 5.094,
+   "sampleRate": "44100",
+   "LUFS": -27.2,
+   "truePeak": -7.9,
+   "wpm": 118
+  },
+  "VO9": {
+   "file": "VO9.mp3",
+   "sec": 3.422,
+   "sampleRate": "44100",
+   "LUFS": -28.0,
+   "truePeak": -8.9,
+   "wpm": 175
+  },
+  "VO10": {
+   "file": "VO10.mp3",
+   "sec": 1.515,
+   "sampleRate": "44100",
+   "LUFS": -27.6,
+   "truePeak": -10.4,
+   "wpm": 119
+  },
+  "VO11": {
+   "file": "VO11.mp3",
+   "sec": 2.351,
+   "sampleRate": "44100",
+   "LUFS": -28.0,
+   "truePeak": -12.1,
+   "wpm": 179
+  },
+  "VO12": {
+   "file": "VO12.mp3",
+   "sec": 2.273,
+   "sampleRate": "44100",
+   "LUFS": -28.1,
+   "truePeak": -10.4,
+   "wpm": 106
+  },
+  "VO13": {
+   "file": "VO13.mp3",
+   "sec": 2.534,
+   "sampleRate": "44100",
+   "LUFS": -27.5,
+   "truePeak": -9.9,
+   "wpm": 118
+  },
+  "VO14": {
+   "file": "VO14.mp3",
+   "sec": 3.709,
+   "sampleRate": "44100",
+   "LUFS": -27.1,
+   "truePeak": -9.8,
+   "wpm": 178
+  },
+  "VO15": {
+   "file": "VO15.mp3",
+   "sec": 2.769,
+   "sampleRate": "44100",
+   "LUFS": -27.1,
+   "truePeak": -10.6,
+   "wpm": 130
+  },
+  "VO16": {
+   "file": "VO16.mp3",
+   "sec": 3.579,
+   "sampleRate": "44100",
+   "LUFS": -28.6,
+   "truePeak": -10.4,
+   "wpm": 117
+  }
+ },
+ "sfx": {
+  "SFX01": [
+   {
+    "file": "SFX01.mp3",
+    "sec": 1.045
+   }
+  ],
+  "SFX02": [
+   {
+    "file": "SFX02.mp3",
+    "sec": 1.045
+   }
+  ],
+  "SFX03": [
+   {
+    "file": "SFX03.mp3",
+    "sec": 1.045
+   }
+  ],
+  "SFX04": [
+   {
+    "file": "SFX04.mp3",
+    "sec": 1.045
+   }
+  ],
+  "SFX05": [
+   {
+    "file": "SFX05.mp3",
+    "sec": 1.045
+   }
+  ],
+  "SFX06": [
+   {
+    "file": "SFX06.mp3",
+    "sec": 1.045
+   }
+  ],
+  "SFX07": [
+   {
+    "file": "SFX07.mp3",
+    "sec": 1.045
+   }
+  ],
+  "SFX08": [
+   {
+    "file": "SFX08.mp3",
+    "sec": 2.038
+   }
+  ],
+  "SFX09": [
+   {
+    "file": "SFX09.mp3",
+    "sec": 4.049
+   }
+  ],
+  "SFX10": [
+   {
+    "file": "SFX10.wav",
+    "sec": 2.5
+   }
+  ],
+  "SFX11": [
+   {
+    "file": "SFX11.wav",
+    "sec": 5.5
+   }
+  ],
+  "SFX12": [
+   {
+    "file": "SFX12.mp3",
+    "sec": 1.045
+   }
+  ]
+ },
+ "music": {},
+ "client": {
+  "logos": [],
+  "fonts": [],
+  "colours": [],
+  "facts": false
+ },
+ "ui": {
+  "screenshots": []
+ },
+ "refs": {
+  "films": [],
+  "useBriefTargets": false
+ }
+}

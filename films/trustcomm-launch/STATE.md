@@ -3,27 +3,33 @@
 This file is updated after every stage. The brief is `BRIEF.md`. Every asset generation is logged in `ASSETS.md`.
 
 ## Current stage
-**Waiting for the user's picks after listening ⏸.** Review files have been pushed for phone listening (not for delivery):
-- `vo/review/VO1_takes.mp3` … `VO16_takes.mp3`: t1, t2, t3. Before take k you hear k short beeps.
-- `vo/review/picks_reel.mp3`: the 16 current pre-picks in order, 0.5 s apart (44 s).
-- `sfx/review/SFX_all.mp3`: for each ID, v1, v2 and the synth fallback (1, 2 or 3 beeps before each), with a low tone between IDs. Cue sheet: `sfx/review/SFX_all.txt`.
-- VO clips are trimmed and gain-matched to about −16 LUFS, so takes compare on performance, not level.
-- SFX clips are peak-normalised to −3 dBFS, with gain capped at +12 dB so the near-silent SFX01_v1 stays near-silent.
-- Built by `scripts/review_audio.py`. Source takes are unchanged.
+**Stage 3 (STYLE FRAMES + EXEMPLARS) done; stopped at its gate ⏸.** These go to the client for approval.
+- `out/style/beat06.mp4` (3.9 s) and `out/style/beat10.mp4` (3.8 s): 1920×1080, 30 fps, with sound (VO + the accepted SFX), −14 LUFS, true peak about −4.7 dBTP.
+- Stills: `out/style/stills/` (6 for Beat 6, 5 for Beat 10). Contact sheets: `out/style/contact-beat06-10fps.png`, `contact-beat10-10fps.png`.
+- Checks: `out/style/check.json`. All pass.
+  - Determinism: 24/24 frames identical in a fresh browser.
+  - Carry contracts in and out are declared and met.
+  - Every sound lands on its frame (0 ms off).
+  - Strings on screen come only from BRIEF §4. No numbers, no star-farming words, no Google assets.
+  - **Equal split:** the two paths are mirror-identical in geometry (Δ 1e-13 px) and pulse (Δ 0). The thumb hovers on the centre line (mean x 960.0, sway 936–984 px). Card brightness is 245.3 vs 243.6, and the difference is only the icons and labels.
+- Built on our engine (imported from `films/godevlevel-launch/engine/`, not forked). Code: `web/` (`main.js`, `beat06.js`, `beat10.js`, `ui.js`, `brand.js`) and `scripts/style.mjs` + `scripts/mix.py`.
 
-Credits used: **2,116 of 15,000** (nothing generated this round). Nothing has moved to `vo/` yet.
+**PROVISIONAL in these frames (the client must approve or replace):**
+1. **Colours:** blue #0E50FC and ink #141723, measured from the chat JPG of the logo. Paper #FAF8F4 and sand #EFE7DA are the brief's paper white and warm neutral. The demo shop's colour is #F2A93B, and the thumb is #C98F65.
+2. **Font:** Poppins (OFL, proposed; `fonts/`). Trustcomm's own font replaces it if supplied.
+3. **Rating page and paths UI:** laid out from the brief's words. The `ui/` screenshots of `/r/demo` are still missing, so the five face buttons and both icons are our drawings, not the real product.
+4. **QR:** illustrative; it does not scan.
+5. **Shop:** "Meera's Tiffin Room" is the site's own demo shop. It is fictional and needs the client's sign-off (FACTS.md).
+6. **Sound:** no music yet. Beat 10's heartbeat pulse is a code-synthesised placeholder, until the track carries it.
 
 **Open:**
-1. **VO picks:** the user replies after listening. Their picks go in `vo/picks.json`. The chosen takes are then copied to `vo/`, and `beats.py` and `review_audio.py` are re-run.
-2. **60 s length:** Beat 8 now runs 5.32 s instead of 3.9 s, so the film is **61.42 s** (+1.42 s). Keep it, or win the time back elsewhere?
-   - Beat 16's hold is not enough on its own. Cutting 1.42 s leaves 4.38 s against VO16 t3's 3.58 s plus the final hit and hold.
-   - Beat 10 has the most spare air: 1.15 s of VO in a 3.8 s beat.
-   - Waiting on the user.
-3. **VO8 take choice:** if the user picks VO8 t2 or t3, Beat 8 grows to about 14 beats (6.8 s). Their word gaps also don't separate cleanly, so the flip timing needs a word-timed transcript (ElevenLabs Scribe; priced first).
-4. **Music:** the user is checking ElevenLabs' commercial terms. Do not generate.
-5. **Plan screenshot:** the user is uploading it to `client/`. Not on the branch yet (checked 2026-10-05).
-6. **Fast short lines:** left as they are. The user will flag any that sound rushed and regenerate those in the web app.
-7. **Hinglish VO:** after the English takes are approved.
+1. **Music:** waiting for the user's terms check. Not generated.
+2. **Plan screenshot:** not on the branch yet (checked 2026-10-05).
+3. **Stage 1 and the music grid:** Stage 1 (MEASURE) still needs refs/ and music. Until then the timeline sits on the brief's 124 BPM grid (`beats.json`, provisional), and the cuts will be re-snapped to the real track.
+4. **Client inputs:** logo SVG, colours, FACTS.md and ui/ screenshots.
+5. **Hinglish VO:** to price and generate. The English takes are now approved.
+
+Credits used: **2,116 of 15,000** (no generation this round).
 
 ## Plan agreed with the user (2026-10-05)
 1. **VO and SFX:** generated through the ElevenLabs connector on the user's paid Starter plan (updated 2026-10-05; the earlier plan had the user generating them in the web app). Takes go to `vo/takes/` and `sfx/takes/`; only takes the user approves move to `vo/` and `sfx/`. **No free-tier audio anywhere in this project**: the test takes were deleted.
@@ -59,6 +65,9 @@ Credits used: **2,116 of 15,000** (nothing generated this round). Nothing has mo
 History: on 2026-10-05 the connected ElevenLabs account was Free tier and was then disabled ("unusual activity… proxy or VPN"). trustcomm.app is blocked by the network policy, and is now bypassed with screenshots.
 
 ## Decisions so far
+- **VO picks locked (user, 2026-10-05):** all 16 pre-picks accepted, and VO8 t1 locked. Recorded in `vo/picks.json` and copied to `vo/VO1.mp3` … `vo/VO16.mp3`. The user listed no rushed lines in that reply.
+- **SFX picks accepted (user):** as in `sfx/picks.json`, copied to `sfx/SFXnn.*`.
+- **Length: keep 61.4 s (user).** Beat 10 is not trimmed: its hover is deliberate.
 - **Beat 8 is audio-first (user, 2026-10-05).** Lengthen Beat 8 to fit the VO8 take; no speed-up, no cut languages. The language flips are re-timed across the longer beat. Machine form: `beats.json`, built by `scripts/beats.py`. With VO8 t1:
   - **Length:** 11 beats = 5.323 s, from speech ending at 4.75 s plus a 0.30 s tail, rounded up to whole 124 BPM beats so every later cut stays on the grid. Beats 9–16 shift by +1.423 s, and no other beat is shortened yet (see Open 2).
   - **Flips:** each lands one frame before its spoken name: English 1.33 s, Hinglish 1.93, Hindi 2.47, Kannada 2.97, Tamil 3.63, Telugu 4.23 s into the beat. A 1.09 s hold follows the last flip.
@@ -104,3 +113,11 @@ History: on 2026-10-05 the connected ElevenLabs account was Free tier and was th
   - Recorded the SFX defaults (`sfx/picks.json`).
   - Music on hold while the user checks the terms. Plan screenshot not on the branch yet.
   - No credits used.
+- 2026-10-05 (picks round):
+  - **Picks:** locked the VO picks into `vo/`, the SFX picks into `sfx/`, and re-timed the film (`beats.json`, 61.42 s; every VO fits its beat).
+  - **Reply placeholders:** the user's reply left the VO/SFX exceptions, rushed lines and music fields as template placeholders. They were read as "none", and music as "still checking": no credits spent.
+  - **Stage 3:** style frames for Beats 6 and 10 built and checked.
+    - Rendering fixes: whole-phone scaling; Beat 6's push now starts on beat 5, so there is no dead second.
+    - Beat 10 fixes: the thumb sway fits the hover window (mean exactly centred), with a wider gap between the cards.
+    - Loudness: a measured gain plus an oversampled limiter, because loudnorm can't lift clips this short.
+  - Stopped at the Stage 3 gate.
