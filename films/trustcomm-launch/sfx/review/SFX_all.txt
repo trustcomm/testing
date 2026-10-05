@@ -1,0 +1,38 @@
+SFX_all.mp3 cue sheet. Low tone = next SFX ID; 1/2/3 beeps = v1 / v2 / synth.
+
+   1.78 s  SFX01 v1     (sfx/takes/SFX01_v1.mp3)
+   4.04 s  SFX01 v2     (sfx/takes/SFX01_v2.mp3)  ← current pick
+   6.48 s  SFX01 synth  (sfx/synth/SFX01_synth.wav)
+   8.64 s  SFX02 v1     (sfx/takes/SFX02_v1.mp3)
+  12.90 s  SFX02 v2     (sfx/takes/SFX02_v2.mp3)  ← current pick
+  15.34 s  SFX02 synth  (sfx/synth/SFX02_synth.wav)
+  17.82 s  SFX03 v1     (sfx/takes/SFX03_v1.mp3)  ← current pick
+  20.08 s  SFX03 v2     (sfx/takes/SFX03_v2.mp3)
+  24.52 s  SFX03 synth  (sfx/synth/SFX03_synth.wav)
+  26.85 s  SFX04 v1     (sfx/takes/SFX04_v1.mp3)
+  30.11 s  SFX04 v2     (sfx/takes/SFX04_v2.mp3)  ← current pick
+  32.55 s  SFX04 synth  (sfx/synth/SFX04_synth.wav)
+  35.08 s  SFX05 v1     (sfx/takes/SFX05_v1.mp3)
+  38.34 s  SFX05 v2     (sfx/takes/SFX05_v2.mp3)  ← current pick
+  40.78 s  SFX05 synth  (sfx/synth/SFX05_synth.wav)
+  43.36 s  SFX06 v1     (sfx/takes/SFX06_v1.mp3)  ← current pick
+  45.62 s  SFX06 v2     (sfx/takes/SFX06_v2.mp3)
+  48.06 s  SFX06 synth  (sfx/synth/SFX06_synth.wav)
+  51.74 s  SFX07 v1     (sfx/takes/SFX07_v1.mp3)
+  55.00 s  SFX07 v2     (sfx/takes/SFX07_v2.mp3)  ← current pick
+  57.44 s  SFX07 synth  (sfx/synth/SFX07_synth.wav)
+  59.67 s  SFX08 v1     (sfx/takes/SFX08_v1.mp3)
+  62.93 s  SFX08 v2     (sfx/takes/SFX08_v2.mp3)  ← current pick
+  66.37 s  SFX08 synth  (sfx/synth/SFX08_synth.wav)
+  69.45 s  SFX09 v1     (sfx/takes/SFX09_v1.mp3)
+  75.71 s  SFX09 v2     (sfx/takes/SFX09_v2.mp3)  ← current pick
+  81.15 s  SFX09 synth  (sfx/synth/SFX09_synth.wav)
+  85.33 s  SFX10 v1     (sfx/takes/SFX10_v1.mp3)
+  87.59 s  SFX10 v2     (sfx/takes/SFX10_v2.mp3)
+  90.03 s  SFX10 synth  (sfx/synth/SFX10_synth.wav)  ← current pick
+  94.61 s  SFX11 v1     (sfx/takes/SFX11_v1.mp3)
+  98.87 s  SFX11 v2     (sfx/takes/SFX11_v2.mp3)
+ 101.31 s  SFX11 synth  (sfx/synth/SFX11_synth.wav)  ← current pick
+ 108.89 s  SFX12 v1     (sfx/takes/SFX12_v1.mp3)
+ 111.15 s  SFX12 v2     (sfx/takes/SFX12_v2.mp3)  ← current pick
+ 113.59 s  SFX12 synth  (sfx/synth/SFX12_synth.wav)

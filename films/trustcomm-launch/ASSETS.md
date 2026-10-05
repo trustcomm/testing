@@ -121,6 +121,8 @@ Removed: three free-tier test takes of VO1 (2026-10-05). They were deleted at th
 - SFX11 is a 5.5 s stereo loop.
 - No third-party or free-tier audio is involved.
 
+**Provisional SFX picks** are in `sfx/picks.json`: the user's defaults for SFX01, SFX10 and SFX11, Claude's measured picks for the rest. The review montage `sfx/review/SFX_all.mp3` is NOT FOR DELIVERY, and nor are `vo/review/*`.
+
 ## Music
 **Not generated.**
 - ElevenLabs music (eleven_music_v1 / v2 / v2_5) is available in this workspace, and one 60 s generation from the BRIEF §6 prompt is priced at 1,500 credits.
@@ -129,6 +131,7 @@ Removed: three free-tier test takes of VO1 (2026-10-05). They were deleted at th
   - The connector exposes no plan or terms information.
   - The licence screenshot is not in `client/`.
 - Waiting for the user's OK, or for a licensed track + LICENSE in `music/`.
+- 2026-10-05: on hold while the user checks ElevenLabs' music terms. Do not generate.
 
 ## Stock (Canva, optional)
 None yet.

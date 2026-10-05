@@ -3,19 +3,27 @@
 This file is updated after every stage. The brief is `BRIEF.md`. Every asset generation is logged in `ASSETS.md`.
 
 ## Current stage
-**Audio generation done; stopped for the user's listening review ⏸.**
-- English VO: 48 takes are in `vo/takes/` with pre-picks.
-- SFX: 24 variants are in `sfx/takes/`, plus synthesised fallbacks in `sfx/synth/`.
-- Music: priced, not generated.
-- Credits used: **2,116 of the 15,000 cap.**
-- No film code is written. Stage 1 is still blocked on music, the logo SVG and colours, FACTS.md, ui/ and refs/.
+**Waiting for the user's picks after listening ⏸.** Review files have been pushed for phone listening (not for delivery):
+- `vo/review/VO1_takes.mp3` … `VO16_takes.mp3`: t1, t2, t3. Before take k you hear k short beeps.
+- `vo/review/picks_reel.mp3`: the 16 current pre-picks in order, 0.5 s apart (44 s).
+- `sfx/review/SFX_all.mp3`: for each ID, v1, v2 and the synth fallback (1, 2 or 3 beeps before each), with a low tone between IDs. Cue sheet: `sfx/review/SFX_all.txt`.
+- VO clips are trimmed and gain-matched to about −16 LUFS, so takes compare on performance, not level.
+- SFX clips are peak-normalised to −3 dBFS, with gain capped at +12 dB so the near-silent SFX01_v1 stays near-silent.
+- Built by `scripts/review_audio.py`. Source takes are unchanged.
 
-**Waiting on the user:**
-1. Listen and confirm one take per English line. I then copy the chosen takes to `vo/VOn.mp3`.
-2. VO8 overruns Beat 8 on every take. The fastest take is 4.75 s of speech in a 3.9 s slot. Options: lengthen Beat 8, speed the take up about 1.2× in the mix, or trim the language list.
-3. After approving the English takes: generate Hinglish VO1_hi–VO16_hi from the BRIEF §5 Devanagari. It will be priced first.
-4. Choose an SFX variant, or the synth fallback, per ID.
-5. Music: give an OK to generate (1,500 credits estimated), or supply a licensed track + LICENSE.
+Credits used: **2,116 of 15,000** (nothing generated this round). Nothing has moved to `vo/` yet.
+
+**Open:**
+1. **VO picks:** the user replies after listening. Their picks go in `vo/picks.json`. The chosen takes are then copied to `vo/`, and `beats.py` and `review_audio.py` are re-run.
+2. **60 s length:** Beat 8 now runs 5.32 s instead of 3.9 s, so the film is **61.42 s** (+1.42 s). Keep it, or win the time back elsewhere?
+   - Beat 16's hold is not enough on its own. Cutting 1.42 s leaves 4.38 s against VO16 t3's 3.58 s plus the final hit and hold.
+   - Beat 10 has the most spare air: 1.15 s of VO in a 3.8 s beat.
+   - Waiting on the user.
+3. **VO8 take choice:** if the user picks VO8 t2 or t3, Beat 8 grows to about 14 beats (6.8 s). Their word gaps also don't separate cleanly, so the flip timing needs a word-timed transcript (ElevenLabs Scribe; priced first).
+4. **Music:** the user is checking ElevenLabs' commercial terms. Do not generate.
+5. **Plan screenshot:** the user is uploading it to `client/`. Not on the branch yet (checked 2026-10-05).
+6. **Fast short lines:** left as they are. The user will flag any that sound rushed and regenerate those in the web app.
+7. **Hinglish VO:** after the English takes are approved.
 
 ## Plan agreed with the user (2026-10-05)
 1. **VO and SFX:** generated through the ElevenLabs connector on the user's paid Starter plan (updated 2026-10-05; the earlier plan had the user generating them in the web app). Takes go to `vo/takes/` and `sfx/takes/`; only takes the user approves move to `vo/` and `sfx/`. **No free-tier audio anywhere in this project**: the test takes were deleted.
@@ -51,6 +59,15 @@ This file is updated after every stage. The brief is `BRIEF.md`. Every asset gen
 History: on 2026-10-05 the connected ElevenLabs account was Free tier and was then disabled ("unusual activity… proxy or VPN"). trustcomm.app is blocked by the network policy, and is now bypassed with screenshots.
 
 ## Decisions so far
+- **Beat 8 is audio-first (user, 2026-10-05).** Lengthen Beat 8 to fit the VO8 take; no speed-up, no cut languages. The language flips are re-timed across the longer beat. Machine form: `beats.json`, built by `scripts/beats.py`. With VO8 t1:
+  - **Length:** 11 beats = 5.323 s, from speech ending at 4.75 s plus a 0.30 s tail, rounded up to whole 124 BPM beats so every later cut stays on the grid. Beats 9–16 shift by +1.423 s, and no other beat is shortened yet (see Open 2).
+  - **Flips:** each lands one frame before its spoken name: English 1.33 s, Hinglish 1.93, Hindi 2.47, Kannada 2.97, Tamil 3.63, Telugu 4.23 s into the beat. A 1.09 s hold follows the last flip.
+  - **No real acceleration:** the voice reads the names at an even pace, so the gaps are 0.60, 0.53, 0.50, 0.67 and 0.60 s. The brief's 0.97 → 0.24 s acceleration can't coexist with flips that follow the voice. Instead the acceleration comes from flip transitions shortening from 0.30 to 0.08 s, and from the SFX07 tick-pop rising 2 semitones per flip.
+  - The brief's 0.24 s shortest shot now comes from the Beat 14 montage only.
+- **SFX defaults until the user listens** (`sfx/picks.json`):
+  - Set by the user: SFX01 → v2, SFX10 → synth, SFX11 → synth loop.
+  - Claude's picks, from measurements only (length nearest the brief, less clipping): SFX02 v2, SFX03 v1, SFX04 v2, SFX05 v2, SFX06 v1, SFX07 v2, SFX08 v2, SFX09 v2, SFX12 v2.
+- **Fast short lines** (VO2, 3, 7, 9, 11, 14 at 190–220 WPM): kept for now. The user will flag and regenerate any that sound rushed.
 - **Voice: "Ishan – Bold and Upbeat"** (ElevenLabs library voice N09NFwYJJG9VSSgdLQbT), confirmed by the user. Generated through the connector with ElevenLabs default settings: the connector has no stability, similarity, style or speaker-boost controls.
 - **Budget:** 15,000 credits for this film. Every batch is priced first, and the ledger is in ASSETS.md.
 
@@ -81,3 +98,9 @@ History: on 2026-10-05 the connected ElevenLabs account was Free tier and was th
     - Commercial terms could not be checked: elevenlabs.io is blocked by the network policy and the screenshot is missing.
     - Not generated, per the user's rule.
   - Stopped for the listening review.
+- 2026-10-05 (user decisions round):
+  - Built the phone review files (`scripts/review_audio.py`).
+  - Re-timed Beat 8 audio-first (`scripts/beats.py` → `beats.json`). The film is now 61.42 s; keeping 60 s is an open question.
+  - Recorded the SFX defaults (`sfx/picks.json`).
+  - Music on hold while the user checks the terms. Plan screenshot not on the branch yet.
+  - No credits used.
