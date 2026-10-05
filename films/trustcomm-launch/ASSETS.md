@@ -19,3 +19,8 @@ The user will supply a licensed track + LICENSE in `music/`. Waiting.
 
 ## Stock (Canva, optional)
 None yet.
+
+## Client brand
+| File | Source | Notes |
+|---|---|---|
+| client/logo-from-chat.jpg | image pasted in chat by the user, 2026-10-05 | 2000×667 JPG: "trust" dark, "comm" blue on white. Measured (median of pixels, JPG): blue #0E50FC, dark #141723. Awaiting the SVG or official hex values and approval before use. |

@@ -30,7 +30,7 @@ This file is updated after every stage. The brief is `BRIEF.md`. Every asset gen
 | VO1–VO16, VO1_hi–VO16_hi (paid ElevenLabs) | user | waiting |
 | SFX01–SFX12 | user | waiting |
 | Music track + LICENSE | user | waiting |
-| Logo SVG, brand colours, fonts | user | waiting |
+| Logo SVG, brand colours, fonts | user | **Partial:** a raster logo (JPG, 2000×667) arrived in chat and is saved as `client/logo-from-chat.jpg`. Colours measured from it, **not yet approved, not used**: blue ("comm") **#0E50FC**, dark ("trust") **#141723**, background #FFFFFF. JPG compression shifts colours slightly, so the SVG or official hex values are still needed. No fonts yet. |
 | `/r/demo` and site screenshots in `ui/` | user | waiting |
 | `client/FACTS.md` sign-offs | user and client | waiting |
 | refs/ films or REFS.md | user | waiting |
@@ -48,4 +48,5 @@ History: on 2026-10-05 the connected ElevenLabs account was Free tier and was th
   - trustcomm.app is blocked by the network policy. Stopped at the blockers.
   - User plan agreed: the user supplies paid-plan VO and SFX, a licensed music track, client brand, UI screenshots and FACTS.md.
   - Deleted the free-tier test audio (`vo/_test-free-tier/`; it was never committed).
+  - User reported "files pushed", but the remote has only one branch, with nothing beyond our last commit (b609efc). verify_inputs.py: everything missing (32 VO, 12 SFX, music + licence, logo SVG, colours, FACTS.md, ui, refs). Only the chat logo JPG was received. Stage 1 was **not** run.
   - Added `scripts/verify_inputs.py`, self-tested on a fake complete input set (32/32 VO, 12/12 SFX, music + licence, tempo 127.96 BPM on a 128 BPM click). It exits non-zero while anything required is missing.
