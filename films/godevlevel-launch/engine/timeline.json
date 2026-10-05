@@ -35,8 +35,14 @@
     {
       "t": 2.8125,
       "x": 960,
-      "y": 520,
+      "y": 530,
       "z": 1
+    },
+    {
+      "t": 3.75,
+      "x": 960,
+      "y": 600,
+      "z": 1.04
     },
     {
       "t": 4.6875,
@@ -63,7 +69,31 @@
       "z": 1.12
     },
     {
+      "t": 12,
+      "x": 960,
+      "y": 540,
+      "z": 1
+    },
+    {
       "t": 15,
+      "x": 960,
+      "y": 540,
+      "z": 1
+    },
+    {
+      "t": 15.6,
+      "x": 1000,
+      "y": 800,
+      "z": 1.35
+    },
+    {
+      "t": 16.9,
+      "x": 1000,
+      "y": 800,
+      "z": 1.38
+    },
+    {
+      "t": 17.6,
       "x": 960,
       "y": 540,
       "z": 1
@@ -81,16 +111,40 @@
       "z": 1.03
     },
     {
+      "t": 23.4,
+      "x": 960,
+      "y": 540,
+      "z": 1.06
+    },
+    {
       "t": 25.3125,
       "x": 960,
       "y": 540,
       "z": 1
     },
     {
-      "t": 31.40625,
+      "t": 26.25,
       "x": 960,
       "y": 540,
       "z": 1
+    },
+    {
+      "t": 28.59375,
+      "x": 960,
+      "y": 540,
+      "z": 1
+    },
+    {
+      "t": 30,
+      "x": 960,
+      "y": 530,
+      "z": 1.02
+    },
+    {
+      "t": 31.40625,
+      "x": 960,
+      "y": 530,
+      "z": 1.02
     }
   ],
   "beats": [
@@ -166,7 +220,7 @@
       "dur": 0.9375,
       "startFrame": 56,
       "endFrame": 84,
-      "built": false,
+      "built": true,
       "carry": "Tower outline",
       "cut": "carry",
       "handoffIn": {
@@ -231,7 +285,7 @@
       "dur": 1.875,
       "startFrame": 84,
       "endFrame": 141,
-      "built": false,
+      "built": true,
       "carry": "Tag's bottom edge",
       "cut": "carry",
       "handoffIn": {
@@ -457,7 +511,7 @@
       "dur": 3.75,
       "startFrame": 338,
       "endFrame": 450,
-      "built": false,
+      "built": true,
       "carry": "Product frame",
       "cut": "carry",
       "handoffIn": {
@@ -537,7 +591,7 @@
       "dur": 2.8125,
       "startFrame": 450,
       "endFrame": 534,
-      "built": false,
+      "built": true,
       "carry": "Product frame",
       "cut": "carry",
       "handoffIn": {
@@ -697,7 +751,7 @@
       "dur": 3.75,
       "startFrame": 647,
       "endFrame": 759,
-      "built": false,
+      "built": true,
       "carry": "Orange dot",
       "cut": "carry",
       "handoffIn": {
@@ -776,7 +830,7 @@
       "dur": 3.28125,
       "startFrame": 759,
       "endFrame": 858,
-      "built": false,
+      "built": true,
       "carry": "Wordmark",
       "cut": "carry",
       "handoffIn": {
@@ -790,20 +844,20 @@
       },
       "handoffOut": {
         "kind": "wordmark",
-        "x": 560,
-        "y": 440,
-        "w": 800,
-        "h": 200,
+        "x": 480,
+        "y": 480.5,
+        "w": 960,
+        "h": 119,
         "r": 0,
         "colour": "ink"
       },
       "still": [
         [
           0,
-          0.9
+          0.9375
         ],
         [
-          1.9,
+          2.15,
           3.28
         ]
       ],
@@ -833,23 +887,23 @@
       "dur": 2.8125,
       "startFrame": 858,
       "endFrame": 942,
-      "built": false,
+      "built": true,
       "carry": null,
       "cut": "end",
       "handoffIn": {
         "kind": "wordmark",
-        "x": 560,
-        "y": 440,
-        "w": 800,
-        "h": 200,
+        "x": 480,
+        "y": 480.5,
+        "w": 960,
+        "h": 119,
         "r": 0,
         "colour": "ink"
       },
       "handoffOut": null,
       "still": [
         [
-          1.6,
-          2.4
+          1.7,
+          2.36
         ]
       ],
       "vo": {
@@ -883,7 +937,7 @@
   ],
   "planned": {
     "spread": 4,
-    "stillSec": 6.36,
-    "stillPct": 20.3
+    "stillSec": 6.008,
+    "stillPct": 19.1
   }
 }

@@ -2,8 +2,11 @@
 // State = { kind, x, y, w, h, r, stroke?, colour, text? } in world space.
 //   caret / line : filled rect          outline / frame : stroked rounded rect (x,y,w,h = outer edge)
 //   window       : ink-stroked panel    dot             : filled circle
+//   tag          : stroked price tag (rounded rect + point on the left, `point` 0–1 grows it)
+//   wordmark     : the reversed GoDevLevel logo drawn into the box
 import { alpha, colour, mix } from "./brand.js";
 import { lerp } from "./ease.js";
+import { ASSETS } from "./assets.js";
 
 export const CONTRACT_KEYS = ["kind", "x", "y", "w", "h", "r", "stroke", "colour", "text"];
 
@@ -21,7 +24,7 @@ export function matches(a, c, eps = 1e-6) {
 /** Interpolate two carry states. Kind and colour switch to b's once t passes 0.5 (colour blends). */
 export function lerpCarry(a, b, t) {
   const o = { kind: t < 0.5 ? a.kind : b.kind, colour: t < 0.5 ? a.colour : b.colour };
-  for (const k of ["x", "y", "w", "h", "r", "stroke"]) {
+  for (const k of ["x", "y", "w", "h", "r", "stroke", "point"]) {
     const va = a[k] ?? b[k], vb = b[k] ?? a[k];
     if (va !== undefined) o[k] = lerp(va, vb, t);
   }
@@ -132,6 +135,23 @@ export function drawCarry(ctx, s, opts = {}) {
       ctx.stroke();
       break;
     }
+    case "tag": {
+      const k = s.stroke ?? 10;
+      ctx.strokeStyle = fill;
+      ctx.lineWidth = k;
+      ctx.lineJoin = "round";
+      tagPath(ctx, s.x + k / 2, s.y + k / 2, s.w - k, s.h - k, Math.max(0, (s.r ?? 0) - k / 2), (s.point ?? 1) * Math.min(110, s.h * 0.4));
+      ctx.stroke();
+      if ((s.point ?? 1) > 0.5) {
+        ctx.beginPath();
+        ctx.arc(s.x - (s.point ?? 1) * Math.min(110, s.h * 0.4) * 0.35, s.y + s.h / 2, k * 1.1, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+      break;
+    }
+    case "wordmark":
+      if (ASSETS.logo) ctx.drawImage(ASSETS.logo, s.x, s.y, s.w, s.h);
+      break;
     case "dot":
       ctx.fillStyle = fill;
       ctx.beginPath();
@@ -144,3 +164,18 @@ export function drawCarry(ctx, s, opts = {}) {
 
 /** Corners of a state's box, for motion-blur speed tracking. */
 export const corners = (s) => [[s.x, s.y], [s.x + s.w, s.y], [s.x, s.y + s.h], [s.x + s.w, s.y + s.h]];
+
+/** Price-tag outline: rounded rect whose left edge is pushed out into a point of depth d. */
+export function tagPath(ctx, x, y, w, h, r, d) {
+  r = Math.max(0, Math.min(r, w / 2, h / 2));
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.arcTo(x + w, y, x + w, y + r, r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x, y + h);
+  ctx.lineTo(x - d, y + h / 2);
+  ctx.lineTo(x, y);
+  ctx.closePath();
+}

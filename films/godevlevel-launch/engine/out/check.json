@@ -20,8 +20,8 @@
     "spread": 4,
     "spreadPass": true,
     "threeEqualInARow": [],
-    "plannedStillSec": 6.36,
-    "plannedStillPct": 20.3,
+    "plannedStillSec": 6.008,
+    "plannedStillPct": 19.1,
     "boundaries": [
       {
         "from": "b01",
@@ -110,74 +110,17 @@
     },
     {
       "id": "b02",
-      "built": false,
+      "built": true,
       "in": [],
-      "out": [
-        {
-          "key": "x",
-          "got": 782,
-          "want": 810
-        },
-        {
-          "key": "y",
-          "got": 180,
-          "want": 60
-        },
-        {
-          "key": "w",
-          "got": 356,
-          "want": 300
-        },
-        {
-          "key": "h",
-          "got": 720,
-          "want": 960
-        },
-        {
-          "key": "r",
-          "got": 52,
-          "want": 8
-        }
-      ],
-      "pass": null
+      "out": [],
+      "pass": true
     },
     {
       "id": "b03",
-      "built": false,
+      "built": true,
       "in": [],
-      "out": [
-        {
-          "key": "kind",
-          "got": "outline",
-          "want": "line"
-        },
-        {
-          "key": "x",
-          "got": 810,
-          "want": 660
-        },
-        {
-          "key": "y",
-          "got": 60,
-          "want": 780
-        },
-        {
-          "key": "w",
-          "got": 300,
-          "want": 600
-        },
-        {
-          "key": "h",
-          "got": 960,
-          "want": 10
-        },
-        {
-          "key": "r",
-          "got": 8,
-          "want": 0
-        }
-      ],
-      "pass": null
+      "out": [],
+      "pass": true
     },
     {
       "id": "b04",
@@ -195,58 +138,17 @@
     },
     {
       "id": "b06",
-      "built": false,
+      "built": true,
       "in": [],
-      "out": [
-        {
-          "key": "kind",
-          "got": "window",
-          "want": "frame"
-        },
-        {
-          "key": "x",
-          "got": 300,
-          "want": 360
-        },
-        {
-          "key": "y",
-          "got": 238,
-          "want": 202.5
-        },
-        {
-          "key": "w",
-          "got": 1320,
-          "want": 1200
-        },
-        {
-          "key": "h",
-          "got": 228,
-          "want": 675
-        },
-        {
-          "key": "r",
-          "got": 24,
-          "want": 20
-        },
-        {
-          "key": "stroke",
-          "got": 2,
-          "want": 6
-        },
-        {
-          "key": "colour",
-          "got": "ink",
-          "want": "orange"
-        }
-      ],
-      "pass": null
+      "out": [],
+      "pass": true
     },
     {
       "id": "b07",
-      "built": false,
+      "built": true,
       "in": [],
       "out": [],
-      "pass": null
+      "pass": true
     },
     {
       "id": "b08",
@@ -257,95 +159,28 @@
     },
     {
       "id": "b09",
-      "built": false,
+      "built": true,
       "in": [],
-      "out": [
-        {
-          "key": "kind",
-          "got": "frame",
-          "want": "dot"
-        },
-        {
-          "key": "x",
-          "got": 746.25,
-          "want": 950
-        },
-        {
-          "key": "y",
-          "got": 160,
-          "want": 530
-        },
-        {
-          "key": "w",
-          "got": 427.5,
-          "want": 20
-        },
-        {
-          "key": "h",
-          "got": 760,
-          "want": 20
-        },
-        {
-          "key": "r",
-          "got": 20,
-          "want": 10
-        }
-      ],
-      "pass": null
+      "out": [],
+      "pass": true
     },
     {
       "id": "b10",
-      "built": false,
+      "built": true,
       "in": [],
-      "out": [
-        {
-          "key": "kind",
-          "got": "dot",
-          "want": "wordmark"
-        },
-        {
-          "key": "x",
-          "got": 950,
-          "want": 560
-        },
-        {
-          "key": "y",
-          "got": 530,
-          "want": 440
-        },
-        {
-          "key": "w",
-          "got": 20,
-          "want": 800
-        },
-        {
-          "key": "h",
-          "got": 20,
-          "want": 200
-        },
-        {
-          "key": "r",
-          "got": 10,
-          "want": 0
-        },
-        {
-          "key": "colour",
-          "got": "orange",
-          "want": "ink"
-        }
-      ],
-      "pass": null
+      "out": [],
+      "pass": true
     },
     {
       "id": "b11",
-      "built": false,
+      "built": true,
       "in": [],
       "out": [],
-      "pass": null
+      "pass": true
     }
   ],
   "camera": {
-    "maxShiftPxPerFrame": 8.785,
+    "maxShiftPxPerFrame": 57.598,
     "boundaries": [
       {
         "boundary": "b01→b02",
@@ -357,15 +192,15 @@
       {
         "boundary": "b02→b03",
         "frame": 84,
-        "shiftPx": 0.552,
-        "neighboursPx": 1.141,
+        "shiftPx": 0.488,
+        "neighboursPx": 1.008,
         "jump": false
       },
       {
         "boundary": "b03→b04",
         "frame": 141,
-        "shiftPx": 0.007,
-        "neighboursPx": 0.042,
+        "shiftPx": 0.152,
+        "neighboursPx": 0.85,
         "jump": false
       },
       {
@@ -378,43 +213,43 @@
       {
         "boundary": "b05→b06",
         "frame": 338,
-        "shiftPx": 0.017,
-        "neighboursPx": 0.136,
+        "shiftPx": 0.422,
+        "neighboursPx": 3.258,
         "jump": false
       },
       {
         "boundary": "b06→b07",
         "frame": 450,
-        "shiftPx": 0.064,
-        "neighboursPx": 0.191,
+        "shiftPx": 0,
+        "neighboursPx": 5.657,
         "jump": false
       },
       {
         "boundary": "b07→b08",
         "frame": 534,
         "shiftPx": 0,
-        "neighboursPx": 0.004,
+        "neighboursPx": 0.002,
         "jump": false
       },
       {
         "boundary": "b08→b09",
         "frame": 647,
-        "shiftPx": 0.008,
-        "neighboursPx": 0.028,
+        "shiftPx": 0.448,
+        "neighboursPx": 0.479,
         "jump": false
       },
       {
         "boundary": "b09→b10",
         "frame": 759,
-        "shiftPx": 0.018,
-        "neighboursPx": 0.038,
+        "shiftPx": 0.104,
+        "neighboursPx": 0.218,
         "jump": false
       },
       {
         "boundary": "b10→b11",
         "frame": 858,
-        "shiftPx": 0,
-        "neighboursPx": 0,
+        "shiftPx": 0.002,
+        "neighboursPx": 0.073,
         "jump": false
       }
     ],
@@ -426,21 +261,60 @@
       "carry": "Phone outline",
       "lastFrameA": 55,
       "firstFrameB": 56,
-      "status": "pending (b02 not built)"
+      "region": {
+        "x": 755,
+        "y": 142,
+        "w": 410,
+        "h": 796
+      },
+      "pixelScore": 0.99965,
+      "maskIoU": 0.99626,
+      "maskPixels": [
+        21605,
+        21612
+      ],
+      "wholeFrameScore": 0.99995,
+      "pass": true
     },
     {
       "boundary": "b02→b03",
       "carry": "Tower outline",
       "lastFrameA": 83,
       "firstFrameB": 84,
-      "status": "pending (b02, b03 not built)"
+      "region": {
+        "x": 793,
+        "y": 53,
+        "w": 334,
+        "h": 994
+      },
+      "pixelScore": 0.99951,
+      "maskIoU": 0.99968,
+      "maskPixels": [
+        24744,
+        24736
+      ],
+      "wholeFrameScore": 0.99992,
+      "pass": true
     },
     {
       "boundary": "b03→b04",
       "carry": "Tag's bottom edge",
       "lastFrameA": 140,
       "firstFrameB": 141,
-      "status": "pending (b03 not built)"
+      "region": {
+        "x": 643,
+        "y": 764,
+        "w": 633,
+        "h": 43
+      },
+      "pixelScore": 0.99999,
+      "maskIoU": 1,
+      "maskPixels": [
+        6000,
+        6000
+      ],
+      "wholeFrameScore": 1,
+      "pass": true
     },
     {
       "boundary": "b04→b05",
@@ -467,42 +341,120 @@
       "carry": "Code editor window",
       "lastFrameA": 337,
       "firstFrameB": 338,
-      "status": "pending (b06 not built)"
+      "region": {
+        "x": 204,
+        "y": 342,
+        "w": 1512,
+        "h": 288
+      },
+      "pixelScore": 0.99755,
+      "maskIoU": 0.99938,
+      "maskPixels": [
+        9687,
+        9681
+      ],
+      "wholeFrameScore": 0.99949,
+      "pass": true
     },
     {
       "boundary": "b06→b07",
       "carry": "Product frame",
       "lastFrameA": 449,
       "firstFrameB": 450,
-      "status": "pending (b06, b07 not built)"
+      "region": {
+        "x": 344,
+        "y": 186,
+        "w": 1232,
+        "h": 708
+      },
+      "pixelScore": 1,
+      "maskIoU": 1,
+      "maskPixels": [
+        19824,
+        19824
+      ],
+      "wholeFrameScore": 1,
+      "pass": true
     },
     {
       "boundary": "b07→b08",
       "carry": "Product frame",
       "lastFrameA": 533,
       "firstFrameB": 534,
-      "status": "pending (b07 not built)"
+      "region": {
+        "x": 344,
+        "y": 186,
+        "w": 1232,
+        "h": 708
+      },
+      "pixelScore": 1,
+      "maskIoU": 1,
+      "maskPixels": [
+        19824,
+        19824
+      ],
+      "wholeFrameScore": 1,
+      "pass": true
     },
     {
       "boundary": "b08→b09",
       "carry": "9:16 frame",
       "lastFrameA": 646,
       "firstFrameB": 647,
-      "status": "pending (b09 not built)"
+      "region": {
+        "x": 723,
+        "y": 142,
+        "w": 474,
+        "h": 816
+      },
+      "pixelScore": 0.9992,
+      "maskIoU": 0.97104,
+      "maskPixels": [
+        13921,
+        14324
+      ],
+      "wholeFrameScore": 0.99985,
+      "pass": true
     },
     {
       "boundary": "b09→b10",
       "carry": "Orange dot",
       "lastFrameA": 758,
       "firstFrameB": 759,
-      "status": "pending (b09, b10 not built)"
+      "region": {
+        "x": 933,
+        "y": 513,
+        "w": 54,
+        "h": 54
+      },
+      "pixelScore": 1,
+      "maskIoU": 1,
+      "maskPixels": [
+        294,
+        294
+      ],
+      "wholeFrameScore": 1,
+      "pass": true
     },
     {
       "boundary": "b10→b11",
       "carry": "Wordmark",
       "lastFrameA": 857,
       "firstFrameB": 858,
-      "status": "pending (b10, b11 not built)"
+      "region": {
+        "x": 463,
+        "y": 464,
+        "w": 994,
+        "h": 152
+      },
+      "pixelScore": 1,
+      "maskIoU": 1,
+      "maskPixels": [
+        35895,
+        35895
+      ],
+      "wholeFrameScore": 0.99834,
+      "pass": true
     }
   ],
   "determinism": {
@@ -511,6 +463,8 @@
       43,
       53,
       55,
+      56,
+      84,
       141,
       144,
       237,
@@ -520,10 +474,15 @@
       297,
       330,
       337,
+      338,
+      450,
       534,
       576,
       602,
-      646
+      646,
+      647,
+      759,
+      858
     ],
     "sameSessionIdentical": true,
     "freshBrowserIdentical": true,
@@ -542,12 +501,28 @@
         "maxSpeedPxPerFrame": 768.3
       },
       {
+        "beat": "b02",
+        "frames": 28,
+        "nearStillPct": 3.7,
+        "nearStillSec": 0.033,
+        "blurredFrames": 3,
+        "maxSpeedPxPerFrame": 72.7
+      },
+      {
+        "beat": "b03",
+        "frames": 57,
+        "nearStillPct": 1.8,
+        "nearStillSec": 0.033,
+        "blurredFrames": 6,
+        "maxSpeedPxPerFrame": 304.9
+      },
+      {
         "beat": "b04",
         "frames": 112,
         "nearStillPct": 48.6,
         "nearStillSec": 1.8,
-        "blurredFrames": 26,
-        "maxSpeedPxPerFrame": 117.8
+        "blurredFrames": 27,
+        "maxSpeedPxPerFrame": 311.4
       },
       {
         "beat": "b05",
@@ -558,12 +533,52 @@
         "maxSpeedPxPerFrame": 726
       },
       {
+        "beat": "b06",
+        "frames": 112,
+        "nearStillPct": 66.7,
+        "nearStillSec": 2.467,
+        "blurredFrames": 22,
+        "maxSpeedPxPerFrame": 680.7
+      },
+      {
+        "beat": "b07",
+        "frames": 84,
+        "nearStillPct": 22.9,
+        "nearStillSec": 0.633,
+        "blurredFrames": 36,
+        "maxSpeedPxPerFrame": 282.5
+      },
+      {
         "beat": "b08",
         "frames": 113,
-        "nearStillPct": 25,
-        "nearStillSec": 0.933,
-        "blurredFrames": 37,
-        "maxSpeedPxPerFrame": 252.6
+        "nearStillPct": 30.4,
+        "nearStillSec": 1.133,
+        "blurredFrames": 38,
+        "maxSpeedPxPerFrame": 388.3
+      },
+      {
+        "beat": "b09",
+        "frames": 112,
+        "nearStillPct": 43.2,
+        "nearStillSec": 1.6,
+        "blurredFrames": 33,
+        "maxSpeedPxPerFrame": 147.2
+      },
+      {
+        "beat": "b10",
+        "frames": 99,
+        "nearStillPct": 78.6,
+        "nearStillSec": 2.567,
+        "blurredFrames": 27,
+        "maxSpeedPxPerFrame": 184.8
+      },
+      {
+        "beat": "b11",
+        "frames": 84,
+        "nearStillPct": 32.5,
+        "nearStillSec": 0.9,
+        "blurredFrames": 3,
+        "maxSpeedPxPerFrame": 43.8
       }
     ]
   }

@@ -14,8 +14,17 @@ const line = (lt, e) => {
   return lerpCarry(e.hin, e.hout, p);
 };
 
+import { FONT } from "../core/brand.js";
+
 let cached = null;
-const getLayout = (ctx, e) => (cached ??= layout(ctx, e.hout));
+let cachedFont = null;
+const getLayout = (ctx, e) => {
+  if (!cached || cachedFont !== FONT.display) {
+    cached = layout(ctx, e.hout);
+    cachedFont = FONT.display;
+  }
+  return cached;
+};
 
 export default {
   id: "b04",

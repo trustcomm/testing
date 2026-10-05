@@ -13,8 +13,8 @@ const CHROME = process.env.GDL_CHROME ?? "/opt/pw-browsers/chromium_headless_she
 function serve() {
   const srv = createServer(async (req, res) => {
     const url = decodeURIComponent(new URL(req.url, "http://x").pathname);
-    // /engine/... → engine dir; /canva/... → film's canva dir (stills, when they land).
-    const file = url.startsWith("/canva/") ? path.join(FILM, url) : path.join(ROOT, url);
+    // /engine/... → engine dir; /canva/... and /brand/... → the film folder.
+    const file = url.startsWith("/canva/") || url.startsWith("/brand/") ? path.join(FILM, url) : path.join(ROOT, url);
     if (!file.startsWith(FILM)) return res.writeHead(403).end();
     try {
       const body = await readFile(file);

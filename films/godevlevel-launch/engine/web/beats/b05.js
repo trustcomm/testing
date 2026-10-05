@@ -142,3 +142,15 @@ export default {
     if (blinkOn) drawCarry(ctx, caret);
   },
 };
+
+/** The finished code line (for Beat 6 to carry off), with opacity a and vertical offset dy. */
+export function drawCodeLine(ctx, zoom, a = 1, dy = 0) {
+  const m = metrics(ctx);
+  let i = 0;
+  for (const [tok, role] of CODE) {
+    const fill = role === "dim" ? alpha("ink", 0.6) : role;
+    text(ctx, tok, m.x0 + i * m.charW, BASE + dy, { family: FONT.mono, weight: 500, size: SIZE, fill, zoom, alpha: a });
+    i += tok.length;
+  }
+  return { caret: caretAt(m, SRC.length) };
+}

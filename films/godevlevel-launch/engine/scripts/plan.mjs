@@ -74,40 +74,50 @@ const HANDOFF = {
   b07: { kind: "frame", x: 360, y: 202.5, w: 1200, h: 675, r: 20, stroke: 6, colour: orange },
   b08: { kind: "frame", x: 746.25, y: 160, w: 427.5, h: 760, r: 20, stroke: 6, colour: orange },
   b09: { kind: "dot", x: 950, y: 530, w: 20, h: 20, r: 10, colour: orange },
-  b10: { kind: "wordmark", x: 560, y: 440, w: 800, h: 200, r: 0, colour: "ink" },
+  // Reversed logo (assets/logo-reversed.png, 1565×194) at 960 px wide, centred.
+  b10: { kind: "wordmark", x: 480, y: 480.5, w: 960, h: 119, r: 0, colour: "ink" },
   b11: null,
 };
 
 // Beats: grid length in beats, VO placement, carry name. `still` = planned near-still seconds (local).
 const SPEC = [
   { id: "b01", n: 4, voice: "V1", voAt: { beats: 1 }, carry: "Phone outline", built: true },
-  { id: "b02", n: 2, voice: "V2", voAt: { sec: -0.1 }, carry: "Tower outline" },
-  { id: "b03", n: 4, voice: "V3", voAt: { sec: 0.26 }, carry: "Tag's bottom edge" },
+  { id: "b02", n: 2, voice: "V2", voAt: { sec: -0.1 }, carry: "Tower outline", built: true },
+  { id: "b03", n: 4, voice: "V3", voAt: { sec: 0.26 }, carry: "Tag's bottom edge", built: true },
   { id: "b04", n: 8, voice: "V4", voAt: { beats: 1 }, carry: "Underline", built: true, still: [[0.47, 3.75]] },
   { id: "b05", n: 6, voice: "V5", voAt: { beats: 0 }, carry: "Code editor window", built: true },
-  { id: "b06", n: 8, voice: "V6", voAt: { beats: 0 }, carry: "Product frame" },
-  { id: "b07", n: 6, voice: "V7", voAt: { beats: 0 }, carry: "Product frame" },
+  { id: "b06", n: 8, voice: "V6", voAt: { beats: 0 }, carry: "Product frame", built: true },
+  { id: "b07", n: 6, voice: "V7", voAt: { beats: 0 }, carry: "Product frame", built: true },
   { id: "b08", n: 8, voice: "V8", voAt: { beats: 0 }, carry: "9:16 frame", built: true },
-  { id: "b09", n: 8, voice: "V9", voAt: { beats: 0 }, carry: "Orange dot" },
-  { id: "b10", n: 7, voice: "V10", voAt: { beats: 2 }, carry: "Wordmark", still: [[0, 0.9], [1.9, 3.28]] },
-  { id: "b11", n: 6, voice: "V11", voAt: { beats: 0 }, carry: null, still: [[1.6, 2.4]] },
+  { id: "b09", n: 8, voice: "V9", voAt: { beats: 0 }, carry: "Orange dot", built: true },
+  { id: "b10", n: 7, voice: "V10", voAt: { beats: 2 }, carry: "Wordmark", built: true, still: [[0, 0.9375], [2.15, 3.28]] },
+  { id: "b11", n: 6, voice: "V11", voAt: { beats: 0 }, carry: null, built: true, still: [[1.7, 2.36]] },
 ];
 
 // Global camera keys (film time). PROVISIONAL; interpolated by a monotone cubic Hermite in web/core/camera.js.
 const CAMERA = [
   { t: 0, x: 960, y: 540, z: 1.0 },
   { t: 0.9375, x: 960, y: 540, z: 1.0 },
-  { t: 1.875, x: 960, y: 540, z: 1.06 },
-  { t: 2.8125, x: 960, y: 520, z: 1.0 },
+  { t: 1.875, x: 960, y: 540, z: 1.06 }, // b01 push on the phone
+  { t: 2.8125, x: 960, y: 530, z: 1.0 }, // b02 whip: tower fits
+  { t: 3.75, x: 960, y: 600, z: 1.04 }, // b03 push on the tag
   { t: 4.6875, x: 960, y: 540, z: 1.0 },
-  { t: 8.4375, x: 968, y: 540, z: 1.015 },
-  { t: 9.6, x: 960, y: 420, z: 1.1 },
+  { t: 8.4375, x: 968, y: 540, z: 1.015 }, // b04 tiny drift
+  { t: 9.6, x: 960, y: 420, z: 1.1 }, // b05 re-centre on the code line
   { t: 11.25, x: 960, y: 400, z: 1.12 },
+  { t: 12.0, x: 960, y: 540, z: 1.0 }, // b06 frame opens
   { t: 15.0, x: 960, y: 540, z: 1.0 },
+  { t: 15.6, x: 1000, y: 800, z: 1.35 }, // b07 close-up on the code line + price
+  { t: 16.9, x: 1000, y: 800, z: 1.38 },
+  { t: 17.6, x: 960, y: 540, z: 1.0 }, // pull back for the split; settled before the cut so the frame is at rest across it
   { t: 17.8125, x: 960, y: 540, z: 1.0 },
   { t: 21.5625, x: 960, y: 530, z: 1.03 },
+  { t: 23.4, x: 960, y: 540, z: 1.06 }, // b09 energy push
   { t: 25.3125, x: 960, y: 540, z: 1.0 },
-  { t: 31.40625, x: 960, y: 540, z: 1.0 },
+  { t: 26.25, x: 960, y: 540, z: 1.0 }, // b10 dot dead still
+  { t: 28.59375, x: 960, y: 540, z: 1.0 },
+  { t: 30.0, x: 960, y: 530, z: 1.02 }, // b11 settle
+  { t: 31.40625, x: 960, y: 530, z: 1.02 },
 ];
 
 const syllables = (w) => {

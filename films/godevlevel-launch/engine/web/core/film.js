@@ -5,8 +5,8 @@ import { drawCarry, matches } from "./carry.js";
 import { FONT } from "./brand.js";
 
 const BLUR_MIN_SPEED = 6; // screen px per frame before blur starts
-const BLUR_PX_PER_SAMPLE = 4; // one extra sample per this many px of travel
-const BLUR_MAX_SAMPLES = 16;
+const BLUR_SAMPLE_SPACING = 8; // max px between sub-frame samples (thinner than a caret, so trails stay continuous)
+const BLUR_MAX_SAMPLES = 48;
 const SHUTTER = 0.5; // fraction of a frame the virtual shutter is open (trailing)
 
 export class Film {
@@ -76,7 +76,7 @@ export class Film {
     const m = this.module(b);
     const dt = 1 / this.fps;
     const lt = t - e.t0;
-    if (lt - dt < 0) return 0;
+    if (lt - dt < -1e-9) return 0; // tolerance: lt - dt on the 2nd frame of a beat can be -1e-17
     const now = m.track(lt, e);
     const before = m.track(lt - dt, e);
     const c1 = this.cam(t), c0 = this.cam(t - dt);
@@ -112,7 +112,7 @@ export class Film {
     const t = f / this.fps;
     const t0 = b.startFrame / this.fps;
     const v = blur ? this.speed(b, t) : 0;
-    const n = v < BLUR_MIN_SPEED ? 1 : Math.min(BLUR_MAX_SAMPLES, Math.max(2, Math.ceil(v / BLUR_PX_PER_SAMPLE)));
+    const n = v < BLUR_MIN_SPEED ? 1 : Math.min(BLUR_MAX_SAMPLES, Math.max(2, Math.ceil((v * SHUTTER) / BLUR_SAMPLE_SPACING) + 1));
     if (n === 1) {
       this.drawAt(this.ctx, b, t, scale);
       return { frame: f, beat: b.id, t, speed: v, samples: 1 };

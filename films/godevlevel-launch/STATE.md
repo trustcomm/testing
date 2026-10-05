@@ -3,9 +3,10 @@
 Updated after every step. Asset-level detail (Canva IDs, export jobs) lives in `canva/ASSETS.md`.
 
 ## Current stage
-**Asset-free work done, stopped for review ⏸.** I built the continuity engine, a PROVISIONAL timeline and three exemplars (Beat 1, Beats 4→5, Beat 8), then ran the checker.
+**All 11 beats are built asset-free on the PROVISIONAL grid; stopped for review ⏸.**
+- Every boundary has a carry score and all pass. Placeholders stand in wherever footage or stills go.
 - Stage 1 is still waiting on stills, footage, music and refs/.
-- The final Stage 2 timeline (re-gridded to the real music) and the full Stage 4 build wait until the user confirms every asset is in place.
+- The final Stage 2 timeline (re-gridded to the real music) and the full asset build wait until the user confirms that footage, music and refs are in.
 
 ## Approved decisions
 - **Brand** (no Canva Brand Kit exists; colours taken from `brand/logo.png`):
@@ -35,6 +36,11 @@ Updated after every step. Asset-level detail (Canva IDs, export jobs) lives in `
   Beats are laid out audio-first around the voice. The film may run 30–32 s. Loudness is normalised in the mix.
 - **VO is final for v1.** Same file, vo-master.mp3 (26.83 s, −21.5 LUFS, ElevenLabs voice "Jay Johnson"). The accent may be revisited for an Indian / godevlevel.in version. Confirm the ElevenLabs plan allows commercial use.
 - **No Hinglish** in this version.
+- **The V2 overlap across the Beat 2→3 cut is approved** (user, 2026-10-05).
+- **Beat 8:** the "SAMPLE PRICE" label is removed (user). Beat 8 shows Beat 7's AFTER price.
+- **SAMPLE CONTENT.** It is illustrative only: a fictional, unbranded phone. Replace it with a real client example later. It is defined once, in `engine/web/beats/shared/adframe.js`:
+  - Headline "New phone / in store." (from V1). Beat 6's word swap goes from "New product" to "New phone".
+  - Beat 7 price: BEFORE **₹21,999** → AFTER **₹19,999**. Beats 8 and 9 show the AFTER price.
 - **Asset delivery is manual.** The user downloads from Canva and pushes files to the branch; I no longer retry the proxy.
   - Stills: `canva/stills/I1.png`, `S1.png` … `S5.png`.
   - Footage: `canva/footage/H1.mp4` … `H5.mp4`.
@@ -43,8 +49,10 @@ Updated after every step. Asset-level detail (Canva IDs, export jobs) lives in `
 ## Open items
 | Item | Owner | Status |
 |---|---|---|
-| Review exemplars (Beat 1, Beats 4→5, Beat 8), the provisional timeline and the font choice (Inter Tight or Archivo) | user | waiting ⏸ |
-| Approve Beat 8 sample content (headline "New phone in store.", price "₹19,999 · SAMPLE PRICE") | user | waiting |
+| Pick the display face from `engine/out/font-compare/compare.png` (user leans Archivo) | user | waiting ⏸ |
+| Review the full asset-free draft and approve the interpretations above (reversed wordmark, URL .com or .in) | user | waiting ⏸ |
+| Motion notes on the exemplars | user | waiting |
+| Replace the SAMPLE frame content with a real client example | user | later |
 | Stills I1, S1–S5 on the branch | user, by hand from holder pages 2–7 | waiting |
 | Dimension check: I1 1680×944, S1–S5 944×1680 | me | once the stills arrive |
 | Footage H1–H5.mp4 ("GDL Launch — Footage") | user | waiting |
@@ -61,7 +69,7 @@ Updated after every step. Asset-level detail (Canva IDs, export jobs) lives in `
 - **One camera** (`web/core/camera.js`): keys over film time, interpolated with a monotone cubic Hermite. Position and velocity are continuous and it never overshoots, so it cannot jump at a boundary.
 - **Motion blur** (`web/core/film.js`):
   - Applies only when tracked points move ≥ 6 screen px per frame.
-  - 2–16 sub-frame samples over a trailing half-frame shutter, clamped to the current beat.
+  - 2–48 sub-frame samples (at most 8 px apart) over a trailing half-frame shutter, clamped to the current beat.
   - Samples are accumulated as integers, so output is deterministic.
   - Discrete steps (the typed caret) are not tracked.
 - **Rules enforced in code:** orange text under 48 screen px throws an error. Placeholders are flat and labelled "PLACEHOLDER", never fake imagery.
@@ -92,21 +100,63 @@ Updated after every step. Asset-level detail (Canva IDs, export jobs) lives in `
 - **Length:** 31.41 s, 67 beats.
 - **Spread:** 4.0× (just meets ≥4×). Only b02 can be that short, and only because V2 pre-laps the cut.
 - **No three equal beats in a row.**
-- **Planned near-still:** 6.36 s (20.3%).
+- **Planned near-still:** 6.0 s (19.1%).
 - **Word onsets are estimated** (syllable-proportional inside detected phrases). Real alignment can replace them.
 
-## Exemplar check (2026-10-05, PROVISIONAL grid)
-- **Contracts:** b01, b04, b05 and b08 match handoffIn and handoffOut exactly.
-- **Camera:** max 8.8 px/frame, no jump at any boundary.
-- **Carry b04→b05** (frame 252 vs 253, handoff region): pixel 0.9981, carry-mask IoU 0.9994, whole frame 0.9994. PASS. Every other boundary is pending until its neighbouring beats are built.
-- **Determinism:** 17 frames, identical in the same session and in a fresh browser. PASS.
-- **Measured near-still (strict metric):** b01 74.5%, b04 48.6%, b05 57.1%, b08 25.0%.
-  - b04 was 31.5% before word rises were shortened from 0.32 s to 0.20 s.
-- **Motion blur:** on 21/56 (b01), 26/112 (b04), 18/85 (b05) and 37/113 (b08) frames.
-- **Outputs:** stills and contact sheet in `engine/out/stills/`; previews with VO in `engine/out/preview-*.mp4`.
-- **Still to be approved:**
-  - Sample content in the Beat 8 frame: headline "New phone in store." (from V1) and price "₹19,999", labelled "SAMPLE PRICE".
-  - The placeholder tint, which is charcoal blended 7% toward off-white.
+## Full asset-free build: check (2026-10-05, PROVISIONAL grid)
+- **Handoff contracts:** all 11 beats start exactly at handoffIn and end exactly at handoffOut (|Δ| ≤ 1e-6).
+- **Camera:** max 57.6 px/frame (the Beat 7 pull-back), with no jump at any of the 10 boundaries.
+- **Carry scores** (last frame of A vs first frame of B, inside the handoff region; pass = pixel ≥ 0.98 and orange-mask IoU ≥ 0.95):
+
+  | Boundary | Carry | Pixel | Mask IoU | Whole frame |
+  |---|---|---|---|---|
+  | b01→b02 | Phone outline | 0.99965 | 0.99626 | 0.99995 |
+  | b02→b03 | Tower outline | 0.99951 | 0.99968 | 0.99992 |
+  | b03→b04 | Tag's bottom edge | 0.99999 | 1.00000 | 1.00000 |
+  | b04→b05 | Underline | 0.99810 | 0.99943 | 0.99940 |
+  | b05→b06 | Code editor window | 0.99755 | 0.99938 | 0.99949 |
+  | b06→b07 | Product frame | 1.00000 | 1.00000 | 1.00000 |
+  | b07→b08 | Product frame | 1.00000 | 1.00000 | 1.00000 |
+  | b08→b09 | 9:16 frame | 0.99920 | 0.97104 | 0.99985 |
+  | b09→b10 | Orange dot | 1.00000 | 1.00000 | 1.00000 |
+  | b10→b11 | Wordmark | 1.00000 | 1.00000 | 0.99834 |
+
+- **Fixed on the way:**
+  - 2→3 was pixel 0.958: Beat 3 now carries the tower's H2 contents through the snap.
+  - 7→8 was IoU 0.51: the camera was still settling at the cut, so the pull-back now ends at 17.6 s.
+  - 3→4 was 0.982: the tag shed now finishes before the last frame.
+- **Not perfect:** 8→9 IoU is 0.971 because the camera keeps moving through that cut. It is continuous, with no jump.
+- **Determinism:** 24 frames, identical in the same session and in a fresh browser.
+- **Rhythm:**
+  - Spread 4.0×, with no three equal beats in a row.
+  - Planned near-still is 6.0 s (19.1%).
+  - Measured near-still totals 14.1 s (45%). This is inflated: the placeholders are flat and static, and real H1–H5 and I1 will move. Stillness has to be re-measured once footage is in.
+  - Per beat: b01 74.5%, b02 3.7%, b03 1.8%, b04 48.6%, b05 57.1%, b06 66.7%, b07 22.9%, b08 30.4%, b09 43.2%, b10 78.6%, b11 32.5%.
+- **Motion blur:** 234 of 942 frames are blurred.
+  - Samples are now spaced at most 8 px apart (max 48), so a 10 px caret trail stays continuous. At 16 samples, Beat 6's caret drop showed a comb of lines.
+- **Engine fixes:**
+  - The second frame of each beat lost its blur through a −1e-17 float; fixed with a tolerance.
+  - A tracked-point jump faked a 1781 px/frame speed in Beat 6.
+  - Infinite-size clip rects blanked Beat 6's frame and Beat 10's wordmark.
+- **Outputs** (in `engine/out/`):
+  - `draft-full.mp4`: the full film with VO, no music or SFX.
+  - `contact-1fps.png`.
+  - `stills/`.
+  - `font-compare/compare.png`.
+  - `check.json`.
+
+## Asset-free interpretations to approve
+- **Wordmark:** `engine/assets/logo-reversed.png` is derived from `brand/logo.png`, recoloured for the charcoal ground (`scripts/logo.py`).
+  - "Go" and "Level" become off-white #F5F3EF; "Dev" stays orange; the letters themselves are untouched.
+  - The orange bar under "Level" is the caret settling. It is not in the logo file.
+- **Beat 3:** "OFFER" stamps at 84 / 104 / 124 px (each bigger, capped to fit the tag) in off-white inside the orange tag.
+- **Beat 6:** "the whole frame recolours" is read as the frame starting ink-only and neutral. On "Your colours." the three brand swatches pop and the caret sweeps across, turning it orange and branded.
+- **Beat 7:** a one-line code strip under the frame, `price: "₹21,999"`, scrambles to "₹19,999" in sync with the frame. "Re-render." runs an orange line down the frame.
+- **Beat 9:** the first flip starts on the cut. The flips are centred on beats 2, 4 and 6, and the shrink to the dot runs from beat 7 to beat 8.
+- **Beat 11:**
+  - Tagline "Build your launch.": Display 76 px, off-white.
+  - URL: "godevlevel.com". Confirm .com or .in.
+  - Final hit on the 30.000 s downbeat: the bar runs the full wordmark width with a 3% pop. The fade to charcoal runs over the last 0.45 s.
 
 ## Blockers
 - **Network:** the proxy refuses `export-download.canva.com:443` with `request blocked: no rule or allowlist entry allows host "export-download.canva.com"`. This was last seen at 2026-10-05 08:00 UTC, and the allow-list change didn't reach this session. It's worked around by manual downloads; I no longer retry.
@@ -119,3 +169,7 @@ Updated after every step. Asset-level detail (Canva IDs, export jobs) lives in `
   - Created STATE.md.
   - Logged the VO as final for v1.
   - Built the continuity engine, PROVISIONAL timeline, exemplars and checker; all checks pass. Stopped for review.
+  - Review round 1: made the font comparison; removed Beat 8's SAMPLE label; defined Beat 7's before/after prices.
+  - Built Beats 2, 3, 6, 7, 9, 10 and 11.
+  - The checker covers all 10 boundaries and all pass, after fixes to 2→3, 3→4 and 7→8, the blur spacing and three engine bugs.
+  - Stopped for review.
