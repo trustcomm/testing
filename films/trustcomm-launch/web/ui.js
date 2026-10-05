@@ -1,20 +1,20 @@
-// Vector UI parts for the Trustcomm film, built from the QR square's geometry (rounded squares, pills, circles).
-// The rating-page layout is PROVISIONAL: drawn from the brief's own words (BRIEF §4) until real /r/demo screenshots
-// arrive in ui/; nothing here copies Google's UI, logo, font or colours.
+// Vector UI parts for the Trustcomm film: film graphics built from the QR square's geometry (rounded squares, pills,
+// circles) and the real /r/demo screens rebuilt from ui/demo-*.jpg. Nothing here copies Google's UI, logo, font or colours.
 import { rrect } from "../../godevlevel-launch/engine/web/core/carry.js";
 import { clamp } from "../../godevlevel-launch/engine/web/core/ease.js";
-import { col, FONT, rgba } from "./brand.js";
+import { col, FONT, rgba, UIFONT } from "./brand.js";
 
 export { rrect };
 
 /** Every string drawn on screen is recorded here so the checker can audit it against the fact ledger. */
 export const DRAWN = new Set();
 
-export function txt(ctx, s, x, y, { size, weight = 600, fill = "ink", align = "center", alpha = 1, baseline = "alphabetic" }) {
+/** Text. font: "film" = Poppins (titles, big type) · "ui" = Inter + Noto (inside the phone screens). */
+export function txt(ctx, s, x, y, { size, weight = 600, fill = "ink", align = "center", alpha = 1, baseline = "alphabetic", font = "film" }) {
   DRAWN.add(s);
   ctx.save();
   ctx.globalAlpha *= alpha;
-  ctx.font = `${weight} ${size}px ${FONT}`;
+  ctx.font = `${weight} ${size}px ${font === "ui" ? UIFONT : FONT}`;
   ctx.textAlign = align;
   ctx.textBaseline = baseline;
   ctx.fillStyle = col(fill);
@@ -22,9 +22,9 @@ export function txt(ctx, s, x, y, { size, weight = 600, fill = "ink", align = "c
   ctx.restore();
 }
 
-export function textWidth(ctx, s, size, weight = 600) {
+export function textWidth(ctx, s, size, weight = 600, font = "film") {
   ctx.save();
-  ctx.font = `${weight} ${size}px ${FONT}`;
+  ctx.font = `${weight} ${size}px ${font === "ui" ? UIFONT : FONT}`;
   const w = ctx.measureText(s).width;
   ctx.restore();
   return w;
@@ -143,13 +143,13 @@ export function chip(ctx, label, cx, cy, { size = 34, fill = "white", ink = "ink
 }
 
 /** Word-wrap `s` to `maxW` at `size`/`weight`; returns lines. */
-export function wrap(ctx, s, maxW, size, weight = 500) {
+export function wrap(ctx, s, maxW, size, weight = 500, font = "film") {
   const words = s.split(" ");
   const lines = [];
   let cur = "";
   for (const w of words) {
     const t = cur ? cur + " " + w : w;
-    if (cur && textWidth(ctx, t, size, weight) > maxW) { lines.push(cur); cur = w; } else cur = t;
+    if (cur && textWidth(ctx, t, size, weight, font) > maxW) { lines.push(cur); cur = w; } else cur = t;
   }
   if (cur) lines.push(cur);
   return lines;
@@ -157,11 +157,16 @@ export function wrap(ctx, s, maxW, size, weight = 500) {
 
 // ---------------------------------------------------------------------------------------------------------------
 // The real /r/demo screens (ui/demo-*.jpg), rebuilt in vector inside the phone's screen (332 × 712 units).
-// Layout, copy, order, components and colours follow the screenshots; positions are the screenshot's column
-// (602 px) scaled to the phone's 300-unit content width; type is ~1.2× that scale, as the page renders on a phone.
-// Font: Poppins (the user's choice for the film) — the product itself uses a system-style sans.
+// Type: Inter (OFL, closest match to the product's system sans) at the product's own CSS sizes, measured from the
+// screenshots by fitting Inter widths to the rendered text (scale 1.256 px per CSS px): page title 32, headings 20,
+// chips 18, body 16 — semibold headings, regular body. The product column is 480 CSS px; it maps to the phone's
+// 300-unit content width (CSS → units ×0.625), so layout and wraps follow the screenshots: three chips per row.
+// PENDING the user's phone screenshots (not received): mobile wrap points and the unrated-star colour.
 // ---------------------------------------------------------------------------------------------------------------
+export const CSS = 0.625; // units per CSS px
 const X0 = 16, CW = 300; // content left edge and width in the screen
+const SZ = { title: 32 * CSS, h3: 20 * CSS, chip: 18 * CSS, body: 16 * CSS, btn: 18 * CSS };
+const ui = (o) => ({ font: "ui", ...o });
 
 /** Progress dots: step 0..2 of 3 (done = blue dot, current = blue pill, to-do = grey dot). */
 function dots(ctx, sr, step) {
@@ -177,7 +182,7 @@ function dots(ctx, sr, step) {
 }
 
 /** Five-point star centred at (cx, cy), outer radius r. */
-function star(ctx, cx, cy, r, fill) {
+export function star(ctx, cx, cy, r, fill) {
   ctx.beginPath();
   for (let i = 0; i < 10; i++) {
     const a = -Math.PI / 2 + (i * Math.PI) / 5, rr = i % 2 ? r * 0.45 : r;
@@ -192,60 +197,71 @@ function star(ctx, cx, cy, r, fill) {
   ctx.stroke();
 }
 
-/** A row of chips, wrapped to the content width. Returns the y below the last row. */
-function chipFlow(ctx, sr, items, y, { size = 11, h = 34, gap = 8, alpha = 1 } = {}) {
+/** Chips wrapped to the content width. Returns { bottom, rects } (rects keyed by label). */
+export function chipFlow(ctx, sr, items, y, { alpha = 1, press = {} } = {}) {
+  const h = 35, gap = 7.5, pad = 13.2;
   let x = sr.x + X0;
+  const rects = {};
   for (const [label, on] of items) {
     const text = on ? "✓ " + label : label;
-    const w = textWidth(ctx, text, size, 500) + 22;
+    const w = textWidth(ctx, text, SZ.chip, 400, "ui") + 2 * pad;
     if (x + w > sr.x + X0 + CW + 0.5) { x = sr.x + X0; y += h + gap; }
+    const pr = press[label] ?? 0;
     ctx.save();
     ctx.globalAlpha *= alpha;
+    const cx = x + w / 2, cy = y + h / 2, sc = 1 - 0.06 * pr;
+    ctx.translate(cx, cy); ctx.scale(sc, sc); ctx.translate(-cx, -cy);
     rrect(ctx, x, y, w, h, h / 2);
     ctx.fillStyle = col(on ? "blue" : "paper");
     ctx.fill();
     if (!on) { ctx.strokeStyle = col("edge"); ctx.lineWidth = 1; ctx.stroke(); }
+    txt(ctx, text, cx, cy + SZ.chip * 0.36, ui({ size: SZ.chip, weight: 400, fill: on ? "white" : "ink" }));
     ctx.restore();
-    txt(ctx, text, x + w / 2, y + h / 2 + size * 0.36, { size, weight: 500, fill: on ? "white" : "ink", alpha });
+    rects[label] = { x, y, w, h };
     x += w + gap;
   }
-  return y + h;
+  return { bottom: y + h, rects };
 }
 
 /** Bottom bar with the blue full-width button ("Continue", "Send to owner" …). press 0–1 darkens it. */
-function bottomButton(ctx, sr, label, press = 0) {
+export function bottomButton(ctx, sr, label, press = 0) {
   const top = sr.y + sr.h - 66;
   ctx.fillStyle = "#FAFBF6";
   ctx.fillRect(sr.x, top, sr.w, 66);
   ctx.fillStyle = col("line");
   ctx.fillRect(sr.x, top, sr.w, 1);
-  rrect(ctx, sr.x + X0, top + 12, CW, 42, 8);
+  rrect(ctx, sr.x + X0, top + 12, CW, 41, 8);
   ctx.fillStyle = col("blue");
   ctx.fill();
   if (press > 0) { ctx.fillStyle = `rgba(0,0,0,${0.18 * press})`; ctx.fill(); }
-  txt(ctx, label, sr.x + sr.w / 2, top + 12 + 21 + 5, { size: 14, weight: 600, fill: "white" });
+  txt(ctx, label, sr.x + sr.w / 2, top + 12 + 20.5 + SZ.btn * 0.36, ui({ size: SZ.btn, weight: 600, fill: "white" }));
 }
 
-export const MENTION = [["The food", false], ["How long it took", false], ["The price", false], ["How clean it was", false], ["The staff", false], ["The portions", false]];
-export const HAD = [["Masala Dosa", false], ["Filter Coffee", false], ["Idli Vada", false]];
+export const MENTION = ["The food", "How long it took", "The price", "How clean it was", "The staff", "The portions"];
+export const HAD = ["Masala Dosa", "Filter Coffee", "Idli Vada"];
 // As in ui/demo-1: the customer ticked two things; nothing was pre-ticked (F6).
 export const TICKED = { "How long it took": true, "Filter Coffee": true };
 
+/** Layout of screen 1 (y positions in screen units from the screen top, before scrolling). */
+export const PAGE1 = { q1: 72, q2: 190, mention: 314, had: 0 };
+
 /**
  * Screen 1 (ui/demo-1): rate (food, service) + "What should the review mention?" + "What did you have?".
- * pop: 0–1 stagger of the stars appearing; rated: null (unrated) or { food: n, service: n }; ticked: chip map;
- * scroll: units the page is scrolled up; press: Continue button press 0–1.
+ * pop: 0–1 stagger of the stars appearing; rated: { food: n, service: n } (n = 0 unrated); ticked: chip map;
+ * scroll: units the page is scrolled up; press: Continue 0–1; question: replaces "How was the food?" (Beat 8 flips);
+ * starPress: { food: i, service: i } index of a star being pressed (scale dip); chipPress: { label: 0–1 }.
+ * Returns the chip rects (screen coords, unscrolled) for taps.
  */
-export function ratingPage(ctx, sr, { pop = 1, rated = null, ticked = {}, scroll = 0, press = 0 } = {}) {
+export function ratingPage(ctx, sr, { pop = 1, rated = { food: 0, service: 0 }, ticked = {}, scroll = 0, press = 0, question = null, chipPress = {} } = {}) {
   ctx.fillStyle = col("paper");
   ctx.fillRect(sr.x, sr.y, sr.w, sr.h);
   ctx.save();
   ctx.translate(0, -scroll);
   dots(ctx, sr, 0);
   const L = sr.x + X0;
-  let y = sr.y + 72;
-  for (const [q, key] of [["How was the food?", "food"], ["How was the service?", "service"]]) {
-    txt(ctx, q, L, y, { size: 16, weight: 600, fill: "ink", align: "left" });
+  let y = sr.y + PAGE1.q1;
+  for (const [q, key] of [[question ?? "How was the food?", "food"], ["How was the service?", "service"]]) {
+    txt(ctx, q, L, y, ui({ size: SZ.h3, weight: 600, fill: "ink", align: "left" }));
     for (let i = 0; i < 5; i++) {
       const p = clamp(pop * 5 - i * 0.8);
       const s = p <= 0 ? 0 : 1 + 0.25 * Math.sin(Math.PI * p) * (1 - p);
@@ -254,26 +270,29 @@ export function ratingPage(ctx, sr, { pop = 1, rated = null, ticked = {}, scroll
       const cx = sr.x + sr.w / 2 + (i - 2) * 47, cy = y + 37;
       ctx.translate(cx, cy);
       ctx.scale(s, s);
-      star(ctx, 0, 0, 14, rated && i < rated[key] ? "blue" : "starOff");
+      star(ctx, 0, 0, 14, i < (rated[key] ?? 0) ? "blue" : "starOff");
       ctx.restore();
     }
     // Only the 5-star label is known from the screenshots ("Excellent"); other ratings draw no label.
-    if (rated && rated[key] === 5) txt(ctx, "Excellent", sr.x + sr.w / 2, y + 74, { size: 11.5, weight: 500, fill: "grey" });
+    if (rated[key] === 5) txt(ctx, "Excellent", sr.x + sr.w / 2, y + 74, ui({ size: SZ.body, weight: 400, fill: "grey" }));
     y += 118;
   }
   y += 4;
-  txt(ctx, "What should the review mention?", L, y, { size: 16, weight: 600, fill: "ink", align: "left" });
-  y += 22;
-  for (const line of wrap(ctx, "Pick only what you want mentioned. Nothing is ticked for you.", CW, 11.5)) {
-    txt(ctx, line, L, y, { size: 11.5, weight: 500, fill: "grey", align: "left" });
-    y += 16;
+  txt(ctx, "What should the review mention?", L, y, ui({ size: SZ.h3, weight: 600, fill: "ink", align: "left" }));
+  y += 24;
+  for (const line of wrap(ctx, "Pick only what you want mentioned. Nothing is ticked for you.", CW, SZ.body, 400, "ui")) {
+    txt(ctx, line, L, y, ui({ size: SZ.body, weight: 400, fill: "grey", align: "left" }));
+    y += 15;
   }
-  y = chipFlow(ctx, sr, MENTION.map(([l]) => [l, !!ticked[l]]), y + 6);
-  y += 34;
-  txt(ctx, "What did you have?", L, y, { size: 16, weight: 600, fill: "ink", align: "left" });
-  chipFlow(ctx, sr, HAD.map(([l]) => [l, !!ticked[l]]), y + 14);
+  const m = chipFlow(ctx, sr, MENTION.map((l) => [l, !!ticked[l]]), y + 4, { press: chipPress });
+  y = m.bottom + 42;
+  txt(ctx, "What did you have?", L, y, ui({ size: SZ.h3, weight: 600, fill: "ink", align: "left" }));
+  const h = chipFlow(ctx, sr, HAD.map((l) => [l, !!ticked[l]]), y + 14, { press: chipPress });
   ctx.restore();
   bottomButton(ctx, sr, "Continue", press);
+  const rects = { ...m.rects, ...h.rects };
+  for (const r of Object.values(rects)) r.y -= scroll;
+  return rects;
 }
 
 /** Card geometry of screen 2 (ui/demo-2), in screen units. Both cards are the same size. */
@@ -282,11 +301,11 @@ export const CHOICES = [
   { title: "On Google", sub: "Anyone looking up Meera's Tiffin Room sees it." },
 ];
 export function chooseLayout(sr) {
-  const top = sr.y + 236;
-  return { head: top, cards: [0, 1].map((i) => ({ x: sr.x + X0, y: top + 74 + i * 92, w: CW, h: 82, r: 11 })), link: top + 74 + 2 * 92 + 34 };
+  const top = sr.y + 244;
+  return { head: top, cards: [0, 1].map((i) => ({ x: sr.x + X0, y: top + 58 + i * 78, w: CW, h: 68, r: 11 })), link: top + 58 + 2 * 78 + 30 };
 }
 
-/** One choice card (screen-2 style) at rect r; `big` scales the type for the Beat 10 split. alpha for text only. */
+/** One choice card (screen-2 style) at rect r; `big` scales the type (the Beat 10 split). alpha for text only. */
 export function choiceCard(ctx, r, i, { big = 1, textAlpha = 1, stroke = "edge", strokeW = 1 } = {}) {
   rrect(ctx, r.x, r.y, r.w, r.h, r.r);
   ctx.fillStyle = col("white");
@@ -295,45 +314,108 @@ export function choiceCard(ctx, r, i, { big = 1, textAlpha = 1, stroke = "edge",
   ctx.lineWidth = strokeW;
   ctx.stroke();
   if (textAlpha <= 0) return;
-  const pad = 15 * big, ts = 14.5 * big, ss = 11 * big;
-  const lines = wrap(ctx, CHOICES[i].sub, r.w - 2 * pad, ss);
-  const blockH = ts + 8 * big + lines.length * ss * 1.45;
+  const pad = 15.5 * big, ts = SZ.h3 * big, ss = SZ.body * big;
+  const lines = wrap(ctx, CHOICES[i].sub, r.w - 2 * pad, ss, 400, "ui");
+  const blockH = ts + 7 * big + lines.length * ss * 1.45;
   let y = r.y + (r.h - blockH) / 2 + ts * 0.8;
-  txt(ctx, CHOICES[i].title, r.x + pad, y, { size: ts, weight: 600, fill: "ink", align: "left", alpha: textAlpha });
-  y += 8 * big + ss * 1.25;
+  txt(ctx, CHOICES[i].title, r.x + pad, y, ui({ size: ts, weight: 600, fill: "ink", align: "left", alpha: textAlpha }));
+  y += 7 * big + ss * 1.25;
   for (const l of lines) {
-    txt(ctx, l, r.x + pad, y, { size: ss, weight: 500, fill: "grey", align: "left", alpha: textAlpha });
+    txt(ctx, l, r.x + pad, y, ui({ size: ss, weight: 400, fill: "grey", align: "left", alpha: textAlpha }));
     y += ss * 1.45;
   }
 }
 
 /** Screen 2 (ui/demo-2): "Where should your words go?" — the customer's free choice (F7). */
-export function choosePage(ctx, sr, { cardsAlpha = 1, textAlpha = 1 } = {}) {
+export function choosePage(ctx, sr, { cardsAlpha = 1, textAlpha = 1, pick = null, pickPress = 0 } = {}) {
   ctx.fillStyle = col("paper");
   ctx.fillRect(sr.x, sr.y, sr.w, sr.h);
   dots(ctx, sr, 1);
   const Ly = chooseLayout(sr), L = sr.x + X0;
   let y = Ly.head;
-  for (const l of wrap(ctx, "Where should your words go?", CW, 21, 700)) {
-    txt(ctx, l, L, y, { size: 21, weight: 700, fill: "ink", align: "left", alpha: textAlpha });
-    y += 26;
+  for (const l of wrap(ctx, "Where should your words go?", CW, SZ.title, 600, "ui")) {
+    txt(ctx, l, L, y, ui({ size: SZ.title, weight: 600, fill: "ink", align: "left", alpha: textAlpha }));
+    y += SZ.title * 1.2;
   }
-  txt(ctx, "You can do both, if you like.", L, y + 2, { size: 12, weight: 500, fill: "grey", align: "left", alpha: textAlpha });
+  txt(ctx, "You can do both, if you like.", L, y + 2, ui({ size: SZ.body, weight: 400, fill: "grey", align: "left", alpha: textAlpha }));
   if (cardsAlpha > 0) {
     ctx.save();
     ctx.globalAlpha *= cardsAlpha;
-    Ly.cards.forEach((r, i) => choiceCard(ctx, r, i));
+    Ly.cards.forEach((r, i) => choiceCard(ctx, r, i, { stroke: pick === i ? "blue" : "edge", strokeW: pick === i ? 1 + pickPress : 1 }));
     ctx.restore();
   }
-  txt(ctx, "No, I'm done", sr.x + sr.w / 2, Ly.link, { size: 12, weight: 500, fill: "grey", alpha: textAlpha });
-  const w = textWidth(ctx, "No, I'm done", 12, 500);
+  txt(ctx, "No, I'm done", sr.x + sr.w / 2, Ly.link, ui({ size: SZ.body, weight: 400, fill: "grey", alpha: textAlpha }));
+  const w = textWidth(ctx, "No, I'm done", SZ.body, 400, "ui");
+  const pw = textWidth(ctx, "Privacy", SZ.body, 400, "ui");
   ctx.save();
   ctx.globalAlpha *= textAlpha;
   ctx.fillStyle = col("grey");
   ctx.fillRect(sr.x + sr.w / 2 - w / 2, Ly.link + 3, w, 1);
-  // footer link, as on the product page
-  const pw = textWidth(ctx, "Privacy", 11, 500);
   ctx.fillRect(sr.x + sr.w / 2 - pw / 2, sr.y + sr.h - 26 + 3, pw, 1);
   ctx.restore();
-  txt(ctx, "Privacy", sr.x + sr.w / 2, sr.y + sr.h - 26, { size: 11, weight: 500, fill: "grey", alpha: textAlpha });
+  txt(ctx, "Privacy", sr.x + sr.w / 2, sr.y + sr.h - 26, ui({ size: SZ.body, weight: 400, fill: "grey", alpha: textAlpha }));
+}
+
+/** Screen 4 (ui/demo-4): "Here's a draft" — built from what they tapped; they edit it; it goes out in their name (F7). */
+export const DRAFT = "Filter coffee at Meera's Tiffin Room was absolutely wonderful and served steaming hot. The food tasted brilliant, and the staff brought everything to the table amazingly fast. Wonderful service made the whole meal even better.";
+export function draftPage(ctx, sr, { text = DRAFT, caret = -1, press = 0 } = {}) {
+  ctx.fillStyle = col("paper");
+  ctx.fillRect(sr.x, sr.y, sr.w, sr.h);
+  dots(ctx, sr, 2);
+  const L = sr.x + X0;
+  txt(ctx, "Here's a draft", L, sr.y + 78, ui({ size: SZ.title * 0.82, weight: 600, fill: "ink", align: "left" }));
+  const box = { x: L, y: sr.y + 96, w: CW, h: 132 };
+  rrect(ctx, box.x, box.y, box.w, box.h, 11);
+  ctx.fillStyle = col("white"); ctx.fill();
+  ctx.strokeStyle = col("edge"); ctx.lineWidth = 1; ctx.stroke();
+  let y = box.y + 22;
+  const lines = wrap(ctx, text, box.w - 26, SZ.body, 400, "ui");
+  lines.forEach((l, i) => {
+    txt(ctx, l, box.x + 13, y, ui({ size: SZ.body, weight: 400, fill: "ink", align: "left" }));
+    if (caret >= 0 && i === lines.length - 1 && caret % 2 === 0) { ctx.fillStyle = col("ink"); ctx.fillRect(box.x + 13 + textWidth(ctx, l, SZ.body, 400, "ui") + 1, y - 9, 1, 11); }
+    y += 17.5;
+  });
+  y = box.y + box.h + 18;
+  for (const l of wrap(ctx, "Change anything that doesn't sound like you. It goes out in your name.", CW, SZ.body, 400, "ui")) {
+    txt(ctx, l, L, y, ui({ size: SZ.body, weight: 400, fill: "grey", align: "left" }));
+    y += 15;
+  }
+  rrect(ctx, L, y + 6, 88, 34, 9);
+  ctx.fillStyle = col("paper"); ctx.fill();
+  ctx.strokeStyle = col("edge"); ctx.stroke();
+  txt(ctx, "Try another", L + 44, y + 6 + 17 + 4, ui({ size: SZ.body, weight: 600, fill: "ink" }));
+  txt(ctx, "Took a photo? Add it on Google — photos say a lot.", L, y + 70, ui({ size: SZ.body * 0.92, weight: 400, fill: "grey", align: "left" }));
+  bottomButton(ctx, sr, "Copy my words", press);
+}
+
+/** Screen 3 (ui/demo-3): the private message to the owner. typed: the text in the box. */
+export function messagePage(ctx, sr, { typed = "", caret = -1, press = 0 } = {}) {
+  ctx.fillStyle = col("paper");
+  ctx.fillRect(sr.x, sr.y, sr.w, sr.h);
+  dots(ctx, sr, 2);
+  const L = sr.x + X0;
+  const head = { x: L, y: sr.y + 42, w: CW, h: 96 };
+  rrect(ctx, head.x, head.y, head.w, head.h, 13);
+  ctx.fillStyle = col("tint"); ctx.fill();
+  let y = head.y + 30;
+  for (const l of wrap(ctx, "Your message to Meera's Tiffin Room", CW - 30, SZ.title * 0.62, 600, "ui")) {
+    txt(ctx, l, L + 15, y, ui({ size: SZ.title * 0.62, weight: 600, fill: "ink", align: "left" }));
+    y += 23;
+  }
+  for (const l of wrap(ctx, "The owner reads this personally. It isn't posted publicly.", CW - 30, SZ.body * 0.92, 400, "ui")) {
+    txt(ctx, l, L + 15, y + 2, ui({ size: SZ.body * 0.92, weight: 400, fill: "ink", align: "left" }));
+    y += 14;
+  }
+  const box = { x: L - 2, y: head.y + head.h + 16, w: CW + 4, h: 122 };
+  rrect(ctx, box.x, box.y, box.w, box.h, 11);
+  ctx.fillStyle = col("white"); ctx.fill();
+  ctx.strokeStyle = col("blue"); ctx.lineWidth = 1.5; ctx.stroke();
+  let ty = box.y + 24;
+  const lines = typed ? wrap(ctx, typed, box.w - 26, SZ.body, 400, "ui") : [""];
+  lines.forEach((l, i) => {
+    if (l) txt(ctx, l, box.x + 14, ty, ui({ size: SZ.body, weight: 400, fill: "ink", align: "left" }));
+    if (caret >= 0 && i === lines.length - 1 && caret % 2 === 0) { ctx.fillStyle = col("ink"); ctx.fillRect(box.x + 14 + (l ? textWidth(ctx, l, SZ.body, 400, "ui") : 0) + 1, ty - 9, 1, 11); }
+    ty += 17.5;
+  });
+  bottomButton(ctx, sr, "Send to owner", press);
 }

@@ -1,0 +1,919 @@
+{
+ "lang": "en",
+ "frames": 1843,
+ "seconds": 61.433,
+ "engine": "films/godevlevel-launch/engine (imported)",
+ "music": "PLACEHOLDER: code-synthesised pulse bed on the 124 BPM grid",
+ "loudness": {
+  "integratedLUFS": -14.1,
+  "truePeakDBTP": -3.8,
+  "pass": true
+ },
+ "sync": {
+  "events": 78,
+  "maxOffFrameMs": 0.033333333334439885,
+  "list": [
+   {
+    "beat": "b01",
+    "t": 0,
+    "frame": 0,
+    "sfx": "SFX11",
+    "src": "sfx/SFX11.wav",
+    "what": "café ambience bed (Beats 1–2)"
+   },
+   {
+    "beat": "b01",
+    "t": 0.5,
+    "frame": 15,
+    "sfx": "SFX06",
+    "src": "sfx/SFX06.mp3",
+    "what": "till ding"
+   },
+   {
+    "beat": "b01",
+    "t": 1.93333,
+    "frame": 58,
+    "sfx": "BURST",
+    "src": "synth placeholder",
+    "what": "one loud angry burst (wordless) — synth placeholder"
+   },
+   {
+    "beat": "b02",
+    "t": 4.4,
+    "frame": 132,
+    "sfx": "SFX06",
+    "src": "sfx/SFX06.mp3",
+    "what": "door chime 1/3 on the beat"
+   },
+   {
+    "beat": "b02",
+    "t": 4.86667,
+    "frame": 146,
+    "sfx": "SFX06",
+    "src": "sfx/SFX06.mp3",
+    "what": "door chime 2/3 on the beat"
+   },
+   {
+    "beat": "b02",
+    "t": 5.36667,
+    "frame": 161,
+    "sfx": "SFX06",
+    "src": "sfx/SFX06.mp3",
+    "what": "door chime 3/3 on the beat"
+   },
+   {
+    "beat": "b03",
+    "t": 7.36667,
+    "frame": 221,
+    "sfx": "SFX03",
+    "src": "sfx/SFX03.mp3",
+    "what": "single thud as the review lands"
+   },
+   {
+    "beat": "b03",
+    "t": 9.06667,
+    "frame": 272,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "the pixel lifts off"
+   },
+   {
+    "beat": "b04",
+    "t": 10.3,
+    "frame": 309,
+    "sfx": "SFX09",
+    "src": "sfx/SFX09.mp3",
+    "what": "riser → big downbeat hit (impact on the snap)"
+   },
+   {
+    "beat": "b05",
+    "t": 11.7,
+    "frame": 351,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "the square multiplies"
+   },
+   {
+    "beat": "b05",
+    "t": 12.76667,
+    "frame": 383,
+    "sfx": "SFX05",
+    "src": "sfx/SFX05.mp3",
+    "what": "printer zip as the stand prints"
+   },
+   {
+    "beat": "b05",
+    "t": 13.53333,
+    "frame": 406,
+    "sfx": "SFX03",
+    "src": "sfx/SFX03.mp3",
+    "what": "stamp hit: the shop's name lands"
+   },
+   {
+    "beat": "b05",
+    "t": 14.03333,
+    "frame": 421,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "camera swings round the stand"
+   },
+   {
+    "beat": "b06",
+    "t": 15.53333,
+    "frame": 466,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "phone slides in"
+   },
+   {
+    "beat": "b06",
+    "t": 16.13333,
+    "frame": 484,
+    "sfx": "SFX02",
+    "src": "sfx/SFX02.mp3",
+    "what": "viewfinder corners snap on (scan lock)"
+   },
+   {
+    "beat": "b06",
+    "t": 16.46667,
+    "frame": 494,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "rating page opens"
+   },
+   {
+    "beat": "b06",
+    "t": 16.66667,
+    "frame": 500,
+    "sfx": "SFX03",
+    "src": "sfx/SFX03.mp3",
+    "what": "'No app' stamp"
+   },
+   {
+    "beat": "b06",
+    "t": 17.23333,
+    "frame": 517,
+    "sfx": "SFX03",
+    "src": "sfx/SFX03.mp3",
+    "what": "'No sign-in' stamp"
+   },
+   {
+    "beat": "b06",
+    "t": 17.93333,
+    "frame": 538,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "push into the screen"
+   },
+   {
+    "beat": "b07",
+    "t": 19.9,
+    "frame": 597,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "tap 1/4 on the beat (food ★4)"
+   },
+   {
+    "beat": "b07",
+    "t": 20.36667,
+    "frame": 611,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "tap 2/4 on the beat (food ★5)"
+   },
+   {
+    "beat": "b07",
+    "t": 20.86667,
+    "frame": 626,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "tap 3/4 on the beat (service ★4)"
+   },
+   {
+    "beat": "b07",
+    "t": 21.33333,
+    "frame": 640,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "tap 4/4 on the beat (service ★5)"
+   },
+   {
+    "beat": "b07",
+    "t": 22.3,
+    "frame": 669,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "language chip pops in"
+   },
+   {
+    "beat": "b08",
+    "t": 24.53333,
+    "frame": 736,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "tick-pop 1/6: English"
+   },
+   {
+    "beat": "b08",
+    "t": 25.13333,
+    "frame": 754,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "tick-pop 2/6: Hinglish"
+   },
+   {
+    "beat": "b08",
+    "t": 25.66667,
+    "frame": 770,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "tick-pop 3/6: हिंदी"
+   },
+   {
+    "beat": "b08",
+    "t": 26.16667,
+    "frame": 785,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "tick-pop 4/6: ಕನ್ನಡ"
+   },
+   {
+    "beat": "b08",
+    "t": 26.83333,
+    "frame": 805,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "tick-pop 5/6: தமிழ்"
+   },
+   {
+    "beat": "b08",
+    "t": 27.43333,
+    "frame": 823,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "tick-pop 6/6: తెలుగు"
+   },
+   {
+    "beat": "b09",
+    "t": 28.63333,
+    "frame": 859,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "page scrolls to the chips"
+   },
+   {
+    "beat": "b09",
+    "t": 29.5,
+    "frame": 885,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "tap: How long it took"
+   },
+   {
+    "beat": "b09",
+    "t": 30,
+    "frame": 900,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "tap: Filter Coffee"
+   },
+   {
+    "beat": "b09",
+    "t": 30.43333,
+    "frame": 913,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "soft check: 'Nothing is ticked for you.'"
+   },
+   {
+    "beat": "b10",
+    "t": 32.63333,
+    "frame": 979,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "Continue tapped"
+   },
+   {
+    "beat": "b10",
+    "t": 32.73333,
+    "frame": 982,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "page slides to 'Where should your words go?'"
+   },
+   {
+    "beat": "b10",
+    "t": 33.4,
+    "frame": 1002,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "the two cards lift out of the phone"
+   },
+   {
+    "beat": "b10",
+    "t": 33.63333,
+    "frame": 1009,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "thumb rises into frame"
+   },
+   {
+    "beat": "b10",
+    "t": 34.36667,
+    "frame": 1031,
+    "sfx": "HEART",
+    "src": "synth placeholder",
+    "what": "pulse (music stand-in)"
+   },
+   {
+    "beat": "b10",
+    "t": 34.53333,
+    "frame": 1036,
+    "sfx": "HEART",
+    "src": "synth placeholder",
+    "what": "pulse, second thump"
+   },
+   {
+    "beat": "b10",
+    "t": 35.33333,
+    "frame": 1060,
+    "sfx": "HEART",
+    "src": "synth placeholder",
+    "what": "pulse (music stand-in)"
+   },
+   {
+    "beat": "b10",
+    "t": 35.5,
+    "frame": 1065,
+    "sfx": "HEART",
+    "src": "synth placeholder",
+    "what": "pulse, second thump"
+   },
+   {
+    "beat": "b10",
+    "t": 36.06667,
+    "frame": 1082,
+    "sfx": "HEART",
+    "src": "synth placeholder",
+    "what": "pulse (music stand-in)"
+   },
+   {
+    "beat": "b10",
+    "t": 36.23333,
+    "frame": 1087,
+    "sfx": "HEART",
+    "src": "synth placeholder",
+    "what": "pulse, second thump"
+   },
+   {
+    "beat": "b11",
+    "t": 36.73333,
+    "frame": 1102,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "tap: On Google"
+   },
+   {
+    "beat": "b11",
+    "t": 36.83333,
+    "frame": 1105,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "the card opens into the draft"
+   },
+   {
+    "beat": "b11",
+    "t": 37.6,
+    "frame": 1128,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "typing tick 1/3 (editing a word)"
+   },
+   {
+    "beat": "b11",
+    "t": 37.8,
+    "frame": 1134,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "typing tick 2/3 (editing a word)"
+   },
+   {
+    "beat": "b11",
+    "t": 38,
+    "frame": 1140,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "typing tick 3/3 (editing a word)"
+   },
+   {
+    "beat": "b11",
+    "t": 38.6,
+    "frame": 1158,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "tap: Copy my words"
+   },
+   {
+    "beat": "b11",
+    "t": 38.8,
+    "frame": 1164,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "send whoosh: the review posts"
+   },
+   {
+    "beat": "b12",
+    "t": 40.3,
+    "frame": 1209,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "the customer's phone slides in"
+   },
+   {
+    "beat": "b12",
+    "t": 40.73333,
+    "frame": 1222,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "typing tick 1/4"
+   },
+   {
+    "beat": "b12",
+    "t": 41,
+    "frame": 1230,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "typing tick 2/4"
+   },
+   {
+    "beat": "b12",
+    "t": 41.26667,
+    "frame": 1238,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "typing tick 3/4"
+   },
+   {
+    "beat": "b12",
+    "t": 41.53333,
+    "frame": 1246,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "typing tick 4/4"
+   },
+   {
+    "beat": "b12",
+    "t": 42.1,
+    "frame": 1263,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "tap: Send to owner"
+   },
+   {
+    "beat": "b12",
+    "t": 42.16667,
+    "frame": 1265,
+    "sfx": "SFX12",
+    "src": "sfx/SFX12.mp3",
+    "what": "paper fold as the note flies"
+   },
+   {
+    "beat": "b12",
+    "t": 42.83333,
+    "frame": 1285,
+    "sfx": "SFX08",
+    "src": "sfx/SFX08.mp3",
+    "what": "soft notification on the owner's phone"
+   },
+   {
+    "beat": "b13",
+    "t": 44.83333,
+    "frame": 1345,
+    "sfx": "SFX08",
+    "src": "sfx/SFX08.mp3",
+    "what": "single warm chime"
+   },
+   {
+    "beat": "b14",
+    "t": 47.93333,
+    "frame": 1438,
+    "sfx": "SFX03",
+    "src": "sfx/SFX03.mp3",
+    "what": "accelerating hit 1/6: Tiffin room"
+   },
+   {
+    "beat": "b14",
+    "t": 48.9,
+    "frame": 1467,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "accelerating hit 2/6: Salon"
+   },
+   {
+    "beat": "b14",
+    "t": 49.63333,
+    "frame": 1489,
+    "sfx": "SFX03",
+    "src": "sfx/SFX03.mp3",
+    "what": "accelerating hit 3/6: Mobile shop"
+   },
+   {
+    "beat": "b14",
+    "t": 50.1,
+    "frame": 1503,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "accelerating hit 4/6: Café"
+   },
+   {
+    "beat": "b14",
+    "t": 50.46667,
+    "frame": 1514,
+    "sfx": "SFX03",
+    "src": "sfx/SFX03.mp3",
+    "what": "accelerating hit 5/6: Clinic"
+   },
+   {
+    "beat": "b14",
+    "t": 50.7,
+    "frame": 1521,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "accelerating hit 6/6: Sweet shop"
+   },
+   {
+    "beat": "b14",
+    "t": 51,
+    "frame": 1530,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "all squares converge"
+   },
+   {
+    "beat": "b15",
+    "t": 51.83333,
+    "frame": 1555,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "the squares become one card"
+   },
+   {
+    "beat": "b15",
+    "t": 52.43333,
+    "frame": 1573,
+    "sfx": "SFX03",
+    "src": "sfx/SFX03.mp3",
+    "what": "stamp 1/3 on the beat: 14-day free trial"
+   },
+   {
+    "beat": "b15",
+    "t": 53.4,
+    "frame": 1602,
+    "sfx": "SFX03",
+    "src": "sfx/SFX03.mp3",
+    "what": "stamp 2/3 on the beat: No card needed"
+   },
+   {
+    "beat": "b15",
+    "t": 54.36667,
+    "frame": 1631,
+    "sfx": "SFX03",
+    "src": "sfx/SFX03.mp3",
+    "what": "stamp 3/3 on the beat: ₹699/month after"
+   },
+   {
+    "beat": "b15",
+    "t": 55,
+    "frame": 1650,
+    "sfx": "SFX04",
+    "src": "sfx/SFX04.mp3",
+    "what": "the card collapses to one square"
+   },
+   {
+    "beat": "b16",
+    "t": 55.83333,
+    "frame": 1675,
+    "sfx": "SFX07",
+    "src": "sfx/SFX07.mp3",
+    "what": "the square becomes the logo"
+   },
+   {
+    "beat": "b16",
+    "t": 57.93333,
+    "frame": 1738,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "URL types on 1/4"
+   },
+   {
+    "beat": "b16",
+    "t": 58.1,
+    "frame": 1743,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "URL types on 2/4"
+   },
+   {
+    "beat": "b16",
+    "t": 58.26667,
+    "frame": 1748,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "URL types on 3/4"
+   },
+   {
+    "beat": "b16",
+    "t": 58.43333,
+    "frame": 1753,
+    "sfx": "SFX01",
+    "src": "sfx/SFX01.mp3",
+    "what": "URL types on 4/4"
+   },
+   {
+    "beat": "b16",
+    "t": 59.5,
+    "frame": 1785,
+    "sfx": "SFX10",
+    "src": "sfx/SFX10.wav",
+    "what": "big final hit with shimmer tail on the downbeat (then silence)"
+   }
+  ],
+  "pass": true
+ },
+ "carries": [
+  {
+   "boundary": "b01→b02",
+   "carry": "spike",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b02→b03",
+   "carry": "doorway",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b03→b04",
+   "carry": "pixel",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b04→b05",
+   "carry": "square",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b05→b06",
+   "carry": "qr",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b06→b07",
+   "carry": "screen",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b07→b08",
+   "carry": "screen",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b08→b09",
+   "carry": "screen",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b09→b10",
+   "carry": "screen",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b10→b11",
+   "carry": "paths",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b11→b12",
+   "carry": "card",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b12→b13",
+   "carry": "screen",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b13→b14",
+   "carry": "stack",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b14→b15",
+   "carry": "square",
+   "out": [],
+   "in": []
+  },
+  {
+   "boundary": "b15→b16",
+   "carry": "square",
+   "out": [],
+   "in": []
+  }
+ ],
+ "carriesPass": true,
+ "rhythm": {
+  "shots": 26,
+  "shortest": 0.233,
+  "longest": 5.8,
+  "spread": 24.9,
+  "cutsPerMinute": 24.4,
+  "beat8FlipGaps": [
+   0.533,
+   0.5,
+   0.667,
+   0.6
+  ],
+  "beat14Intervals": [
+   0.967,
+   0.733,
+   0.467,
+   0.367,
+   0.233
+  ],
+  "equalTriplesFailing": 0,
+  "target": "BRIEF §3: shortest ~0.24 s, longest ~3.9 s, spread ≥ 8×; Beats 8 and 14 accelerate ~0.97 → 0.24 s",
+  "spreadPass": true
+ },
+ "stillness": {
+  "method": "frame-to-frame at 0.25×; near-still = <0.3% of pixels change by >8 levels",
+  "pct": 34.2,
+  "target": "~15% (BRIEF §3), pockets in Beats 3 and 13",
+  "byBeat": {
+   "b01": 9,
+   "b02": 3,
+   "b03": 82,
+   "b04": 46,
+   "b05": 50,
+   "b06": 31,
+   "b07": 28,
+   "b08": 53,
+   "b09": 39,
+   "b10": 39,
+   "b11": 25,
+   "b12": 9,
+   "b13": 80,
+   "b14": 31,
+   "b15": 16,
+   "b16": 17
+  }
+ },
+ "compliance": {
+  "strings": 142,
+  "notApproved": [],
+  "forbidden": [],
+  "numbersOutsideLedger": [],
+  "googleAssets": "none: 'Google' appears only as plain text from the product's own copy; no Google logo, UI clone, font (Google Sans) or colour sequence",
+  "gating": "Beat 10 shows both paths equal; Beat 11 follows the Google path and Beat 12 the private path, one beat each; 'You can do both, if you like.' stays on screen through the split",
+  "reviewTexts": "only the product's own demo draft and the site's own private-note example are shown as words; every other review is placeholder lines (client approves review texts, BRIEF §10)",
+  "pass": true
+ },
+ "equalSplit": {
+  "geometryMaxDiffPx": 0,
+  "pulseMaxDiff": 0,
+  "thumbMeanX": 960,
+  "pass": true
+ },
+ "vo": [
+  {
+   "beat": "b01",
+   "take": "VO1_t1.mp3",
+   "fits": true,
+   "voIn": 0,
+   "voOut": 1.8024
+  },
+  {
+   "beat": "b02",
+   "take": "VO2_t3.mp3",
+   "fits": true,
+   "voIn": 3.9,
+   "voOut": 6.4078
+  },
+  {
+   "beat": "b03",
+   "take": "VO3_t2.mp3",
+   "fits": true,
+   "voIn": 6.8,
+   "voOut": 9.1249
+  },
+  {
+   "beat": "b04",
+   "take": "VO4_t1.mp3",
+   "fits": true,
+   "voIn": 9.7,
+   "voOut": 11.0322
+  },
+  {
+   "beat": "b05",
+   "take": "VO5_t3.mp3",
+   "fits": true,
+   "voIn": 11.6,
+   "voOut": 13.8204
+  },
+  {
+   "beat": "b06",
+   "take": "VO6_t1.mp3",
+   "fits": true,
+   "voIn": 15.5,
+   "voOut": 18.269
+  },
+  {
+   "beat": "b07",
+   "take": "VO7_t3.mp3",
+   "fits": true,
+   "voIn": 19.4,
+   "voOut": 20.9151
+  },
+  {
+   "beat": "b08",
+   "take": "VO8_t1.mp3",
+   "fits": true,
+   "voIn": 23.2,
+   "voOut": 28.2939
+  },
+  {
+   "beat": "b09",
+   "take": "VO9_t3.mp3",
+   "fits": true,
+   "voIn": 28.5226,
+   "voOut": 31.9446
+  },
+  {
+   "beat": "b10",
+   "take": "VO10_t2.mp3",
+   "fits": true,
+   "voIn": 32.4226,
+   "voOut": 33.9377
+  },
+  {
+   "beat": "b11",
+   "take": "VO11_t2.mp3",
+   "fits": true,
+   "voIn": 36.2226,
+   "voOut": 38.5736
+  },
+  {
+   "beat": "b12",
+   "take": "VO12_t2.mp3",
+   "fits": true,
+   "voIn": 40.1226,
+   "voOut": 42.3952
+  },
+  {
+   "beat": "b13",
+   "take": "VO13_t3.mp3",
+   "fits": true,
+   "voIn": 44.0226,
+   "voOut": 46.5565
+  },
+  {
+   "beat": "b14",
+   "take": "VO14_t2.mp3",
+   "fits": true,
+   "voIn": 47.9226,
+   "voOut": 51.632
+  },
+  {
+   "beat": "b15",
+   "take": "VO15_t1.mp3",
+   "fits": true,
+   "voIn": 51.7226,
+   "voOut": 54.4916
+  },
+  {
+   "beat": "b16",
+   "take": "VO16_t3.mp3",
+   "fits": true,
+   "voIn": 55.6226,
+   "voOut": 59.2014
+  }
+ ],
+ "voPass": true,
+ "blurredFrames": 322,
+ "determinism": {
+  "frames": 16,
+  "identicalInFreshBrowser": 16,
+  "pass": true
+ }
+}

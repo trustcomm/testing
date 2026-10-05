@@ -3,60 +3,47 @@
 This file is updated after every stage. The brief is `BRIEF.md`. Every asset generation is logged in `ASSETS.md`.
 
 ## Current stage
-**Beats 6 and 10 rebuilt on the real /r/demo screens; stopped to show the user ⏸.** Stage 4 (animatic) waits on the user confirming the stills match the product.
+**Stage 4 (ANIMATIC) done; stopped at its gate ⏸.**
+- `out/animatic/animatic-en.mp4`: 61.43 s, 1920×1080, 30 fps, draft quality.
+  - Sound: all 16 English VO picks, 78 SFX events, and a code-synthesised PLACEHOLDER pulse bed on the 124 BPM grid (no music yet).
+  - Loudness: −14.1 LUFS, true peak −3.8 dBTP.
+- Contact sheet: `out/animatic/contact-en-1fps.png`. Mid-beat stills: `out/animatic/stills/`.
+- Checks: `out/animatic/check-en.json`, built by `scripts/animatic.mjs`.
 
-**Inputs received 2026-10-05:** five `/r/demo` screenshots, saved as:
-- `ui/demo-1-rate-and-mention.jpg`
-- `ui/demo-2-where-should-your-words-go.jpg`
-- `ui/demo-3-message-to-owner.jpg`
-- `ui/demo-4-google-draft.jpg`
-- `ui/demo-5-thank-you.jpg`
-
-The user's message also mentions **the brand colours and the ElevenLabs plan screenshot**. **Neither was attached**: only the five UI images arrived, so `client/` is unchanged.
-
-**Brand colours, measured from the screenshots' flat fills** (in `web/brand.js`; they replace the logo-JPG estimates and need the client's confirmation):
-
-| Role | Hex |
+| Check | Result |
 |---|---|
-| Blue | #1E5EFE |
-| Ink | #111216 |
-| Grey text | #6D6D75 |
-| Hairline | #EAE9E5 |
-| Edge | #E6E5E1 |
-| Light-blue tint | #E4EAF8 |
-| Page | #FAF9F5 (now also the film's paper white) |
+| Carries | all 15 boundaries: each beat ends exactly on the next beat's carry-in (BRIEF §4 "carries out as") |
+| Rhythm | 26 shots, shortest 0.233 s, longest 5.8 s (end hold), spread 24.9× (target ≥ 8×), no failing equal triples |
+| Beat 14 montage | 0.97 → 0.73 → 0.47 → 0.37 → 0.23 s (on target) |
+| Beat 8 flips | 0.53 / 0.50 / 0.67 / 0.60 s: they follow the voice (audio-first, user-approved), so they do not accelerate |
+| Stillness | **34.2% vs the brief's ~15%** (open: see below) |
+| Compliance | all 142 on-screen strings are brief copy, product copy, F8/F9, or the flagged draft translations. No forbidden words, no numbers outside the ledger, no Google assets. |
+| Equal split | geometry Δ 0, pulse Δ 0, thumb mean x 960 |
+| Sound sync | all 78 events placed on their frame (0 ms off) |
+| VO | 16/16 lines fit their beats |
+| Determinism | 16/16 mid-beat frames identical in a fresh browser |
 
-**Rebuild:**
-- **Beat 6:** the rating page is now the product's screen 1.
-  - Content: progress dots, "How was the food?" and "How was the service?" with five stars each, "What should the review mention?" with its line and six chips, "What did you have?" with three chips, and the fixed blue Continue bar.
-  - The invented orange header and face buttons are gone.
-- **Beat 10:** opens on the same screen, scrolled to the chips the customer ticked (as in demo-1: "How long it took" and "Filter Coffee").
-  - Continue is tapped, and "Where should your words go?" (demo-2) slides in.
-  - Its two cards ("Straight to the owner" and "On Google", with the product's own sub-lines) lift out of the phone. They settle side by side at equal size, with the product's heading and "You can do both, if you like." above.
-  - The brief's labels "Post on Google" and "Tell the owner privately" are replaced by the product's real copy.
-- **Checks: all pass** (`out/style/check.json`).
-  - Determinism: 24/24 frames.
-  - Carry contracts are met, and sounds land 0 ms off their frames.
-  - Loudness: −14.2 and −14.1 LUFS.
-  - Every drawn string is the brief's film copy or the product's own copy.
-  - Equal split: size equal on every frame; mirror and pulse Δ 0 once landed. The thumb's mean x is 960.
-- **Review sheets:** `out/style/compare/beat06-before-after.png`, `beat10-before-after.png`, and `product-match.png` (the film's phone screens beside the screenshots).
+**Built this stage:**
+- **Beats 1–5, 7–9, 11–16:** new modules in `web/beat01.js` … `beat16.js`, with shared film graphics and carries in `web/kit.js`.
+- **Beat 6:** its push is now the module's own view transform, so the camera is static throughout.
+- **Phone screens:** Inter (OFL) at the product's own CSS sizes, measured from the screenshots: 32 / 20 / 18 / 16 px in a 480 px column, mapped to the phone. Chips run three per row. Poppins is used only for film titles and big type.
+- **New product screens:** draft (demo-4) and owner message (demo-3) in `web/ui.js`.
+- **Paperwork:** `client/FACTS.md` (F1–F10, ₹699, shops fictional, launch date and tagline TBD; the user ticks each line) and `refs/REFS.md` ("Use BRIEF §3 rhythm targets").
+- **Colours:** marked "measured — confirm against site CSS before final" in `web/brand.js` and FACTS.md.
 
-**Known differences from the product (for the user to accept or change):**
-1. **Font:** Poppins, per the user. The product uses a system-style sans, which is narrower, so chip type is slightly smaller to keep the product's 3-per-row layout.
-2. **Phone layout:** the screenshots are a desktop window. On the phone, "Where should your words go?" and the card sub-lines wrap to two lines.
-3. **Unrated stars:** grey #DCDBD7 is **inferred**, because the screenshots only show rated stars. Only the 5-star label ("Excellent") is shown, because it is the only label we have.
+**Placeholders and open items (all flagged in code):**
+1. **Phone screenshots of /r/demo:** the user said they were attached; **they did not arrive**. Unrated stars (grey #DCDBD7) and the mobile wraps are still inferred; matching them is a single-constant change (`CSS` in `web/ui.js`).
+2. **Music:** placeholder pulse bed; the user is still checking terms.
+3. **Logo:** `client/logo-from-chat.jpg` is used as a raster placeholder in Beats 4 and 16. The SVG is needed.
+4. **Beat 16 map of India:** not drawn. An accurate, licensed outline is needed; the animatic shows the QR squares on a plain field instead of guessing a shape.
+5. **Beat 8 translations** of "How was the food?" (Hinglish, Hindi, Kannada, Tamil, Telugu) are drafts. Use the product's own strings or confirm them. The product's language switcher is not in the screenshots; the chip is a film element.
+6. **Review texts:** Beats 3, 13 and 14 use placeholder lines. Only the product's demo draft and the site's private-note example appear as words (BRIEF §10: the client approves every review text).
+7. **SFX gaps in BRIEF §6:** Beat 1's wordless angry burst and the heartbeat pulse are code-synthesised placeholders. There is no crowd-cheer swell (Beat 14) and no haptic buzz (Beat 7).
+8. **Stillness at 34%** against the ~15% target. The stillness pockets in Beats 3 and 13 (about 80% each) are deliberate, as is Beat 10's hover. Stage 5 adds continuous motion (global camera, carry handoffs) to bring the rest down.
+9. **Beat 5's "camera swings round the stand"** is a draft squeeze, standing in for a 3D orbit.
+10. **Hinglish animatic:** `node scripts/animatic.mjs hi` renders on `beats_hi.json` (62.88 s). Not run yet; Hinglish is Stage 6.
 
-**Hinglish:**
-- Pre-picks accepted (VO8_hi t1, VO12_hi t1) and copied to `vo/VOn_hi.mp3`. Picks are in `vo/picks_hi.json`.
-- Timeline: `beats_hi.json` (from `scripts/beats.py hi`) runs 62.88 s.
-  - Beat 2 grows to 3.871 s (8 beats) for VO2_hi, as the user asked.
-  - Beat 8 also grows, to 5.806 s (12 beats), because VO8_hi t1 ends at 5.17 s plus the tail. The flips land on its spoken names.
-  - Every other beat keeps its length. The English timeline is unchanged (61.42 s, verified byte-identical).
-
-**Font:** Poppins unless a Trustcomm font arrives. **Music:** still checking terms; placeholder pulse kept.
-
-Credits used: **3,778 of 15,000** (none this round).
+Credits used: **3,778 of 15,000** (none this stage).
 
 ## Plan agreed with the user (2026-10-05)
 1. **VO and SFX:** generated through the ElevenLabs connector on the user's paid Starter plan (updated 2026-10-05; the earlier plan had the user generating them in the web app). Takes go to `vo/takes/` and `sfx/takes/`; only takes the user approves move to `vo/` and `sfx/`. **No free-tier audio anywhere in this project**: the test takes were deleted.
@@ -105,6 +92,7 @@ History: on 2026-10-05 the connected ElevenLabs account was Free tier and was th
   - Claude's picks, from measurements only (length nearest the brief, less clipping): SFX02 v2, SFX03 v1, SFX04 v2, SFX05 v2, SFX06 v1, SFX07 v2, SFX08 v2, SFX09 v2, SFX12 v2.
 - **Stage 3 style frames approved as direction (user, 2026-10-05).** Then rebuilt on the real UI (see Current stage).
 - **Hinglish picks accepted (user):** with Beat 2 lengthened audio-first for VO2_hi.
+- **Stage 4 go-ahead (user, 2026-10-05):** the product's labels "On Google" / "Straight to the owner" are approved, with "You can do both, if you like." kept on screen. Poppins for film type only; Inter for the phone screens. Measured colours are working values.
 - **Fast short lines** (VO2, 3, 7, 9, 11, 14 at 190–220 WPM): kept for now. The user will flag and regenerate any that sound rushed.
 - **Voice: "Ishan – Bold and Upbeat"** (ElevenLabs library voice N09NFwYJJG9VSSgdLQbT), confirmed by the user. Generated through the connector with ElevenLabs default settings: the connector has no stability, similarity, style or speaker-boost controls.
 - **Budget:** 15,000 credits for this film. Every batch is priced first, and the ledger is in ASSETS.md.
@@ -160,3 +148,8 @@ History: on 2026-10-05 the connected ElevenLabs account was Free tier and was th
   - Built the before/after and product-match sheets; all checks pass.
   - Hinglish picks copied to vo/; beats_hi.json built (62.88 s).
   - Stopped to show the user.
+- 2026-10-05 (Stage 4):
+  - Drafted FACTS.md and REFS.md. Phone UI moved to Inter at the product's sizes.
+  - Built all 16 beats and rendered the 61.43 s English animatic with VO, SFX and the placeholder pulse. All checks pass except stillness (34% vs ~15%).
+  - The user's phone screenshots did not arrive.
+  - Stopped at the Stage 4 gate.

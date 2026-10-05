@@ -1,68 +1,46 @@
-// Beat 6 — "Customers scan. No app. No sign-in." (BRIEF §4; F4)
-// Rebuilt 2026-10-05 on the real /r/demo rating screen (ui/demo-1).
+// Beat 6 — "Customers scan. No app. No sign-in." (BRIEF §4; F4), on the real /r/demo rating screen (ui/demo-1).
 // The counter stand's QR (carry in) → a phone slides in, its viewfinder corners snap onto the code (scan lock),
 // the screen opens the rating page at once; "No app" / "No sign-in" stamp as chips on the spoken words;
-// the camera pushes into the phone screen (carry out).
+// the view pushes into the phone screen (carry out: the screen, centred, for Beat 7). The camera is static; the
+// push is this module's own view transform.
 import { clamp, lerp, prog, snap, spring } from "../../godevlevel-launch/engine/web/core/ease.js";
 import { col, rgba } from "./brand.js";
-import { chip, phone, qr, ratingPage, rrect, screenRect, txt } from "./ui.js";
+import { B, F, P_BIG, q, qrRect, stand } from "./kit.js";
+import { chip, phone, qr, ratingPage, rrect, screenRect } from "./ui.js";
 
-const B = 60 / 124;
-const F = 1 / 30;
 // VO6 word onsets (vo/VO6.mp3 = VO6_t1, measured): "No app." 1.216 s, "No sign-in." 1.750 s. Picture leads by 1 frame.
-const q = (s) => Math.round(s * 30) / 30; // event times sit on frames, so picture and sound share a frame
 export const T = { enter: q(0.04), settle: q(0.62), lock: q(0.86), open: q(2 * B), pop: q(1.1), app: q(1.216) - F, signin: q(1.75) - F, push: q(5 * B) };
-const STAND = { w: 460, h: 630, head: 132, y: 560 };
-const QS = 320;
-const PS = 1.16; // phone scale (873 px tall)
+const PS = 1.16; // phone scale before the push
 const PH = { x0: 1600, y0: 1560, x1: 1170, y1: 548 };
 const CHIPS = { x: 1630, y1: 430, y2: 566, size: 46 };
+const DUR = 3.9;
 
 const standX = (lt) => lerp(960, 560, snap(prog(lt, 0.08, T.settle)));
 const phoneAt = (lt) => {
   const p = snap(prog(lt, T.enter, T.settle));
   return { x: lerp(PH.x0, PH.x1, p), y: lerp(PH.y0, PH.y1, p), rot: 0.16 * (1 - p) };
 };
-const qrRect = (sx) => ({ x: sx - QS / 2, y: STAND.y - STAND.h / 2 + STAND.head + 52, w: QS, h: QS });
-
-function stand(ctx, sx) {
-  const x = sx - STAND.w / 2, y = STAND.y - STAND.h / 2;
-  ctx.fillStyle = rgba("ink", 0.1);
-  rrect(ctx, x + 12, y + 20, STAND.w, STAND.h, 36);
-  ctx.fill();
-  ctx.fillStyle = col("white");
-  rrect(ctx, x, y, STAND.w, STAND.h, 36);
-  ctx.fill();
-  ctx.save();
-  rrect(ctx, x, y, STAND.w, STAND.h, 36);
-  ctx.clip();
-  ctx.fillStyle = col("shop");
-  ctx.fillRect(x, y, STAND.w, STAND.head);
-  ctx.restore();
-  txt(ctx, "Meera's Tiffin Room", sx, y + 82, { size: 36, weight: 700, fill: "ink" });
-  const q = qrRect(sx);
-  qr(ctx, q.x, q.y, QS);
-  // foot of the counter stand
-  ctx.fillStyle = col("sand");
-  rrect(ctx, sx - STAND.w * 0.42, y + STAND.h - 6, STAND.w * 0.84, 34, 17);
-  ctx.fill();
-}
+// The push: zoom about the phone so it ends centred at P_BIG (scale PS × 1.18).
+const view = (lt) => {
+  const p = snap(prog(lt, T.push, DUR));
+  return { z: lerp(1, P_BIG.s / PS, p), cx: lerp(960, PH.x1, p), cy: lerp(540, PH.y1, p) };
+};
+const applyView = (ctx, v) => { ctx.translate(960, 540); ctx.scale(v.z, v.z); ctx.translate(-v.cx, -v.cy); };
+const toScreen = (v, [x, y]) => [960 + (x - v.cx) * v.z, 540 + (y - v.cy) * v.z];
 
 function viewfinder(ctx, sr, lt) {
   ctx.fillStyle = col("ink");
   ctx.fillRect(sr.x, sr.y, sr.w, sr.h);
   const cx = sr.x + sr.w / 2, cy = sr.y + sr.h / 2 - 20;
-  const q = 210;
-  // live camera image of the code: slight drift that settles as it locks
+  const qs = 210;
   const drift = 10 * (1 - prog(lt, T.settle, T.lock));
   ctx.fillStyle = col("white");
-  rrect(ctx, cx - q / 2 - 18 + drift, cy - q / 2 - 18, q + 36, q + 36, 18);
+  rrect(ctx, cx - qs / 2 - 18 + drift, cy - qs / 2 - 18, qs + 36, qs + 36, 18);
   ctx.fill();
-  qr(ctx, cx - q / 2 + drift, cy - q / 2, q);
-  // corner brackets snap in onto the code
+  qr(ctx, cx - qs / 2 + drift, cy - qs / 2, qs);
   const k = snap(prog(lt, T.settle, T.lock));
   const m = lerp(70, 0, k) + 30;
-  const L = 34, half = q / 2 + m;
+  const L = 34, half = qs / 2 + m;
   const locked = lt >= T.lock;
   ctx.strokeStyle = locked ? col("blue") : col("white");
   ctx.lineWidth = 7;
@@ -109,29 +87,33 @@ function stamp(ctx, label, x, y, t0, lt) {
 
 export default {
   T,
-  render(ctx, lt, e) {
+  render(ctx, lt) {
     ctx.fillStyle = col("paper");
     ctx.fillRect(-2000, -2000, 6000, 6000);
+    ctx.save();
+    applyView(ctx, view(lt));
     stand(ctx, standX(lt));
     const p = phoneAt(lt);
     phone(ctx, p.x, p.y, screen(lt), { rot: p.rot, s: PS });
     stamp(ctx, "No app", CHIPS.x, CHIPS.y1, T.app, lt);
     stamp(ctx, "No sign-in", CHIPS.x, CHIPS.y2, T.signin, lt);
+    ctx.restore();
   },
-  /** Carry in: the stand's QR code. Carry out: the phone screen (Beat 7 opens on it). */
+  /** Carry in: the stand's QR code. Carry out: the phone screen, centred and pushed in (Beat 7 opens on it). */
   carry(lt, e) {
     if (lt <= 0) return { kind: "qr", ...qrRect(standX(0)), colour: "ink" };
-    const p = phoneAt(lt);
-    return { kind: "screen", ...screenRect(p.x, p.y, PS), colour: "white" };
+    if (lt >= e.dur - 1e-9) return { kind: "screen", ...screenRect(P_BIG.x, P_BIG.y, P_BIG.s), colour: "paper" };
+    const p = phoneAt(lt), v = view(lt), r = screenRect(p.x, p.y, PS);
+    const [x, y] = toScreen(v, [r.x, r.y]);
+    return { kind: "screen", x, y, w: r.w * v.z, h: r.h * v.z, r: r.r * v.z, colour: "paper" };
   },
   track(lt) {
-    const p = phoneAt(lt), c = Math.cos(p.rot), s = Math.sin(p.rot);
+    const p = phoneAt(lt), c = Math.cos(p.rot), s = Math.sin(p.rot), v = view(lt);
     const hw = 180 * PS, hh = 370 * PS;
     const pts = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([a, b]) => [p.x + a * hw * c - b * hh * s, p.y + a * hw * s + b * hh * c]);
-    pts.push([standX(lt), STAND.y]);
-    return pts;
+    pts.push([standX(lt), 560]);
+    return pts.map((pt) => toScreen(v, pt));
   },
-  /** Sounds, tight to the frames that cause them (s into the beat). gain in dB below the VO. */
   events() {
     return [
       { t: T.enter, sfx: "SFX04", gain: -14, what: "phone slides in" },
@@ -139,7 +121,7 @@ export default {
       { t: T.open, sfx: "SFX01", gain: -12, what: "rating page opens" },
       { t: T.app, sfx: "SFX03", gain: -9, what: "'No app' stamp" },
       { t: T.signin, sfx: "SFX03", gain: -9, what: "'No sign-in' stamp", rate: 1.06 },
-      { t: T.push, sfx: "SFX04", gain: -20, what: "camera pushes into the screen" },
+      { t: T.push, sfx: "SFX04", gain: -20, what: "push into the screen" },
     ];
   },
 };

@@ -197,11 +197,17 @@ Removed: three free-tier test takes of VO1 (2026-10-05). They were deleted at th
 ## Fonts
 | File | Source | Licence |
 |---|---|---|
+| fonts/inter-latin-{400,500,600,700}-normal.woff2 (+ latin-ext 500 for ₹) | npm @fontsource/inter 5.3.0 | SIL OFL 1.1 (`fonts/LICENSE-Inter.txt`). Used inside the phone screens only. |
+| fonts/noto-sans-{devanagari,kannada,tamil,telugu}-*-600-normal.woff2 | npm @fontsource/noto-sans-* 5.3.0 | SIL OFL 1.1 (`fonts/LICENSE-NotoSans-*.txt`). Used for the Beat 8 language flips. |
 | fonts/poppins-latin(-ext)-{500,600,700,800}-normal.woff2 | npm @fontsource/poppins 5.3.0 | SIL OFL 1.1 (`fonts/LICENSE-Poppins.txt`). A proposal, pending the client's own font. |
 
 ## Code-built (no generation, no credits)
 - Style frames for Beats 6 and 10 (`out/style/`). All vector art is drawn in `web/`; there are no stock or third-party images.
-- Beat 10's heartbeat pulse: a code-synthesised placeholder in `scripts/mix.py`. It is replaced by the music.
+- Code-synthesised placeholders in `scripts/mix.py`, all replaced in the final:
+  - Beat 10's heartbeat pulse, replaced by the music.
+  - Beat 1's wordless angry burst (BURST), which has no BRIEF §6 SFX.
+  - The animatic's pulse bed on the 124 BPM grid, replaced by the music.
+- Animatic: `out/animatic/animatic-en.mp4` (draft, NOT FOR DELIVERY).
 
 ## Stock (Canva, optional)
 None yet.
