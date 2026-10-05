@@ -1,0 +1,570 @@
+{
+  "provisional": true,
+  "bpm": 128,
+  "fps": 30,
+  "duration": 31.40625,
+  "timeline": {
+    "lengths": {
+      "b01": 1.875,
+      "b02": 0.9375,
+      "b03": 1.875,
+      "b04": 3.75,
+      "b05": 2.8125,
+      "b06": 3.75,
+      "b07": 2.8125,
+      "b08": 3.75,
+      "b09": 3.75,
+      "b10": 3.28125,
+      "b11": 2.8125
+    },
+    "spread": 4,
+    "spreadPass": true,
+    "threeEqualInARow": [],
+    "plannedStillSec": 6.36,
+    "plannedStillPct": 20.3,
+    "boundaries": [
+      {
+        "from": "b01",
+        "to": "b02",
+        "carry": "Phone outline",
+        "cut": "carry"
+      },
+      {
+        "from": "b02",
+        "to": "b03",
+        "carry": "Tower outline",
+        "cut": "carry"
+      },
+      {
+        "from": "b03",
+        "to": "b04",
+        "carry": "Tag's bottom edge",
+        "cut": "carry"
+      },
+      {
+        "from": "b04",
+        "to": "b05",
+        "carry": "Underline",
+        "cut": "carry"
+      },
+      {
+        "from": "b05",
+        "to": "b06",
+        "carry": "Code editor window",
+        "cut": "carry"
+      },
+      {
+        "from": "b06",
+        "to": "b07",
+        "carry": "Product frame",
+        "cut": "carry"
+      },
+      {
+        "from": "b07",
+        "to": "b08",
+        "carry": "Product frame",
+        "cut": "carry"
+      },
+      {
+        "from": "b08",
+        "to": "b09",
+        "carry": "9:16 frame",
+        "cut": "carry"
+      },
+      {
+        "from": "b09",
+        "to": "b10",
+        "carry": "Orange dot",
+        "cut": "carry"
+      },
+      {
+        "from": "b10",
+        "to": "b11",
+        "carry": "Wordmark",
+        "cut": "carry"
+      }
+    ],
+    "unnamedBoundaries": [],
+    "voSpills": [
+      {
+        "beat": "b02",
+        "line": "V2",
+        "vo": [
+          1.775,
+          3.005
+        ],
+        "beatWindow": [
+          1.875,
+          2.8125
+        ]
+      }
+    ]
+  },
+  "contracts": [
+    {
+      "id": "b01",
+      "built": true,
+      "in": [],
+      "out": [],
+      "pass": true
+    },
+    {
+      "id": "b02",
+      "built": false,
+      "in": [],
+      "out": [
+        {
+          "key": "x",
+          "got": 782,
+          "want": 810
+        },
+        {
+          "key": "y",
+          "got": 180,
+          "want": 60
+        },
+        {
+          "key": "w",
+          "got": 356,
+          "want": 300
+        },
+        {
+          "key": "h",
+          "got": 720,
+          "want": 960
+        },
+        {
+          "key": "r",
+          "got": 52,
+          "want": 8
+        }
+      ],
+      "pass": null
+    },
+    {
+      "id": "b03",
+      "built": false,
+      "in": [],
+      "out": [
+        {
+          "key": "kind",
+          "got": "outline",
+          "want": "line"
+        },
+        {
+          "key": "x",
+          "got": 810,
+          "want": 660
+        },
+        {
+          "key": "y",
+          "got": 60,
+          "want": 780
+        },
+        {
+          "key": "w",
+          "got": 300,
+          "want": 600
+        },
+        {
+          "key": "h",
+          "got": 960,
+          "want": 10
+        },
+        {
+          "key": "r",
+          "got": 8,
+          "want": 0
+        }
+      ],
+      "pass": null
+    },
+    {
+      "id": "b04",
+      "built": true,
+      "in": [],
+      "out": [],
+      "pass": true
+    },
+    {
+      "id": "b05",
+      "built": true,
+      "in": [],
+      "out": [],
+      "pass": true
+    },
+    {
+      "id": "b06",
+      "built": false,
+      "in": [],
+      "out": [
+        {
+          "key": "kind",
+          "got": "window",
+          "want": "frame"
+        },
+        {
+          "key": "x",
+          "got": 300,
+          "want": 360
+        },
+        {
+          "key": "y",
+          "got": 238,
+          "want": 202.5
+        },
+        {
+          "key": "w",
+          "got": 1320,
+          "want": 1200
+        },
+        {
+          "key": "h",
+          "got": 228,
+          "want": 675
+        },
+        {
+          "key": "r",
+          "got": 24,
+          "want": 20
+        },
+        {
+          "key": "stroke",
+          "got": 2,
+          "want": 6
+        },
+        {
+          "key": "colour",
+          "got": "ink",
+          "want": "orange"
+        }
+      ],
+      "pass": null
+    },
+    {
+      "id": "b07",
+      "built": false,
+      "in": [],
+      "out": [],
+      "pass": null
+    },
+    {
+      "id": "b08",
+      "built": true,
+      "in": [],
+      "out": [],
+      "pass": true
+    },
+    {
+      "id": "b09",
+      "built": false,
+      "in": [],
+      "out": [
+        {
+          "key": "kind",
+          "got": "frame",
+          "want": "dot"
+        },
+        {
+          "key": "x",
+          "got": 746.25,
+          "want": 950
+        },
+        {
+          "key": "y",
+          "got": 160,
+          "want": 530
+        },
+        {
+          "key": "w",
+          "got": 427.5,
+          "want": 20
+        },
+        {
+          "key": "h",
+          "got": 760,
+          "want": 20
+        },
+        {
+          "key": "r",
+          "got": 20,
+          "want": 10
+        }
+      ],
+      "pass": null
+    },
+    {
+      "id": "b10",
+      "built": false,
+      "in": [],
+      "out": [
+        {
+          "key": "kind",
+          "got": "dot",
+          "want": "wordmark"
+        },
+        {
+          "key": "x",
+          "got": 950,
+          "want": 560
+        },
+        {
+          "key": "y",
+          "got": 530,
+          "want": 440
+        },
+        {
+          "key": "w",
+          "got": 20,
+          "want": 800
+        },
+        {
+          "key": "h",
+          "got": 20,
+          "want": 200
+        },
+        {
+          "key": "r",
+          "got": 10,
+          "want": 0
+        },
+        {
+          "key": "colour",
+          "got": "orange",
+          "want": "ink"
+        }
+      ],
+      "pass": null
+    },
+    {
+      "id": "b11",
+      "built": false,
+      "in": [],
+      "out": [],
+      "pass": null
+    }
+  ],
+  "camera": {
+    "maxShiftPxPerFrame": 8.785,
+    "boundaries": [
+      {
+        "boundary": "b01→b02",
+        "frame": 56,
+        "shiftPx": 0.364,
+        "neighboursPx": 0.821,
+        "jump": false
+      },
+      {
+        "boundary": "b02→b03",
+        "frame": 84,
+        "shiftPx": 0.552,
+        "neighboursPx": 1.141,
+        "jump": false
+      },
+      {
+        "boundary": "b03→b04",
+        "frame": 141,
+        "shiftPx": 0.007,
+        "neighboursPx": 0.042,
+        "jump": false
+      },
+      {
+        "boundary": "b04→b05",
+        "frame": 253,
+        "shiftPx": 0.438,
+        "neighboursPx": 0.767,
+        "jump": false
+      },
+      {
+        "boundary": "b05→b06",
+        "frame": 338,
+        "shiftPx": 0.017,
+        "neighboursPx": 0.136,
+        "jump": false
+      },
+      {
+        "boundary": "b06→b07",
+        "frame": 450,
+        "shiftPx": 0.064,
+        "neighboursPx": 0.191,
+        "jump": false
+      },
+      {
+        "boundary": "b07→b08",
+        "frame": 534,
+        "shiftPx": 0,
+        "neighboursPx": 0.004,
+        "jump": false
+      },
+      {
+        "boundary": "b08→b09",
+        "frame": 647,
+        "shiftPx": 0.008,
+        "neighboursPx": 0.028,
+        "jump": false
+      },
+      {
+        "boundary": "b09→b10",
+        "frame": 759,
+        "shiftPx": 0.018,
+        "neighboursPx": 0.038,
+        "jump": false
+      },
+      {
+        "boundary": "b10→b11",
+        "frame": 858,
+        "shiftPx": 0,
+        "neighboursPx": 0,
+        "jump": false
+      }
+    ],
+    "pass": true
+  },
+  "carry": [
+    {
+      "boundary": "b01→b02",
+      "carry": "Phone outline",
+      "lastFrameA": 55,
+      "firstFrameB": 56,
+      "status": "pending (b02 not built)"
+    },
+    {
+      "boundary": "b02→b03",
+      "carry": "Tower outline",
+      "lastFrameA": 83,
+      "firstFrameB": 84,
+      "status": "pending (b02, b03 not built)"
+    },
+    {
+      "boundary": "b03→b04",
+      "carry": "Tag's bottom edge",
+      "lastFrameA": 140,
+      "firstFrameB": 141,
+      "status": "pending (b03 not built)"
+    },
+    {
+      "boundary": "b04→b05",
+      "carry": "Underline",
+      "lastFrameA": 252,
+      "firstFrameB": 253,
+      "region": {
+        "x": 144,
+        "y": 635,
+        "w": 1616,
+        "h": 43
+      },
+      "pixelScore": 0.9981,
+      "maskIoU": 0.99943,
+      "maskPixels": [
+        15820,
+        15829
+      ],
+      "wholeFrameScore": 0.9994,
+      "pass": true
+    },
+    {
+      "boundary": "b05→b06",
+      "carry": "Code editor window",
+      "lastFrameA": 337,
+      "firstFrameB": 338,
+      "status": "pending (b06 not built)"
+    },
+    {
+      "boundary": "b06→b07",
+      "carry": "Product frame",
+      "lastFrameA": 449,
+      "firstFrameB": 450,
+      "status": "pending (b06, b07 not built)"
+    },
+    {
+      "boundary": "b07→b08",
+      "carry": "Product frame",
+      "lastFrameA": 533,
+      "firstFrameB": 534,
+      "status": "pending (b07 not built)"
+    },
+    {
+      "boundary": "b08→b09",
+      "carry": "9:16 frame",
+      "lastFrameA": 646,
+      "firstFrameB": 647,
+      "status": "pending (b09 not built)"
+    },
+    {
+      "boundary": "b09→b10",
+      "carry": "Orange dot",
+      "lastFrameA": 758,
+      "firstFrameB": 759,
+      "status": "pending (b09, b10 not built)"
+    },
+    {
+      "boundary": "b10→b11",
+      "carry": "Wordmark",
+      "lastFrameA": 857,
+      "firstFrameB": 858,
+      "status": "pending (b10, b11 not built)"
+    }
+  ],
+  "determinism": {
+    "frames": [
+      0,
+      43,
+      53,
+      55,
+      141,
+      144,
+      237,
+      252,
+      253,
+      257,
+      297,
+      330,
+      337,
+      534,
+      576,
+      602,
+      646
+    ],
+    "sameSessionIdentical": true,
+    "freshBrowserIdentical": true,
+    "mismatches": [],
+    "pass": true
+  },
+  "measured": {
+    "method": "frame-to-frame at 0.25× scale; near-still = <0.3% of pixels change by >8 levels",
+    "beats": [
+      {
+        "beat": "b01",
+        "frames": 56,
+        "nearStillPct": 74.5,
+        "nearStillSec": 1.367,
+        "blurredFrames": 21,
+        "maxSpeedPxPerFrame": 768.3
+      },
+      {
+        "beat": "b04",
+        "frames": 112,
+        "nearStillPct": 48.6,
+        "nearStillSec": 1.8,
+        "blurredFrames": 26,
+        "maxSpeedPxPerFrame": 117.8
+      },
+      {
+        "beat": "b05",
+        "frames": 85,
+        "nearStillPct": 57.1,
+        "nearStillSec": 1.6,
+        "blurredFrames": 18,
+        "maxSpeedPxPerFrame": 726
+      },
+      {
+        "beat": "b08",
+        "frames": 113,
+        "nearStillPct": 25,
+        "nearStillSec": 0.933,
+        "blurredFrames": 37,
+        "maxSpeedPxPerFrame": 252.6
+      }
+    ]
+  }
+}

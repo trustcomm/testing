@@ -1,0 +1,16 @@
+{
+  "name": "gdl-engine",
+  "private": true,
+  "type": "module",
+  "description": "GoDevLevel launch film: clean-room Canvas2D continuity engine (no motion libraries).",
+  "scripts": {
+    "stills": "node scripts/render.mjs stills",
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "@fontsource/archivo": "^5.3.0",
+    "@fontsource/inter-tight": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "puppeteer-core": "^23.11.1"
+  }
+}

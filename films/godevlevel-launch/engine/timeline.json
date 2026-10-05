@@ -1,0 +1,889 @@
+{
+  "provisional": true,
+  "note": "PROVISIONAL: 128 BPM assumed grid. Re-grid to the measured tempo/downbeats of canva/music/track.wav when it arrives.",
+  "bpm": 128,
+  "downbeat": 0,
+  "beat": 0.46875,
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "duration": 31.40625,
+  "frames": 942,
+  "vo": {
+    "file": "vo/vo-master.mp3",
+    "note": "Single take; V1–V11 spans from Stage 1. Word onsets estimated (syllable-proportional)."
+  },
+  "camera": [
+    {
+      "t": 0,
+      "x": 960,
+      "y": 540,
+      "z": 1
+    },
+    {
+      "t": 0.9375,
+      "x": 960,
+      "y": 540,
+      "z": 1
+    },
+    {
+      "t": 1.875,
+      "x": 960,
+      "y": 540,
+      "z": 1.06
+    },
+    {
+      "t": 2.8125,
+      "x": 960,
+      "y": 520,
+      "z": 1
+    },
+    {
+      "t": 4.6875,
+      "x": 960,
+      "y": 540,
+      "z": 1
+    },
+    {
+      "t": 8.4375,
+      "x": 968,
+      "y": 540,
+      "z": 1.015
+    },
+    {
+      "t": 9.6,
+      "x": 960,
+      "y": 420,
+      "z": 1.1
+    },
+    {
+      "t": 11.25,
+      "x": 960,
+      "y": 400,
+      "z": 1.12
+    },
+    {
+      "t": 15,
+      "x": 960,
+      "y": 540,
+      "z": 1
+    },
+    {
+      "t": 17.8125,
+      "x": 960,
+      "y": 540,
+      "z": 1
+    },
+    {
+      "t": 21.5625,
+      "x": 960,
+      "y": 530,
+      "z": 1.03
+    },
+    {
+      "t": 25.3125,
+      "x": 960,
+      "y": 540,
+      "z": 1
+    },
+    {
+      "t": 31.40625,
+      "x": 960,
+      "y": 540,
+      "z": 1
+    }
+  ],
+  "beats": [
+    {
+      "id": "b01",
+      "beats": 4,
+      "start": 0,
+      "end": 1.875,
+      "dur": 1.875,
+      "startFrame": 0,
+      "endFrame": 56,
+      "built": true,
+      "carry": "Phone outline",
+      "cut": "carry",
+      "handoffIn": {
+        "kind": "caret",
+        "x": 953,
+        "y": 492,
+        "w": 14,
+        "h": 96,
+        "r": 2,
+        "colour": "orange"
+      },
+      "handoffOut": {
+        "kind": "outline",
+        "x": 782,
+        "y": 180,
+        "w": 356,
+        "h": 720,
+        "r": 52,
+        "stroke": 10,
+        "colour": "orange"
+      },
+      "still": [],
+      "vo": {
+        "line": "V1",
+        "text": "New phone in store.",
+        "src": [
+          0,
+          1.1
+        ],
+        "start": 0.469,
+        "end": 1.569,
+        "words": [
+          {
+            "w": "New",
+            "t": 0.469,
+            "est": true
+          },
+          {
+            "w": "phone",
+            "t": 0.744,
+            "est": true
+          },
+          {
+            "w": "in",
+            "t": 1.019,
+            "est": true
+          },
+          {
+            "w": "store.",
+            "t": 1.294,
+            "est": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b02",
+      "beats": 2,
+      "start": 1.875,
+      "end": 2.8125,
+      "dur": 0.9375,
+      "startFrame": 56,
+      "endFrame": 84,
+      "built": false,
+      "carry": "Tower outline",
+      "cut": "carry",
+      "handoffIn": {
+        "kind": "outline",
+        "x": 782,
+        "y": 180,
+        "w": 356,
+        "h": 720,
+        "r": 52,
+        "stroke": 10,
+        "colour": "orange"
+      },
+      "handoffOut": {
+        "kind": "outline",
+        "x": 810,
+        "y": 60,
+        "w": 300,
+        "h": 960,
+        "r": 8,
+        "stroke": 10,
+        "colour": "orange"
+      },
+      "still": [],
+      "vo": {
+        "line": "V2",
+        "text": "New tower on sale.",
+        "src": [
+          1.23,
+          2.46
+        ],
+        "start": 1.775,
+        "end": 3.005,
+        "words": [
+          {
+            "w": "New",
+            "t": 1.775,
+            "est": true
+          },
+          {
+            "w": "tower",
+            "t": 2.021,
+            "est": true
+          },
+          {
+            "w": "on",
+            "t": 2.513,
+            "est": true
+          },
+          {
+            "w": "sale.",
+            "t": 2.759,
+            "est": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b03",
+      "beats": 4,
+      "start": 2.8125,
+      "end": 4.6875,
+      "dur": 1.875,
+      "startFrame": 84,
+      "endFrame": 141,
+      "built": false,
+      "carry": "Tag's bottom edge",
+      "cut": "carry",
+      "handoffIn": {
+        "kind": "outline",
+        "x": 810,
+        "y": 60,
+        "w": 300,
+        "h": 960,
+        "r": 8,
+        "stroke": 10,
+        "colour": "orange"
+      },
+      "handoffOut": {
+        "kind": "line",
+        "x": 660,
+        "y": 780,
+        "w": 600,
+        "h": 10,
+        "r": 0,
+        "colour": "orange"
+      },
+      "still": [],
+      "vo": {
+        "line": "V3",
+        "text": "New offer every week.",
+        "src": [
+          2.64,
+          4.12
+        ],
+        "start": 3.072,
+        "end": 4.553,
+        "words": [
+          {
+            "w": "New",
+            "t": 3.072,
+            "est": true
+          },
+          {
+            "w": "offer",
+            "t": 3.284,
+            "est": true
+          },
+          {
+            "w": "every",
+            "t": 3.707,
+            "est": true
+          },
+          {
+            "w": "week.",
+            "t": 4.341,
+            "est": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b04",
+      "beats": 8,
+      "start": 4.6875,
+      "end": 8.4375,
+      "dur": 3.75,
+      "startFrame": 141,
+      "endFrame": 253,
+      "built": true,
+      "carry": "Underline",
+      "cut": "carry",
+      "handoffIn": {
+        "kind": "line",
+        "x": 660,
+        "y": 780,
+        "w": 600,
+        "h": 10,
+        "r": 0,
+        "colour": "orange"
+      },
+      "handoffOut": {
+        "kind": "line",
+        "x": 180,
+        "y": 650,
+        "w": 1560,
+        "h": 10,
+        "r": 0,
+        "colour": "orange"
+      },
+      "still": [
+        [
+          0.47,
+          3.75
+        ]
+      ],
+      "vo": {
+        "line": "V4",
+        "text": "Your launches move fast. Your videos should too.",
+        "src": [
+          4.41,
+          7.09
+        ],
+        "start": 5.156,
+        "end": 7.836,
+        "words": [
+          {
+            "w": "Your",
+            "t": 5.156,
+            "est": true
+          },
+          {
+            "w": "launches",
+            "t": 5.418,
+            "est": true
+          },
+          {
+            "w": "move",
+            "t": 5.942,
+            "est": true
+          },
+          {
+            "w": "fast.",
+            "t": 6.204,
+            "est": true
+          },
+          {
+            "w": "Your",
+            "t": 6.656,
+            "est": true
+          },
+          {
+            "w": "videos",
+            "t": 6.892,
+            "est": true
+          },
+          {
+            "w": "should",
+            "t": 7.364,
+            "est": true
+          },
+          {
+            "w": "too.",
+            "t": 7.6,
+            "est": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b05",
+      "beats": 6,
+      "start": 8.4375,
+      "end": 11.25,
+      "dur": 2.8125,
+      "startFrame": 253,
+      "endFrame": 338,
+      "built": true,
+      "carry": "Code editor window",
+      "cut": "carry",
+      "handoffIn": {
+        "kind": "line",
+        "x": 180,
+        "y": 650,
+        "w": 1560,
+        "h": 10,
+        "r": 0,
+        "colour": "orange"
+      },
+      "handoffOut": {
+        "kind": "window",
+        "x": 300,
+        "y": 238,
+        "w": 1320,
+        "h": 228,
+        "r": 24,
+        "stroke": 2,
+        "colour": "ink"
+      },
+      "still": [],
+      "vo": {
+        "line": "V5",
+        "text": "GoDevLevel builds launch films — in code.",
+        "src": [
+          7.42,
+          10.11
+        ],
+        "start": 8.438,
+        "end": 11.127,
+        "words": [
+          {
+            "w": "GoDevLevel",
+            "t": 8.438,
+            "est": true
+          },
+          {
+            "w": "builds",
+            "t": 9.297,
+            "est": true
+          },
+          {
+            "w": "launch",
+            "t": 9.647,
+            "est": true
+          },
+          {
+            "w": "films",
+            "t": 9.997,
+            "est": true
+          },
+          {
+            "w": "in",
+            "t": 10.567,
+            "est": true
+          },
+          {
+            "w": "code.",
+            "t": 10.847,
+            "est": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b06",
+      "beats": 8,
+      "start": 11.25,
+      "end": 15,
+      "dur": 3.75,
+      "startFrame": 338,
+      "endFrame": 450,
+      "built": false,
+      "carry": "Product frame",
+      "cut": "carry",
+      "handoffIn": {
+        "kind": "window",
+        "x": 300,
+        "y": 238,
+        "w": 1320,
+        "h": 228,
+        "r": 24,
+        "stroke": 2,
+        "colour": "ink"
+      },
+      "handoffOut": {
+        "kind": "frame",
+        "x": 360,
+        "y": 202.5,
+        "w": 1200,
+        "h": 675,
+        "r": 20,
+        "stroke": 6,
+        "colour": "orange"
+      },
+      "still": [],
+      "vo": {
+        "line": "V6",
+        "text": "Your colours. Your words. Your product. Exactly.",
+        "src": [
+          10.41,
+          14
+        ],
+        "start": 11.25,
+        "end": 14.84,
+        "words": [
+          {
+            "w": "Your",
+            "t": 11.25,
+            "est": true
+          },
+          {
+            "w": "colours.",
+            "t": 11.576,
+            "est": true
+          },
+          {
+            "w": "Your",
+            "t": 12.229,
+            "est": true
+          },
+          {
+            "w": "words.",
+            "t": 12.555,
+            "est": true
+          },
+          {
+            "w": "Your",
+            "t": 12.882,
+            "est": true
+          },
+          {
+            "w": "product.",
+            "t": 13.208,
+            "est": true
+          },
+          {
+            "w": "Exactly.",
+            "t": 13.861,
+            "est": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b07",
+      "beats": 6,
+      "start": 15,
+      "end": 17.8125,
+      "dur": 2.8125,
+      "startFrame": 450,
+      "endFrame": 534,
+      "built": false,
+      "carry": "Product frame",
+      "cut": "carry",
+      "handoffIn": {
+        "kind": "frame",
+        "x": 360,
+        "y": 202.5,
+        "w": 1200,
+        "h": 675,
+        "r": 20,
+        "stroke": 6,
+        "colour": "orange"
+      },
+      "handoffOut": {
+        "kind": "frame",
+        "x": 360,
+        "y": 202.5,
+        "w": 1200,
+        "h": 675,
+        "r": 20,
+        "stroke": 6,
+        "colour": "orange"
+      },
+      "still": [],
+      "vo": {
+        "line": "V7",
+        "text": "Change the price? One line. Re-render.",
+        "src": [
+          14.34,
+          16.87
+        ],
+        "start": 15,
+        "end": 17.53,
+        "words": [
+          {
+            "w": "Change",
+            "t": 15,
+            "est": true
+          },
+          {
+            "w": "the",
+            "t": 15.316,
+            "est": true
+          },
+          {
+            "w": "price?",
+            "t": 15.633,
+            "est": true
+          },
+          {
+            "w": "One",
+            "t": 15.949,
+            "est": true
+          },
+          {
+            "w": "line.",
+            "t": 16.265,
+            "est": true
+          },
+          {
+            "w": "Re-render.",
+            "t": 16.581,
+            "est": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b08",
+      "beats": 8,
+      "start": 17.8125,
+      "end": 21.5625,
+      "dur": 3.75,
+      "startFrame": 534,
+      "endFrame": 647,
+      "built": true,
+      "carry": "9:16 frame",
+      "cut": "carry",
+      "handoffIn": {
+        "kind": "frame",
+        "x": 360,
+        "y": 202.5,
+        "w": 1200,
+        "h": 675,
+        "r": 20,
+        "stroke": 6,
+        "colour": "orange"
+      },
+      "handoffOut": {
+        "kind": "frame",
+        "x": 746.25,
+        "y": 160,
+        "w": 427.5,
+        "h": 760,
+        "r": 20,
+        "stroke": 6,
+        "colour": "orange"
+      },
+      "still": [],
+      "vo": {
+        "line": "V8",
+        "text": "Wide for YouTube. Tall for Reels. Same film.",
+        "src": [
+          17.18,
+          20.26
+        ],
+        "start": 17.813,
+        "end": 20.893,
+        "words": [
+          {
+            "w": "Wide",
+            "t": 17.813,
+            "est": true
+          },
+          {
+            "w": "for",
+            "t": 18.038,
+            "est": true
+          },
+          {
+            "w": "YouTube.",
+            "t": 18.262,
+            "est": true
+          },
+          {
+            "w": "Tall",
+            "t": 18.942,
+            "est": true
+          },
+          {
+            "w": "for",
+            "t": 19.232,
+            "est": true
+          },
+          {
+            "w": "Reels.",
+            "t": 19.523,
+            "est": true
+          },
+          {
+            "w": "Same",
+            "t": 20.072,
+            "est": true
+          },
+          {
+            "w": "film.",
+            "t": 20.482,
+            "est": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b09",
+      "beats": 8,
+      "start": 21.5625,
+      "end": 25.3125,
+      "dur": 3.75,
+      "startFrame": 647,
+      "endFrame": 759,
+      "built": false,
+      "carry": "Orange dot",
+      "cut": "carry",
+      "handoffIn": {
+        "kind": "frame",
+        "x": 746.25,
+        "y": 160,
+        "w": 427.5,
+        "h": 760,
+        "r": 20,
+        "stroke": 6,
+        "colour": "orange"
+      },
+      "handoffOut": {
+        "kind": "dot",
+        "x": 950,
+        "y": 530,
+        "w": 20,
+        "h": 20,
+        "r": 10,
+        "colour": "orange"
+      },
+      "still": [],
+      "vo": {
+        "line": "V9",
+        "text": "Mobile shops. Real estate. Brands. Anyone launching.",
+        "src": [
+          20.62,
+          24.06
+        ],
+        "start": 21.563,
+        "end": 25.002,
+        "words": [
+          {
+            "w": "Mobile",
+            "t": 21.563,
+            "est": true
+          },
+          {
+            "w": "shops.",
+            "t": 22.188,
+            "est": true
+          },
+          {
+            "w": "Real",
+            "t": 22.501,
+            "est": true
+          },
+          {
+            "w": "estate.",
+            "t": 22.813,
+            "est": true
+          },
+          {
+            "w": "Brands.",
+            "t": 23.439,
+            "est": true
+          },
+          {
+            "w": "Anyone",
+            "t": 23.752,
+            "est": true
+          },
+          {
+            "w": "launching.",
+            "t": 24.377,
+            "est": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b10",
+      "beats": 7,
+      "start": 25.3125,
+      "end": 28.59375,
+      "dur": 3.28125,
+      "startFrame": 759,
+      "endFrame": 858,
+      "built": false,
+      "carry": "Wordmark",
+      "cut": "carry",
+      "handoffIn": {
+        "kind": "dot",
+        "x": 950,
+        "y": 530,
+        "w": 20,
+        "h": 20,
+        "r": 10,
+        "colour": "orange"
+      },
+      "handoffOut": {
+        "kind": "wordmark",
+        "x": 560,
+        "y": 440,
+        "w": 800,
+        "h": 200,
+        "r": 0,
+        "colour": "ink"
+      },
+      "still": [
+        [
+          0,
+          0.9
+        ],
+        [
+          1.9,
+          3.28
+        ]
+      ],
+      "vo": {
+        "line": "V10",
+        "text": "GoDevLevel.",
+        "src": [
+          24.4,
+          25.26
+        ],
+        "start": 26.25,
+        "end": 27.11,
+        "words": [
+          {
+            "w": "GoDevLevel.",
+            "t": 26.25,
+            "est": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "b11",
+      "beats": 6,
+      "start": 28.59375,
+      "end": 31.40625,
+      "dur": 2.8125,
+      "startFrame": 858,
+      "endFrame": 942,
+      "built": false,
+      "carry": null,
+      "cut": "end",
+      "handoffIn": {
+        "kind": "wordmark",
+        "x": 560,
+        "y": 440,
+        "w": 800,
+        "h": 200,
+        "r": 0,
+        "colour": "ink"
+      },
+      "handoffOut": null,
+      "still": [
+        [
+          1.6,
+          2.4
+        ]
+      ],
+      "vo": {
+        "line": "V11",
+        "text": "Build your launch.",
+        "src": [
+          25.46,
+          26.61
+        ],
+        "start": 28.594,
+        "end": 29.744,
+        "words": [
+          {
+            "w": "Build",
+            "t": 28.594,
+            "est": true
+          },
+          {
+            "w": "your",
+            "t": 28.977,
+            "est": true
+          },
+          {
+            "w": "launch.",
+            "t": 29.36,
+            "est": true
+          }
+        ]
+      }
+    }
+  ],
+  "planned": {
+    "spread": 4,
+    "stillSec": 6.36,
+    "stillPct": 20.3
+  }
+}
