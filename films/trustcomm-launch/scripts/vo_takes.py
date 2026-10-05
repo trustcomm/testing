@@ -1,4 +1,7 @@
-"""vo_takes.py: measure every English VO take in vo/takes/ and pre-select one per line.
+"""vo_takes.py [en|hi]: measure every VO take in vo/takes/ and pre-select one per line.
+
+Hinglish (hi): words are counted on the Roman caption text from BRIEF §5; slots are the current beats.json
+beat lengths (the Hinglish cut re-times audio-first, so "fits" means "fits without re-timing that beat").
 
 Per take: file length, speech span (silence < -40 dB trimmed at both ends), words per minute over the
 speech span, integrated loudness / true peak (EBU R128), longest internal pause.
@@ -44,26 +47,35 @@ def measure(p):
     return dur, head, tail, max(pauses, default=0.0), i, tp
 
 
+LANG = sys.argv[1] if len(sys.argv) > 1 else "en"
+SUF = "_hi" if LANG == "hi" else ""
+if LANG == "hi":
+    brief = (ROOT / "BRIEF.md").read_text(encoding="utf-8")
+    sec = brief[brief.index("### Hinglish lines"):brief.index("## 6. Music")]
+    TEXT = {int(k): r for k, _, r in re.findall(r"^\| VO(\d+)_hi \| (.+?) \| (.+?) \|$", sec, re.M)}
+    SLOT = {b["beat"]: b["dur"] for b in json.loads((ROOT / "beats.json").read_text())["beats"]}
+else:
+    TEXT = EN
 rows, picks = [], {}
 for n in range(1, 17):
-    words = len(re.findall(r"[A-Za-z]+(?:-[A-Za-z]+)?", EN[n]))
+    words = len(re.findall(r"[A-Za-z]+(?:-[A-Za-z]+)?", TEXT[n]))
     cands = []
-    for p in sorted((ROOT / "vo" / "takes").glob(f"VO{n}_t*.mp3")):
+    for p in sorted((ROOT / "vo" / "takes").glob(f"VO{n}{SUF}_t*.mp3")):
         dur, head, tail, pause, i, tp = measure(p)
         speech = tail - head
         wpm = words / speech * 60
         fits = speech <= SLOT[n] - HEADROOM
         cost = abs(wpm - 160) / 10 + (2 if tp > -1 else 0) + max(0, pause - 0.6) * 5
-        r = {"line": f"VO{n}", "take": p.name, "words": words, "sec": round(dur, 2), "speech": round(speech, 2), "lead": round(head, 2),
+        r = {"line": f"VO{n}{SUF}", "take": p.name, "words": words, "sec": round(dur, 2), "speech": round(speech, 2), "lead": round(head, 2),
              "wpm": round(wpm), "LUFS": i, "TP": tp, "maxPause": round(pause, 2), "slot": SLOT[n], "fits": fits, "cost": round(cost, 2)}
         rows.append(r)
         cands.append(r)
     fitting = [r for r in cands if r["fits"]]
     best = min(fitting or cands, key=lambda r: r["cost"] if fitting else r["speech"])
     best["pick"] = True
-    picks[f"VO{n}"] = {"take": best["take"], "fitsSlot": bool(fitting)}
+    picks[f"VO{n}{SUF}"] = {"take": best["take"], "fitsSlot": bool(fitting)}
 
-(ROOT / "vo" / "takes" / "takes.json").write_text(json.dumps({"rule": __doc__.strip().splitlines()[3:6], "takes": rows, "picks": picks}, indent=1))
+(ROOT / "vo" / "takes" / f"takes{SUF}.json").write_text(json.dumps({"rule": __doc__.strip().splitlines()[3:6], "takes": rows, "picks": picks}, indent=1))
 print("| Line | Take | Length s | Speech s | Slot s | WPM | LUFS | TP dBTP | Max pause s | Fits | Pick |")
 print("|---|---|---|---|---|---|---|---|---|---|---|")
 for r in rows:

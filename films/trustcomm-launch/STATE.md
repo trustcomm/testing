@@ -3,33 +3,24 @@
 This file is updated after every stage. The brief is `BRIEF.md`. Every asset generation is logged in `ASSETS.md`.
 
 ## Current stage
-**Stage 3 (STYLE FRAMES + EXEMPLARS) done; stopped at its gate ⏸.** These go to the client for approval.
-- `out/style/beat06.mp4` (3.9 s) and `out/style/beat10.mp4` (3.8 s): 1920×1080, 30 fps, with sound (VO + the accepted SFX), −14 LUFS, true peak about −4.7 dBTP.
-- Stills: `out/style/stills/` (6 for Beat 6, 5 for Beat 10). Contact sheets: `out/style/contact-beat06-10fps.png`, `contact-beat10-10fps.png`.
-- Checks: `out/style/check.json`. All pass.
-  - Determinism: 24/24 frames identical in a fresh browser.
-  - Carry contracts in and out are declared and met.
-  - Every sound lands on its frame (0 ms off).
-  - Strings on screen come only from BRIEF §4. No numbers, no star-farming words, no Google assets.
-  - **Equal split:** the two paths are mirror-identical in geometry (Δ 1e-13 px) and pulse (Δ 0). The thumb hovers on the centre line (mean x 960.0, sway 936–984 px). Card brightness is 245.3 vs 243.6, and the difference is only the icons and labels.
-- Built on our engine (imported from `films/godevlevel-launch/engine/`, not forked). Code: `web/` (`main.js`, `beat06.js`, `beat10.js`, `ui.js`, `brand.js`) and `scripts/style.mjs` + `scripts/mix.py`.
+**Hinglish takes ready for listening ⏸. Real-UI rebuild of Beats 6 and 10 is BLOCKED: the inputs have not landed.**
 
-**PROVISIONAL in these frames (the client must approve or replace):**
-1. **Colours:** blue #0E50FC and ink #141723, measured from the chat JPG of the logo. Paper #FAF8F4 and sand #EFE7DA are the brief's paper white and warm neutral. The demo shop's colour is #F2A93B, and the thumb is #C98F65.
-2. **Font:** Poppins (OFL, proposed; `fonts/`). Trustcomm's own font replaces it if supplied.
-3. **Rating page and paths UI:** laid out from the brief's words. The `ui/` screenshots of `/r/demo` are still missing, so the five face buttons and both icons are our drawings, not the real product.
-4. **QR:** illustrative; it does not scan.
-5. **Shop:** "Meera's Tiffin Room" is the site's own demo shop. It is fictional and needs the client's sign-off (FACTS.md).
-6. **Sound:** no music yet. Beat 10's heartbeat pulse is a code-synthesised placeholder, until the track carries it.
+1. **Stage 3 review (user, round 2):**
+   - Their reply left the style-frame verdict as a template placeholder ("approved as direction" OR "notes"), so it is recorded as **no verdict yet**.
+   - **Blocker before Stage 4:** the real product UI. The user is uploading every `/r/demo` screen to `ui/`, plus the logo SVG and exact brand colours (from the site's code) to `client/`.
+   - When they land, rebuild Beats 6 and 10 against the real screens and show before/after stills. **Do not build Stage 4 on the invented UI.**
+   - Checked 2026-10-05 after the reply: `ui/` is empty, and `client/` has only `logo-from-chat.jpg`.
+2. **Hinglish VO:** priced at 1,662 credits (under the user's 2,500 limit) and generated: 48 takes, 3 per line.
+   - Review files: `vo/review/VO1_hi_takes.mp3` … `VO16_hi_takes.mp3` and `vo/review/picks_reel_hi.mp3` (46.9 s).
+   - Pre-picks are in `vo/takes/takes_hi.json`. Nothing is in `vo/` until the user picks.
+   - **VO2_hi:** no take fits the current 2.9 s Beat 2 (the shortest is 3.10 s of speech), so the Hinglish cut lengthens Beat 2.
+   - **VO8_hi:** t1 fits the 5.32 s Beat 8. t2 and t3 don't (5.8–6.1 s).
+   - **VO12_hi:** t2 and t3 run very slowly (76–83 WPM on a short line), so listen for odd pauses. t1 is pre-picked.
+3. **Font:** keep Poppins unless `client/` contains a Trustcomm font (user).
+4. **Music:** still checking terms. Keep the placeholder pulse (user).
+5. **Plan screenshot:** the user is uploading it to `client/`.
 
-**Open:**
-1. **Music:** waiting for the user's terms check. Not generated.
-2. **Plan screenshot:** not on the branch yet (checked 2026-10-05).
-3. **Stage 1 and the music grid:** Stage 1 (MEASURE) still needs refs/ and music. Until then the timeline sits on the brief's 124 BPM grid (`beats.json`, provisional), and the cuts will be re-snapped to the real track.
-4. **Client inputs:** logo SVG, colours, FACTS.md and ui/ screenshots.
-5. **Hinglish VO:** to price and generate. The English takes are now approved.
-
-Credits used: **2,116 of 15,000** (no generation this round).
+Credits used: **3,778 of 15,000.**
 
 ## Plan agreed with the user (2026-10-05)
 1. **VO and SFX:** generated through the ElevenLabs connector on the user's paid Starter plan (updated 2026-10-05; the earlier plan had the user generating them in the web app). Takes go to `vo/takes/` and `sfx/takes/`; only takes the user approves move to `vo/` and `sfx/`. **No free-tier audio anywhere in this project**: the test takes were deleted.
@@ -121,3 +112,7 @@ History: on 2026-10-05 the connected ElevenLabs account was Free tier and was th
     - Beat 10 fixes: the thumb sway fits the hover window (mean exactly centred), with a wider gap between the cards.
     - Loudness: a measured gain plus an oversampled limiter, because loudnorm can't lift clips this short.
   - Stopped at the Stage 3 gate.
+- 2026-10-05 (Stage 3 review):
+  - The user made real UI a blocker before Stage 4. Inputs checked: not landed yet.
+  - Hinglish VO generated in 4 batches, all priced first; 1,662 credits, as estimated. Measured and pre-picked, with review files built.
+  - Running total: 3,778 credits.

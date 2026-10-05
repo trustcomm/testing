@@ -1,8 +1,8 @@
 {
  "rule": [
-  "speech span, integrated loudness / true peak (EBU R128), longest internal pause.",
-  "Pre-selection (a proposal only; nothing is moved to vo/): the take must fit its beat slot",
-  "(speech span <= slot - 0.3 s headroom); among those, the lowest cost of"
+  "beat lengths (the Hinglish cut re-times audio-first, so \"fits\" means \"fits without re-timing that beat\").",
+  "",
+  "Per take: file length, speech span (silence < -40 dB trimmed at both ends), words per minute over the"
  ],
  "takes": [
   {

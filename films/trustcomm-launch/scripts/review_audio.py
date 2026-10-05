@@ -1,4 +1,4 @@
-"""review_audio.py: phone-friendly listening files for the user's review (not for delivery).
+"""review_audio.py [en|hi]: phone-friendly listening files for the user's review (not for delivery).
 
 vo/review/VOn_takes.mp3   t1, t2, t3 back to back; before take k: k short beeps (so you always know which take plays).
 vo/review/picks_reel.mp3  the 16 current picks in order, 0.5 s silence between.
@@ -72,21 +72,27 @@ def write(x, p):
     return len(x) / SR
 
 
+import sys
+LANG = sys.argv[1] if len(sys.argv) > 1 else "en"
+SUF = "_hi" if LANG == "hi" else ""
+
 # --- VO per line ---
 for n in range(1, 17):
     parts = []
     for k in (1, 2, 3):
-        parts += [beeps(k), vo_clip(ROOT / "vo" / "takes" / f"VO{n}_t{k}.mp3")]
-    write(np.concatenate(parts + [sil(0.5)]), ROOT / "vo" / "review" / f"VO{n}_takes.mp3")
+        parts += [beeps(k), vo_clip(ROOT / "vo" / "takes" / f"VO{n}{SUF}_t{k}.mp3")]
+    write(np.concatenate(parts + [sil(0.5)]), ROOT / "vo" / "review" / f"VO{n}{SUF}_takes.mp3")
 
 # --- picks reel ---
-user = ROOT / "vo" / "picks.json"
-picks = json.loads(user.read_text()) if user.exists() else {k: v["take"] for k, v in json.loads((ROOT / "vo" / "takes" / "takes.json").read_text())["picks"].items()}
+user = ROOT / "vo" / f"picks{SUF}.json"
+picks = json.loads(user.read_text()) if user.exists() else {k: v["take"] for k, v in json.loads((ROOT / "vo" / "takes" / f"takes{SUF}.json").read_text())["picks"].items()}
 reel = []
 for n in range(1, 17):
-    reel += [vo_clip(ROOT / "vo" / "takes" / picks[f"VO{n}"]), sil(0.5)]
-d = write(np.concatenate(reel), ROOT / "vo" / "review" / "picks_reel.mp3")
-print(f"picks_reel.mp3 {d:.1f} s from {'vo/picks.json' if user.exists() else 'pre-picks'}: " + " ".join(f"{k}={v[-6:-4]}" for k, v in picks.items()))
+    reel += [vo_clip(ROOT / "vo" / "takes" / picks[f"VO{n}{SUF}"]), sil(0.5)]
+d = write(np.concatenate(reel), ROOT / "vo" / "review" / f"picks_reel{SUF}.mp3")
+print(f"picks_reel{SUF}.mp3 {d:.1f} s from {user.name if user.exists() else 'pre-picks'}: " + " ".join(f"{k}={v[-6:-4]}" for k, v in picks.items()))
+if LANG == "hi":
+    raise SystemExit  # SFX review is language-independent (already built)
 
 # --- SFX ---
 spicks = json.loads((ROOT / "sfx" / "picks.json").read_text())["picks"]
