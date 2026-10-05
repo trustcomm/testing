@@ -1,27 +1,10 @@
 {
  "missing": [
-  "vo/VO1_hi",
-  "vo/VO2_hi",
-  "vo/VO3_hi",
-  "vo/VO4_hi",
-  "vo/VO5_hi",
-  "vo/VO6_hi",
-  "vo/VO7_hi",
-  "vo/VO8_hi",
-  "vo/VO9_hi",
-  "vo/VO10_hi",
-  "vo/VO11_hi",
-  "vo/VO12_hi",
-  "vo/VO13_hi",
-  "vo/VO14_hi",
-  "vo/VO15_hi",
-  "vo/VO16_hi",
   "music/<track>",
   "music/LICENSE (commercial licence for the track)",
   "client/*.svg (logo)",
   "client/ brand colours file (e.g. colours.md)",
   "client/FACTS.md (client sign-offs)",
-  "ui/ screenshots of trustcomm.app and /r/demo",
   "refs/: 2–3 reference films, or refs/REFS.md saying to use BRIEF §3 targets"
  ],
  "warnings": [
@@ -155,6 +138,118 @@
    "LUFS": -28.6,
    "truePeak": -10.4,
    "wpm": 117
+  },
+  "VO1_hi": {
+   "file": "VO1_hi.mp3",
+   "sec": 1.567,
+   "sampleRate": "44100",
+   "LUFS": -29.5,
+   "truePeak": -11.4
+  },
+  "VO2_hi": {
+   "file": "VO2_hi.mp3",
+   "sec": 3.474,
+   "sampleRate": "44100",
+   "LUFS": -28.4,
+   "truePeak": -11.8
+  },
+  "VO3_hi": {
+   "file": "VO3_hi.mp3",
+   "sec": 2.534,
+   "sampleRate": "44100",
+   "LUFS": -26.0,
+   "truePeak": -10.4
+  },
+  "VO4_hi": {
+   "file": "VO4_hi.mp3",
+   "sec": 1.62,
+   "sampleRate": "44100",
+   "LUFS": -27.9,
+   "truePeak": -10.8
+  },
+  "VO5_hi": {
+   "file": "VO5_hi.mp3",
+   "sec": 2.534,
+   "sampleRate": "44100",
+   "LUFS": -26.1,
+   "truePeak": -10.0
+  },
+  "VO6_hi": {
+   "file": "VO6_hi.mp3",
+   "sec": 3.056,
+   "sampleRate": "44100",
+   "LUFS": -28.3,
+   "truePeak": -8.9
+  },
+  "VO7_hi": {
+   "file": "VO7_hi.mp3",
+   "sec": 1.802,
+   "sampleRate": "44100",
+   "LUFS": -28.8,
+   "truePeak": -11.1
+  },
+  "VO8_hi": {
+   "file": "VO8_hi.mp3",
+   "sec": 5.564,
+   "sampleRate": "44100",
+   "LUFS": -27.8,
+   "truePeak": -9.7
+  },
+  "VO9_hi": {
+   "file": "VO9_hi.mp3",
+   "sec": 3.762,
+   "sampleRate": "44100",
+   "LUFS": -27.8,
+   "truePeak": -9.9
+  },
+  "VO10_hi": {
+   "file": "VO10_hi.mp3",
+   "sec": 1.489,
+   "sampleRate": "44100",
+   "LUFS": -28.4,
+   "truePeak": -12.0
+  },
+  "VO11_hi": {
+   "file": "VO11_hi.mp3",
+   "sec": 2.743,
+   "sampleRate": "44100",
+   "LUFS": -28.1,
+   "truePeak": -10.5
+  },
+  "VO12_hi": {
+   "file": "VO12_hi.mp3",
+   "sec": 2.038,
+   "sampleRate": "44100",
+   "LUFS": -27.1,
+   "truePeak": -10.5
+  },
+  "VO13_hi": {
+   "file": "VO13_hi.mp3",
+   "sec": 2.09,
+   "sampleRate": "44100",
+   "LUFS": -28.2,
+   "truePeak": -12.1
+  },
+  "VO14_hi": {
+   "file": "VO14_hi.mp3",
+   "sec": 2.534,
+   "sampleRate": "44100",
+   "LUFS": -26.6,
+   "truePeak": -10.3
+  },
+  "VO15_hi": {
+   "file": "VO15_hi.mp3",
+   "sec": 3.109,
+   "sampleRate": "44100",
+   "LUFS": -26.2,
+   "truePeak": -7.9
+  },
+  "VO16_hi": {
+   "file": "VO16_hi.mp3",
+   "sec": 3.762,
+   "sampleRate": "44100",
+   "LUFS": -27.6,
+   "truePeak": -10.0
   }
  },
  "sfx": {
@@ -239,7 +334,13 @@
   "facts": false
  },
  "ui": {
-  "screenshots": []
+  "screenshots": [
+   "demo-1-rate-and-mention.jpg",
+   "demo-2-where-should-your-words-go.jpg",
+   "demo-3-message-to-owner.jpg",
+   "demo-4-google-draft.jpg",
+   "demo-5-thank-you.jpg"
+  ]
  },
  "refs": {
   "films": [],

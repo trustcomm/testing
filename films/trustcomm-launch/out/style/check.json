@@ -83,11 +83,11 @@
    "frames": 114,
    "sec": 3.8,
    "vo": "VO10_t2.mp3",
-   "blurredFrames": 18,
+   "blurredFrames": 16,
    "stills": [
     "out/style/stills/beat10-00-carry-in.png",
-    "out/style/stills/beat10-01-split.png",
-    "out/style/stills/beat10-02-paths.png",
+    "out/style/stills/beat10-01-choose-screen.png",
+    "out/style/stills/beat10-02-lift.png",
     "out/style/stills/beat10-03-hover.png",
     "out/style/stills/beat10-04-carry-out.png"
    ],
@@ -99,11 +99,19 @@
    },
    "sound": [
     {
-     "t": 0.5,
-     "frame": 15,
+     "t": 0.2,
+     "frame": 6,
+     "sfx": "SFX01",
+     "src": "sfx/SFX01.mp3",
+     "what": "Continue tapped",
+     "offFrameMs": 0
+    },
+    {
+     "t": 0.3,
+     "frame": 9,
      "sfx": "SFX04",
      "src": "sfx/SFX04.mp3",
-     "what": "the screen splits into two paths",
+     "what": "page slides to 'Where should your words go?'",
      "offFrameMs": 0
     },
     {
@@ -111,52 +119,60 @@
      "frame": 29,
      "sfx": "SFX04",
      "src": "sfx/SFX04.mp3",
+     "what": "the two cards lift out of the phone",
+     "offFrameMs": 0
+    },
+    {
+     "t": 1.2,
+     "frame": 36,
+     "sfx": "SFX04",
+     "src": "sfx/SFX04.mp3",
      "what": "thumb rises into frame",
      "offFrameMs": 0
     },
     {
-     "t": 1.4666666666666666,
-     "frame": 44,
+     "t": 1.9333333333333333,
+     "frame": 58,
      "sfx": "HEART",
      "src": "synth placeholder",
      "what": "pulse (music stand-in)",
      "offFrameMs": 0
     },
     {
-     "t": 1.6333333333333333,
-     "frame": 49,
+     "t": 2.1,
+     "frame": 63,
      "sfx": "HEART",
      "src": "synth placeholder",
      "what": "pulse, second thump",
      "offFrameMs": 0
     },
     {
-     "t": 2.433333333333333,
-     "frame": 73,
+     "t": 2.9,
+     "frame": 87,
      "sfx": "HEART",
      "src": "synth placeholder",
      "what": "pulse (music stand-in)",
      "offFrameMs": 0
     },
     {
-     "t": 2.6,
-     "frame": 78,
+     "t": 3.066666666666667,
+     "frame": 92,
      "sfx": "HEART",
      "src": "synth placeholder",
      "what": "pulse, second thump",
      "offFrameMs": 0
     },
     {
-     "t": 3.4,
-     "frame": 102,
+     "t": 3.6333333333333333,
+     "frame": 109,
      "sfx": "HEART",
      "src": "synth placeholder",
      "what": "pulse (music stand-in)",
      "offFrameMs": 0
     },
     {
-     "t": 3.566666666666667,
-     "frame": 107,
+     "t": 3.8,
+     "frame": 114,
      "sfx": "HEART",
      "src": "synth placeholder",
      "what": "pulse, second thump",
@@ -164,25 +180,25 @@
     }
    ],
    "loudness": {
-    "integratedLUFS": -14.3,
-    "truePeakDBTP": -4.7,
+    "integratedLUFS": -14.1,
+    "truePeakDBTP": -4.5,
     "pass": true
    }
   }
  },
  "equalSplit": {
-  "geometryMaxDiffPx": 1.1368683772161603e-13,
+  "geometryMaxDiffPx": 0,
   "pulseMaxDiff": 0,
   "thumb": {
    "meanX": 960,
-   "minX": 936.03,
-   "maxX": 983.97,
+   "minX": 936,
+   "maxX": 984,
    "note": "hovers on the centre line, sways symmetrically, never touches either card"
   },
   "cardLuminance": {
-   "left": 245.27,
-   "right": 243.6,
-   "diffPct": 0.68,
+   "left": 240.46,
+   "right": 244.23,
+   "diffPct": 1.57,
    "note": "difference = the two icons/labels only"
   },
   "pass": true
@@ -191,15 +207,47 @@
   "drawn": [
    "Meera's Tiffin Room",
    "How was the food?",
+   "How was the service?",
+   "What should the review mention?",
+   "Pick only what you want mentioned. Nothing is",
+   "ticked for you.",
+   "The food",
+   "How long it took",
+   "The price",
+   "How clean it was",
+   "The staff",
+   "The portions",
+   "What did you have?",
+   "Masala Dosa",
+   "Filter Coffee",
+   "Idli Vada",
+   "Continue",
    "No app",
    "No sign-in",
-   "The food",
-   "The staff",
-   "Filter Coffee",
-   "Post on",
-   "Google",
-   "Tell the owner",
-   "privately"
+   "Excellent",
+   "✓ How long it took",
+   "✓ Filter Coffee",
+   "Where should your words",
+   "go?",
+   "You can do both, if you like.",
+   "Straight to the owner",
+   "Only Meera's Tiffin Room reads it. Not posted",
+   "anywhere.",
+   "On Google",
+   "Anyone looking up Meera's Tiffin Room sees it.",
+   "No, I'm done",
+   "Privacy",
+   "Only Meera's Tiffin Room reads it. Not",
+   "posted anywhere.",
+   "Anyone looking up Meera's Tiffin Room",
+   "sees it.",
+   "Anyone looking up Meera's Tiffin Room sees",
+   "it.",
+   "Anyone looking up Meera's Tiffin",
+   "Room sees it.",
+   "Only Meera's Tiffin Room reads it.",
+   "Not posted anywhere.",
+   "Where should your words go?"
   ],
   "notInBrief": [],
   "forbidden": [],

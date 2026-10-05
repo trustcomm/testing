@@ -21,11 +21,19 @@ const FPS = 30;
 // Review moments (s into the beat).
 const MOMENTS = {
   b06: { "00-carry-in": 0, "01-scan-lock": 0.88, "02-page-open": 1.12, "03-no-app": 1.45, "04-no-signin": 2.3, "05-carry-out": null },
-  b10: { "00-carry-in": 0, "01-split": 0.8, "02-paths": 1.45, "03-hover": 2.6, "04-carry-out": null },
+  b10: { "00-carry-in": 0, "01-choose-screen": 0.75, "02-lift": 1.25, "03-hover": 2.6, "04-carry-out": null },
 };
 // Strings the brief puts on screen in these beats (BRIEF §4, F3–F7). Anything else drawn fails the check.
-const ALLOWED = new Set(["Meera's Tiffin Room", "How was the food?", "No app", "No sign-in", "The food", "The staff", "Filter Coffee", "Post on", "Google", "Tell the owner", "privately"]);
-const FORBIDDEN = /star|boost|rating|remove|bad review|[0-9]/i;
+// Beat 6/10 film copy (BRIEF §4) + the real product's own copy (ui/demo-1, ui/demo-2), split where it wraps.
+const ALLOWED = new Set(["Meera's Tiffin Room", "No app", "No sign-in",
+  "How was the food?", "How was the service?", "Excellent", "What should the review mention?", "Pick only what you want mentioned.", "Nothing is ticked for you.",
+  "Pick only what you want mentioned. Nothing is ticked for", "you.", "The food", "How long it took", "The price", "How clean it was", "The staff", "The portions",
+  "What did you have?", "Masala Dosa", "Filter Coffee", "Idli Vada", "Continue",
+  "Where should your words go?", "Where should your", "words go?", "You can do both, if you like.", "Straight to the owner", "On Google", "No, I'm done", "Privacy",
+  "Only Meera's Tiffin Room reads it. Not posted anywhere.", "Anyone looking up Meera's Tiffin Room sees it."]);
+// wrapped sub-lines of the product copy are checked by joining: every drawn string must be a substring of approved copy
+const APPROVED_TEXT = [...ALLOWED].join(" | ");
+const FORBIDDEN = /star|boost|rating|remove|bad review|[0-9]/i; // (the product's star buttons are shapes, not text)
 
 const s1 = await open();
 const R = { engine: "films/godevlevel-launch/engine (imported)", music: "none yet: pulse in Beat 10 is a code-synthesised placeholder", beats: {} };
@@ -86,9 +94,12 @@ for (const id of ["b06", "b10"]) {
   const xs = [];
   for (let f = 0; f < b.endFrame - b.startFrame; f++) {
     const s = await s1.page.evaluate((lt) => window.GDL.state10(lt), f / FPS);
-    worst = Math.max(worst, Math.abs(s.L.x + s.L.w - (1920 - s.R.x)), Math.abs(s.L.w - s.R.w), Math.abs(s.L.h - s.R.h), Math.abs(s.L.y - s.R.y), Math.abs(s.L.r - s.R.r));
+    // equal size on every frame (stacked in the phone as the product draws them, then side by side);
+    // mirror position about the centre line once they have landed
+    worst = Math.max(worst, Math.abs(s.L.w - s.R.w), Math.abs(s.L.h - s.R.h), Math.abs(s.L.r - s.R.r));
+    if (s.landed) worst = Math.max(worst, Math.abs(s.L.x + s.L.w - (1920 - s.R.x)), Math.abs(s.L.y - s.R.y));
     pulseDiff = Math.max(pulseDiff, Math.abs(s.pulseL - s.pulseR));
-    if (f / FPS >= 1.6) xs.push(s.thumbX);
+    if (f / FPS >= 1.8 - 1e-9) xs.push(s.thumbX);
   }
   const mean = xs.reduce((a, x) => a + x, 0) / xs.length;
   // Brightness of each card (mean luminance inside its rect) on the hover frame.
@@ -112,7 +123,7 @@ for (const id of ["b06", "b10"]) {
 {
   const drawn = await s1.page.evaluate(() => window.GDL.drawn());
   R.compliance = {
-    drawn, notInBrief: drawn.filter((s) => !ALLOWED.has(s)), forbidden: drawn.filter((s) => FORBIDDEN.test(s)),
+    drawn, notInBrief: drawn.filter((s) => !ALLOWED.has(s.replace(/^✓ /, "")) && !APPROVED_TEXT.includes(s.replace(/^✓ /, ""))), forbidden: drawn.filter((s) => FORBIDDEN.test(s)),
     googleAssets: "none: 'Google' appears only as plain text in Poppins, ink colour; no logo, no Google UI, no Google font or colours",
   };
   R.compliance.pass = !R.compliance.notInBrief.length && !R.compliance.forbidden.length;

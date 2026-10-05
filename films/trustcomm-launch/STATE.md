@@ -3,24 +3,60 @@
 This file is updated after every stage. The brief is `BRIEF.md`. Every asset generation is logged in `ASSETS.md`.
 
 ## Current stage
-**Hinglish takes ready for listening ⏸. Real-UI rebuild of Beats 6 and 10 is BLOCKED: the inputs have not landed.**
+**Beats 6 and 10 rebuilt on the real /r/demo screens; stopped to show the user ⏸.** Stage 4 (animatic) waits on the user confirming the stills match the product.
 
-1. **Stage 3 review (user, round 2):**
-   - Their reply left the style-frame verdict as a template placeholder ("approved as direction" OR "notes"), so it is recorded as **no verdict yet**.
-   - **Blocker before Stage 4:** the real product UI. The user is uploading every `/r/demo` screen to `ui/`, plus the logo SVG and exact brand colours (from the site's code) to `client/`.
-   - When they land, rebuild Beats 6 and 10 against the real screens and show before/after stills. **Do not build Stage 4 on the invented UI.**
-   - Checked 2026-10-05 after the reply: `ui/` is empty, and `client/` has only `logo-from-chat.jpg`.
-2. **Hinglish VO:** priced at 1,662 credits (under the user's 2,500 limit) and generated: 48 takes, 3 per line.
-   - Review files: `vo/review/VO1_hi_takes.mp3` … `VO16_hi_takes.mp3` and `vo/review/picks_reel_hi.mp3` (46.9 s).
-   - Pre-picks are in `vo/takes/takes_hi.json`. Nothing is in `vo/` until the user picks.
-   - **VO2_hi:** no take fits the current 2.9 s Beat 2 (the shortest is 3.10 s of speech), so the Hinglish cut lengthens Beat 2.
-   - **VO8_hi:** t1 fits the 5.32 s Beat 8. t2 and t3 don't (5.8–6.1 s).
-   - **VO12_hi:** t2 and t3 run very slowly (76–83 WPM on a short line), so listen for odd pauses. t1 is pre-picked.
-3. **Font:** keep Poppins unless `client/` contains a Trustcomm font (user).
-4. **Music:** still checking terms. Keep the placeholder pulse (user).
-5. **Plan screenshot:** the user is uploading it to `client/`.
+**Inputs received 2026-10-05:** five `/r/demo` screenshots, saved as:
+- `ui/demo-1-rate-and-mention.jpg`
+- `ui/demo-2-where-should-your-words-go.jpg`
+- `ui/demo-3-message-to-owner.jpg`
+- `ui/demo-4-google-draft.jpg`
+- `ui/demo-5-thank-you.jpg`
 
-Credits used: **3,778 of 15,000.**
+The user's message also mentions **the brand colours and the ElevenLabs plan screenshot**. **Neither was attached**: only the five UI images arrived, so `client/` is unchanged.
+
+**Brand colours, measured from the screenshots' flat fills** (in `web/brand.js`; they replace the logo-JPG estimates and need the client's confirmation):
+
+| Role | Hex |
+|---|---|
+| Blue | #1E5EFE |
+| Ink | #111216 |
+| Grey text | #6D6D75 |
+| Hairline | #EAE9E5 |
+| Edge | #E6E5E1 |
+| Light-blue tint | #E4EAF8 |
+| Page | #FAF9F5 (now also the film's paper white) |
+
+**Rebuild:**
+- **Beat 6:** the rating page is now the product's screen 1.
+  - Content: progress dots, "How was the food?" and "How was the service?" with five stars each, "What should the review mention?" with its line and six chips, "What did you have?" with three chips, and the fixed blue Continue bar.
+  - The invented orange header and face buttons are gone.
+- **Beat 10:** opens on the same screen, scrolled to the chips the customer ticked (as in demo-1: "How long it took" and "Filter Coffee").
+  - Continue is tapped, and "Where should your words go?" (demo-2) slides in.
+  - Its two cards ("Straight to the owner" and "On Google", with the product's own sub-lines) lift out of the phone. They settle side by side at equal size, with the product's heading and "You can do both, if you like." above.
+  - The brief's labels "Post on Google" and "Tell the owner privately" are replaced by the product's real copy.
+- **Checks: all pass** (`out/style/check.json`).
+  - Determinism: 24/24 frames.
+  - Carry contracts are met, and sounds land 0 ms off their frames.
+  - Loudness: −14.2 and −14.1 LUFS.
+  - Every drawn string is the brief's film copy or the product's own copy.
+  - Equal split: size equal on every frame; mirror and pulse Δ 0 once landed. The thumb's mean x is 960.
+- **Review sheets:** `out/style/compare/beat06-before-after.png`, `beat10-before-after.png`, and `product-match.png` (the film's phone screens beside the screenshots).
+
+**Known differences from the product (for the user to accept or change):**
+1. **Font:** Poppins, per the user. The product uses a system-style sans, which is narrower, so chip type is slightly smaller to keep the product's 3-per-row layout.
+2. **Phone layout:** the screenshots are a desktop window. On the phone, "Where should your words go?" and the card sub-lines wrap to two lines.
+3. **Unrated stars:** grey #DCDBD7 is **inferred**, because the screenshots only show rated stars. Only the 5-star label ("Excellent") is shown, because it is the only label we have.
+
+**Hinglish:**
+- Pre-picks accepted (VO8_hi t1, VO12_hi t1) and copied to `vo/VOn_hi.mp3`. Picks are in `vo/picks_hi.json`.
+- Timeline: `beats_hi.json` (from `scripts/beats.py hi`) runs 62.88 s.
+  - Beat 2 grows to 3.871 s (8 beats) for VO2_hi, as the user asked.
+  - Beat 8 also grows, to 5.806 s (12 beats), because VO8_hi t1 ends at 5.17 s plus the tail. The flips land on its spoken names.
+  - Every other beat keeps its length. The English timeline is unchanged (61.42 s, verified byte-identical).
+
+**Font:** Poppins unless a Trustcomm font arrives. **Music:** still checking terms; placeholder pulse kept.
+
+Credits used: **3,778 of 15,000** (none this round).
 
 ## Plan agreed with the user (2026-10-05)
 1. **VO and SFX:** generated through the ElevenLabs connector on the user's paid Starter plan (updated 2026-10-05; the earlier plan had the user generating them in the web app). Takes go to `vo/takes/` and `sfx/takes/`; only takes the user approves move to `vo/` and `sfx/`. **No free-tier audio anywhere in this project**: the test takes were deleted.
@@ -67,6 +103,8 @@ History: on 2026-10-05 the connected ElevenLabs account was Free tier and was th
 - **SFX defaults until the user listens** (`sfx/picks.json`):
   - Set by the user: SFX01 → v2, SFX10 → synth, SFX11 → synth loop.
   - Claude's picks, from measurements only (length nearest the brief, less clipping): SFX02 v2, SFX03 v1, SFX04 v2, SFX05 v2, SFX06 v1, SFX07 v2, SFX08 v2, SFX09 v2, SFX12 v2.
+- **Stage 3 style frames approved as direction (user, 2026-10-05).** Then rebuilt on the real UI (see Current stage).
+- **Hinglish picks accepted (user):** with Beat 2 lengthened audio-first for VO2_hi.
 - **Fast short lines** (VO2, 3, 7, 9, 11, 14 at 190–220 WPM): kept for now. The user will flag and regenerate any that sound rushed.
 - **Voice: "Ishan – Bold and Upbeat"** (ElevenLabs library voice N09NFwYJJG9VSSgdLQbT), confirmed by the user. Generated through the connector with ElevenLabs default settings: the connector has no stability, similarity, style or speaker-boost controls.
 - **Budget:** 15,000 credits for this film. Every batch is priced first, and the ledger is in ASSETS.md.
@@ -116,3 +154,9 @@ History: on 2026-10-05 the connected ElevenLabs account was Free tier and was th
   - The user made real UI a blocker before Stage 4. Inputs checked: not landed yet.
   - Hinglish VO generated in 4 batches, all priced first; 1,662 credits, as estimated. Measured and pre-picked, with review files built.
   - Running total: 3,778 credits.
+- 2026-10-05 (real UI):
+  - Saved five /r/demo screenshots to ui/. Brand colours and the plan screenshot were not attached.
+  - Measured the product colours from the screenshots, and rebuilt Beats 6 and 10 on the real screens.
+  - Built the before/after and product-match sheets; all checks pass.
+  - Hinglish picks copied to vo/; beats_hi.json built (62.88 s).
+  - Stopped to show the user.

@@ -1,15 +1,20 @@
-// Trustcomm palette and type. PROVISIONAL until the client approves (STATE.md):
-//   blue / ink measured from client/logo-from-chat.jpg (JPG, so approximate); paper + sand are the brief's
-//   "one bright paper white + one warm neutral"; shop = the fictional demo shop's own colour (F3: stand printed
-//   in the shop's colours); skin = the illustrated thumb in Beat 10.
+// Trustcomm palette and type. Product colours are measured from the real /r/demo screenshots (not yet from the
+// site's code); the client confirms the hex values before final.
 export const P = {
-  blue: "#0E50FC",
-  ink: "#141723",
-  paper: "#FAF8F4",
-  sand: "#EFE7DA",
+  // Measured from the real /r/demo screens (ui/demo-*.jpg, flat-fill pixels), 2026-10-05:
+  blue: "#1E5EFE", // buttons, stars, ticked chips, progress dots
+  ink: "#111216", // headings and body text
+  grey: "#6D6D75", // secondary text
+  line: "#EAE9E5", // hairlines, idle dots, chip outlines
+  edge: "#E6E5E1", // card / chip borders
+  tint: "#E4EAF8", // light-blue panels (owner-message header, tick badge)
+  paper: "#FAF9F5", // the page background = the film's paper white
   white: "#FFFFFF",
-  shop: "#F2A93B",
-  skin: "#C98F65",
+  // Film-only colours:
+  sand: "#EFE7DA", // warm neutral (BRIEF §3)
+  shop: "#F2A93B", // the fictional demo shop's own colour on its counter stand (F3)
+  skin: "#C98F65", // the illustrated thumb in Beat 10
+  starOff: "#DCDBD7", // INFERRED: unrated star (the screenshots only show rated stars)
 };
 // One geometric OFL sans (BRIEF §3): Poppins, proposed; the client's own font replaces it if supplied.
 export const FONT = '"Poppins"';

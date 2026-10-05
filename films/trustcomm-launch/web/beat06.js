@@ -1,4 +1,5 @@
 // Beat 6 — "Customers scan. No app. No sign-in." (BRIEF §4; F4)
+// Rebuilt 2026-10-05 on the real /r/demo rating screen (ui/demo-1).
 // The counter stand's QR (carry in) → a phone slides in, its viewfinder corners snap onto the code (scan lock),
 // the screen opens the rating page at once; "No app" / "No sign-in" stamp as chips on the spoken words;
 // the camera pushes into the phone screen (carry out).

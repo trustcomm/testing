@@ -1,10 +1,11 @@
 {
- "film": "trustcomm-launch hero",
+ "film": "trustcomm-launch hero (Telugu)",
+ "lang": "Telugu",
  "provisional": true,
  "fps": 30,
  "bpm": 124,
  "beat": 0.48387,
- "picksFrom": "vo/picks.json",
+ "picksFrom": "picks.json",
  "duration": 61.4226,
  "frames": 1843,
  "overBriefBy": 1.4226,

@@ -206,6 +206,17 @@ Removed: three free-tier test takes of VO1 (2026-10-05). They were deleted at th
 ## Stock (Canva, optional)
 None yet.
 
+## Product UI (client)
+| File | Source | Used for |
+|---|---|---|
+| ui/demo-1-rate-and-mention.jpg | screenshot of trustcomm.app/r/demo by the user, 2026-10-05 | Beat 6 rating page; Beat 10 opening (ticked chips) |
+| ui/demo-2-where-should-your-words-go.jpg | same | Beat 10 choose screen and the two lifted cards |
+| ui/demo-3-message-to-owner.jpg | same | Beat 12 (later) |
+| ui/demo-4-google-draft.jpg | same | Beat 11 (later) |
+| ui/demo-5-thank-you.jpg | same | spare |
+
+Rebuilt in vector in `web/ui.js`; no screenshot pixels appear in the film. Colours were measured from flat fills (see STATE.md).
+
 ## Client brand
 | File | Source | Notes |
 |---|---|---|
