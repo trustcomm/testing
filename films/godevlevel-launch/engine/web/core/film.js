@@ -41,6 +41,7 @@ export class Film {
       hin: b.handoffIn,
       hout: b.handoffOut,
       vo: b.vo,
+      entry: b, // this beat's own timeline entry (films can keep per-beat data there)
       prev: i > 0 ? this.tl.beats[i - 1] : null,
       cam: this.cam,
       mods: this.mods,
@@ -65,7 +66,8 @@ export class Film {
     return {
       id,
       built: !!this.mods[id],
-      in: matches(m.carry(0, e), b.handoffIn),
+      // A hard cut ("cut": "hard") declares no handoff, so there is nothing to match.
+      in: b.handoffIn ? matches(m.carry(0, e), b.handoffIn) : [],
       out: b.handoffOut ? matches(m.carry(e.dur, e), b.handoffOut) : [],
     };
   }
@@ -76,7 +78,10 @@ export class Film {
     const m = this.module(b);
     const dt = 1 / this.fps;
     const lt = t - e.t0;
-    if (lt - dt < -1e-9) return 0; // tolerance: lt - dt on the 2nd frame of a beat can be -1e-17
+    // A beat may declare `preroll` (s) in the timeline: motion its module defines just before its own start
+    // (e.g. a word smearing in on a hard cut). Otherwise nothing before the beat's first frame is sampled.
+    const pre = b.preroll ?? 0;
+    if (lt - dt < -pre - 1e-9) return 0; // tolerance: lt - dt on the 2nd frame of a beat can be -1e-17
     const now = m.track(lt, e);
     const before = m.track(lt - dt, e);
     const c1 = this.cam(t), c0 = this.cam(t - dt);
@@ -117,11 +122,12 @@ export class Film {
       this.drawAt(this.ctx, b, t, scale);
       return { frame: f, beat: b.id, t, speed: v, samples: 1 };
     }
-    // Average n renders spread over the trailing shutter, never reaching back past this beat's first frame.
+    // Average n renders spread over the trailing shutter, never reaching back past this beat's first frame
+    // (or its declared pre-roll).
     if (this.off.width !== W) { this.off.width = W; this.off.height = H; }
     const acc = new Uint32Array(W * H * 4);
     for (let i = 0; i < n; i++) {
-      const ts = Math.max(t0, t - (SHUTTER / this.fps) * (i / (n - 1)));
+      const ts = Math.max(t0 - (b.preroll ?? 0), t - (SHUTTER / this.fps) * (i / (n - 1)));
       this.drawAt(this.offCtx, b, ts, scale);
       const d = this.offCtx.getImageData(0, 0, W, H).data;
       for (let k = 0; k < d.length; k++) acc[k] += d[k];

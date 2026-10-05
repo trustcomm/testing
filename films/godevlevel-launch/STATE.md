@@ -173,3 +173,4 @@ Updated after every step. Asset-level detail (Canva IDs, export jobs) lives in `
   - Built Beats 2, 3, 6, 7, 9, 10 and 11.
   - The checker covers all 10 boundaries and all pass, after fixes to 2→3, 3→4 and 7→8, the blur spacing and three engine bugs.
   - Stopped for review.
+  - Engine was extended for the godevlevel.in reel (see that film's STATE.md): films/-rooted server, hard-cut handling, per-beat pre-roll, shared rhythm rule (accelerating runs may repeat lengths), tempo.py. The launch checker was re-run with unchanged scores.

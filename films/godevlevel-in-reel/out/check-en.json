@@ -1,0 +1,403 @@
+{
+  "lang": "en",
+  "provisional": true,
+  "bpm": 128,
+  "frames": 353,
+  "duration": 11.767,
+  "rhythm": {
+    "cards": [
+      {
+        "card": 1,
+        "part": "A",
+        "target": 22,
+        "frames": 23,
+        "sec": 0.7667,
+        "cut": "hard",
+        "snappedTo": "film start",
+        "snapErrorMs": 0
+      },
+      {
+        "card": 2,
+        "part": "A",
+        "target": 20,
+        "frames": 21,
+        "sec": 0.7,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": -7.8
+      },
+      {
+        "card": 3,
+        "part": "A",
+        "target": 18,
+        "frames": 18,
+        "sec": 0.6,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": -10.9
+      },
+      {
+        "card": 4,
+        "part": "A",
+        "target": 16,
+        "frames": 17,
+        "sec": 0.5667,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 3.1
+      },
+      {
+        "card": 5,
+        "part": "A",
+        "target": 16,
+        "frames": 15,
+        "sec": 0.5,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": -16.1
+      },
+      {
+        "card": 6,
+        "part": "B",
+        "target": 15,
+        "frames": 14,
+        "sec": 0.4667,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 15.1
+      },
+      {
+        "card": 7,
+        "part": "B",
+        "target": 14,
+        "frames": 14,
+        "sec": 0.4667,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 13
+      },
+      {
+        "card": 8,
+        "part": "B",
+        "target": 13,
+        "frames": 14,
+        "sec": 0.4667,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 10.9
+      },
+      {
+        "card": 9,
+        "part": "B",
+        "target": 12,
+        "frames": 12,
+        "sec": 0.4,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 8.9
+      },
+      {
+        "card": 10,
+        "part": "B",
+        "target": 12,
+        "frames": 12,
+        "sec": 0.4,
+        "cut": "hard",
+        "snappedTo": "eighth beat",
+        "snapErrorMs": -1.3
+      },
+      {
+        "card": 11,
+        "part": "B",
+        "target": 11,
+        "frames": 11,
+        "sec": 0.3667,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": -11.5
+      },
+      {
+        "card": 12,
+        "part": "B",
+        "target": 11,
+        "frames": 10,
+        "sec": 0.3333,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 3.6
+      },
+      {
+        "card": 13,
+        "part": "B",
+        "target": 10,
+        "frames": 9,
+        "sec": 0.3,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": -14.6
+      },
+      {
+        "card": 14,
+        "part": "B",
+        "target": 10,
+        "frames": 9,
+        "sec": 0.3,
+        "cut": "hard",
+        "snappedTo": "eighth beat",
+        "snapErrorMs": -7.6
+      },
+      {
+        "card": 15,
+        "part": "B",
+        "target": 9,
+        "frames": 9,
+        "sec": 0.3,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": -0.5
+      },
+      {
+        "card": 16,
+        "part": "B",
+        "target": 9,
+        "frames": 9,
+        "sec": 0.3,
+        "cut": "hard",
+        "snappedTo": "eighth beat",
+        "snapErrorMs": 6.5
+      },
+      {
+        "card": 17,
+        "part": "B",
+        "target": 8,
+        "frames": 7,
+        "sec": 0.2333,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 13.5
+      },
+      {
+        "card": 18,
+        "part": "B",
+        "target": 8,
+        "frames": 7,
+        "sec": 0.2333,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 12.5
+      },
+      {
+        "card": 19,
+        "part": "B",
+        "target": 7,
+        "frames": 7,
+        "sec": 0.2333,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 11.5
+      },
+      {
+        "card": 20,
+        "part": "B",
+        "target": 7,
+        "frames": 7,
+        "sec": 0.2333,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 10.4
+      },
+      {
+        "card": 21,
+        "part": "C",
+        "target": 14,
+        "frames": 14,
+        "sec": 0.4667,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 9.4
+      },
+      {
+        "card": 22,
+        "part": "C",
+        "target": 16,
+        "frames": 17,
+        "sec": 0.5667,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 7.3
+      },
+      {
+        "card": 23,
+        "part": "C",
+        "target": 30,
+        "frames": 32,
+        "sec": 1.0667,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": -12
+      },
+      {
+        "card": 24,
+        "part": "C",
+        "target": 45,
+        "frames": 45,
+        "sec": 1.5,
+        "cut": "hard",
+        "snappedTo": "quarter-beat grid",
+        "snapErrorMs": 0
+      }
+    ],
+    "allHardCuts": true,
+    "cutsPerMinute": 117.3,
+    "cutsPerMinuteBeforeLogo": 134.4,
+    "partBCutsPerMinute": 178.8,
+    "intervalCurve": {
+      "first": {
+        "card": 1,
+        "sec": 0.7667
+      },
+      "partBFirst": {
+        "card": 6,
+        "sec": 0.4667
+      },
+      "partBLast": {
+        "card": 20,
+        "sec": 0.2333
+      },
+      "acceleration": 3.29,
+      "seconds": [
+        0.7667,
+        0.7,
+        0.6,
+        0.5667,
+        0.5,
+        0.4667,
+        0.4667,
+        0.4667,
+        0.4,
+        0.4,
+        0.3667,
+        0.3333,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.2333,
+        0.2333,
+        0.2333,
+        0.2333,
+        0.4667,
+        0.5667,
+        1.0667,
+        1.5
+      ]
+    },
+    "acceleratingShapeKept": true,
+    "acceleratingRuns": [
+      [
+        1,
+        20
+      ]
+    ],
+    "equalTriplesAllowed": [
+      [
+        6,
+        7,
+        8
+      ],
+      [
+        13,
+        14,
+        15
+      ],
+      [
+        14,
+        15,
+        16
+      ],
+      [
+        17,
+        18,
+        19
+      ],
+      [
+        18,
+        19,
+        20
+      ]
+    ],
+    "equalTriplesFailing": [],
+    "logoCutOnDownbeat": {
+      "frame": 308,
+      "sec": 10.2667,
+      "musicStopsAt": 10.2667
+    },
+    "maxSnapErrorMs": 16.1
+  },
+  "type": {
+    "minSizePx": 132,
+    "regularPx": [
+      132,
+      132
+    ],
+    "emphasis": [
+      {
+        "card": 3,
+        "text": "enough.",
+        "size": 220,
+        "lines": 1,
+        "ratio": 1.67
+      },
+      {
+        "card": 5,
+        "text": "customers.",
+        "size": 157.9,
+        "lines": 1,
+        "ratio": 1.2
+      },
+      {
+        "card": 22,
+        "text": "all of it.",
+        "size": 290.4,
+        "lines": 2,
+        "ratio": 2.2
+      }
+    ],
+    "twoLineCards": [
+      {
+        "card": 22,
+        "lines": [
+          "all",
+          "of it."
+        ]
+      }
+    ],
+    "pass": true
+  },
+  "stillness": {
+    "method": "frame-to-frame at 0.25×; near-still = <0.3% of pixels change by >8 levels",
+    "nearStillPct": 80.4,
+    "byPart": {
+      "A": 78.5,
+      "B": 82.1,
+      "C": 79.6
+    },
+    "target": "~70% (brief, from the reference)"
+  },
+  "determinism": {
+    "frames": 33,
+    "sameSession": true,
+    "freshBrowser": true,
+    "pass": true
+  },
+  "loudness": {
+    "status": "not measurable: no music yet (silent provisional render)",
+    "target": {
+      "I": -14,
+      "TP": -1
+    }
+  },
+  "reference": {
+    "status": "no reference film in refs/ yet: comparison pending"
+  }
+}

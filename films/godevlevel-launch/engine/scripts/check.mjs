@@ -16,6 +16,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { openEngine, ROOT } from "./engine.mjs";
 import { exemplarPlan } from "./render.mjs";
+import { equalTriples } from "./rhythm.mjs";
 
 const tl = JSON.parse(readFileSync(path.join(ROOT, "timeline.json"), "utf8"));
 const report = { provisional: tl.provisional, bpm: tl.bpm, fps: tl.fps, duration: tl.duration };
@@ -25,8 +26,9 @@ const PASS = (b) => (b ? "PASS" : "FAIL");
 {
   const lens = tl.beats.map((b) => b.dur);
   const spread = Math.max(...lens) / Math.min(...lens);
-  const triples = [];
-  for (let i = 2; i < lens.length; i++) if (Math.abs(lens[i] - lens[i - 1]) < 1e-9 && Math.abs(lens[i] - lens[i - 2]) < 1e-9) triples.push(tl.beats.slice(i - 2, i + 1).map((b) => b.id));
+  // Equal triples fail unless they sit inside an accelerating run (shared rule, scripts/rhythm.mjs).
+  const eq = equalTriples(lens);
+  const triples = eq.failing.map((tr) => tr.map((i) => tl.beats[i].id));
   const boundaries = tl.beats.slice(0, -1).map((b, i) => ({ from: b.id, to: tl.beats[i + 1].id, carry: b.carry, cut: b.cut }));
   const unnamed = boundaries.filter((x) => !x.carry && x.cut !== "hard");
   const spills = tl.beats.filter((b) => b.vo.start < b.start - 1e-9 || b.vo.end > b.end + 1e-9).map((b) => ({ beat: b.id, line: b.vo.line, vo: [b.vo.start, b.vo.end], beatWindow: [b.start, b.end] }));
