@@ -1,9 +1,13 @@
 {
  "master": "out/mix/master.wav",
  "integrated_lufs": -14.0,
- "true_peak_dbtp": -1.6,
+ "true_peak_dbtp": -1.9,
+ "aac_320k": {
+  "integrated_lufs": -14.1,
+  "true_peak_dbtp": -1.5
+ },
  "pass": true,
- "mastering": "linear gain -1.30 dB + 4x-oversampled limiter at -1.6 dBFS",
+ "mastering": "linear gain -1.30 dB + 4x-oversampled limiter at -1.9 dBFS",
  "vo_gain_db": 9.2,
  "music_trim_db": -6,
  "music_duck_under_vo_db": -7.8,

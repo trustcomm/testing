@@ -21,7 +21,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 os.makedirs("out/mix", exist_ok=True)
 SR = 48000
-TARGET_I, TARGET_TP = -14.0, -1.5            # aim 0.5 dB under the −1 dBTP ceiling
+TARGET_I = -14.0                              # true peak: below −1 dBTP after the AAC encode of the delivery file (checked below)
 tl = json.load(open("timeline.json"))
 N = int(round(tl["length_s"] * SR))
 
@@ -118,16 +118,19 @@ write("out/mix/premaster.wav", pre)
 gain_db, limit = 0.0, 10 ** (-1.6 / 20)
 pre_i, pre_tp = lufs("out/mix/premaster.wav")
 gain_db = TARGET_I - pre_i
-for rnd in range(3):
+# The film ships as AAC, whose decoder overshoots a little, so the true peak is measured on an AAC 320k encode too.
+for rnd in range(5):
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", "out/mix/premaster.wav", "-af",
                     f"volume={gain_db:.3f}dB,aresample=192000,alimiter=limit={limit:.4f}:attack=0.5:release=40:level=false:asc=1,"
                     f"aresample={SR}", "-c:a", "pcm_s24le", "out/mix/master.wav"], check=True)
     I, TP = lufs("out/mix/master.wav")
-    if abs(I - TARGET_I) <= 0.1 and TP < -1.0:
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", "out/mix/master.wav", "-c:a", "aac", "-b:a", "320k", "out/mix/master-aac.m4a"], check=True)
+    I_aac, TP_aac = lufs("out/mix/master-aac.m4a")
+    if abs(I - TARGET_I) <= 0.1 and TP < -1.0 and TP_aac <= -1.2:
         break
     gain_db += TARGET_I - I
-    if TP >= -1.0:
-        limit *= 10 ** ((-1.2 - TP) / 20)
+    if TP_aac > -1.2:
+        limit *= 10 ** ((-1.3 - TP_aac) / 20)
 os.remove("out/mix/premaster.wav")
 n2 = {"normalization_type": f"linear gain {gain_db:+.2f} dB + 4x-oversampled limiter at {20 * np.log10(limit):.1f} dBFS"}
 m = {"input_i": pre_i, "input_tp": pre_tp}
@@ -143,7 +146,8 @@ bed = music.mean(1) * 10 ** (MUSIC_TRIM_DB / 20)
 duck_db = rms_db(ducked.mean(1)[speech]) - rms_db(bed[speech])
 vo_over_music_db = rms_db((vo * g)[speech]) - rms_db(ducked.mean(1)[speech])
 report = {"master": "out/mix/master.wav", "integrated_lufs": I, "true_peak_dbtp": TP,
-          "pass": bool(abs(I - TARGET_I) <= 0.5 and TP < -1.0),
+          "aac_320k": {"integrated_lufs": I_aac, "true_peak_dbtp": TP_aac},
+          "pass": bool(abs(I - TARGET_I) <= 0.5 and TP < -1.0 and TP_aac < -1.0),
           "mastering": n2["normalization_type"],
           "vo_gain_db": round(vo_gain_db, 2), "music_trim_db": MUSIC_TRIM_DB, "music_duck_under_vo_db": round(float(duck_db), 1),
           "vo_over_music_db": round(float(vo_over_music_db), 1), "pre_master": {"lufs": pre_i, "true_peak": pre_tp},
@@ -151,7 +155,8 @@ report = {"master": "out/mix/master.wav", "integrated_lufs": I, "true_peak_dbtp"
           "sfx_events": len(tl["sfx"])}
 json.dump(report, open("out/mix/report.json", "w"), indent=1)
 real = [k for k, v in sources.items() if v["status"] == "REAL"]
-print(f"master {I:.1f} LUFS, true peak {TP:.1f} dBTP ({'PASS' if report['pass'] else 'FAIL'}; {n2['normalization_type']})")
+print(f"master {I:.1f} LUFS, true peak {TP:.1f} dBTP; as AAC 320k {I_aac:.1f} LUFS, {TP_aac:.1f} dBTP "
+      f"({'PASS' if report['pass'] else 'FAIL'}; {n2['normalization_type']})")
 print(f"VO {vo_gain_db:+.1f} dB to −16 LUFS · music {MUSIC_TRIM_DB} dB, ducked {duck_db:.1f} dB under the VO · "
       f"VO sits {vo_over_music_db:.1f} dB over the music · {len(tl['sfx'])} SFX events")
 print(f"SFX REAL: {real or 'none'} · PLACEHOLDER: {[k for k in sources if k not in real]}")

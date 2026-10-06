@@ -79,6 +79,24 @@ const r = await page.evaluate(({ FPS, shots, holdShots }) => {
   });
   out.text = { total: texts.length, ui: texts.filter((t) => t.ui).length,
     flat: texts.filter((t) => !t.ui && !(t.chrome && t.halo)) };
+  // seek-order determinism: render workers and snapshots seek in any order, so every frame must be a pure function of
+  // time. Compare every animated element at each shot midpoint after a forward pass and after a backward pass.
+  const els = [...new Set(tw.flatMap((t) => t.targets()).filter((e) => e instanceof Element))];
+  const mids = Object.values(shots).flatMap((s) => [(s.start + s.end) / 2, s.start + 0.004]).sort((a, b) => a - b);   // midpoints + cut frames
+  // normalised: identity transforms read as "none", zero blur as "none", numbers to 2 decimals (sub-pixel float noise)
+  const norm = (v) => v.replace(/matrix\(1, 0, 0, 1, 0, 0\)/g, "none").replace(/^blur\(0px\)$/, "none")
+    .replace(/-?\d+\.\d+(e-?\d+)?/g, (n) => (Math.abs(+n) < 0.005 ? 0 : +(+n).toFixed(2)).toString());
+  const state = () => els.map((e) => { const c = getComputedStyle(e); return norm(`${c.opacity}|${c.transform}|${c.filter}|${c.backgroundPosition}`); });
+  const fwd = {}, bwd = {};
+  main.seek(0, false); mids.forEach((t) => { main.seek(t, false); fwd[t] = state(); });
+  main.seek(main.duration(), false); [...mids].reverse().forEach((t) => { main.seek(t, false); bwd[t] = state(); });
+  const jmp = {};                         // random access: from 0 straight to t, after the page has been elsewhere
+  mids.forEach((t) => { main.seek(0, false); main.seek(t, false); jmp[t] = state(); });
+  const diffs = [];
+  for (const [name, other] of [["backward", bwd], ["jump", jmp]])
+    mids.forEach((t) => fwd[t].forEach((v, i) => { if (v !== other[t][i]) diffs.push([name, +t.toFixed(3), els[i].id || els[i].className, v.slice(0, 50), other[t][i].slice(0, 50)]); }));
+  out.seek = { elements: els.length, times: mids.length, mismatches: diffs.slice(0, 20), count: diffs.length };
+  main.seek(0, false);
   // global texture layers present
   out.layers = Object.fromEntries(["grid-floor", "crosshairs", "grain", "vignette", "corners"].map((k) => {
     const sel = { "grid-floor": ".floor", crosshairs: ".cross", grain: "#grain", vignette: "#vignette", corners: "#corners" }[k];
@@ -113,6 +131,7 @@ const items = [
   ["Grid + crosshairs, vignette + grain on every scene", Object.values(r.layers).every((n) => n > 0), JSON.stringify(r.layers) + " (global layers, above/below every shot)"],
   ["Outro holds 4+ s", r.pacing.outroHold >= 4, `CTA ${r.pacing.outroHold} s; logo S08 ${r.pacing.logoHold} s`],
   ["Timeline fills its slot (Law 11)", r.timeline.duration >= r.timeline.rootDuration - 1e-3, `main ${r.timeline.duration} s vs root data-duration ${r.timeline.rootDuration} s`],
+  ["Seek-order determinism (any frame order renders the same)", r.seek.count === 0, `${r.seek.elements} animated elements × ${r.seek.times} times (shot midpoints + cut frames), forward pass vs backward pass and vs jump-from-0: ${r.seek.count} mismatches` + (r.seek.count ? " " + JSON.stringify(r.seek.mismatches.slice(0, 6)) : "")],
   ["Tween ends snap to 1/60 s", r.frames.offFrame === 0, `${r.frames.tweens - r.frames.offFrame}/${r.frames.tweens} on frame boundaries`],
   ["§5 no Math.random / Date.now / registry blocks", !r.antipatterns.mathRandom && !r.antipatterns.dateNow && !r.antipatterns.registryBlocks, JSON.stringify(r.antipatterns)],
 ];

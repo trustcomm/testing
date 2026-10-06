@@ -59,10 +59,14 @@
     S15: "morph", S16: "morph", S17: "streak", S18: "morph", S19: "slideup", S20: "push", S21: "vwhip",
     S22: "pullout", S23: "stomp", S24: "stomp", S25: "stomp", S26: "linereturn", S27: "push",
   };
-  function whip(tl, t) {                 // the streak is the ledger line (P2); its peak sits on the cut
-    tl.fromTo("#streak", { xPercent: -130, opacity: 1, scaleY: 0.6 },
-      { xPercent: 260, scaleY: 1.5, duration: 0.36, ease: "power3.in", ...IR }, t - 0.2);
-    tl.set("#streak", { opacity: 0 }, t + 0.16);
+  function whip(tl, t) {                 // the streak is the ledger line (P2): it crosses mid-frame ON the cut frame,
+    const MID = 58.7;                    // xPercent that centres the 46 %-wide streak; fastest and thickest at the cut
+    // every value explicit on both sides, so any seek order (render workers, snapshots) gives the same frame
+    tl.fromTo("#streak", { xPercent: -110, opacity: 1, scaleY: 0.5 },
+      { xPercent: MID, opacity: 1, scaleY: 1.9, duration: 0.15, ease: "power2.in", ...IR }, t - 0.15);
+    tl.fromTo("#streak", { xPercent: MID, opacity: 1, scaleY: 1.9 },
+      { xPercent: 217, opacity: 1, scaleY: 0.7, duration: 0.15, ease: "power2.out", ...IR }, t);
+    tl.set("#streak", { opacity: 0 }, t + 0.15);
   }
   function glitch(tl, t, into) {         // 2-frame RGB-split bars + a stepped jitter on the incoming shot
     const offs = [[70, -110, 40, -30], [-50, 80, -90, 20]];
@@ -378,7 +382,8 @@
 
   // ------------------------------------------------------------------ Act 3: foundation, logo, CTA
   function sweep(tl, frame, t) {         // a band of brand light crosses a UI frame once
-    tl.fromTo(`${frame} .sheen`, { opacity: 1, xPercent: 0, skewX: -12 }, { xPercent: 520, duration: 0.7, ease: "power2.inOut" }, t);
+    tl.fromTo(`${frame} .sheen`, { opacity: 1, xPercent: 0, skewX: -12 }, { opacity: 1, xPercent: 520, skewX: -12, duration: 0.7, ease: "power2.inOut", ...IR }, t);
+    tl.set(`${frame} .sheen`, { opacity: 0 }, t + 0.7);
   }
   function glint(tl, sel, t) {           // a brand-light band runs through a stamp's chrome letters
     tl.fromTo(`${sel} .chrome`, { backgroundPosition: "130% 0px, 0px 0px" },

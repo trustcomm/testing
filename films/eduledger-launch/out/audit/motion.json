@@ -8,7 +8,7 @@
   {
    "item": "No dead air > 1 s outside deliberate holds",
    "ok": true,
-   "detail": "746 reveals, no gap > 1 s; inside holds (S07, S18, S22, S27): [[8.02,10.83,\"S07\"],[48.08,51.95,\"S27\"]]"
+   "detail": "755 reveals, no gap > 1 s; inside holds (S07, S18, S22, S27): [[8.02,10.83,\"S07\"],[48.08,51.95,\"S27\"]]"
   },
   {
    "item": "Every transition uses motion",
@@ -36,9 +36,14 @@
    "detail": "main 53.15 s vs root data-duration 52.55 s"
   },
   {
+   "item": "Seek-order determinism (any frame order renders the same)",
+   "ok": true,
+   "detail": "649 animated elements × 56 times (shot midpoints + cut frames), forward pass vs backward pass and vs jump-from-0: 0 mismatches"
+  },
+  {
    "item": "Tween ends snap to 1/60 s",
    "ok": true,
-   "detail": "719/719 on frame boundaries"
+   "detail": "728/728 on frame boundaries"
   },
   {
    "item": "§5 no Math.random / Date.now / registry blocks",
@@ -52,11 +57,11 @@
    "rootDuration": 52.55
   },
   "frames": {
-   "tweens": 719,
+   "tweens": 728,
    "offFrame": 0
   },
   "cadence": {
-   "discreteStarts": 746,
+   "discreteStarts": 755,
    "gapsOver1s": [],
    "inDeliberateHolds": [
     [
@@ -75,6 +80,12 @@
    "total": 159,
    "ui": 106,
    "flat": []
+  },
+  "seek": {
+   "elements": 649,
+   "times": 56,
+   "mismatches": [],
+   "count": 0
   },
   "layers": {
    "grid-floor": 2,

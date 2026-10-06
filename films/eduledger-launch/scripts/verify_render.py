@@ -24,6 +24,7 @@ probe = json.loads(subprocess.run(["ffprobe", "-v", "error", "-show_streams", "-
                                   capture_output=True, text=True, check=True).stdout)
 v = next(s for s in probe["streams"] if s["codec_type"] == "video")
 a = next((s for s in probe["streams"] if s["codec_type"] == "audio"), None)
+shot_of = lambda t: next(s["id"] for s in reversed(tl["shots"]) if s["start"] <= t + 1e-6)
 W, H = 192, 108
 raw = subprocess.run(["ffmpeg", "-v", "error", "-i", VID, "-vf", f"scale={W}:{H}:flags=area,gblur=sigma=1.2,format=gray",
                       "-f", "rawvideo", "-"], capture_output=True, check=True).stdout
@@ -32,23 +33,52 @@ n = len(fr)
 diff = np.r_[0, np.abs(np.diff(fr, axis=0)).mean(axis=(1, 2))]          # diff[k] = change from frame k−1 to k
 
 # ---------------------------------------------------------------- cuts
+film = open("web/src/film.js").read()
+tr_block = film[film.index("const TR = {"):film.index("};", film.index("const TR = {"))]
+TR = dict(re.findall(r'(S\d+b?):\s*"(\w+)"', tr_block))
 cuts = []
 for s in tl["shots"][1:]:
     k = int(round(s["start"] * FPS))
     lo, hi = max(1, k - 4), min(n - 1, k + 4)
     j = lo + int(np.argmax(diff[lo:hi + 1]))
-    local = np.median(diff[max(1, k - 30):min(n, k + 30)])
-    cuts.append({"shot": s["id"], "planned_s": s["start"], "planned_frame": k, "peak_frame": j, "offset_frames": j - k,
-                 "peak_change": round(float(diff[j]), 2), "local_median": round(float(local), 2),
-                 "ok": abs(j - k) <= 1})
+    local = float(np.median(diff[max(1, k - 30):min(n, k + 30)]))
+    at_cut = float(diff[k])
+    # on plan: the biggest change of the window is the planned frame ±1.
+    # exit-led: an animated exit (collapse, whip-out, blur-out) peaks 2–4 frames earlier, AND the picture still
+    # changes sharply on the planned frame itself (≥ 2× the local median); the cut strips confirm these by eye.
+    kind = "on plan" if abs(j - k) <= 1 else ("exit-led" if (-4 <= j - k <= -2 and at_cut >= 2 * local + 0.3) else "OFF")
+    cuts.append({"shot": s["id"], "transition": TR.get(s["id"], ""), "planned_s": s["start"], "planned_frame": k,
+                 "peak_frame": j, "offset_frames": j - k, "peak_change": round(float(diff[j]), 2),
+                 "change_at_planned_frame": round(at_cut, 2), "local_median": round(local, 2), "kind": kind,
+                 "ok": kind != "OFF"})
 # unplanned hard changes: big spikes away from every planned cut (± 6 frames)
 planned = np.array([c["planned_frame"] for c in cuts])
 thr = max(12.0, float(np.percentile(diff, 99.5)))
 spikes = [int(k) for k in np.where(diff > thr)[0] if np.min(np.abs(planned - k)) > 6]
 
 # ---------------------------------------------------------------- stillness (P6: ≤ 20 % near-still, in the holds)
-still = diff < 0.35
+# The Stage A rule (scripts/study.py, shared with our earlier films): at 0.25× scale a frame is near-still when < 0.3 %
+# of its pixels change by > 8 levels in any channel, frame to frame and at a common 1/30 s step (as for the references).
+qw, qh = v["width"] // 4, v["height"] // 4
+proc = subprocess.Popen(["ffmpeg", "-v", "error", "-i", VID, "-vf", f"scale={qw}:{qh}:flags=area", "-f", "rawvideo",
+                         "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
+fb, step, hist, ns_native, ns_30 = qw * qh * 3, max(1, round(FPS / 30)), [], [], []
+while True:
+    buf = proc.stdout.read(fb)
+    if len(buf) < fb:
+        break
+    cur = np.frombuffer(buf, np.uint8).reshape(qh, qw, 3).astype(np.int16)
+    if hist:
+        ns_native.append(bool((np.abs(cur - hist[-1]).max(2) > 8).mean() < 0.003))
+    if len(hist) >= step:
+        ns_30.append(bool((np.abs(cur - hist[-step]).max(2) > 8).mean() < 0.003))
+    hist.append(cur)
+    if len(hist) > step:
+        hist.pop(0)
+proc.wait()
+still = np.array([False] + ns_native)
 still_pct = round(100 * float(still.mean()), 1)
+still_30_pct = round(100 * float(np.mean(ns_30)), 1)
 runs, k = [], 0
 while k < n:
     if still[k]:
@@ -56,7 +86,7 @@ while k < n:
         while j < n and still[j]:
             j += 1
         if j - k >= FPS // 2:
-            runs.append([round(k / FPS, 2), round(j / FPS, 2)])
+            runs.append([round(k / FPS, 2), round(j / FPS, 2), shot_of(k / FPS)])
         k = j
     else:
         k += 1
@@ -85,7 +115,7 @@ def grab(times, size):
 for f in os.listdir(OUT):
     if f.endswith(".jpg"):
         os.remove(os.path.join(OUT, f))
-shot_at = lambda t: next(s["id"] for s in reversed(tl["shots"]) if s["start"] <= t + 1e-6)
+shot_at = shot_of
 # 2 fps: one frame every 0.5 s, 6 columns × 6 rows per sheet
 times = [i / 2 + 0.25 for i in range(int(tl["length_s"] * 2))]
 TW, TH, C, R = 320, 180, 6, 6
@@ -113,7 +143,8 @@ for p in range(0, len(cuts), 9):
         y = r * (SH + 6)
         d.text((8, y + 8), f"{c['shot']}", fill=(240, 240, 245), font=font)
         d.text((8, y + 34), f"{c['planned_s']:.3f}s", fill=(170, 175, 190), font=font)
-        d.text((8, y + 60), f"peak {c['offset_frames']:+d} f", fill=(120, 220, 160) if c["ok"] else (240, 90, 90), font=font)
+        d.text((8, y + 60), f"peak {c['offset_frames']:+d} f", fill=(120, 220, 160) if c["kind"] == "on plan" else (230, 190, 90) if c["ok"] else (240, 90, 90), font=font)
+        d.text((8, y + 86), c["transition"], fill=(150, 155, 175), font=font)
         frames = grab([(c["planned_frame"] + o) / FPS + 0.5 / FPS for o in OFFS], (SW, SH))
         for i, im in enumerate(frames):
             img.paste(im, (150 + i * SW, y))
@@ -129,16 +160,21 @@ report = {
     "format": {"width": v["width"], "height": v["height"], "fps": v["r_frame_rate"], "frames": n, "expected_frames": expected,
                "duration_s": float(probe["format"]["duration"]), "vcodec": v["codec_name"], "pix_fmt": v.get("pix_fmt"),
                "acodec": a and a["codec_name"], "audio_rate": a and a.get("sample_rate"), "audio_channels": a and a.get("channels")},
-    "cuts": {"planned": len(cuts), "within_1_frame": sum(c["ok"] for c in cuts), "rows": cuts, "unplanned_spikes_frames": spikes},
-    "stillness": {"near_still_pct": still_pct, "runs_over_0_5s": runs},
+    "cuts": {"planned": len(cuts), "on_plan": sum(c["kind"] == "on plan" for c in cuts), "exit_led": sum(c["kind"] == "exit-led" for c in cuts),
+             "ok": sum(c["ok"] for c in cuts), "rows": cuts,
+             "unplanned_spikes": [[k, round(k / FPS, 3), shot_of(k / FPS)] for k in spikes]},
+    "stillness": {"rule": "0.25x, < 0.3 % of pixels change > 8 levels (Stage A / study.py)", "near_still_pct": still_pct,
+                  "near_still_pct_at_1_30s": still_30_pct, "runs_over_0_5s": runs},
     "audio": {"integrated_lufs": I, "true_peak_dbtp": TP, "lra_lu": LRA, "pass": bool(abs(I + 14) <= 0.5 and TP < -1.0)},
     "sheets": sheets, "strips": strips,
 }
 json.dump(report, open(f"{OUT}/report.json", "w"), indent=1)
 print(f"{VID}: {v['width']}×{v['height']} @ {v['r_frame_rate']}, {n} frames (expected {expected}), {report['size_mb']} MB")
-print(f"cuts on plan ±1 frame: {report['cuts']['within_1_frame']}/{len(cuts)}; unplanned spikes at frames {spikes}")
+print(f"cuts: {report['cuts']['on_plan']} on plan ±1 frame, {report['cuts']['exit_led']} exit-led, "
+      f"{len(cuts) - report['cuts']['ok']} off; in-shot spikes (not cuts): {report['cuts']['unplanned_spikes']}")
 for c in cuts:
-    if not c["ok"]:
-        print(f"  {c['shot']}: planned frame {c['planned_frame']}, peak {c['peak_frame']} ({c['offset_frames']:+d})")
-print(f"near-still frames {still_pct}% · runs ≥ 0.5 s: {runs}")
+    if c["kind"] != "on plan":
+        print(f"  {c['shot']} ({c['transition']}): {c['kind']}, planned frame {c['planned_frame']}, peak {c['peak_frame']} ({c['offset_frames']:+d}), "
+              f"change at planned frame {c['change_at_planned_frame']} vs local median {c['local_median']}")
+print(f"near-still (Stage A rule): {still_pct}% frame to frame, {still_30_pct}% at 1/30 s · runs ≥ 0.5 s: {runs}")
 print(f"audio {I} LUFS, true peak {TP} dBTP, LRA {LRA} LU → {'PASS' if report['audio']['pass'] else 'FAIL'}")
