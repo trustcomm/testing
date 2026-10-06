@@ -19,3 +19,4 @@ films/eduledger-launch/web/assets/audio/*.wav
 films/eduledger-launch/out/review/
 films/eduledger-launch/out/mix/*.wav
 films/eduledger-launch/out/draft/work/
+films/eduledger-launch/out/draft-render.log
