@@ -28,10 +28,8 @@ The times follow the VO: "Meet EduLedger" starts at 10.9 s, "And parents?" at 29
 - **Length:** X05 and X07 should be short (0.3–0.4 s). X13 needs its long shimmer tail (3–4 s).
 
 ## 3. Logo, colours, fonts → `brand/`
-- **Logo:** the logo image you meant to paste **did not arrive**: your message still said "[attach it]".
-  - Attach it again, or save it as `brand/logo.png` (≥ 1000 px wide; transparent background if possible).
-  - The developer's SVG goes to `brand/logo.svg` when it arrives.
-- **Colours:** the developer's exact hex values, in `brand/colours.md`.
+- **Logo:** the image has **not arrived in two attempts** (both messages still said "[attach it]"). Please commit it to the repo as `brand/logo.png` (≥ 1000 px wide; transparent background if possible). The developer's SVG goes to `brand/logo.svg` when it arrives.
+- **Colours:** the developer's exact hex values, in `brand/colours.md`. The brand light is the site's blue → violet gradient (working values #2D60E5 → #8C35E7); the logo keeps its own colours.
 - **Fonts:** the site's typeface name and files (`.woff2` / `.ttf`), in `brand/fonts/`.
 
 ## 4. App screenshots → `ui/`
@@ -61,4 +59,4 @@ The times follow the VO: "Meet EduLedger" starts at 10.9 s, "And parents?" at 29
 - **Source note:** add `heroes/SOURCE.md` naming the generator and how its terms allow commercial use.
 
 ## 6. Sign-offs → `client/FACTS.md`
-The developer ticks each line. Eleven items are open, including the E7 add-on, the demo data on screen, the "Demo" tag (P9), WhatsApp usage, the logo, the colours, the fonts and the India map for S25.
+The developer ticks each line. Ten items are open, including the E7 add-on, the demo data on screen, the "Demo" tag (P9), WhatsApp usage, the logo, the colours and the fonts.

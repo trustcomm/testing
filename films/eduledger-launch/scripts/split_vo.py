@@ -78,7 +78,13 @@ def loudness(path):
 
 out = {"master": os.path.basename(master), "sample_rate": SR, "scribe_model": "eleven_scribe_v1",
        "method": "cut at the centre of the quietest 10 ms run between two lines' words; 10 ms fades", "lines": []}
+# Lines the user has replaced (e.g. a regenerated L14) are listed in vo/replaced.json and never overwritten.
+replaced = json.load(open("vo/replaced.json")) if os.path.exists("vo/replaced.json") else {}
+previous = {L["id"]: L for L in json.load(open("vo/lines.json"))["lines"]} if os.path.exists("vo/lines.json") else {}
 for i, (lid, script, _) in enumerate(LINES):
+    if lid in replaced:
+        print(f"{lid}: replaced by the user ({replaced[lid]}), kept as is")
+        continue
     t0, t1 = cuts[i], cuts[i + 1]
     seg = x[int(t0 * SR):int(t1 * SR)].copy()
     seg[:FADE] *= np.linspace(0, 1, FADE, dtype=np.float32)
@@ -98,6 +104,8 @@ for i, (lid, script, _) in enumerate(LINES):
         "speech_on": on, "speech_off": off, "speech_span": round(off - on, 3),
         "words": len(ws), "wpm": round(len(ws) / (off - on) * 60), "pauses_ge_250ms": pauses,
         "lufs": lufs, "true_peak_dbfs": tp, "word_times": rel})
+# keep the existing entries of replaced lines (they are re-measured separately when they land)
+out["lines"] = sorted(out["lines"] + [previous[k] for k in replaced if k in previous], key=lambda L: L["id"])
 json.dump(out, open("vo/lines.json", "w"), indent=1)
 print(f"{'id':4} {'master in-out':>15} {'dur':>6} {'on':>5} {'off':>6} {'span':>5} {'wds':>3} {'wpm':>4} {'LUFS':>6} {'TP':>6}  pauses")
 for L in out["lines"]:

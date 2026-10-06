@@ -6,14 +6,15 @@ This file is updated after every stage. The brief is `BRIEF.md` (Director's Pack
 **Stage B (INPUTS) done; stopped at its gate ⏸.**
 
 - **Received:** the VO only. It is now split into L01–L14 and measured, with Scribe word timings.
-- **Still missing:** music + licence, SFX X01–X14, the logo file, exact colours, fonts, the 10 app screenshots, hero renders H1–H5, and the 11 sign-offs in `client/FACTS.md`. How to make each one is in **`INPUTS.md`**.
-- **Checker:** `scripts/verify_inputs.py` (self-tested on fake inputs, cleaned up afterwards). Its last result is in `inputs.json`: 44 items missing.
+- **Still missing:** music + licence, SFX X01–X14, the logo file, exact colours, fonts, the 10 app screenshots, hero renders H1–H5, and the 10 sign-offs in `client/FACTS.md`. How to make each one is in **`INPUTS.md`**.
+- **Checker:** `scripts/verify_inputs.py` (self-tested on fake inputs, cleaned up afterwards). Its last result is in `inputs.json`: 43 items missing.
 
 **Waiting on the user:**
-1. The logo image (it didn't arrive: the message still said "[attach it]").
-2. Brand-light choice (see Colours).
-3. A listen to L14 (see VO).
-4. The inputs in `INPUTS.md`.
+1. The logo image. It has failed to attach twice, so commit it as `brand/logo.png` instead.
+2. The user's listen to L14 (see VO).
+3. Music, SFX, screenshots and sign-offs; the user is getting them now.
+
+**When inputs land:** re-run `verify_inputs.py`, measure the music's tempo and downbeats, log the results here, and stop at the gate again.
 
 ## Decisions (user, 2026-10-06)
 - **P1–P7 approved** as proposed in STYLE.md §3.
@@ -22,7 +23,13 @@ This file is updated after every stage. The brief is `BRIEF.md` (Director's Pack
 - **VO:** split the single file at its pauses into L01–L14. Editing only: no regeneration, no voice change. Done.
 - **Length about 52 s,** so the CTA card gets its full 5+ s hold. With the VO as recorded, the CTA would enter at L14 (≈ 46.65 s) and hold to 52.0 s (5.35 s). Stage C fixes the exact times on the beat grid.
 - **Word timing:** ElevenLabs Scribe, priced first, approved under 500 credits. Done.
-- **Logo:** the user's image is the working logo until the developer's SVG and exact colours arrive.
+- **Logo:** the user's image is the working logo until the developer's SVG and exact colours arrive. **The attachment has not arrived** (2026-10-06, twice).
+- **Brand light (user, 2026-10-06):** the site's blue → violet gradient, measured at **#2D60E5 → #8C35E7** (working values until the developer confirms). The logo is always shown in its own colours.
+- **S25 (user, 2026-10-06):** **the India map is dropped.** The 3D school building (H5) alone carries "Built for Indian schools". This overrides BRIEF §5 S25 ("with India-map glow points"), and the map sign-off is removed from FACTS.md.
+- **L14 (user, 2026-10-06):** the user is listening. If "EduLedger" is mispronounced, the user regenerates L14 and replaces `vo/L14.wav`. Then:
+  1. Add `{"L14": "<who, date, voice and settings>"}` to `vo/replaced.json`, so `split_vo.py` never overwrites the new take (guard tested).
+  2. Run Scribe on L14 only (priced first; within the 500-credit cap).
+  3. Re-measure L14 in `vo/lines.json`.
 
 ## VO (split and measured)
 - **Source:** `vo/master/ElevenLabs_…_Hope_-_upbeat_and_clear_….mp3`. Voice "Hope – upbeat and clear" (the user's choice), 49.48 s, mono 44.1 kHz.
@@ -67,10 +74,7 @@ This file is updated after every stage. The brief is `BRIEF.md` (Director's Pack
 
 **Canvas:** the brief's navy #07111f couldn't be checked, because eduledger.co.in is blocked by the network policy.
 
-**Decision needed, the brand light (BRIEF §4 law 3):**
-- The logo teal (hue 179°) sits next to the "green = present/paid" meaning (#3EAE91, hue 163°).
-- The site's blue → violet separates cleanly from both green and red.
-- **Proposed working default:** brand light = the site's blue → violet. The logo is always shown in its own colours. To be replaced by the developer's values.
+**Brand light (decided):** the site's blue → violet, #2D60E5 → #8C35E7 (see Decisions). It keeps clear of the logo teal (hue 179°), which sat next to the "green = present/paid" meaning (#3EAE91, hue 163°).
 
 ## Toolkit
 - **HyperFrames student kit** at commit `0d30152`, in `.kit/` (gitignored). Reinstall with `scripts/setup-kit.sh`; its licences are in `third_party/hyperframes-student-kit/`.
@@ -99,3 +103,9 @@ The network policy denies huggingface.co, openaipublic.azureedge.net and eduledg
   - Provisional colours taken from the chat screenshot. The logo attachment was missing.
   - Wrote client/FACTS.md (11 sign-offs), INPUTS.md (how to make each missing input) and scripts/verify_inputs.py (self-tested).
   - Stopped at the gate.
+- **2026-10-06, Stage B decisions:**
+  - Brand light set to the site's blue → violet.
+  - S25 India map dropped, and its sign-off removed.
+  - L14 replacement procedure set up (`vo/replaced.json` guard in `split_vo.py`).
+  - The logo still did not arrive.
+  - Inputs re-checked: 43 missing.

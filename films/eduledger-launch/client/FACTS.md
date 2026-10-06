@@ -14,9 +14,6 @@ For the developer (GMS Designs and Tech) to tick. Change `- [ ]` to `- [x]` and 
 
 ## Brand
 - [ ] Logo SVG — the official file. Until it arrives the film uses a working logo.
-- [ ] Brand colours (hex) — the exact values. Also which colour is *the* brand light: the logo's teal/blue, or the site's blue → violet gradient? (Provisional measurements are in STATE.md.)
+- [ ] Brand colours (hex) — the exact values of the site's blue → violet gradient (the film's brand light, chosen by the director on 2026-10-06; measured working values #2D60E5 → #8C35E7) and of the logo (shown in its own colours).
 - [ ] Canvas navy #07111f — confirm this is EduLedger's theme colour.
 - [ ] Fonts — the site's typeface name and files, or approval of the proposed Inter + one display face.
-
-## Visuals
-- [ ] India map (S25) — glow points on a map of India need an outline that follows the official boundaries. Supply or approve an outline, or approve dropping the map and keeping only the school building.
