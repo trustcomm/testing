@@ -1,0 +1,86 @@
+{
+ "brand/logo-mark": {
+  "status": "PROVISIONAL",
+  "file": "web/assets/brand/logo-mark.png"
+ },
+ "brand/logo-wordmark-dark": {
+  "status": "PROVISIONAL",
+  "file": "web/assets/brand/logo-wordmark-dark.png"
+ },
+ "heroes/H1": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s01-book"
+  ]
+ },
+ "heroes/H2": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s02-hero"
+  ]
+ },
+ "ui/dashboard": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s09-ui",
+   "s13b-ui",
+   "s22-ui"
+  ]
+ },
+ "ui/students": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s10-ui"
+  ]
+ },
+ "ui/payroll": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s11-ui",
+   "s17-ui-a"
+  ]
+ },
+ "ui/fees": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s12-ui",
+   "s16-ui"
+  ]
+ },
+ "heroes/H3": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s14-coin"
+  ]
+ },
+ "ui/receipt": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s15-ui"
+  ]
+ },
+ "ui/cashbook": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s17-ui-b"
+  ]
+ },
+ "heroes/H4": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s19-hero",
+   "s20-phone",
+   "s21-hero"
+  ]
+ },
+ "heroes/H5": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s25-hero"
+  ]
+ },
+ "audio/mix": {
+  "status": "PREVIEW",
+  "file": "out/timeline/preview-mix.wav"
+ }
+}

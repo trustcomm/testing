@@ -16,3 +16,6 @@ films/eduledger-launch/music/edit/*.wav
 films/eduledger-launch/out/timeline/*.wav
 films/eduledger-launch/out/timeline/slates/
 films/eduledger-launch/web/assets/audio/*.wav
+films/eduledger-launch/out/review/
+films/eduledger-launch/out/mix/*.wav
+films/eduledger-launch/out/draft/work/
