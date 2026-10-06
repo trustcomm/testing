@@ -1,0 +1,801 @@
+{
+ "master": "ElevenLabs_2026-10-06T08_30_29_Hope_-_upbeat_and_clear_pvc_sp96_s50_sb75_v4.mp3",
+ "sample_rate": 44100,
+ "scribe_model": "eleven_scribe_v1",
+ "method": "cut at the centre of the quietest 10 ms run between two lines' words; 10 ms fades",
+ "lines": [
+  {
+   "id": "L01",
+   "script": "Registers. Receipts. Reminders.",
+   "spoken": "Registers, receipts, reminders,",
+   "file": "vo/L01.wav",
+   "master_in": 0.0,
+   "master_out": 2.705,
+   "duration": 2.705,
+   "speech_on": 0.12,
+   "speech_off": 2.54,
+   "speech_span": 2.42,
+   "words": 3,
+   "wpm": 74,
+   "pauses_ge_250ms": [
+    {
+     "after": "receipts,",
+     "s": 0.26
+    }
+   ],
+   "lufs": -24.3,
+   "true_peak_dbfs": -7.8,
+   "word_times": [
+    {
+     "text": "Registers,",
+     "start": 0.12,
+     "end": 0.72
+    },
+    {
+     "text": "receipts,",
+     "start": 0.94,
+     "end": 1.52
+    },
+    {
+     "text": "reminders,",
+     "start": 1.78,
+     "end": 2.54
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "script": "Spreadsheets for fees. Paper for attendance. Phone calls for parents.",
+   "spoken": "spreadsheets for fees, paper for attendance, phone calls for parents.",
+   "file": "vo/L02.wav",
+   "master_in": 2.705,
+   "master_out": 7.425,
+   "duration": 4.72,
+   "speech_on": 0.175,
+   "speech_off": 4.655,
+   "speech_span": 4.48,
+   "words": 10,
+   "wpm": 134,
+   "pauses_ge_250ms": [
+    {
+     "after": "fees,",
+     "s": 0.36
+    },
+    {
+     "after": "attendance,",
+     "s": 0.34
+    }
+   ],
+   "lufs": -25.6,
+   "true_peak_dbfs": -10.0,
+   "word_times": [
+    {
+     "text": "spreadsheets",
+     "start": 0.175,
+     "end": 0.755
+    },
+    {
+     "text": "for",
+     "start": 0.795,
+     "end": 0.875
+    },
+    {
+     "text": "fees,",
+     "start": 1.075,
+     "end": 1.495
+    },
+    {
+     "text": "paper",
+     "start": 1.855,
+     "end": 2.135
+    },
+    {
+     "text": "for",
+     "start": 2.215,
+     "end": 2.315
+    },
+    {
+     "text": "attendance,",
+     "start": 2.375,
+     "end": 3.015
+    },
+    {
+     "text": "phone",
+     "start": 3.355,
+     "end": 3.555
+    },
+    {
+     "text": "calls",
+     "start": 3.635,
+     "end": 3.855
+    },
+    {
+     "text": "for",
+     "start": 3.875,
+     "end": 3.955
+    },
+    {
+     "text": "parents.",
+     "start": 4.115,
+     "end": 4.655
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "script": "Running a school shouldn't feel like this.",
+   "spoken": "Running a school shouldn't feel like this.",
+   "file": "vo/L03.wav",
+   "master_in": 7.425,
+   "master_out": 10.855,
+   "duration": 3.43,
+   "speech_on": 0.675,
+   "speech_off": 2.795,
+   "speech_span": 2.12,
+   "words": 7,
+   "wpm": 198,
+   "pauses_ge_250ms": [],
+   "lufs": -26.3,
+   "true_peak_dbfs": -11.0,
+   "word_times": [
+    {
+     "text": "Running",
+     "start": 0.675,
+     "end": 0.915
+    },
+    {
+     "text": "a",
+     "start": 0.975,
+     "end": 1.035
+    },
+    {
+     "text": "school",
+     "start": 1.095,
+     "end": 1.315
+    },
+    {
+     "text": "shouldn't",
+     "start": 1.515,
+     "end": 1.815
+    },
+    {
+     "text": "feel",
+     "start": 1.995,
+     "end": 2.175
+    },
+    {
+     "text": "like",
+     "start": 2.235,
+     "end": 2.415
+    },
+    {
+     "text": "this.",
+     "start": 2.475,
+     "end": 2.795
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "script": "Meet EduLedger.",
+   "spoken": "Meet EduLedger,",
+   "file": "vo/L04.wav",
+   "master_in": 10.855,
+   "master_out": 12.265,
+   "duration": 1.41,
+   "speech_on": 0.085,
+   "speech_off": 1.145,
+   "speech_span": 1.06,
+   "words": 2,
+   "wpm": 113,
+   "pauses_ge_250ms": [],
+   "lufs": -25.1,
+   "true_peak_dbfs": -8.1,
+   "word_times": [
+    {
+     "text": "Meet",
+     "start": 0.085,
+     "end": 0.305
+    },
+    {
+     "text": "EduLedger,",
+     "start": 0.545,
+     "end": 1.145
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "script": "One connected platform for your entire school.",
+   "spoken": "one connected platform for your entire school.",
+   "file": "vo/L05.wav",
+   "master_in": 12.265,
+   "master_out": 15.475,
+   "duration": 3.21,
+   "speech_on": 0.295,
+   "speech_off": 2.855,
+   "speech_span": 2.56,
+   "words": 7,
+   "wpm": 164,
+   "pauses_ge_250ms": [],
+   "lufs": -24.8,
+   "true_peak_dbfs": -7.8,
+   "word_times": [
+    {
+     "text": "one",
+     "start": 0.295,
+     "end": 0.475
+    },
+    {
+     "text": "connected",
+     "start": 0.495,
+     "end": 0.855
+    },
+    {
+     "text": "platform",
+     "start": 0.935,
+     "end": 1.415
+    },
+    {
+     "text": "for",
+     "start": 1.495,
+     "end": 1.615
+    },
+    {
+     "text": "your",
+     "start": 1.655,
+     "end": 1.795
+    },
+    {
+     "text": "entire",
+     "start": 1.835,
+     "end": 2.435
+    },
+    {
+     "text": "school.",
+     "start": 2.555,
+     "end": 2.855
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "script": "Students. Staff. Fees.",
+   "spoken": "Students, staff, fees,",
+   "file": "vo/L06.wav",
+   "master_in": 15.475,
+   "master_out": 17.725,
+   "duration": 2.25,
+   "speech_on": 0.205,
+   "speech_off": 2.045,
+   "speech_span": 1.84,
+   "words": 3,
+   "wpm": 98,
+   "pauses_ge_250ms": [
+    {
+     "after": "Students,",
+     "s": 0.28
+    },
+    {
+     "after": "staff,",
+     "s": 0.34
+    }
+   ],
+   "lufs": -25.0,
+   "true_peak_dbfs": -8.1,
+   "word_times": [
+    {
+     "text": "Students,",
+     "start": 0.205,
+     "end": 0.645
+    },
+    {
+     "text": "staff,",
+     "start": 0.925,
+     "end": 1.325
+    },
+    {
+     "text": "fees,",
+     "start": 1.665,
+     "end": 2.045
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "script": "Admissions to attendance, in one clean dashboard.",
+   "spoken": "admissions to attendance in one clean dashboard.",
+   "file": "vo/L07.wav",
+   "master_in": 17.725,
+   "master_out": 21.225,
+   "duration": 3.5,
+   "speech_on": 0.055,
+   "speech_off": 3.135,
+   "speech_span": 3.08,
+   "words": 7,
+   "wpm": 136,
+   "pauses_ge_250ms": [],
+   "lufs": -24.8,
+   "true_peak_dbfs": -8.3,
+   "word_times": [
+    {
+     "text": "admissions",
+     "start": 0.055,
+     "end": 0.535
+    },
+    {
+     "text": "to",
+     "start": 0.575,
+     "end": 0.635
+    },
+    {
+     "text": "attendance",
+     "start": 0.695,
+     "end": 1.235
+    },
+    {
+     "text": "in",
+     "start": 1.455,
+     "end": 1.535
+    },
+    {
+     "text": "one",
+     "start": 1.755,
+     "end": 1.995
+    },
+    {
+     "text": "clean",
+     "start": 2.195,
+     "end": 2.475
+    },
+    {
+     "text": "dashboard.",
+     "start": 2.575,
+     "end": 3.135
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "script": "Fees? Collected, receipted, tracked, in real time.",
+   "spoken": "Fees collected, receipted, tracked in real time.",
+   "file": "vo/L08.wav",
+   "master_in": 21.225,
+   "master_out": 25.545,
+   "duration": 4.32,
+   "speech_on": 0.195,
+   "speech_off": 3.855,
+   "speech_span": 3.66,
+   "words": 7,
+   "wpm": 115,
+   "pauses_ge_250ms": [
+    {
+     "after": "Fees",
+     "s": 0.36
+    },
+    {
+     "after": "receipted,",
+     "s": 0.28
+    },
+    {
+     "after": "tracked",
+     "s": 0.26
+    }
+   ],
+   "lufs": -25.0,
+   "true_peak_dbfs": -7.8,
+   "word_times": [
+    {
+     "text": "Fees",
+     "start": 0.195,
+     "end": 0.555
+    },
+    {
+     "text": "collected,",
+     "start": 0.915,
+     "end": 1.415
+    },
+    {
+     "text": "receipted,",
+     "start": 1.615,
+     "end": 2.115
+    },
+    {
+     "text": "tracked",
+     "start": 2.395,
+     "end": 2.775
+    },
+    {
+     "text": "in",
+     "start": 3.035,
+     "end": 3.175
+    },
+    {
+     "text": "real",
+     "start": 3.255,
+     "end": 3.435
+    },
+    {
+     "text": "time.",
+     "start": 3.535,
+     "end": 3.855
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "script": "Payroll and cashbook? Done, with less paperwork.",
+   "spoken": "Payroll and cash book done with less paperwork",
+   "file": "vo/L09.wav",
+   "master_in": 25.545,
+   "master_out": 29.155,
+   "duration": 3.61,
+   "speech_on": 0.035,
+   "speech_off": 3.155,
+   "speech_span": 3.12,
+   "words": 8,
+   "wpm": 154,
+   "pauses_ge_250ms": [
+    {
+     "after": "book",
+     "s": 0.46
+    },
+    {
+     "after": "done",
+     "s": 0.26
+    }
+   ],
+   "lufs": -25.5,
+   "true_peak_dbfs": -7.6,
+   "word_times": [
+    {
+     "text": "Payroll",
+     "start": 0.035,
+     "end": 0.335
+    },
+    {
+     "text": "and",
+     "start": 0.355,
+     "end": 0.435
+    },
+    {
+     "text": "cash",
+     "start": 0.535,
+     "end": 0.735
+    },
+    {
+     "text": "book",
+     "start": 0.815,
+     "end": 1.015
+    },
+    {
+     "text": "done",
+     "start": 1.475,
+     "end": 1.755
+    },
+    {
+     "text": "with",
+     "start": 2.015,
+     "end": 2.175
+    },
+    {
+     "text": "less",
+     "start": 2.295,
+     "end": 2.515
+    },
+    {
+     "text": "paperwork",
+     "start": 2.615,
+     "end": 3.155
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "script": "And parents? Updated instantly on WhatsApp. Attendance, fee receipts, results.",
+   "spoken": "and parents updated instantly on WhatsApp. Attendance, fee receipts, results,",
+   "file": "vo/L10.wav",
+   "master_in": 29.155,
+   "master_out": 35.015,
+   "duration": 5.86,
+   "speech_on": 0.025,
+   "speech_off": 5.425,
+   "speech_span": 5.4,
+   "words": 10,
+   "wpm": 111,
+   "pauses_ge_250ms": [
+    {
+     "after": "parents",
+     "s": 0.44
+    },
+    {
+     "after": "WhatsApp.",
+     "s": 0.46
+    }
+   ],
+   "lufs": -24.8,
+   "true_peak_dbfs": -6.6,
+   "word_times": [
+    {
+     "text": "and",
+     "start": 0.025,
+     "end": 0.105
+    },
+    {
+     "text": "parents",
+     "start": 0.185,
+     "end": 0.645
+    },
+    {
+     "text": "updated",
+     "start": 1.085,
+     "end": 1.485
+    },
+    {
+     "text": "instantly",
+     "start": 1.685,
+     "end": 2.145
+    },
+    {
+     "text": "on",
+     "start": 2.205,
+     "end": 2.325
+    },
+    {
+     "text": "WhatsApp.",
+     "start": 2.365,
+     "end": 2.865
+    },
+    {
+     "text": "Attendance,",
+     "start": 3.324,
+     "end": 3.885
+    },
+    {
+     "text": "fee",
+     "start": 4.125,
+     "end": 4.245
+    },
+    {
+     "text": "receipts,",
+     "start": 4.305,
+     "end": 4.725
+    },
+    {
+     "text": "results,",
+     "start": 4.905,
+     "end": 5.425
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "script": "Every number that matters. One command centre.",
+   "spoken": "every number that matters. One command center.",
+   "file": "vo/L11.wav",
+   "master_in": 35.015,
+   "master_out": 38.125,
+   "duration": 3.11,
+   "speech_on": 0.085,
+   "speech_off": 2.965,
+   "speech_span": 2.88,
+   "words": 7,
+   "wpm": 146,
+   "pauses_ge_250ms": [
+    {
+     "after": "matters.",
+     "s": 0.5
+    }
+   ],
+   "lufs": -24.5,
+   "true_peak_dbfs": -7.1,
+   "word_times": [
+    {
+     "text": "every",
+     "start": 0.085,
+     "end": 0.345
+    },
+    {
+     "text": "number",
+     "start": 0.465,
+     "end": 0.725
+    },
+    {
+     "text": "that",
+     "start": 0.825,
+     "end": 0.965
+    },
+    {
+     "text": "matters.",
+     "start": 1.025,
+     "end": 1.465
+    },
+    {
+     "text": "One",
+     "start": 1.965,
+     "end": 2.125
+    },
+    {
+     "text": "command",
+     "start": 2.225,
+     "end": 2.525
+    },
+    {
+     "text": "center.",
+     "start": 2.605,
+     "end": 2.965
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "script": "No setup fee. Secure by design. Built for Indian schools.",
+   "spoken": "No setup fee. Secure by design. Built for Indian schools.",
+   "file": "vo/L12.wav",
+   "master_in": 38.125,
+   "master_out": 43.115,
+   "duration": 4.99,
+   "speech_on": 0.255,
+   "speech_off": 4.435,
+   "speech_span": 4.18,
+   "words": 10,
+   "wpm": 144,
+   "pauses_ge_250ms": [
+    {
+     "after": "fee.",
+     "s": 0.34
+    },
+    {
+     "after": "design.",
+     "s": 0.5
+    }
+   ],
+   "lufs": -25.7,
+   "true_peak_dbfs": -8.4,
+   "word_times": [
+    {
+     "text": "No",
+     "start": 0.255,
+     "end": 0.375
+    },
+    {
+     "text": "setup",
+     "start": 0.475,
+     "end": 0.755
+    },
+    {
+     "text": "fee.",
+     "start": 0.835,
+     "end": 1.035
+    },
+    {
+     "text": "Secure",
+     "start": 1.375,
+     "end": 1.815
+    },
+    {
+     "text": "by",
+     "start": 1.915,
+     "end": 2.055
+    },
+    {
+     "text": "design.",
+     "start": 2.095,
+     "end": 2.535
+    },
+    {
+     "text": "Built",
+     "start": 3.035,
+     "end": 3.315
+    },
+    {
+     "text": "for",
+     "start": 3.435,
+     "end": 3.575
+    },
+    {
+     "text": "Indian",
+     "start": 3.635,
+     "end": 3.915
+    },
+    {
+     "text": "schools.",
+     "start": 4.015,
+     "end": 4.435
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "script": "EduLedger. Manage better. Educate smarter.",
+   "spoken": "EduLedger. Manage better. Educate smarter.",
+   "file": "vo/L13.wav",
+   "master_in": 43.115,
+   "master_out": 46.645,
+   "duration": 3.53,
+   "speech_on": 0.065,
+   "speech_off": 3.085,
+   "speech_span": 3.02,
+   "words": 5,
+   "wpm": 99,
+   "pauses_ge_250ms": [
+    {
+     "after": "EduLedger.",
+     "s": 0.46
+    },
+    {
+     "after": "better.",
+     "s": 0.42
+    }
+   ],
+   "lufs": -25.3,
+   "true_peak_dbfs": -7.1,
+   "word_times": [
+    {
+     "text": "EduLedger.",
+     "start": 0.065,
+     "end": 0.625
+    },
+    {
+     "text": "Manage",
+     "start": 1.085,
+     "end": 1.385
+    },
+    {
+     "text": "better.",
+     "start": 1.485,
+     "end": 1.745
+    },
+    {
+     "text": "Educate",
+     "start": 2.165,
+     "end": 2.585
+    },
+    {
+     "text": "smarter.",
+     "start": 2.705,
+     "end": 3.085
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "script": "Get started at eduledger dot co dot in.",
+   "spoken": "Get started at eduleder.co.in.",
+   "file": "vo/L14.wav",
+   "master_in": 46.645,
+   "master_out": 49.476,
+   "duration": 2.831,
+   "speech_on": 0.035,
+   "speech_off": 2.635,
+   "speech_span": 2.6,
+   "words": 4,
+   "wpm": 92,
+   "pauses_ge_250ms": [],
+   "lufs": -25.0,
+   "true_peak_dbfs": -8.2,
+   "word_times": [
+    {
+     "text": "Get",
+     "start": 0.035,
+     "end": 0.175
+    },
+    {
+     "text": "started",
+     "start": 0.275,
+     "end": 0.615
+    },
+    {
+     "text": "at",
+     "start": 0.735,
+     "end": 0.915
+    },
+    {
+     "text": "eduleder.co.in.",
+     "start": 0.975,
+     "end": 2.635
+    }
+   ]
+  }
+ ]
+}

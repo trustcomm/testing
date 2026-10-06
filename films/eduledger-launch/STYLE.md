@@ -111,7 +111,9 @@ AIS cut frames: 67, 106, 136, 186, 231, 296, 330, 369, 411, 439, 491, 568, 660, 
 5. **Value flips punctuate.** The showreel's biggest moments are dark ↔ paper flips on the beat. Our real EduLedger UI is white and light grey (the home-page screenshot), so it gives us paper moments without breaking the navy canvas.
 6. **Real product screens build trust.** The AIS ad shows real UI in 29% of its shots, while its 3D props carry the metaphors. That matches the brief: hero renders for metaphors, real UI for proof.
 
-## 3. Proposed changes to BRIEF §4–5 (for your approval)
+## 3. Changes to BRIEF §4–5
+
+**Approved by the user on 2026-10-06:** P1–P8. P9 is approved pending the developer's OK (`client/FACTS.md`).
 
 | # | BRIEF says | Proposal | Why |
 |---|---|---|---|
