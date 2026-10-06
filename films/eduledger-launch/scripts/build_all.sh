@@ -14,10 +14,14 @@ echo "== build (resolve inputs)";  python3 -I scripts/build_web.py | tail -2
 echo "== mix";                     python3 -I scripts/mix.py
 echo "== build (with the master)"; python3 -I scripts/build_web.py | tail -2
 echo "== inputs";                  python3 -I scripts/verify_inputs.py | tail -3 || true
-echo "== lint";                    $HF lint web 2>&1 | tail -2
-echo "== check (layout + contrast)"; $HF check web 2>&1 | tail -4
-echo "== preflight";               node .kit/scripts/preflight.mjs web 2>&1 | tail -4
+mkdir -p out/audit
+echo "== lint";                    $HF lint web > out/audit/lint.txt 2>&1; tail -1 out/audit/lint.txt
+echo "== check (layout + contrast, 2 points per shot)"; python3 -I scripts/check_sweep.py
+echo "== preflight";               node .kit/scripts/preflight.mjs web 2>&1 | sed 's/\x1b\[[0-9;]*m//g' > out/audit/preflight.txt; tail -1 out/audit/preflight.txt
 echo "== sync";                    python3 -I scripts/sync_check.py
+echo "== motion audit (§4/§5)";    node scripts/motion_audit.mjs
 if [ "${1:-}" = "--render" ]; then
   echo "== render";                scripts/render_draft.sh
+  echo "== verify render";         python3 -I scripts/verify_render.py
+  python3 -I scripts/write_verify.py
 fi

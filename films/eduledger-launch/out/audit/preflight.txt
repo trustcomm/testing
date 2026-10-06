@@ -1,0 +1,8 @@
+
+◆ Preflight: /home/user/testing/films/eduledger-launch/web
+  ✓ root_dimensions: 1920x1080
+  ✓ root_data_start: "0"
+  ✓ timeline_registration: window.__timelines["main"]
+  ✓ timeline_content: has .to/.from/.set/.add calls
+
+◇ all preflight checks passed

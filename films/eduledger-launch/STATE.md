@@ -3,43 +3,54 @@
 This file is updated after every stage. The brief is `BRIEF.md` (Director's Package v1, saved verbatim). The approved adaptations to it are in `STYLE.md` §3 and in Decisions below.
 
 ## Current stage
-**Stage D (STYLE FRAMES) done; stopped at its gate ⏸.**
+**Stage E (BUILD) done; stopped at its gate ⏸.**
 
-- **Stills (full quality, 1920×1080 PNG):** `out/style/final/`. Each is shown at its hero moment:
-  - S01 at 0.33 s;
-  - S08 at 12.30 s;
-  - S13 at 18.80 s;
-  - S20 at 31.95 s;
-  - S26 at 46.60 s;
-  - plus S06 at 7.70 s (the overflow before the collapse).
+- **Full draft:** `out/draft/eduledger-launch-draft.mp4`.
+  - 1920×1080, 60 fps, 52.55 s (3,153 frames), HyperFrames `--quality standard`.
+  - Picture from `web/`; sound is the mastered mix `out/mix/master.wav`, as AAC 320k.
+  - Verification is in **VERIFY.md**, with contact sheets and per-cut strips in `out/verify/`.
+- **Every placeholder swaps automatically.**
+  - Screenshots `ui/<key>.*`, heroes `heroes/H1–H5.*`, the logo SVGs and SFX `sfx/Xnn(_v1).*` resolve to the real file when it exists, and to a labelled placeholder when it doesn't.
+  - `scripts/build_all.sh --render` rebuilds, remixes, re-runs every gate, re-renders, re-verifies and rewrites VERIFY.md.
+  - Tested in a scratch copy with stand-in files: a dashboard screenshot, a chat card, an H3 render, and SFX X06/X12. Each one replaced its placeholder in every slot. SFX sync points were found automatically: the X06 impact at 1.508 s (true 1.5 s) and the X12 onset at 0.096 s (true 0.1 s).
+- **Vignette false positive fixed.**
+  - The vignette's darkest stop is now 0.6, so the layout audit reads it as a scrim, not something covering the text.
+  - The **contrast audit now samples text: 90/90 passed** at 30 sample times. Before the fix it sampled 0/0.
+  - It found one real failure, now fixed: a grey stat label on the S22 demo card at 4.41:1, darkened to pass 4.5:1.
+- **Mix** (`scripts/mix.py`, `out/mix/report.json`):
+  - VO 1.0, normalised to −16 LUFS.
+  - SFX at 0.2–0.4, each peak-normalised first.
+  - Music −6 dB, then sidechain-ducked 7.8 dB under the voice, so the VO sits 13 dB over the music.
+  - Master: one linear gain plus a 4× oversampled limiter. **−14.0 LUFS, true peak −1.6 dBTP.**
+- **Gates:**
+  - `hyperframes lint`: 0 errors, 3 warnings ("track too dense", readability advice for one-file films).
+  - Kit preflight: passed.
+  - Kit beat-sync validator: 28/28.
+  - Exact-word sync: 28/28, with each cut 3–140 ms ahead of its word and on the beat grid.
+  - `hyperframes check`: passed at 56 sample times.
+  - MOTION_PHILOSOPHY §4/§5 audit: 9/9 measured items pass, plus palette, callback and frame review.
+  - Details in VERIFY.md.
+- **Review fixes in Stage E:**
+  - S06 headline stays above the call bubbles.
+  - S10–S12 words use the kinetic face and clear the cards.
+  - S09 subline and S13 arrow now chrome with a halo.
+  - Reveals added on VO words where the §4 audit found more than 1 s with nothing new (S09, S13, S23–S25; TIMELINE.md §7).
+  - Every tween snapped to the 60 fps frame grid.
+  - Repeating tweens end inside the film.
 
-  Review sheet: `style-frames-sheet.jpg`.
-- **Motion test:** `out/style/motion-s07-s08.mp4`.
-  - Film time 7.40–12.40 s: S06 chaos → collapse into the ledger line → S07 rest → line flare on "Meet" → white flash and logo on the drop.
-  - 5.00 s, 1920×1080, 60 fps (300 frames), HyperFrames `--quality high`.
-  - Audio: the preview mix (real VO, edited music, placeholder SFX). The render's own audio matched the mix at 0.0 ms and −0.03 dB; the exact mix segment is remuxed.
-  - −14.3 LUFS, peak −2.5 dBFS.
-  - Contact sheet and transition strips: `motion-contact.jpg`, `motion-strips.jpg`.
-- **Build:**
-  - `web/` is the film's HyperFrames project, built from `web/src/` (styles.css, film.js) plus `timeline.json` by `scripts/build_web.py`.
-  - `web-tests/motion-s07-s08/` is the motion test. It has to be its own project (one root composition each), and it shares `web/`'s assets and code through symlinks.
-  - One GSAP timeline in film time; the motion test plays a window of it, so the two cannot drift apart.
-- **Checks:**
-  - `hyperframes lint`: 0 errors on both projects (one readability warning, "track too dense").
-  - `hyperframes check`: **passed**, 0 errors, 0 warnings.
-  - Its 30 notes are a known false positive: the translucent vignette counted as covering text. The same false positive stops the contrast audit from sampling (0/0); Stage E resolves it.
-  - The type is near-white on navy.
+**Waiting on the user (Stage E gate):**
+1. Watch the draft and approve it, or list changes with their times.
+2. The inputs still missing (INPUTS.md):
+   - `music/LICENSE.txt`;
+   - SFX X01–X14;
+   - the logo SVG and exact colours;
+   - the app screenshots, with `ui/parent-chat.png` for S20;
+   - heroes H1–H5;
+   - the FACTS.md sign-offs;
+   - the L14 listen.
 
-**Waiting on the user (Stage D gate):**
-1. Approve the look:
-   - chrome type with a brand halo;
-   - Inter Display + Inter;
-   - the textless corner marks;
-   - the ledger line and the logo crystallising on the drop;
-   - the red Act 1 → brand light;
-   - green held for S13.
-2. Approve the S20 placeholder card and the "Demo" tag placement.
-3. The remaining inputs (INPUTS.md): `music/LICENSE.txt`, SFX X01–X14, logo SVG and exact colours, the 10 screenshots, H1–H5, sign-offs, and the L14 listen.
+   Each swaps in with `scripts/build_all.sh --render`.
+3. Then Stage F (CHECK, compliance), and Stage G (9:16, 30 s) after your approval.
 
 ## Decisions (user, 2026-10-06)
 - **P1–P7 approved** as proposed in STYLE.md §3.
@@ -65,7 +76,7 @@ This file is updated after every stage. The brief is `BRIEF.md` (Director's Pack
   2. Run Scribe on L14 only (priced first; within the 500-credit cap).
   3. Re-measure L14 in `vo/lines.json`.
 
-## Stage D design decisions (for approval at the gate)
+## Stage D design decisions (approved by the user, 2026-10-06)
 - **Type:**
   - Inter Display 800/900 for kinetic statements, Inter 400–700 for UI. No site font has been supplied, and the brief says "Inter + one display face". Local OFL files are in `web/assets/fonts/` with the licence.
   - The kit's typography guide bans Inter; the client brief wins.
@@ -203,6 +214,7 @@ The network policy denies huggingface.co, openaipublic.azureedge.net and eduledg
   - Slate preview rendered.
   - Inputs re-checked: 42 missing.
   - Stopped at the gate. No credits used.
+- **2026-10-06, Stage D decision:** look approved (Inter Display + Inter, chrome type, navy grid floor, crosshairs, grain, vignette, corner marks, logo handling); the S20 placeholder card approved until the real screenshot arrives. Stage E started with placeholders.
 - **2026-10-06, Stage D:**
   - S13 split (27 cuts).
   - `web/` HyperFrames project: DESIGN.md, local fonts and GSAP, generated timing.
@@ -211,4 +223,12 @@ The network policy denies huggingface.co, openaipublic.azureedge.net and eduledg
   - Three review passes, with fixes as above.
   - Final stills, and the 60 fps motion test with audio.
   - lint/check pass.
+  - Stopped at the gate. No credits used.
+- **2026-10-06, Stage E:**
+  - All 28 shots built and reviewed at 35 % and 70 % of each shot. Layout fixes as above.
+  - Inputs auto-swap (`scripts/build_web.py`), tested with stand-in files.
+  - Mix and master (`scripts/mix.py`), with real-SFX pickup and automatic sync points (tested).
+  - Gates: lint, check sweep (contrast now 90/90), kit preflight, kit beat-sync plus an exact-word check, and the §4/§5 audit (`scripts/motion_audit.mjs`).
+  - Full 60 fps draft rendered and verified (`scripts/verify_render.py`, VERIFY.md).
+  - Worker restarts mid-stage: work committed early, nothing lost.
   - Stopped at the gate. No credits used.

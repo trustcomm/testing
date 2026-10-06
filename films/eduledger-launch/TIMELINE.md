@@ -1,4 +1,4 @@
-# EduLedger launch film: TIMELINE (Stage C)
+# EduLedger launch film: TIMELINE (Stage C, updated in Stage E)
 
 Audio-first: the real VO and the real music on the music's measured beat grid.
 - **Source of truth:** `timeline.json`, built by `scripts/timeline.py`.
@@ -131,3 +131,19 @@ The options as offered at the Stage C gate:
    - *Optional:* split S13 on "dashboard" (≈ 20.4 s) for a 27th cut.
 3. **The music has no "stomp" section.** The three stamps ride the groove into the one-bar break, so "Built for Indian schools" lands as the music drops out. Then the logo hits on the return. That is the showreel's pre-drop-dip grammar, and the X12 stamps provide the stomps.
 4. **The CTA plays over the outro.** The music winds down under "Get started at eduledger dot co dot in", and the 5.6 s hold ends on a fade.
+
+## 7. Stage E build notes
+The shot times above are unchanged: `web/index.html` carries them exactly (data-start / data-duration per shot), and `scripts/sync_check.py` re-checks them on every build.
+
+- **Sync:**
+  - the kit's `validate-beat-sync.mjs` passes **28/28**;
+  - the exact-word check passes **28/28**: each cut leads its own word by 3–140 ms and sits on the beat or half beat (largest offset 8.3 ms, i.e. within a 60 fps frame).
+  - Each shot's `data-anchor` is a phrase long enough that the validator can't match an earlier take of the same word (for example "Fees collected", "and parents", "one connected").
+- **Reveals added inside shots, each on its VO word.** The §4 checklist found gaps longer than 1 s with nothing new on screen:
+  - **S09:** a sweep of brand light crosses the dashboard frame on "entire", and the ledger line kicks on "school."
+  - **S13:** the class grid starts to gather on "one", setting up S13b's dock.
+  - **S23–S25:** a brand-light glint runs through each stamp's letters on "fee.", "design." and "Indian".
+  - **S25:** the rim light swells on "schools."
+- **Deliberate holds:** S07 (the brief's rest beat, 2.82 s) and the S27 CTA (5.62 s).
+- **Frames:** every tween starts and ends on a 1/60 s frame boundary (719/719), so the power4.in slams of S01 and the stamps land on a frame.
+- **SFX:** the same 45 events. The new reveals have no sound of their own.

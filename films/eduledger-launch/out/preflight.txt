@@ -1,8 +1,0 @@
-
-[1m◆[0m Preflight: /home/user/testing/films/eduledger-launch/web
-  [32m✓[0m [1mroot_dimensions[0m: 1920x1080
-  [32m✓[0m [1mroot_data_start[0m: "0"
-  [32m✓[0m [1mtimeline_registration[0m: window.__timelines["main"]
-  [31m✗[0m [1mempty_timeline[0m: script body contains no tl.to / tl.from / tl.set / tl.add calls — tl.duration() will be 0 and Studio will show 0:00 / 0:00. Add padding like tl.to({}, { duration: <seconds> }, 0) at minimum.
-
-[31m◇[0m 1 blocker(s), 0 advisory — preview [31mWILL fail[0m. Fix blockers before running `hyperframes preview`.
