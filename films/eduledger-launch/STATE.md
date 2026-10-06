@@ -3,26 +3,43 @@
 This file is updated after every stage. The brief is `BRIEF.md` (Director's Package v1, saved verbatim). The approved adaptations to it are in `STYLE.md` §3 and in Decisions below.
 
 ## Current stage
-**Stage C (TIMELINE) done; stopped at its gate ⏸.**
+**Stage D (STYLE FRAMES) done; stopped at its gate ⏸.**
 
-- **Shot list with real times:** `TIMELINE.md`. Machine form: `timeline.json`, built by `scripts/timeline.py`.
-- **Preview:** `out/timeline/preview.mp4`, with slates per shot, the beat counter, the music landmarks, the real VO and the edited music, plus PLACEHOLDER SFX.
-- **Headline numbers:**
-  - 52.55 s; 27 shots / **26 cuts**, all on a beat (13) or half beat (13);
-  - each cut leads its word by 4–139 ms;
-  - average shot 1.95 s; spread 8.0×;
-  - CTA hold 5.62 s; logo held 3.75 s; preview mix −14.0 LUFS.
-- **Music edit,** whole bars only (TIMELINE.md §2):
-  - intro bars 2–3 dropped, so the drop lands on "EduLedger" at 11.30 s;
-  - groove bar 10 played twice, so the break falls under "Built for Indian schools" and the return hit on the logo line at 43.18 s;
-  - a jump to the outro at the CTA (46.93 s); film end 52.55 s.
-- **Inputs:** `verify_inputs.py` re-run, 42 items missing (`inputs.json`): music licence, SFX X01–X14, exact colours, the logo SVG (or a mark ≥ 1000 px tall), 10 screenshots, H1–H5 and 10 sign-offs.
+- **Stills (full quality, 1920×1080 PNG):** `out/style/final/`. Each is shown at its hero moment:
+  - S01 at 0.33 s;
+  - S08 at 12.30 s;
+  - S13 at 18.80 s;
+  - S20 at 31.95 s;
+  - S26 at 46.60 s;
+  - plus S06 at 7.70 s (the overflow before the collapse).
 
-**Waiting on the user (Stage C gate):**
-1. Approve the music edit and the shot list, or ask for changes. TIMELINE.md §6 has the options: carry Act 1's acceleration inside the shots, or add a 27th cut; optionally split S13.
-2. `music/LICENSE.txt` (source and terms). **MISSING.**
-3. The listen to L14.
-4. The other inputs as they land.
+  Review sheet: `style-frames-sheet.jpg`.
+- **Motion test:** `out/style/motion-s07-s08.mp4`.
+  - Film time 7.40–12.40 s: S06 chaos → collapse into the ledger line → S07 rest → line flare on "Meet" → white flash and logo on the drop.
+  - 5.00 s, 1920×1080, 60 fps (300 frames), HyperFrames `--quality high`.
+  - Audio: the preview mix (real VO, edited music, placeholder SFX). The render's own audio matched the mix at 0.0 ms and −0.03 dB; the exact mix segment is remuxed.
+  - −14.3 LUFS, peak −2.5 dBFS.
+  - Contact sheet and transition strips: `motion-contact.jpg`, `motion-strips.jpg`.
+- **Build:**
+  - `web/` is the film's HyperFrames project, built from `web/src/` (styles.css, film.js) plus `timeline.json` by `scripts/build_web.py`.
+  - `web-tests/motion-s07-s08/` is the motion test. It has to be its own project (one root composition each), and it shares `web/`'s assets and code through symlinks.
+  - One GSAP timeline in film time; the motion test plays a window of it, so the two cannot drift apart.
+- **Checks:**
+  - `hyperframes lint`: 0 errors on both projects (one readability warning, "track too dense").
+  - `hyperframes check`: **passed**, 0 errors, 0 warnings.
+  - Its 30 notes are a known false positive: the translucent vignette counted as covering text. The same false positive stops the contrast audit from sampling (0/0); Stage E resolves it.
+  - The type is near-white on navy.
+
+**Waiting on the user (Stage D gate):**
+1. Approve the look:
+   - chrome type with a brand halo;
+   - Inter Display + Inter;
+   - the textless corner marks;
+   - the ledger line and the logo crystallising on the drop;
+   - the red Act 1 → brand light;
+   - green held for S13.
+2. Approve the S20 placeholder card and the "Demo" tag placement.
+3. The remaining inputs (INPUTS.md): `music/LICENSE.txt`, SFX X01–X14, logo SVG and exact colours, the 10 screenshots, H1–H5, sign-offs, and the L14 listen.
 
 ## Decisions (user, 2026-10-06)
 - **P1–P7 approved** as proposed in STYLE.md §3.
@@ -34,12 +51,39 @@ This file is updated after every stage. The brief is `BRIEF.md` (Director's Pack
 - **Logo:** the user's image is the working logo until the developer's SVG and exact colours arrive. It arrived on the third try (a 1410×294 header screenshot) and is cut out in `brand/` (PROVISIONAL, see below).
 - **Music (user, 2026-10-06):** `music/track.mp3`, from chat ("Quantum_Launchpad_2026-10-06T091426.mp3"). Its licence goes in `music/LICENSE.txt`, added by the user; **MISSING until then.**
 - **Stage C go-ahead (user, 2026-10-06):** start Stage C with the real voice and music once the music measured cleanly, using placeholders for screenshots, SFX and heroes. Done.
+- **Stage C review (user, 2026-10-06):**
+  - Music edits approved. The reply kept the template wording and flagged no join.
+  - Act 1 keeps its cuts, with the speed-up inside S04–S06.
+  - S13 is split on "dashboard" (27 cuts).
+  - The stamps carry L12 into the break.
+  - The music licence will come as `music/LICENSE.txt` ("Quantum Launchpad").
+  - Start Stage D with placeholders. Done.
 - **Brand light (user, 2026-10-06):** the site's blue → violet gradient, measured at **#2D60E5 → #8C35E7** (working values until the developer confirms). The logo is always shown in its own colours.
 - **S25 (user, 2026-10-06):** **the India map is dropped.** The 3D school building (H5) alone carries "Built for Indian schools". This overrides BRIEF §5 S25 ("with India-map glow points"), and the map sign-off is removed from FACTS.md.
 - **L14 (user, 2026-10-06):** the user is listening. If "EduLedger" is mispronounced, the user regenerates L14 and replaces `vo/L14.wav`. Then:
   1. Add `{"L14": "<who, date, voice and settings>"}` to `vo/replaced.json`, so `split_vo.py` never overwrites the new take (guard tested).
   2. Run Scribe on L14 only (priced first; within the 500-credit cap).
   3. Re-measure L14 in `vo/lines.json`.
+
+## Stage D design decisions (for approval at the gate)
+- **Type:**
+  - Inter Display 800/900 for kinetic statements, Inter 400–700 for UI. No site font has been supplied, and the brief says "Inter + one display face". Local OFL files are in `web/assets/fonts/` with the licence.
+  - The kit's typography guide bans Inter; the client brief wins.
+- **Chrome type:** a subtle white → pale-blue gradient clipped to the text, with a brand halo as a drop-shadow (red in Act 1).
+  - The kit warns that `background-clip: text` is invisible in capture. **Tested here on HyperFrames 0.7.109: it renders in both snapshot and render**, so MOTION_PHILOSOPHY's chrome headlines are used.
+- **Stage:** navy `#07111F`, a perspective grid floor (neutral in Act 1, brand-tinted from the drop on), "+" crosshairs on a 120 px lattice, seeded grain stepped each frame, a breathing vignette, and the textless corner marks (P8).
+- **Placeholders, never faked:**
+  - H1 and H4 are dashed outlines labelled `PLACEHOLDER · H1 3D ledger book render` / `H4 3D phone render`.
+  - The S20 chat card is a neutral card in the site's style, labelled "Card design: placeholder until EduLedger's chat card arrives". It carries the demo message from BRIEF §5, the "Demo" tag (P9, pending sign-off), "Add-on" and ✓✓ in brand blue.
+  - "WhatsApp" appears as plain text only.
+- **Logo:** the PROVISIONAL mark is used at 1× (216 px) so it stays sharp.
+  - The wordmark is our white reversal for the navy canvas (`brand/logo-wordmark-on-dark.png`).
+  - It crystallises from blur, with a light glint masked to the logo's own pixels.
+- **Fixes found while reviewing frames:**
+  - an overshooting `back.out` ease drove `filter: blur()` below 0, which is invalid CSS, so the logo stayed blurred; blur now runs on its own ease;
+  - the light sweep showed as a band on the background, so it is now masked to the logo;
+  - the bubble glyph read as a tick, so it is now a handset;
+  - the S13 title sat in the vignette, so it is now centred and the vignette softened.
 
 ## VO (split and measured)
 - **Source:** `vo/master/ElevenLabs_…_Hope_-_upbeat_and_clear_….mp3`. Voice "Hope – upbeat and clear" (the user's choice), 49.48 s, mono 44.1 kHz.
@@ -158,4 +202,13 @@ The network policy denies huggingface.co, openaipublic.azureedge.net and eduledg
   - Placeholder SFX (`sfx/placeholder/`, synth, excluded from the inputs check).
   - Slate preview rendered.
   - Inputs re-checked: 42 missing.
+  - Stopped at the gate. No credits used.
+- **2026-10-06, Stage D:**
+  - S13 split (27 cuts).
+  - `web/` HyperFrames project: DESIGN.md, local fonts and GSAP, generated timing.
+  - Global stage and shots S01, S06, S07, S08, S13, S20, S26 built.
+  - Chrome-text capture test passed.
+  - Three review passes, with fixes as above.
+  - Final stills, and the 60 fps motion test with audio.
+  - lint/check pass.
   - Stopped at the gate. No credits used.

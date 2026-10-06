@@ -8,6 +8,7 @@ Writes (all transparent PNG, native resolution, no upscaling):
   brand/logo-mark-tile.png  the mark on a clean white rounded tile, as the site shows it (border and shadow dropped)
   brand/logo-wordmark.png   "EduLedger" only, original ink colour (recolour at build time)
   brand/logo-tagline.png    "School management, reimagined" only
+  brand/logo-wordmark-on-dark.png  "EduLedger" reversed to white for the navy canvas, PROVISIONAL
   brand/logo-on-dark.png    the lockup reversed for the navy canvas (wordmark white, tagline #C8D0E2), PROVISIONAL
 The mark sits on a white tile and the text on the page colour, so each part is keyed against its own
 background: a hard key with a 1–2 px soft edge, then the edge colour is un-blended from that background.
@@ -86,6 +87,8 @@ gap = np.where(np.diff(rows_t) > 10)[0]                              # blank ban
 split = rows_t[gap[0]] + (rows_t[gap[0] + 1] - rows_t[gap[0]]) // 2
 word = textk[:split]; tag = textk[split:]
 b = bbox(word); save(word[b[0]:b[1], b[2]:b[3]], "brand/logo-wordmark.png")
+wdark = word[b[0]:b[1], b[2]:b[3]].copy(); wdark[..., :3] = 255.0          # reversed for the navy canvas (ours, PROVISIONAL)
+save(wdark, "brand/logo-wordmark-on-dark.png")
 b = bbox(tag); save(tag[b[0]:b[1], b[2]:b[3]], "brand/logo-tagline.png")
 
 # lockup in the original layout, tile removed

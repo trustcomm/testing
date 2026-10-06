@@ -72,7 +72,7 @@ SHOTS = [
     ("S04", "L02", 0, "half", ""), ("S05", "L02", 3, "half", ""), ("S06", "L02", 6, "half", ""),
     ("S07", "L03", 0, "half", "★"), ("S08", "L04", 0, "beat", "★"), ("S09", "L05", 0, "half", ""),
     ("S10", "L06", 0, "half", ""), ("S11", "L06", 1, "half", ""), ("S12", "L06", 2, "half", ""),
-    ("S13", "L07", 0, "half", ""), ("S14", "L08", 0, "half", ""), ("S15", "L08", 2, "half", ""),
+    ("S13", "L07", 0, "half", ""), ("S13b", "L07", 6, "half", ""), ("S14", "L08", 0, "half", ""), ("S15", "L08", 2, "half", ""),
     ("S16", "L08", 3, "half", ""), ("S17", "L09", 0, "half", ""), ("S18", "L09", 5, "half", "★"),
     ("S19", "L10", 0, "half", ""), ("S20", "L10", 2, "half", ""), ("S21", "L10", 6, "half", ""),
     ("S22", "L11", 0, "half", "★"), ("S23", "L12", 0, "beat", ""), ("S24", "L12", 3, "half", ""),
@@ -151,6 +151,7 @@ PIC = {
  "S08": "On \"Meet\" the line flares; on the drop (\"EduLedger\") the logo crystallises above it; brand light floods",
  "S09": "Real dashboard screenshot slides up in perspective on the grid", "S10": "Student records UI card pops forward",
  "S11": "Staff & payroll UI card", "S12": "Fee UI card", "S13": "Class grid: present ticks ripple green across it",
+ "S13b": "The class grid docks into one clean dashboard (real dashboard UI)",
  "S14": "3D rupee coin (H3) spins and lands", "S15": "Receipt prints out of a card (real receipt UI)",
  "S16": "Fee-collection bar fills inside the demo dashboard frame (the ledger line becomes the bar)",
  "S17": "Payroll list → cashbook chart morph (cross-warp)", "S18": "Paper stack crumples into particles; breathing beat",
@@ -166,7 +167,8 @@ TRANS = {
  "S02": "hard glitch cut", "S03": "hard glitch cut", "S04": "hard glitch cut", "S05": "hard glitch cut", "S06": "hard glitch cut",
  "S07": "morph: chaos collapses into the ledger line", "S08": "line flare → flash through white (drop on next beat)",
  "S09": "light-streak whip (the ledger line)", "S10": "push-in to a card", "S11": "cut-the-curve vertical whip",
- "S12": "cut-the-curve vertical whip", "S13": "light-streak whip", "S14": "light-streak whip",
+ "S12": "cut-the-curve vertical whip", "S13": "light-streak whip", "S13b": "push-out: the grid becomes a dashboard tile",
+ "S14": "light-streak whip",
  "S15": "morph: coin → receipt", "S16": "morph: receipt edge → the ledger line → fee bar", "S17": "light-streak whip",
  "S18": "morph: cashbook pages → paper stack", "S19": "slide-up (phone)", "S20": "push-in to the phone screen",
  "S21": "cut-the-curve vertical whip", "S22": "pull-out (dolly) to the full dashboard", "S23": "hard cut on the stomp",
@@ -174,6 +176,10 @@ TRANS = {
  "S27": "push-in to the CTA card",
 }
 WHOOSH = {"light-streak whip (the ledger line)", "light-streak whip", "cut-the-curve vertical whip", "slide-up (phone)"}
+# Act 1 speed-up lives inside the shots (user, Stage C review): the event rate inside each shot rises
+INTERNAL = {"S04": "cells flicker on eighths, then sixteenths in the last beat",
+            "S05": "scribbled ticks land on eighths, then sixteenths",
+            "S06": "call bubbles stack on eighths, then sixteenths, then a 32nd-note burst into the collapse"}
 shots = []
 for sid, lid, w, kind, flag in SHOTS:
     t_word = place[lid] + onset(lid, w)
@@ -185,7 +191,7 @@ for sid, lid, w, kind, flag in SHOTS:
     shots.append({"id": sid, "flag": flag, "line": lid, "word": word, "word_onset": round(t_word, 3),
                   "start": q(cut), "grid": None if sid == "S01" else ("beat" if abs(((cut - PH) / P) - round((cut - PH) / P)) < 1e-6 else "half"),
                   "beat_no": round((cut - PH) / P, 1), "lead_ms": None if sid == "S01" else round((t_word - cut) * 1000),
-                  "picture": PIC[sid], "transition_in": TRANS.get(sid, "film start")})
+                  "picture": PIC[sid], "transition_in": TRANS.get(sid, "film start"), "internal": INTERNAL.get(sid)})
 END = q(g(END_BEAT))
 for i, s in enumerate(shots):
     s["end"] = shots[i + 1]["start"] if i + 1 < len(shots) else END

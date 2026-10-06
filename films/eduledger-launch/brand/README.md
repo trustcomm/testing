@@ -10,6 +10,7 @@
 | `logo-mark.png` | Mark only, transparent | **171×216** |
 | `logo-mark-tile.png` | Mark on a clean white rounded tile, as the site shows it | 232×232 |
 | `logo-wordmark.png`, `logo-tagline.png` | Text only, original ink | 448×90, 1053×74 |
+| `logo-wordmark-on-dark.png` | "EduLedger" reversed to white for the navy canvas (ours) | 448×90 |
 | `provisional/logo-mark-from-screenshot-48x60.png` | Earlier crop from the site screenshot (superseded) | 48×60 |
 
 Made by `scripts/clean_logo.py`:

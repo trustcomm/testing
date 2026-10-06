@@ -176,11 +176,11 @@
   {
    "id": "L07",
    "file": "vo/L07.wav",
-   "start": 17.65,
-   "shift_vs_master_s": -0.075,
+   "start": 17.67,
+   "shift_vs_master_s": -0.055,
    "speech": [
-    17.705,
-    20.785
+    17.725,
+    20.805
    ]
   },
   {
@@ -267,6 +267,7 @@
    "lead_ms": null,
    "picture": "3D ledger book (H1) slams onto the grid floor; REGISTERS scales 8× through camera",
    "transition_in": "film start",
+   "internal": null,
    "end": 0.75,
    "dur": 0.75
   },
@@ -282,6 +283,7 @@
    "lead_ms": 118,
    "picture": "Receipt stack (H2) whips in; red",
    "transition_in": "hard glitch cut",
+   "internal": null,
    "end": 1.7,
    "dur": 0.95
   },
@@ -297,6 +299,7 @@
    "lead_ms": 21,
    "picture": "Ringing-phone icons multiply across frame; red",
    "transition_in": "hard glitch cut",
+   "internal": null,
    "end": 2.8667,
    "dur": 1.167
   },
@@ -312,6 +315,7 @@
    "lead_ms": 4,
    "picture": "Spreadsheet cells flicker and glitch red",
    "transition_in": "hard glitch cut",
+   "internal": "cells flicker on eighths, then sixteenths in the last beat",
    "end": 4.5,
    "dur": 1.633
   },
@@ -327,6 +331,7 @@
    "lead_ms": 43,
    "picture": "Attendance sheet with frantic scribbled ticks",
    "transition_in": "hard glitch cut",
+   "internal": "scribbled ticks land on eighths, then sixteenths",
    "end": 5.9167,
    "dur": 1.417
   },
@@ -342,6 +347,7 @@
    "lead_ms": 137,
    "picture": "Call bubbles stack until they overflow the frame",
    "transition_in": "hard glitch cut",
+   "internal": "call bubbles stack on eighths, then sixteenths, then a 32nd-note burst into the collapse",
    "end": 8.0167,
    "dur": 2.1
   },
@@ -357,6 +363,7 @@
    "lead_ms": 63,
    "picture": "All chaos collapses to one thin glowing line (the ledger line). Rest beat",
    "transition_in": "morph: chaos collapses into the ledger line",
+   "internal": null,
    "end": 10.8333,
    "dur": 2.817
   },
@@ -372,6 +379,7 @@
    "lead_ms": 20,
    "picture": "On \"Meet\" the line flares; on the drop (\"EduLedger\") the logo crystallises above it; brand light floods",
    "transition_in": "line flare → flash through white (drop on next beat)",
+   "internal": null,
    "end": 12.4667,
    "dur": 1.633
   },
@@ -387,6 +395,7 @@
    "lead_ms": 65,
    "picture": "Real dashboard screenshot slides up in perspective on the grid",
    "transition_in": "light-streak whip (the ledger line)",
+   "internal": null,
    "end": 15.5167,
    "dur": 3.05
   },
@@ -402,6 +411,7 @@
    "lead_ms": 44,
    "picture": "Student records UI card pops forward",
    "transition_in": "push-in to a card",
+   "internal": null,
    "end": 16.2167,
    "dur": 0.7
   },
@@ -417,6 +427,7 @@
    "lead_ms": 61,
    "picture": "Staff & payroll UI card",
    "transition_in": "cut-the-curve vertical whip",
+   "internal": null,
    "end": 16.9333,
    "dur": 0.717
   },
@@ -432,6 +443,7 @@
    "lead_ms": 97,
    "picture": "Fee UI card",
    "transition_in": "cut-the-curve vertical whip",
+   "internal": null,
    "end": 17.6333,
    "dur": 0.7
   },
@@ -440,15 +452,32 @@
    "flag": "",
    "line": "L07",
    "word": "admissions",
-   "word_onset": 17.705,
+   "word_onset": 17.725,
    "start": 17.6333,
    "grid": "half",
    "beat_no": 37.5,
-   "lead_ms": 74,
+   "lead_ms": 94,
    "picture": "Class grid: present ticks ripple green across it",
    "transition_in": "light-streak whip",
+   "internal": null,
+   "end": 20.2167,
+   "dur": 2.583
+  },
+  {
+   "id": "S13b",
+   "flag": "",
+   "line": "L07",
+   "word": "dashboard.",
+   "word_onset": 20.245,
+   "start": 20.2167,
+   "grid": "beat",
+   "beat_no": 43.0,
+   "lead_ms": 36,
+   "picture": "The class grid docks into one clean dashboard (real dashboard UI)",
+   "transition_in": "push-out: the grid becomes a dashboard tile",
+   "internal": null,
    "end": 21.3833,
-   "dur": 3.75
+   "dur": 1.167
   },
   {
    "id": "S14",
@@ -462,6 +491,7 @@
    "lead_ms": 25,
    "picture": "3D rupee coin (H3) spins and lands",
    "transition_in": "light-streak whip",
+   "internal": null,
    "end": 22.7833,
    "dur": 1.4
   },
@@ -477,6 +507,7 @@
    "lead_ms": 39,
    "picture": "Receipt prints out of a card (real receipt UI)",
    "transition_in": "morph: coin → receipt",
+   "internal": null,
    "end": 23.4833,
    "dur": 0.7
   },
@@ -492,6 +523,7 @@
    "lead_ms": 116,
    "picture": "Fee-collection bar fills inside the demo dashboard frame (the ledger line becomes the bar)",
    "transition_in": "morph: receipt edge → the ledger line → fee bar",
+   "internal": null,
    "end": 25.6,
    "dur": 2.117
   },
@@ -507,6 +539,7 @@
    "lead_ms": 6,
    "picture": "Payroll list → cashbook chart morph (cross-warp)",
    "transition_in": "light-streak whip",
+   "internal": null,
    "end": 27.4667,
    "dur": 1.867
   },
@@ -522,6 +555,7 @@
    "lead_ms": 111,
    "picture": "Paper stack crumples into particles; breathing beat",
    "transition_in": "morph: cashbook pages → paper stack",
+   "internal": null,
    "end": 29.1167,
    "dur": 1.65
   },
@@ -537,6 +571,7 @@
    "lead_ms": 16,
    "picture": "Phone (H4) slides up from below",
    "transition_in": "slide-up (phone)",
+   "internal": null,
    "end": 30.05,
    "dur": 0.933
   },
@@ -552,6 +587,7 @@
    "lead_ms": 139,
    "picture": "EduLedger chat card types the parent message ✓✓, \"Add-on\" chip",
    "transition_in": "push-in to the phone screen",
+   "internal": null,
    "end": 32.4,
    "dur": 2.35
   },
@@ -567,6 +603,7 @@
    "lead_ms": 34,
    "picture": "Three message chips stack on three beats",
    "transition_in": "cut-the-curve vertical whip",
+   "internal": null,
    "end": 34.9667,
    "dur": 2.567
   },
@@ -582,6 +619,7 @@
    "lead_ms": 72,
    "picture": "Camera dollies out across the full demo dashboard; stats count up inside the frame",
    "transition_in": "pull-out (dolly) to the full dashboard",
+   "internal": null,
    "end": 38.4833,
    "dur": 3.517
   },
@@ -597,6 +635,7 @@
    "lead_ms": 77,
    "picture": "Kinetic stamp: NO SETUP FEE",
    "transition_in": "hard cut on the stomp",
+   "internal": null,
    "end": 39.6667,
    "dur": 1.183
   },
@@ -612,6 +651,7 @@
    "lead_ms": 25,
    "picture": "Shield/lock glyph + stamp: SECURE BY DESIGN",
    "transition_in": "hard cut on the stomp",
+   "internal": null,
    "end": 41.3,
    "dur": 1.633
   },
@@ -627,6 +667,7 @@
    "lead_ms": 45,
    "picture": "3D school building (H5), brand light on the façade (no map)",
    "transition_in": "hard cut on the stomp",
+   "internal": null,
    "end": 43.1833,
    "dur": 1.883
   },
@@ -642,6 +683,7 @@
    "lead_ms": 20,
    "picture": "The ledger line returns; logo crystallises on the return hit; tagline word by word; hold",
    "transition_in": "morph: the ledger line returns (return hit)",
+   "internal": null,
    "end": 46.9333,
    "dur": 3.75
   },
@@ -657,6 +699,7 @@
    "lead_ms": 20,
    "picture": "CTA card: eduledger.co.in, \"Get started\"; ledger-line underline; hold to the end",
    "transition_in": "push-in to the CTA card",
+   "internal": null,
    "end": 52.55,
    "dur": 5.617
   }

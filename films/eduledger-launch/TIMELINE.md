@@ -81,7 +81,8 @@ The track as delivered drops at **15.05 s** and runs 70.0 s, with music to about
 | S10 | 15.517–16.217 | 0.70 | beat 33 | 44 | Students | push-in to a card | Student records card pops forward | X08 @15.52 |
 | S11 | 16.217–16.933 | 0.72 | half 34.5 | 61 | staff | vertical whip | Staff & payroll card | X07 + X08 @16.22 |
 | S12 | 16.933–17.633 | 0.70 | beat 36 | 97 | fees | vertical whip | Fee card | X07 + X08 @16.93 |
-| S13 | 17.633–21.383 | 3.75 | half 37.5 | 74 | admissions | light-streak whip | Class grid: present ticks ripple green | X07 @17.63; X09 ×6 @18.10–18.68 |
+| S13 | 17.633–20.217 | 2.58 | half 37.5 | 94 | admissions | light-streak whip | Class grid: present ticks ripple green | X07 @17.63; X09 ×6 @18.10–18.68 |
+| S13b | 20.217–21.383 | 1.17 | beat 43 | 36 | dashboard | push-out: the grid becomes a dashboard tile | The class grid docks into one clean dashboard (real dashboard UI) | — |
 | S14 | 21.383–22.783 | 1.40 | half 45.5 | 25 | Fees | light-streak whip | 3D rupee coin (H3) spins, lands on "collected" | X07 @21.38; X10 @22.08 |
 | S15 | 22.783–23.483 | 0.70 | half 48.5 | 39 | receipted | morph: coin → receipt | Receipt prints out of a card (real receipt UI) | X02 @22.78 |
 | S16 | 23.483–25.600 | 2.12 | beat 50 | 116 | tracked | morph: receipt edge → ledger line → fee bar | Fee-collection bar fills in the demo dashboard frame | X09 @24.43 (bar full, "real time") |
@@ -100,18 +101,26 @@ The track as delivered drops at **15.05 s** and runs 70.0 s, with music to about
 ## 5. Checks against the brief and P1–P9
 | Check | Result |
 |---|---|
-| Cuts | **26** (target 25 ± 2), 27 shots |
-| On the grid | **26/26**: 13 on full beats, 13 on half beats; every cut lands on a 60 fps frame |
+| Cuts | **27** (target 25 ± 2), 28 shots. S13 is split on "dashboard" (user, Stage C review). |
+| On the grid | **27/27**: 14 on full beats, 13 on half beats; every cut lands on a 60 fps frame |
 | Cut leads its word | 4–139 ms (median 44 ms); none late |
-| Average shot | 1.95 s (BRIEF ≈ 1.9) |
+| Average shot | 1.88 s (BRIEF ≈ 1.9) |
 | Spread (P3, target ≥ 8×) | 0.70–5.62 s = **8.0×** |
 | Rest beats | S07 2.82 s, S18 1.65 s, S22 3.52 s |
 | Logo hold (≈ 2 s) | the logo is formed at 43.18 and held to 46.93 (3.75 s, with the tagline) |
 | CTA hold (5+ s) | **5.62 s** |
 | Ledger line (≥ 3×) | S07, S08, every light-streak whip (P2), S16 fee bar, S20 bubble edge, S26, S27 underline |
 | SFX | 45 events, each on its visual event: 22 at a cut, the rest on words or beats inside shots. X06's impact is on the drop. X13 is on the return hit. |
-| Transitions (P1) | 5 glitch cuts, 3 stomp cuts, 5 morphs, 7 whips (4 streak, 3 vertical), 1 flash, 5 camera moves (push / pull / slide) |
+| Transitions (P1) | 5 glitch cuts, 3 stomp cuts, 5 morphs, 7 whips (4 streak, 3 vertical), 1 flash, 6 camera moves (push / pull / slide) |
 | Preview loudness | −14.0 LUFS integrated, sample peak −1.5 dBFS (placeholder SFX; the true peak will be measured on the final master) |
+
+## 6. Decisions (user, Stage C review, 2026-10-06)
+1. **Music edits approved.** The reply kept the template wording "[approved after watching the preview]" and flagged no join.
+2. **Act 1:** keep the cuts as they are. The speed-up is built *inside* S04–S06: cells flicker and bubbles stack on eighths, then sixteenths, then 32nds (`timeline.json`, `internal`).
+3. **S13 is split on "dashboard"** (S13b), making 27 cuts. S09 stays as it is.
+4. **The stamps carry** "No setup fee / Secure by design / Built for Indian schools" into the break; the logo hits on the return. Approved.
+
+The options as offered at the Stage C gate:
 
 ## 6. Where the plan bends, and choices for you
 1. **Act 1 doesn't accelerate by cut length.**
