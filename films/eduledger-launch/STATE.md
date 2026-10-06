@@ -51,11 +51,12 @@ This file is updated after every stage. The brief is `BRIEF.md` (Director's Pack
   - Kit beat-sync validator: 28/28.
   - Exact-word sync: 28/28, with each cut 3–140 ms ahead of its word and on the beat grid.
   - `hyperframes check`: passed at 56 sample times.
-  - MOTION_PHILOSOPHY §4/§5 audit: 10/10 measured items pass, including seek-order determinism, plus palette, callback and frame review.
+  - MOTION_PHILOSOPHY §4/§5 audit (mock build): 10/10 measured items pass, including seek-order determinism, plus palette, callback and frame review.
   - **Render check:**
     - 3,153/3,153 frames.
-    - **27/27 cuts on their planned frame:** 24 have the biggest change on that frame (±1); in 3 the exit motion peaks 2–4 frames early, with a sharp change still on the planned frame. All confirmed in the strips.
-    - Stillness 15.3% by the Stage A rule (target ≤ 20%), only in the S07 rest and the end of S22.
+    - **27/27 cuts on their planned frame:** 25 have the biggest change on that frame (±1); in 2 the exit motion peaks 2–4 frames early, with a sharp change still on the planned frame. All confirmed in the strips.
+    - Stillness 12.3% by the Stage A rule (target ≤ 20%), only in the S07 rest and the end of S22.
+    - Audio in the delivered file: −14.1 LUFS, true peak −1.5 dBTP.
   - Details in VERIFY.md.
 - **Review fixes in Stage E:**
   - S06 headline stays above the call bubbles.

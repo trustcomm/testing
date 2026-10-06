@@ -4,7 +4,7 @@ Usage: python3 -I scripts/write_verify.py
 Reads: out/verify/report.json (render), out/mix/report.json, out/sync/report.json, out/audit/check/check-summary.json,
        out/audit/motion.json, out/audit/lint.txt, out/audit/preflight.txt, web/assets/manifest.json, timeline.json
 """
-import datetime, json, os, re
+import datetime, json, os, re, subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -41,6 +41,9 @@ w(f"| `hyperframes lint` | {lint_sum[0]} errors, {lint_sum[1]} warnings (track d
 w(f"| `hyperframes check`, 2 points per shot | {'passed' if ck['ok'] else 'FAILED'}; layout at {ck['layout_times']} times; **contrast {ck['contrast']['passed']}/{ck['contrast']['checked']}** text checks at {len(ck['contrast_times'])} times; {len(ck['findings'])} info notes (intentional overflow during transitions) | {ok(ck['ok'] and ck['contrast']['passed'] == ck['contrast']['checked'] and ck['contrast']['checked'] > 0)} |")
 w(f"| Kit preflight | {'all checks passed' if pre_ok else 'see out/audit/preflight.txt'} | {ok(pre_ok)} |")
 st = rv["stillness"]
+gate = subprocess.run(["python3", "-I", "scripts/final_gate.py"], capture_output=True, text=True)
+gate_line = next((l for l in gate.stdout.splitlines() if l.startswith("FINAL GATE")), "FINAL GATE: ?")
+w(f"| **Final gate** (`scripts/final_gate.py`) | {gate_line.replace('FINAL GATE: ', '').replace('; a final render is not allowed:', '')}" + (" — expected for an internal draft: this film may not be released as final" if gate.returncode else "") + f" | {'⛔' if gate.returncode else '✅'} |")
 w(f"| Stillness (P6 ≤ 20 %, Stage A rule) | {st['near_still_pct']} % near-still frame to frame ({st['near_still_pct_at_1_30s']} % at 1/30 s); runs ≥ 0.5 s: " + ("; ".join(f"{a_}–{b_} s ({sh})" for a_, b_, sh in st['runs_over_0_5s']) or "none") + f" | {ok(st['near_still_pct'] <= 20)} |")
 w("")
 w("## MOTION_PHILOSOPHY §4 checklist and §5 anti-patterns\n")
