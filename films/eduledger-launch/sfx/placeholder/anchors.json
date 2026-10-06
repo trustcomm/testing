@@ -1,0 +1,72 @@
+{
+ "X01": {
+  "file": "sfx/placeholder/PH-X01.wav",
+  "anchor": 0.0,
+  "duration": 0.4
+ },
+ "X02": {
+  "file": "sfx/placeholder/PH-X02.wav",
+  "anchor": 0.0,
+  "duration": 0.45
+ },
+ "X03": {
+  "file": "sfx/placeholder/PH-X03.wav",
+  "anchor": 0.0,
+  "duration": 0.32
+ },
+ "X04": {
+  "file": "sfx/placeholder/PH-X04.wav",
+  "anchor": 0.0,
+  "duration": 0.4
+ },
+ "X05": {
+  "file": "sfx/placeholder/PH-X05.wav",
+  "anchor": 0.0,
+  "duration": 0.3
+ },
+ "X06": {
+  "file": "sfx/placeholder/PH-X06.wav",
+  "anchor": 1.8,
+  "duration": 2.2
+ },
+ "X07": {
+  "file": "sfx/placeholder/PH-X07.wav",
+  "anchor": 0.21,
+  "duration": 0.42
+ },
+ "X08": {
+  "file": "sfx/placeholder/PH-X08.wav",
+  "anchor": 0.0,
+  "duration": 0.08
+ },
+ "X09": {
+  "file": "sfx/placeholder/PH-X09.wav",
+  "anchor": 0.0,
+  "duration": 0.03
+ },
+ "X10": {
+  "file": "sfx/placeholder/PH-X10.wav",
+  "anchor": 0.0,
+  "duration": 0.7
+ },
+ "X11": {
+  "file": "sfx/placeholder/PH-X11.wav",
+  "anchor": 0.28,
+  "duration": 0.45
+ },
+ "X12": {
+  "file": "sfx/placeholder/PH-X12.wav",
+  "anchor": 0.0,
+  "duration": 0.3
+ },
+ "X13": {
+  "file": "sfx/placeholder/PH-X13.wav",
+  "anchor": 0.0,
+  "duration": 3.6
+ },
+ "X14": {
+  "file": "sfx/placeholder/PH-X14.wav",
+  "anchor": 0.0,
+  "duration": 0.65
+ }
+}

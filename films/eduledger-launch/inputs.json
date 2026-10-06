@@ -1,6 +1,5 @@
 {
  "missing": [
-  "Music track",
   "Music LICENSE / terms",
   "SFX X01",
   "SFX X02",
@@ -16,7 +15,7 @@
   "SFX X12",
   "SFX X13",
   "SFX X14",
-  "Logo (SVG, or PNG ≥ 1000 px wide)",
+  "Logo SVG, or the mark as PNG ≥ 1000 px tall (working logo is PROVISIONAL; mark is 232 px tall)",
   "Exact brand colours (hex) from the developer",
   "UI screenshot: dashboard (Main dashboard (command centre) of the demo school)",
   "UI screenshot: students (Student records list or profile)",
@@ -148,12 +147,33 @@
   }
  },
  "music": {
-  "tracks": [],
-  "licence": []
+  "tracks": [
+   "music/track.mp3"
+  ],
+  "licence": [],
+  "music/track.mp3": {
+   "duration": 70.03,
+   "music_grid": [
+    "period 0.4689s  bpm 127.95  duration 70.03s",
+    "kick-band phase 0.032s (contrast 3.7)  full-band phase 0.022s  -> use the kick phase",
+    "bar   0  beat   0  t    0.03  rms  -27.8  low  -53.9  onset 1.01  ############",
+    "bar   1  beat   4  t    1.91  rms  -28.2  low  -55.8  onset 0.91  ############",
+    "bar   2  beat   8  t    3.78  rms  -27.7  low  -54.5  onset 0.86  ############",
+    "bar   3  beat  12  t    5.66  rms  -26.8  low  -51.9  onset 0.77  #############"
+   ]
+  }
  },
  "sfx": {},
  "brand": {
-  "logos": [],
+  "logos": [
+   "brand/logo-mark-tile.png",
+   "brand/logo-mark.png",
+   "brand/logo-on-dark.png",
+   "brand/logo-tagline.png",
+   "brand/logo-wordmark.png",
+   "brand/logo.png",
+   "brand/source/logo-screenshot-from-chat.png"
+  ],
   "colours_file": [],
   "fonts": []
  },

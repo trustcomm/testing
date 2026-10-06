@@ -12,3 +12,6 @@ dots-reel/renders/frames/
 __pycache__/
 dots-reel/renders/video-render.mp4
 films/eduledger-launch/.kit/
+films/eduledger-launch/music/edit/*.wav
+films/eduledger-launch/out/timeline/*.wav
+films/eduledger-launch/out/timeline/slates/

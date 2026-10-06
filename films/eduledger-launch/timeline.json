@@ -1,0 +1,892 @@
+{
+ "fps": 60,
+ "length_s": 52.55,
+ "grid": {
+  "bpm": 128.011,
+  "period_s": 0.46871,
+  "phase_s": 0.054,
+  "measured": "kick attacks in source 15–56 s; music-grid.mjs 127.95 BPM / kick phase 0.032 s; per-section fits agree within 8 ms"
+ },
+ "music": {
+  "source": "music/track.mp3",
+  "bed": "music/edit/bed.wav",
+  "edit": [
+   {
+    "src_beats": [
+     0,
+     8
+    ],
+    "src_s": [
+     0,
+     3.804
+    ],
+    "out_beats": [
+     0,
+     8
+    ],
+    "out_s": [
+     0,
+     3.804
+    ]
+   },
+   {
+    "src_beats": [
+     16,
+     44
+    ],
+    "src_s": [
+     7.553,
+     20.677
+    ],
+    "out_beats": [
+     8,
+     36
+    ],
+    "out_s": [
+     3.804,
+     16.928
+    ]
+   },
+   {
+    "src_beats": [
+     40,
+     44
+    ],
+    "src_s": [
+     18.802,
+     20.677
+    ],
+    "out_beats": [
+     36,
+     40
+    ],
+    "out_s": [
+     16.928,
+     18.802
+    ]
+   },
+   {
+    "src_beats": [
+     44,
+     104
+    ],
+    "src_s": [
+     20.677,
+     48.8
+    ],
+    "out_beats": [
+     40,
+     100
+    ],
+    "out_s": [
+     18.802,
+     46.925
+    ]
+   },
+   {
+    "src_beats": [
+     120,
+     132
+    ],
+    "src_s": [
+     56.299,
+     61.924
+    ],
+    "out_beats": [
+     100,
+     112
+    ],
+    "out_s": [
+     46.925,
+     52.55
+    ]
+   }
+  ],
+  "fade_out_s": 0.75,
+  "landmarks": {
+   "drop": 11.303040000000001,
+   "lift": 26.301759999999998,
+   "break": 41.30048,
+   "return_hit": 43.175320000000006,
+   "outro": 46.925000000000004,
+   "end": 52.55
+  }
+ },
+ "vo": [
+  {
+   "id": "L01",
+   "file": "vo/L01.wav",
+   "start": -0.065,
+   "shift_vs_master_s": -0.065,
+   "speech": [
+    0.055,
+    2.475
+   ]
+  },
+  {
+   "id": "L02",
+   "file": "vo/L02.wav",
+   "start": 2.695,
+   "shift_vs_master_s": -0.01,
+   "speech": [
+    2.87,
+    7.35
+   ]
+  },
+  {
+   "id": "L03",
+   "file": "vo/L03.wav",
+   "start": 7.41,
+   "shift_vs_master_s": -0.015,
+   "speech": [
+    8.085,
+    10.205
+   ]
+  },
+  {
+   "id": "L04",
+   "file": "vo/L04.wav",
+   "start": 10.769,
+   "shift_vs_master_s": -0.086,
+   "speech": [
+    10.854,
+    11.914
+   ]
+  },
+  {
+   "id": "L05",
+   "file": "vo/L05.wav",
+   "start": 12.245,
+   "shift_vs_master_s": -0.02,
+   "speech": [
+    12.54,
+    15.1
+   ]
+  },
+  {
+   "id": "L06",
+   "file": "vo/L06.wav",
+   "start": 15.36,
+   "shift_vs_master_s": -0.115,
+   "speech": [
+    15.565,
+    17.405
+   ]
+  },
+  {
+   "id": "L07",
+   "file": "vo/L07.wav",
+   "start": 17.65,
+   "shift_vs_master_s": -0.075,
+   "speech": [
+    17.705,
+    20.785
+   ]
+  },
+  {
+   "id": "L08",
+   "file": "vo/L08.wav",
+   "start": 21.21,
+   "shift_vs_master_s": -0.015,
+   "speech": [
+    21.405,
+    25.065
+   ]
+  },
+  {
+   "id": "L09",
+   "file": "vo/L09.wav",
+   "start": 25.57,
+   "shift_vs_master_s": 0.025,
+   "speech": [
+    25.605,
+    28.725
+   ]
+  },
+  {
+   "id": "L10",
+   "file": "vo/L10.wav",
+   "start": 29.105,
+   "shift_vs_master_s": -0.05,
+   "speech": [
+    29.13,
+    34.53
+   ]
+  },
+  {
+   "id": "L11",
+   "file": "vo/L11.wav",
+   "start": 34.96,
+   "shift_vs_master_s": -0.055,
+   "speech": [
+    35.045,
+    37.925
+   ]
+  },
+  {
+   "id": "L12",
+   "file": "vo/L12.wav",
+   "start": 38.31,
+   "shift_vs_master_s": 0.185,
+   "speech": [
+    38.565,
+    42.745
+   ]
+  },
+  {
+   "id": "L13",
+   "file": "vo/L13.wav",
+   "start": 43.13,
+   "shift_vs_master_s": 0.015,
+   "speech": [
+    43.195,
+    46.215
+   ]
+  },
+  {
+   "id": "L14",
+   "file": "vo/L14.wav",
+   "start": 46.91,
+   "shift_vs_master_s": 0.265,
+   "speech": [
+    46.945,
+    49.545
+   ]
+  }
+ ],
+ "shots": [
+  {
+   "id": "S01",
+   "flag": "",
+   "line": "L01",
+   "word": "Registers,",
+   "word_onset": 0.055,
+   "start": 0.0,
+   "grid": null,
+   "beat_no": -0.1,
+   "lead_ms": null,
+   "picture": "3D ledger book (H1) slams onto the grid floor; REGISTERS scales 8× through camera",
+   "transition_in": "film start",
+   "end": 0.75,
+   "dur": 0.75
+  },
+  {
+   "id": "S02",
+   "flag": "",
+   "line": "L01",
+   "word": "receipts,",
+   "word_onset": 0.875,
+   "start": 0.75,
+   "grid": "half",
+   "beat_no": 1.5,
+   "lead_ms": 118,
+   "picture": "Receipt stack (H2) whips in; red",
+   "transition_in": "hard glitch cut",
+   "end": 1.7,
+   "dur": 0.95
+  },
+  {
+   "id": "S03",
+   "flag": "",
+   "line": "L01",
+   "word": "reminders,",
+   "word_onset": 1.715,
+   "start": 1.7,
+   "grid": "half",
+   "beat_no": 3.5,
+   "lead_ms": 21,
+   "picture": "Ringing-phone icons multiply across frame; red",
+   "transition_in": "hard glitch cut",
+   "end": 2.8667,
+   "dur": 1.167
+  },
+  {
+   "id": "S04",
+   "flag": "",
+   "line": "L02",
+   "word": "spreadsheets",
+   "word_onset": 2.87,
+   "start": 2.8667,
+   "grid": "beat",
+   "beat_no": 6.0,
+   "lead_ms": 4,
+   "picture": "Spreadsheet cells flicker and glitch red",
+   "transition_in": "hard glitch cut",
+   "end": 4.5,
+   "dur": 1.633
+  },
+  {
+   "id": "S05",
+   "flag": "",
+   "line": "L02",
+   "word": "paper",
+   "word_onset": 4.55,
+   "start": 4.5,
+   "grid": "half",
+   "beat_no": 9.5,
+   "lead_ms": 43,
+   "picture": "Attendance sheet with frantic scribbled ticks",
+   "transition_in": "hard glitch cut",
+   "end": 5.9167,
+   "dur": 1.417
+  },
+  {
+   "id": "S06",
+   "flag": "",
+   "line": "L02",
+   "word": "phone",
+   "word_onset": 6.05,
+   "start": 5.9167,
+   "grid": "half",
+   "beat_no": 12.5,
+   "lead_ms": 137,
+   "picture": "Call bubbles stack until they overflow the frame",
+   "transition_in": "hard glitch cut",
+   "end": 8.0167,
+   "dur": 2.1
+  },
+  {
+   "id": "S07",
+   "flag": "★",
+   "line": "L03",
+   "word": "Running",
+   "word_onset": 8.085,
+   "start": 8.0167,
+   "grid": "beat",
+   "beat_no": 17.0,
+   "lead_ms": 63,
+   "picture": "All chaos collapses to one thin glowing line (the ledger line). Rest beat",
+   "transition_in": "morph: chaos collapses into the ledger line",
+   "end": 10.8333,
+   "dur": 2.817
+  },
+  {
+   "id": "S08",
+   "flag": "★",
+   "line": "L04",
+   "word": "Meet",
+   "word_onset": 10.854,
+   "start": 10.8333,
+   "grid": "beat",
+   "beat_no": 23.0,
+   "lead_ms": 20,
+   "picture": "On \"Meet\" the line flares; on the drop (\"EduLedger\") the logo crystallises above it; brand light floods",
+   "transition_in": "line flare → flash through white (drop on next beat)",
+   "end": 12.4667,
+   "dur": 1.633
+  },
+  {
+   "id": "S09",
+   "flag": "",
+   "line": "L05",
+   "word": "one",
+   "word_onset": 12.54,
+   "start": 12.4667,
+   "grid": "half",
+   "beat_no": 26.5,
+   "lead_ms": 65,
+   "picture": "Real dashboard screenshot slides up in perspective on the grid",
+   "transition_in": "light-streak whip (the ledger line)",
+   "end": 15.5167,
+   "dur": 3.05
+  },
+  {
+   "id": "S10",
+   "flag": "",
+   "line": "L06",
+   "word": "Students,",
+   "word_onset": 15.565,
+   "start": 15.5167,
+   "grid": "beat",
+   "beat_no": 33.0,
+   "lead_ms": 44,
+   "picture": "Student records UI card pops forward",
+   "transition_in": "push-in to a card",
+   "end": 16.2167,
+   "dur": 0.7
+  },
+  {
+   "id": "S11",
+   "flag": "",
+   "line": "L06",
+   "word": "staff,",
+   "word_onset": 16.285,
+   "start": 16.2167,
+   "grid": "half",
+   "beat_no": 34.5,
+   "lead_ms": 61,
+   "picture": "Staff & payroll UI card",
+   "transition_in": "cut-the-curve vertical whip",
+   "end": 16.9333,
+   "dur": 0.717
+  },
+  {
+   "id": "S12",
+   "flag": "",
+   "line": "L06",
+   "word": "fees,",
+   "word_onset": 17.025,
+   "start": 16.9333,
+   "grid": "beat",
+   "beat_no": 36.0,
+   "lead_ms": 97,
+   "picture": "Fee UI card",
+   "transition_in": "cut-the-curve vertical whip",
+   "end": 17.6333,
+   "dur": 0.7
+  },
+  {
+   "id": "S13",
+   "flag": "",
+   "line": "L07",
+   "word": "admissions",
+   "word_onset": 17.705,
+   "start": 17.6333,
+   "grid": "half",
+   "beat_no": 37.5,
+   "lead_ms": 74,
+   "picture": "Class grid: present ticks ripple green across it",
+   "transition_in": "light-streak whip",
+   "end": 21.3833,
+   "dur": 3.75
+  },
+  {
+   "id": "S14",
+   "flag": "",
+   "line": "L08",
+   "word": "Fees",
+   "word_onset": 21.405,
+   "start": 21.3833,
+   "grid": "half",
+   "beat_no": 45.5,
+   "lead_ms": 25,
+   "picture": "3D rupee coin (H3) spins and lands",
+   "transition_in": "light-streak whip",
+   "end": 22.7833,
+   "dur": 1.4
+  },
+  {
+   "id": "S15",
+   "flag": "",
+   "line": "L08",
+   "word": "receipted,",
+   "word_onset": 22.825,
+   "start": 22.7833,
+   "grid": "half",
+   "beat_no": 48.5,
+   "lead_ms": 39,
+   "picture": "Receipt prints out of a card (real receipt UI)",
+   "transition_in": "morph: coin → receipt",
+   "end": 23.4833,
+   "dur": 0.7
+  },
+  {
+   "id": "S16",
+   "flag": "",
+   "line": "L08",
+   "word": "tracked",
+   "word_onset": 23.605,
+   "start": 23.4833,
+   "grid": "beat",
+   "beat_no": 50.0,
+   "lead_ms": 116,
+   "picture": "Fee-collection bar fills inside the demo dashboard frame (the ledger line becomes the bar)",
+   "transition_in": "morph: receipt edge → the ledger line → fee bar",
+   "end": 25.6,
+   "dur": 2.117
+  },
+  {
+   "id": "S17",
+   "flag": "",
+   "line": "L09",
+   "word": "Payroll",
+   "word_onset": 25.605,
+   "start": 25.6,
+   "grid": "half",
+   "beat_no": 54.5,
+   "lead_ms": 6,
+   "picture": "Payroll list → cashbook chart morph (cross-warp)",
+   "transition_in": "light-streak whip",
+   "end": 27.4667,
+   "dur": 1.867
+  },
+  {
+   "id": "S18",
+   "flag": "★",
+   "line": "L09",
+   "word": "with",
+   "word_onset": 27.585,
+   "start": 27.4667,
+   "grid": "half",
+   "beat_no": 58.5,
+   "lead_ms": 111,
+   "picture": "Paper stack crumples into particles; breathing beat",
+   "transition_in": "morph: cashbook pages → paper stack",
+   "end": 29.1167,
+   "dur": 1.65
+  },
+  {
+   "id": "S19",
+   "flag": "",
+   "line": "L10",
+   "word": "and",
+   "word_onset": 29.13,
+   "start": 29.1167,
+   "grid": "beat",
+   "beat_no": 62.0,
+   "lead_ms": 16,
+   "picture": "Phone (H4) slides up from below",
+   "transition_in": "slide-up (phone)",
+   "end": 30.05,
+   "dur": 0.933
+  },
+  {
+   "id": "S20",
+   "flag": "",
+   "line": "L10",
+   "word": "updated",
+   "word_onset": 30.19,
+   "start": 30.05,
+   "grid": "beat",
+   "beat_no": 64.0,
+   "lead_ms": 139,
+   "picture": "EduLedger chat card types the parent message ✓✓, \"Add-on\" chip",
+   "transition_in": "push-in to the phone screen",
+   "end": 32.4,
+   "dur": 2.35
+  },
+  {
+   "id": "S21",
+   "flag": "",
+   "line": "L10",
+   "word": "Attendance,",
+   "word_onset": 32.429,
+   "start": 32.4,
+   "grid": "beat",
+   "beat_no": 69.0,
+   "lead_ms": 34,
+   "picture": "Three message chips stack on three beats",
+   "transition_in": "cut-the-curve vertical whip",
+   "end": 34.9667,
+   "dur": 2.567
+  },
+  {
+   "id": "S22",
+   "flag": "★",
+   "line": "L11",
+   "word": "every",
+   "word_onset": 35.045,
+   "start": 34.9667,
+   "grid": "half",
+   "beat_no": 74.5,
+   "lead_ms": 72,
+   "picture": "Camera dollies out across the full demo dashboard; stats count up inside the frame",
+   "transition_in": "pull-out (dolly) to the full dashboard",
+   "end": 38.4833,
+   "dur": 3.517
+  },
+  {
+   "id": "S23",
+   "flag": "",
+   "line": "L12",
+   "word": "No",
+   "word_onset": 38.565,
+   "start": 38.4833,
+   "grid": "beat",
+   "beat_no": 82.0,
+   "lead_ms": 77,
+   "picture": "Kinetic stamp: NO SETUP FEE",
+   "transition_in": "hard cut on the stomp",
+   "end": 39.6667,
+   "dur": 1.183
+  },
+  {
+   "id": "S24",
+   "flag": "",
+   "line": "L12",
+   "word": "Secure",
+   "word_onset": 39.685,
+   "start": 39.6667,
+   "grid": "half",
+   "beat_no": 84.5,
+   "lead_ms": 25,
+   "picture": "Shield/lock glyph + stamp: SECURE BY DESIGN",
+   "transition_in": "hard cut on the stomp",
+   "end": 41.3,
+   "dur": 1.633
+  },
+  {
+   "id": "S25",
+   "flag": "",
+   "line": "L12",
+   "word": "Built",
+   "word_onset": 41.345,
+   "start": 41.3,
+   "grid": "beat",
+   "beat_no": 88.0,
+   "lead_ms": 45,
+   "picture": "3D school building (H5), brand light on the façade (no map)",
+   "transition_in": "hard cut on the stomp",
+   "end": 43.1833,
+   "dur": 1.883
+  },
+  {
+   "id": "S26",
+   "flag": "★",
+   "line": "L13",
+   "word": "EduLedger.",
+   "word_onset": 43.195,
+   "start": 43.1833,
+   "grid": "beat",
+   "beat_no": 92.0,
+   "lead_ms": 20,
+   "picture": "The ledger line returns; logo crystallises on the return hit; tagline word by word; hold",
+   "transition_in": "morph: the ledger line returns (return hit)",
+   "end": 46.9333,
+   "dur": 3.75
+  },
+  {
+   "id": "S27",
+   "flag": "★",
+   "line": "L14",
+   "word": "Get",
+   "word_onset": 46.945,
+   "start": 46.9333,
+   "grid": "beat",
+   "beat_no": 100.0,
+   "lead_ms": 20,
+   "picture": "CTA card: eduledger.co.in, \"Get started\"; ledger-line underline; hold to the end",
+   "transition_in": "push-in to the CTA card",
+   "end": 52.55,
+   "dur": 5.617
+  }
+ ],
+ "sfx": [
+  {
+   "sfx": "X01",
+   "t": 0.05,
+   "event": "S01 ledger book lands on the grid (on \"Registers\")"
+  },
+  {
+   "sfx": "X02",
+   "t": 0.75,
+   "event": "S02 receipt stack whips in"
+  },
+  {
+   "sfx": "X03",
+   "t": 1.7,
+   "event": "S03 phone icons burst"
+  },
+  {
+   "sfx": "X05",
+   "t": 2.8667,
+   "event": "S04 spreadsheet glitch"
+  },
+  {
+   "sfx": "X04",
+   "t": 4.5,
+   "event": "S05 scribbles start"
+  },
+  {
+   "sfx": "X04",
+   "t": 4.9667,
+   "event": "S05 second scribble"
+  },
+  {
+   "sfx": "X03",
+   "t": 5.9167,
+   "event": "S06 call bubbles burst"
+  },
+  {
+   "sfx": "X06",
+   "t": 11.3,
+   "event": "S08 impact = drop: logo crystallises on \"EduLedger\" (riser leads in)"
+  },
+  {
+   "sfx": "X07",
+   "t": 12.4667,
+   "event": "S09 light-streak whip (the ledger line)"
+  },
+  {
+   "sfx": "X08",
+   "t": 15.5167,
+   "event": "S10 card pops forward"
+  },
+  {
+   "sfx": "X07",
+   "t": 16.2167,
+   "event": "S11 cut-the-curve vertical whip"
+  },
+  {
+   "sfx": "X08",
+   "t": 16.2167,
+   "event": "S11 card pops forward"
+  },
+  {
+   "sfx": "X07",
+   "t": 16.9333,
+   "event": "S12 cut-the-curve vertical whip"
+  },
+  {
+   "sfx": "X08",
+   "t": 16.9333,
+   "event": "S12 card pops forward"
+  },
+  {
+   "sfx": "X07",
+   "t": 17.6333,
+   "event": "S13 light-streak whip"
+  },
+  {
+   "sfx": "X09",
+   "t": 18.1,
+   "event": "S13 present tick 1 ripples green"
+  },
+  {
+   "sfx": "X09",
+   "t": 18.2167,
+   "event": "S13 present tick 2 ripples green"
+  },
+  {
+   "sfx": "X09",
+   "t": 18.3333,
+   "event": "S13 present tick 3 ripples green"
+  },
+  {
+   "sfx": "X09",
+   "t": 18.45,
+   "event": "S13 present tick 4 ripples green"
+  },
+  {
+   "sfx": "X09",
+   "t": 18.5667,
+   "event": "S13 present tick 5 ripples green"
+  },
+  {
+   "sfx": "X09",
+   "t": 18.6833,
+   "event": "S13 present tick 6 ripples green"
+  },
+  {
+   "sfx": "X07",
+   "t": 21.3833,
+   "event": "S14 light-streak whip"
+  },
+  {
+   "sfx": "X10",
+   "t": 22.0833,
+   "event": "S14 coin lands (on \"collected\")"
+  },
+  {
+   "sfx": "X02",
+   "t": 22.7833,
+   "event": "S15 receipt prints"
+  },
+  {
+   "sfx": "X09",
+   "t": 24.4333,
+   "event": "S16 fee bar completes (on \"real time\")"
+  },
+  {
+   "sfx": "X07",
+   "t": 25.6,
+   "event": "S17 light-streak whip"
+  },
+  {
+   "sfx": "X14",
+   "t": 28.1833,
+   "event": "S18 paper crumples into particles (on \"paperwork\")"
+  },
+  {
+   "sfx": "X07",
+   "t": 29.1167,
+   "event": "S19 slide-up (phone)"
+  },
+  {
+   "sfx": "X11",
+   "t": 31.45,
+   "event": "S20 message sent ✓✓ (on \"WhatsApp\")"
+  },
+  {
+   "sfx": "X07",
+   "t": 32.4,
+   "event": "S21 cut-the-curve vertical whip"
+  },
+  {
+   "sfx": "X08",
+   "t": 32.4,
+   "event": "S21 chip \"Attendance\" lands"
+  },
+  {
+   "sfx": "X08",
+   "t": 33.1,
+   "event": "S21 chip \"fee receipts\" lands"
+  },
+  {
+   "sfx": "X08",
+   "t": 33.8,
+   "event": "S21 chip \"results\" lands"
+  },
+  {
+   "sfx": "X09",
+   "t": 35.2,
+   "event": "S22 stat count-up tick 1"
+  },
+  {
+   "sfx": "X09",
+   "t": 35.4333,
+   "event": "S22 stat count-up tick 2"
+  },
+  {
+   "sfx": "X09",
+   "t": 35.6667,
+   "event": "S22 stat count-up tick 3"
+  },
+  {
+   "sfx": "X09",
+   "t": 35.9,
+   "event": "S22 stat count-up tick 4"
+  },
+  {
+   "sfx": "X09",
+   "t": 36.1333,
+   "event": "S22 stat count-up tick 5"
+  },
+  {
+   "sfx": "X09",
+   "t": 36.3667,
+   "event": "S22 stat count-up tick 6"
+  },
+  {
+   "sfx": "X09",
+   "t": 36.6,
+   "event": "S22 stat count-up tick 7"
+  },
+  {
+   "sfx": "X09",
+   "t": 36.8333,
+   "event": "S22 stat count-up tick 8"
+  },
+  {
+   "sfx": "X12",
+   "t": 38.4833,
+   "event": "S23 stamp hits"
+  },
+  {
+   "sfx": "X12",
+   "t": 39.6667,
+   "event": "S24 stamp hits"
+  },
+  {
+   "sfx": "X12",
+   "t": 41.3,
+   "event": "S25 stamp hits"
+  },
+  {
+   "sfx": "X13",
+   "t": 43.1833,
+   "event": "S26 logo crystallises on the return hit"
+  }
+ ],
+ "sfx_source": "PLACEHOLDER synth (sfx/placeholder/) until X01–X14 land"
+}

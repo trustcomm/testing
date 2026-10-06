@@ -3,24 +3,8 @@
 Put the files in these folders, push, and tell me. `python3 -I scripts/verify_inputs.py` re-checks everything and writes `inputs.json`.
 
 ## 1. Music → `music/`
-- **Generate:** ElevenLabs Music, only if your plan's terms cover commercial use. Otherwise license a track.
-- **Licence:** save the terms (screenshot or PDF) as `music/LICENSE.pdf` or `music/LICENSE.png`.
-- **Takes:** 2–3, as `music/take-1.mp3` … I measure the real tempo and downbeat and fit the VO to the grid in Stage C.
-- **Prompt** (BRIEF §3, re-timed to the real VO and the 52 s length):
-
-```
-Super energetic modern tech-launch instrumental, 128 BPM, 4/4, 52 seconds.
-Punchy kick, sharp claps, driving bass, bright synth stabs, riser builds,
-a touch of Indian percussion (dhol fills) for flavour. Structure:
-tense, choppy, glitchy intro 0–8 s (chaos); thins out 8–10 s under a
-riser; a huge drop at ~11 s; a relentless driving groove 11–35 s with a
-short lift at ~29 s; a steadier, pulled-back groove 35–38 s; a stomping
-three-hit pattern 38–42 s; a big hit at ~43 s; a triumphant final section
-43–50 s, ending in a shimmering tail to 52 s. No vocals. Must not
-resemble any existing song.
-```
-
-The times follow the VO: "Meet EduLedger" starts at 10.9 s, "And parents?" at 29.2 s, the three stamps at 38.4, 39.5 and 41.2 s, the logo line at 43.2 s, and the CTA at 46.7 s.
+- **Received:** `music/track.mp3` (2026-10-06). Measured, and edited to the film in Stage C.
+- **Still needed:** `music/LICENSE.txt` with the source and its terms (if ElevenLabs Music, a note or screenshot showing the plan allows commercial use). **MISSING.**
 
 ## 2. Sound effects → `sfx/`
 - **What:** the 14 prompts in BRIEF §3 (X01–X14), ElevenLabs sound effects, 2 variants each.
@@ -28,7 +12,7 @@ The times follow the VO: "Meet EduLedger" starts at 10.9 s, "And parents?" at 29
 - **Length:** X05 and X07 should be short (0.3–0.4 s). X13 needs its long shimmer tail (3–4 s).
 
 ## 3. Logo, colours, fonts → `brand/`
-- **Logo:** the image has **not arrived in two attempts** (both messages still said "[attach it]"). Please commit it to the repo as `brand/logo.png` (≥ 1000 px wide; transparent background if possible). The developer's SVG goes to `brand/logo.svg` when it arrives.
+- **Logo:** received (header screenshot, 1410×294) and cut out as a **PROVISIONAL** working logo (`brand/README.md`). Its mark is only 216 px tall, so the S08/S26 logo moments still need the developer's **SVG** (`brand/logo.svg`), or the mark as a PNG ≥ 1000 px tall on a transparent background.
 - **Colours:** the developer's exact hex values, in `brand/colours.md`. The brand light is the site's blue → violet gradient (working values #2D60E5 → #8C35E7); the logo keeps its own colours.
 - **Fonts:** the site's typeface name and files (`.woff2` / `.ttf`), in `brand/fonts/`.
 

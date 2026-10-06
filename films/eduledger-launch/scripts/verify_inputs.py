@@ -45,7 +45,7 @@ def img_size(path):
 
 def files(folder, exts):
     return sorted(p for p in glob.glob(f"{folder}/**/*", recursive=True)
-                  if os.path.isfile(p) and p.lower().endswith(exts) and "/provisional/" not in p and "/ref/" not in p)
+                  if os.path.isfile(p) and p.lower().endswith(exts) and "/provisional/" not in p and "/ref/" not in p and "/placeholder/" not in p and "/edit/" not in p)
 
 R = {"missing": [], "notes": []}
 
@@ -99,6 +99,11 @@ R["brand"] = {"logos": logos, "colours_file": [p for p in glob.glob("brand/*") i
               "fonts": files("brand", (".woff2", ".woff", ".ttf", ".otf"))}
 if not svg and not big:
     R["missing"].append("Logo (SVG, or PNG ≥ 1000 px wide)")
+marks = [p for p in logos if "mark" in os.path.basename(p).lower() and not p.endswith(".svg")]
+tall = [p for p in marks if (img_size(p) or (0, 0))[1] >= 1000]
+if not svg and not tall:
+    h = max(((img_size(p) or (0, 0))[1] for p in marks), default=0)
+    R["missing"].append(f"Logo SVG, or the mark as PNG ≥ 1000 px tall (working logo is PROVISIONAL; mark is {h} px tall)")
 if not R["brand"]["colours_file"]:
     R["missing"].append("Exact brand colours (hex) from the developer")
 if not R["brand"]["fonts"]:
