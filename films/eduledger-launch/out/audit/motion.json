@@ -8,7 +8,7 @@
   {
    "item": "No dead air > 1 s outside deliberate holds",
    "ok": true,
-   "detail": "755 reveals, no gap > 1 s; inside holds (S07, S18, S22, S27): [[8.02,10.83,\"S07\"],[48.08,51.95,\"S27\"]]"
+   "detail": "754 reveals, no gap > 1 s; inside holds (S07, S18, S22, S27): [[8.02,10.83,\"S07\"],[48.08,51.95,\"S27\"]]"
   },
   {
    "item": "Every transition uses motion",
@@ -18,7 +18,7 @@
   {
    "item": "Every text block: chrome gradient + halo",
    "ok": true,
-   "detail": "53/53 kinetic/support blocks; 106 UI-frame texts exempt"
+   "detail": "53/53 kinetic/support blocks; 87 UI-frame texts exempt"
   },
   {
    "item": "Grid + crosshairs, vignette + grain on every scene",
@@ -38,12 +38,12 @@
   {
    "item": "Seek-order determinism (any frame order renders the same)",
    "ok": true,
-   "detail": "649 animated elements × 56 times (shot midpoints + cut frames), forward pass vs backward pass and vs jump-from-0: 0 mismatches"
+   "detail": "648 animated elements × 56 times (shot midpoints + cut frames), forward pass vs backward pass and vs jump-from-0: 0 mismatches"
   },
   {
    "item": "Tween ends snap to 1/60 s",
    "ok": true,
-   "detail": "728/728 on frame boundaries"
+   "detail": "727/727 on frame boundaries"
   },
   {
    "item": "§5 no Math.random / Date.now / registry blocks",
@@ -57,11 +57,11 @@
    "rootDuration": 52.55
   },
   "frames": {
-   "tweens": 728,
+   "tweens": 727,
    "offFrame": 0
   },
   "cadence": {
-   "discreteStarts": 755,
+   "discreteStarts": 754,
    "gapsOver1s": [],
    "inDeliberateHolds": [
     [
@@ -77,12 +77,12 @@
    ]
   },
   "text": {
-   "total": 159,
-   "ui": 106,
+   "total": 140,
+   "ui": 87,
    "flat": []
   },
   "seek": {
-   "elements": 649,
+   "elements": 648,
    "times": 56,
    "mismatches": [],
    "count": 0

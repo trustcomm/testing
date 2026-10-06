@@ -47,8 +47,12 @@ The logo is always shown in its own colours (`assets/brand/`, PROVISIONAL).
   - exits: `power2.in`;
   - settles: `back.out(1.4)`.
 
-## Placeholders (until the inputs land)
-Hero renders H1–H5 and app screenshots are **not faked**. Each appears as a dashed outline labelled `PLACEHOLDER · H1 3D ledger book render` (etc.) at the size and position the real asset will take.
+## Placeholders and mocks (until the inputs land)
+- **Hero renders H1–H5 are not faked.** Each appears as a dashed outline labelled `PLACEHOLDER · H1 3D ledger book render` (etc.) at the size and position the real asset will take.
+- **App screens:** internal drafts show TEMPORARY MOCK screens in the site's look, user-approved on 2026-10-06.
+  - Site demo data only; anything else is a skeleton bar.
+  - Watermarked "MOCK — internal draft" (bottom-left); the "Demo" tag sits bottom-right.
+- **Final builds** (`EL_MODE=final`) never use mocks, and `scripts/final_gate.py` fails the final render while any MOCK or PLACEHOLDER remains.
 
 ## What NOT to do
 - No WhatsApp logo or WhatsApp app UI. "WhatsApp" appears as plain text only.

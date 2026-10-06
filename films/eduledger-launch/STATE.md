@@ -3,19 +3,39 @@
 This file is updated after every stage. The brief is `BRIEF.md` (Director's Package v1, saved verbatim). The approved adaptations to it are in `STYLE.md` §3 and in Decisions below.
 
 ## Current stage
-**Stage E (BUILD) done; stopped at its gate ⏸.**
+**Stage E (BUILD) done; re-rendered with temporary mock app screens; stopped at its gate ⏸.**
 
-- **Full draft:** `out/draft/eduledger-launch-draft.mp4`.
+- **Full draft (INTERNAL):** `out/draft/eduledger-launch-draft.mp4`.
   - 1920×1080, 60 fps, 52.55 s (3,153 frames), HyperFrames `--quality standard`.
   - Picture from `web/`; sound is the mastered mix `out/mix/master.wav`, as AAC 320k.
+  - **Contains TEMPORARY MOCK app screens**, each watermarked "MOCK — internal draft". Internal use only; see Mocks below.
   - Verification is in **VERIFY.md**, with contact sheets and per-cut strips in `out/verify/`.
+- **Mocks (user-approved for internal drafts, 2026-10-06):**
+  - `scripts/build_mocks.mjs` draws the six app screens in the site's own look: dashboard, student records, staff & payroll, fees & invoices, fee receipt and cashbook.
+  - They use only the site's demo data: Greenfield Public School, "AK", 2,486 / 2,357 / ₹8.4L / 94.8%, Monthly revenue +18.4%, 86% Fees collected, "12 new admissions · Ready for review", and Rahul Sharma "Present".
+  - Every other cell is a grey skeleton bar, never an invented name or number. Labels come from fact ledger E3/E4/E8.
+  - The watermark "MOCK — internal draft" is burned into each mock screen, bottom-left.
+  - The code-drawn S20 parent card and the S22 count-up callout are mocks too, and carry the same watermark.
+  - The "Demo" tag sits bottom-right on every app frame.
+  - **Real files win automatically:** a `ui/<key>.*` replaces its mock in every slot.
+    - A real `ui/dashboard.*` also removes the S22 callout; S22 then shows the real screen with a light sweep instead of code-drawn count-ups.
+    - A real `ui/parent-chat.*` replaces the S20 card.
+- **Final gate (hard):**
+  - `scripts/render_final.sh` builds with `EL_MODE=final`, which never uses mocks.
+  - `scripts/final_gate.py` then blocks the render while anything is a MOCK or PLACEHOLDER: inputs in the manifest, SFX in the mix report, or any marker left in the page.
+  - It checks again after the render and deletes the output if the build changed.
+  - **Tested both ways** in a scratch copy:
+    - with every input replaced by a stand-in file, the gate PASSES (warning only for the provisional logo);
+    - with one mock left, it FAILS.
+  - On today's build it FAILS with 34 blockers: 8 mocks, 5 heroes, 14 SFX, the draft mode itself, and page markers.
+  - The provisional logo is a warning, not a blocker.
 - **Every placeholder swaps automatically.**
   - Screenshots `ui/<key>.*`, heroes `heroes/H1–H5.*`, the logo SVGs and SFX `sfx/Xnn(_v1).*` resolve to the real file when it exists, and to a labelled placeholder when it doesn't.
   - `scripts/build_all.sh --render` rebuilds, remixes, re-runs every gate, re-renders, re-verifies and rewrites VERIFY.md.
   - Tested in a scratch copy with stand-in files: a dashboard screenshot, a chat card, an H3 render, and SFX X06/X12. Each one replaced its placeholder in every slot. SFX sync points were found automatically: the X06 impact at 1.508 s (true 1.5 s) and the X12 onset at 0.096 s (true 0.1 s).
 - **Vignette false positive fixed.**
   - The vignette's darkest stop is now 0.6, so the layout audit reads it as a scrim, not something covering the text.
-  - The **contrast audit now samples text: 90/90 passed** at 30 sample times. Before the fix it sampled 0/0.
+  - The **contrast audit now samples text: 86/86 passed** at 30 sample times on the mock build (90/90 before the mocks). Before the fix it sampled 0/0.
   - It found one real failure, now fixed: a grey stat label on the S22 demo card at 4.41:1, darkened to pass 4.5:1.
 - **Mix** (`scripts/mix.py`, `out/mix/report.json`):
   - VO 1.0, normalised to −16 LUFS.
@@ -85,6 +105,11 @@ This file is updated after every stage. The brief is `BRIEF.md` (Director's Pack
   - Start Stage D with placeholders. Done.
 - **Brand light (user, 2026-10-06):** the site's blue → violet gradient, measured at **#2D60E5 → #8C35E7** (working values until the developer confirms). The logo is always shown in its own colours.
 - **S25 (user, 2026-10-06):** **the India map is dropped.** The 3D school building (H5) alone carries "Built for Indian schools". This overrides BRIEF §5 S25 ("with India-map glow points"), and the map sign-off is removed from FACTS.md.
+- **Mock app screens (user, 2026-10-06):** approved for INTERNAL drafts only.
+  - Styled from the site, using only its demo data and the "Demo" tag.
+  - Every mock is watermarked "MOCK — internal draft".
+  - The final render must FAIL if any MOCK or PLACEHOLDER remains, and real files in `ui/` replace mocks automatically. Done as above.
+  - The user is capturing `ui/dashboard.png` and `ui/parent-chat.png` from the public homepage; the other screens come from the developer's demo account.
 - **L14 (user, 2026-10-06):** the user is listening. If "EduLedger" is mispronounced, the user regenerates L14 and replaces `vo/L14.wav`. Then:
   1. Add `{"L14": "<who, date, voice and settings>"}` to `vo/replaced.json`, so `split_vo.py` never overwrites the new take (guard tested).
   2. Run Scribe on L14 only (priced first; within the 500-credit cap).
@@ -246,4 +271,11 @@ The network policy denies huggingface.co, openaipublic.azureedge.net and eduledg
   - Full 60 fps draft rendered (about 15 min, 3 workers) and verified.
   - Verification found the late streak, the seek-order bug and the AAC peak. All fixed, then re-rendered and re-verified (`scripts/verify_render.py`, VERIFY.md).
   - Worker restarts mid-stage: work committed early, nothing lost.
+  - Stopped at the gate. No credits used.
+- **2026-10-06, Stage E mocks:**
+  - Mock app screens built and watermarked.
+  - Resolver order: real, then mock (drafts only), then placeholder.
+  - Final mode and hard final gate added, tested both ways.
+  - "Demo" tag moved bottom-right, clear of the app's avatar.
+  - All gates re-run; full draft re-rendered and re-verified.
   - Stopped at the gate. No credits used.

@@ -2,6 +2,8 @@
 
 Put the files in these folders, push, and tell me. `python3 -I scripts/verify_inputs.py` re-checks everything and writes `inputs.json`.
 
+**Internal drafts show watermarked MOCK app screens** until the real `ui/` files land. The final render (`scripts/render_final.sh`) refuses to run while any MOCK or PLACEHOLDER remains.
+
 **From Stage E on, every input swaps in automatically.** `scripts/build_all.sh` rebuilds the film with whatever has landed: each screenshot, hero render, logo SVG and SFX replaces its placeholder, the mix is remastered, and all the checks re-run (`--render` also renders and verifies the draft). Nothing in the code needs editing. For the SFX: `sfx/X01.wav` (your pick) wins over `X01_v1`/`X01_v2`; without a pick, v1 is used. Each sound's sync point is found automatically and can be overridden in `sfx/anchors.json`, e.g. `{"X11": 0.42}`.
 
 ## 1. Music → `music/`
