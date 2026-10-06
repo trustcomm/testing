@@ -119,7 +119,7 @@ body { font-family: "Inter", sans-serif; color: var(--white); }
 
 /* S13 */
 #s13-title { position: absolute; left: 0; right: 0; top: 112px; font-size: 92px; display: flex; gap: 18px; align-items: baseline; justify-content: center; }
-#s13-title .arrow { color: var(--dim); font-weight: 700; display: inline-block; }
+#s13-title .arrow { font-weight: 700; display: inline-block; }
 #s13-plane { position: absolute; left: 0; right: 0; top: 290px; height: 700px; perspective: 1400px; perspective-origin: 50% 0%; }
 #s13-grid { position: absolute; left: 50%; top: 0; width: 1400px; margin-left: -700px; display: grid; grid-template-columns: repeat(8, 1fr); gap: 20px;
   transform: rotateX(20deg); transform-origin: 50% 0%; }
@@ -139,11 +139,12 @@ body { font-family: "Inter", sans-serif; color: var(--white); }
 #s20-phone { left: 0; top: 0; width: 100%; height: 100%; border-radius: 64px; align-items: flex-end; }
 #s20-phone > span { margin-bottom: 30px; font-size: 15px; }
 #s20-card { position: absolute; left: 505px; top: 300px; width: 400px; border-radius: 28px; background: #ffffff; color: #0f1732; padding: 26px 26px 22px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), 0 0 50px rgba(110, 90, 255, 0.25); }
+#s20-card.chatreal { padding: 0; background: transparent; }
 #s20-card .hd { display: flex; align-items: center; gap: 14px; }
 #s20-card .cardmark { width: 44px; height: 56px; background: url("assets/brand/logo-mark.png") center / contain no-repeat; }
 #s20-card .who { font: 600 24px/1.1 "Inter", sans-serif; }
-#s20-card .sub { font: 400 17px/1.2 "Inter", sans-serif; color: #5b6478; margin-top: 4px; }
-#s20-card .demo { margin-left: auto; align-self: flex-start; font: 600 14px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #5b6478; border: 1px solid #c7cddc; border-radius: 999px; padding: 6px 10px; }
+#s20-card .sub { font: 400 17px/1.2 "Inter", sans-serif; color: #4f586c; margin-top: 4px; }
+#s20-card .demo { margin-left: auto; align-self: flex-start; font: 600 14px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #4f586c; border: 1px solid #c7cddc; border-radius: 999px; padding: 6px 10px; }
 #s20-card .msg { margin-top: 20px; background: #eef1fb; border-radius: 20px 20px 20px 6px; padding: 18px 20px; font: 500 26px/1.35 "Inter", sans-serif; min-height: 140px; }
 #s20-card .meta { display: flex; justify-content: flex-end; margin-top: 10px; }
 #s20-ticks { font: 700 24px/1 "Inter", sans-serif; color: var(--blue); letter-spacing: -0.12em; opacity: 0; }
@@ -227,7 +228,7 @@ body { font-family: "Inter", sans-serif; color: var(--white); }
 #s09-ui { width: 1240px; }
 
 /* S10–S12: word + card */
-.sideword { position: absolute; left: 140px; top: 440px; font-size: 170px; }
+.sideword { position: absolute; left: 120px; top: 452px; font-size: 156px; }
 .sidecard { position: absolute; left: 860px; top: 250px; width: 920px; }
 
 /* S13b */
@@ -297,12 +298,12 @@ body { font-family: "Inter", sans-serif; color: var(--white); }
 #s22-card .cardhd { display: flex; justify-content: space-between; align-items: flex-start; }
 #s22-card .ov { font: 700 18px/1 "Inter", sans-serif; letter-spacing: 0.08em; color: #3a5bd9; }
 #s22-card .school { font: 700 30px/1.2 "Inter", sans-serif; margin-top: 8px; }
-#s22-card .demo, #s20-card .demo { font: 600 14px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #5b6478;
+#s22-card .demo, #s20-card .demo { font: 600 14px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: #4f586c;
   border: 1px solid #c7cddc; border-radius: 999px; padding: 6px 10px; }
 #s22-card .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 20px; }
 #s22-card .stat { background: #f3f5fb; border-radius: 16px; padding: 18px 18px 16px; }
 #s22-card .stat b { display: block; font: 700 40px/1.1 "Inter", sans-serif; font-variant-numeric: tabular-nums; }
-#s22-card .stat span { display: block; margin-top: 6px; font: 500 20px/1 "Inter", sans-serif; color: #5b6478; }
+#s22-card .stat span { display: block; margin-top: 6px; font: 500 20px/1 "Inter", sans-serif; color: #4f586c; }
 
 /* S23–S25 stamps */
 .stamp { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
@@ -330,3 +331,15 @@ body { font-family: "Inter", sans-serif; color: var(--white); }
 #s27-btn { font: 600 44px/1 "Inter", sans-serif; color: #fff; padding: 26px 50px; border-radius: 20px;
   background: linear-gradient(90deg, #375cea, #7140ed); box-shadow: 0 0 40px rgba(110, 90, 255, 0.5); }
 #s27-btn .arr { margin-left: 10px; }
+
+/* Stage E: chrome variants, light sweeps */
+.chrome.dim { background-image: linear-gradient(180deg, #eef1fd 0%, #aeb8d6 100%); }
+.chrome.brandlight { background-image: linear-gradient(90deg, #7d97ff 0%, #b98bff 100%); }
+.halo-soft { filter: drop-shadow(0 0 10px rgba(108, 92, 255, 0.5)) drop-shadow(0 0 30px rgba(108, 92, 255, 0.22)); }
+/* stamp glint: a brand-light band travels through the chrome letters (background-position, tweened) */
+.glinty .chrome { background-image: linear-gradient(105deg, rgba(169, 156, 255, 0) 40%, rgba(169, 156, 255, 1) 50%, rgba(169, 156, 255, 0) 60%),
+  linear-gradient(180deg, #ffffff 0%, #d7ddf6 58%, #f4f6ff 100%);
+  background-size: 300% 100%, 100% 100%; background-repeat: no-repeat; background-position: 130% 0px, 0px 0px; }
+/* UI sweep: a soft band of brand light crosses the frame once (x tweened by GSAP; no CSS transform here) */
+.uiframe .sheen { position: absolute; top: -10%; bottom: -10%; left: -40%; width: 34%; opacity: 0; z-index: 2;
+  background: linear-gradient(100deg, rgba(160, 140, 255, 0) 0%, rgba(160, 140, 255, 0.26) 50%, rgba(160, 140, 255, 0) 100%); }

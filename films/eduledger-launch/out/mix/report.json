@@ -1,0 +1,116 @@
+{
+ "master": "out/mix/master.wav",
+ "integrated_lufs": -14.0,
+ "true_peak_dbtp": -1.6,
+ "pass": true,
+ "mastering": "linear gain -1.30 dB + 4x-oversampled limiter at -1.6 dBFS",
+ "vo_gain_db": 9.2,
+ "music_trim_db": -6,
+ "music_duck_under_vo_db": -7.8,
+ "vo_over_music_db": 13.0,
+ "pre_master": {
+  "lufs": -12.7,
+  "true_peak": 0.3
+ },
+ "sfx": {
+  "X01": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X01.wav",
+   "anchor_s": 0.0,
+   "anchor_by": "placeholder table",
+   "gain": 0.4
+  },
+  "X02": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X02.wav",
+   "anchor_s": 0.0,
+   "anchor_by": "placeholder table",
+   "gain": 0.3
+  },
+  "X03": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X03.wav",
+   "anchor_s": 0.0,
+   "anchor_by": "placeholder table",
+   "gain": 0.3
+  },
+  "X04": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X04.wav",
+   "anchor_s": 0.0,
+   "anchor_by": "placeholder table",
+   "gain": 0.25
+  },
+  "X05": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X05.wav",
+   "anchor_s": 0.0,
+   "anchor_by": "placeholder table",
+   "gain": 0.3
+  },
+  "X06": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X06.wav",
+   "anchor_s": 1.8,
+   "anchor_by": "placeholder table",
+   "gain": 0.4
+  },
+  "X07": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X07.wav",
+   "anchor_s": 0.21,
+   "anchor_by": "placeholder table",
+   "gain": 0.25
+  },
+  "X08": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X08.wav",
+   "anchor_s": 0.0,
+   "anchor_by": "placeholder table",
+   "gain": 0.3
+  },
+  "X09": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X09.wav",
+   "anchor_s": 0.0,
+   "anchor_by": "placeholder table",
+   "gain": 0.2
+  },
+  "X10": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X10.wav",
+   "anchor_s": 0.0,
+   "anchor_by": "placeholder table",
+   "gain": 0.35
+  },
+  "X11": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X11.wav",
+   "anchor_s": 0.28,
+   "anchor_by": "placeholder table",
+   "gain": 0.3
+  },
+  "X12": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X12.wav",
+   "anchor_s": 0.0,
+   "anchor_by": "placeholder table",
+   "gain": 0.4
+  },
+  "X13": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X13.wav",
+   "anchor_s": 0.0,
+   "anchor_by": "placeholder table",
+   "gain": 0.4
+  },
+  "X14": {
+   "status": "PLACEHOLDER",
+   "file": "sfx/placeholder/PH-X14.wav",
+   "anchor_s": 0.0,
+   "anchor_by": "placeholder table",
+   "gain": 0.3
+  }
+ },
+ "sfx_events": 45
+}

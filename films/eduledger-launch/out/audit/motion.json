@@ -1,0 +1,117 @@
+{
+ "items": [
+  {
+   "item": "Avg scene length ≤ 2 s in the mid-section",
+   "ok": true,
+   "detail": "1.71 s (drop → break), film avg 1.88 s"
+  },
+  {
+   "item": "No dead air > 1 s outside deliberate holds",
+   "ok": true,
+   "detail": "746 reveals, no gap > 1 s; inside holds (S07, S18, S22, S27): [[8.02,10.83,\"S07\"],[48.08,51.95,\"S27\"]]"
+  },
+  {
+   "item": "Every transition uses motion",
+   "ok": true,
+   "detail": "27/27 cuts: glitch, collapse, flare, streak, push, vwhip, pushout, morph, slideup, pullout, stomp, linereturn"
+  },
+  {
+   "item": "Every text block: chrome gradient + halo",
+   "ok": true,
+   "detail": "53/53 kinetic/support blocks; 106 UI-frame texts exempt"
+  },
+  {
+   "item": "Grid + crosshairs, vignette + grain on every scene",
+   "ok": true,
+   "detail": "{\"grid-floor\":2,\"crosshairs\":28,\"grain\":1,\"vignette\":1,\"corners\":1} (global layers, above/below every shot)"
+  },
+  {
+   "item": "Outro holds 4+ s",
+   "ok": true,
+   "detail": "CTA 5.617 s; logo S08 1.633 s"
+  },
+  {
+   "item": "Timeline fills its slot (Law 11)",
+   "ok": true,
+   "detail": "main 53.15 s vs root data-duration 52.55 s"
+  },
+  {
+   "item": "Tween ends snap to 1/60 s",
+   "ok": true,
+   "detail": "719/719 on frame boundaries"
+  },
+  {
+   "item": "§5 no Math.random / Date.now / registry blocks",
+   "ok": true,
+   "detail": "{\"mathRandom\":false,\"dateNow\":false,\"registryBlocks\":false}"
+  }
+ ],
+ "raw": {
+  "timeline": {
+   "duration": 53.15,
+   "rootDuration": 52.55
+  },
+  "frames": {
+   "tweens": 719,
+   "offFrame": 0
+  },
+  "cadence": {
+   "discreteStarts": 746,
+   "gapsOver1s": [],
+   "inDeliberateHolds": [
+    [
+     8.02,
+     10.83,
+     "S07"
+    ],
+    [
+     48.08,
+     51.95,
+     "S27"
+    ]
+   ]
+  },
+  "text": {
+   "total": 159,
+   "ui": 106,
+   "flat": []
+  },
+  "layers": {
+   "grid-floor": 2,
+   "crosshairs": 28,
+   "grain": 1,
+   "vignette": 1,
+   "corners": 1
+  },
+  "transitions": {
+   "cuts": 27,
+   "withMotion": 27,
+   "kinds": [
+    "glitch",
+    "collapse",
+    "flare",
+    "streak",
+    "push",
+    "vwhip",
+    "pushout",
+    "morph",
+    "slideup",
+    "pullout",
+    "stomp",
+    "linereturn"
+   ]
+  },
+  "antipatterns": {
+   "mathRandom": false,
+   "dateNow": false,
+   "registryBlocks": false
+  },
+  "pacing": {
+   "shots": 28,
+   "avg": 1.88,
+   "midAvg": 1.71,
+   "outroHold": 5.617,
+   "logoHold": 1.633
+  }
+ }
+}

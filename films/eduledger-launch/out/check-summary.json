@@ -1,0 +1,89 @@
+{
+ "ok": true,
+ "contrast": {
+  "checked": 90,
+  "passed": 90
+ },
+ "contrast_times": [
+  0.26,
+  0.52,
+  1.08,
+  1.42,
+  2.11,
+  2.52,
+  9,
+  9.99,
+  11.4,
+  11.98,
+  13.53,
+  14.6,
+  18.54,
+  19.44,
+  20.63,
+  21.03,
+  21.87,
+  22.36,
+  28.04,
+  28.62,
+  29.44,
+  29.77,
+  30.87,
+  31.7,
+  41.96,
+  42.62,
+  44.5,
+  45.81,
+  48.9,
+  50.87
+ ],
+ "findings": [
+  [
+   0.52,
+   "text_box_overflow",
+   "info",
+   "span.chrome"
+  ],
+  [
+   16.47,
+   "container_overflow",
+   "info",
+   "div.inner"
+  ],
+  [
+   29.44,
+   "container_overflow",
+   "info",
+   "div.inner"
+  ],
+  [
+   13.53,
+   "container_overflow",
+   "info",
+   "i.sheen"
+  ],
+  [
+   13.53,
+   "escaped_container",
+   "info",
+   "i.sheen"
+  ],
+  [
+   17.18,
+   "container_overflow",
+   "info",
+   "div.inner"
+  ],
+  [
+   14.6,
+   "container_overflow",
+   "info",
+   "i.sheen"
+  ],
+  [
+   14.6,
+   "escaped_container",
+   "info",
+   "i.sheen"
+  ]
+ ]
+}

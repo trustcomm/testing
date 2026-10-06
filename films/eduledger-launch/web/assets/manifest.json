@@ -7,6 +7,13 @@
   "status": "PROVISIONAL",
   "file": "web/assets/brand/logo-wordmark-dark.png"
  },
+ "ui/parent-chat": {
+  "status": "PLACEHOLDER",
+  "slots": [
+   "s20-card"
+  ],
+  "note": "code-drawn stand-in card, approved at Stage D"
+ },
  "heroes/H1": {
   "status": "PLACEHOLDER",
   "slots": [
@@ -80,7 +87,7 @@
   ]
  },
  "audio/mix": {
-  "status": "PREVIEW",
-  "file": "out/timeline/preview-mix.wav"
+  "status": "MASTER",
+  "file": "out/mix/master.wav"
  }
 }

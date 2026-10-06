@@ -1,0 +1,279 @@
+{
+  "ok": true,
+  "strict": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "pointer_events_none",
+        "severity": "info",
+        "message": "`.full` sets `pointer-events: none`. Elements matching this selector are harder to select in the Studio preview.",
+        "selector": ".full",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/testing/films/eduledger-launch/web/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "If these elements should be selectable in the Studio, remove `pointer-events: none` or move it to a wrapper that doesn't contain editable content."
+      },
+      {
+        "code": "pointer_events_none",
+        "severity": "info",
+        "message": "`.hero .rim` sets `pointer-events: none`. Elements matching this selector are harder to select in the Studio preview.",
+        "selector": ".hero .rim",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/testing/films/eduledger-launch/web/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "If these elements should be selectable in the Studio, remove `pointer-events: none` or move it to a wrapper that doesn't contain editable content."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 7 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/testing/films/eduledger-launch/web/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 2 has 16 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/testing/films/eduledger-launch/web/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 3 has 5 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/testing/films/eduledger-launch/web/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 3,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 13.53,
+        "selector": "i.sheen",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": -464.13,
+          "top": 253.68,
+          "right": 355.81,
+          "bottom": 1169.37,
+          "width": 819.94,
+          "height": 915.7
+        },
+        "containerSelector": "#s09-ui",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 235.56,
+          "top": 317.01,
+          "right": 1684.44,
+          "bottom": 1082.86,
+          "width": 1448.89,
+          "height": 765.85
+        },
+        "overflow": {
+          "left": 699.69,
+          "top": 63.33,
+          "bottom": 86.51
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -464.13,
+          "y": 253.68,
+          "width": 819.94,
+          "height": 915.7
+        },
+        "firstSeen": 13.53,
+        "lastSeen": 13.53,
+        "occurrences": 1
+      },
+      {
+        "code": "escaped_container",
+        "severity": "info",
+        "time": 13.53,
+        "selector": "i.sheen",
+        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
+        "rect": {
+          "left": -464.13,
+          "top": 253.68,
+          "right": 355.81,
+          "bottom": 1169.37,
+          "width": 819.94,
+          "height": 915.7
+        },
+        "containerSelector": "#s09-ui",
+        "text": "",
+        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 235.56,
+          "top": 317.01,
+          "right": 1684.44,
+          "bottom": 1082.86,
+          "width": 1448.89,
+          "height": 765.85
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": -464.13,
+          "y": 253.68,
+          "width": 819.94,
+          "height": 915.7
+        },
+        "firstSeen": 13.53,
+        "lastSeen": 13.53,
+        "occurrences": 1
+      },
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 17.18,
+        "selector": "div.inner",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 0,
+          "top": 7.21,
+          "right": 1920,
+          "bottom": 1087.21,
+          "width": 1920,
+          "height": 1080
+        },
+        "containerSelector": "#S12",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 0,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "width": 1920,
+          "height": 1080
+        },
+        "overflow": {
+          "bottom": 7.21
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 0,
+          "y": 7.21,
+          "width": 1920,
+          "height": 1080
+        },
+        "firstSeen": 17.18,
+        "lastSeen": 17.18,
+        "occurrences": 1
+      }
+    ],
+    "duration": 52.55,
+    "samples": [
+      2.11,
+      6.65,
+      13.53,
+      17.18,
+      21.87,
+      26.25,
+      30.87,
+      38.9,
+      44.5
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      2.11,
+      13.53,
+      21.87,
+      30.87,
+      44.5
+    ],
+    "checked": 29,
+    "passed": 29
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.7.109",
+    "latestVersion": "0.8.137",
+    "updateAvailable": true
+  }
+}

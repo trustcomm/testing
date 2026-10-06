@@ -23,11 +23,12 @@
       { backgroundPosition: `${137 * frames}px ${61 * frames}px`, duration: END, ease: `steps(${frames})` }, 0);
     document.querySelectorAll(".cross").forEach((el, i) => {
       const per = 1.4 + (i % 5) * 0.37;
+      const t0 = (i * 0.173) % per;
       tl.fromTo(el, { opacity: 0.12 }, { opacity: 0.62, duration: per / 2, ease: "sine.inOut", yoyo: true,
-        repeat: Math.ceil(END / per) * 2 - 1 }, (i * 0.173) % per);
+        repeat: Math.floor((END - t0) / (per / 2)) - 1 }, t0);
     });
     tl.fromTo("#vignette", { opacity: 0.86 }, { opacity: 1, duration: 2.1, ease: "sine.inOut", yoyo: true,
-      repeat: Math.ceil(END / 2.1) - 1 }, 0);
+      repeat: Math.floor(END / 2.1) - 1 }, 0);
   }
 
   // act lighting: red chaos (Act 1) → brand light from the drop on
@@ -247,6 +248,9 @@
     tl.fromTo("#s09-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, word("L05", 3) - LEAD);
     tl.fromTo("#s09-line", { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "expo.out" }, word("L05", 2));
     tl.fromTo("#s09-persp .tilt", { y: 560 }, { y: 0, duration: 0.9, ease: "expo.out" }, s.start + 0.1);   // slides up on the grid
+    sweep(tl, "#s09-ui", word("L05", 5) - LEAD);
+    tl.fromTo("#s09-line .bloom", { scaleY: 1 }, { scaleY: 2.4, duration: 0.12, ease: "power2.out" }, word("L05", 6) - LEAD);   // the line kicks on "school."
+    tl.to("#s09-line .bloom", { scaleY: 1, duration: 0.5, ease: "power2.out" }, word("L05", 6) - LEAD + 0.12);
     drift(tl, "S09", 1, 1.04);
   }
   function side(tl, id) {                // S10–S12: the word + the card pops forward
@@ -268,6 +272,7 @@
     const r0 = s.start + P;              // the ripple starts on the X09 ticks and sweeps diagonally
     tl.fromTo("#s13-grid .tint", { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out", stagger: { grid: [4, 8], from: 0, amount: 1.25 } }, r0);
     tl.fromTo("#s13-grid .ok", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.24, ease: "back.out(2.6)", stagger: { grid: [4, 8], from: 0, amount: 1.25 } }, r0);
+    tl.to("#s13-plane", { scale: 0.93, y: -24, duration: s.end - (word("L07", 4) - LEAD), ease: "power2.in" }, word("L07", 4) - LEAD);
     drift(tl, "S13", 1, 1.06);
   }
   function S13b(tl) {
@@ -333,12 +338,14 @@
   function S20(tl) {
     const s = S.S20;
     tl.fromTo("#s20-card", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, s.start + 0.1);
-    tl.fromTo("#s20-cardnote", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, s.start + 0.3);
-    const chars = document.querySelectorAll("#s20-card .ch");
-    const t0 = word("L10", 2), tw = word("L10", 5) - 0.12;
-    tl.fromTo(chars, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none", stagger: (tw - t0) / chars.length }, t0);
     const tick = sfx("X11", "S20")[0];
-    tl.fromTo("#s20-ticks", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, tick);
+    const chars = document.querySelectorAll("#s20-card .ch");
+    if (chars.length) {   // code-drawn stand-in: the message types on the VO, ticks land on X11
+      tl.fromTo("#s20-cardnote", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, s.start + 0.3);
+      const t0 = word("L10", 2), tw = word("L10", 5) - 0.12;
+      tl.fromTo(chars, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none", stagger: (tw - t0) / chars.length }, t0);
+      tl.fromTo("#s20-ticks", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, tick);
+    }
     tl.fromTo("#s20-chip", { opacity: 0, scale: 0.6, y: 10 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: "back.out(2.4)" }, tick + P / 2);
     wordsIn(tl, ["#s20-w1", "#s20-w2", "#s20-w3", "#s20-w4"], [word("L10", 2), word("L10", 3), word("L10", 4), word("L10", 5)]);
     drift(tl, "S20", 1, 1.03);
@@ -370,23 +377,34 @@
   }
 
   // ------------------------------------------------------------------ Act 3: foundation, logo, CTA
+  function sweep(tl, frame, t) {         // a band of brand light crosses a UI frame once
+    tl.fromTo(`${frame} .sheen`, { opacity: 1, xPercent: 0, skewX: -12 }, { xPercent: 520, duration: 0.7, ease: "power2.inOut" }, t);
+  }
+  function glint(tl, sel, t) {           // a brand-light band runs through a stamp's chrome letters
+    tl.fromTo(`${sel} .chrome`, { backgroundPosition: "130% 0px, 0px 0px" },
+      { backgroundPosition: "-30% 0px, 0px 0px", duration: 0.5, ease: "power2.inOut" }, t);
+  }
   function stamp(tl, id, sel) {
     const t = S[id].start;
     tl.fromTo(sel, { scale: 2.4, rotation: -6 }, { scale: 1, rotation: -2, duration: 0.14, ease: "power4.in" }, t);
     tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.06, ease: "none" }, t);
     drift(tl, id, 1, 1.04);
   }
-  function S23(tl) { stamp(tl, "S23", "#s23-word"); }
+  function S23(tl) { stamp(tl, "S23", "#s23-word"); glint(tl, "#s23-word", word("L12", 2) - LEAD); }
   function S24(tl) {
     stamp(tl, "S24", "#s24-word");
     tl.fromTo("#s24-shield", { scale: 0.5 }, { scale: 1, duration: 0.4, ease: "back.out(1.8)" }, S.S24.start + 0.06);
     tl.fromTo("#s24-shield", { opacity: 0 }, { opacity: 1, duration: 0.15, ease: "power2.out" }, S.S24.start + 0.06);
+    glint(tl, "#s24-word", word("L12", 5) - LEAD);
   }
   function S25(tl) {
     const s = S.S25;
     tl.fromTo("#s25-hero", { scale: 1.1 }, { scale: 1, duration: 1.4, ease: "power2.out" }, s.start);
     tl.fromTo("#s25-hero", { opacity: 0, filter: "blur(12px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.35, ease: "power2.out" }, s.start);
     stamp(tl, "S25", "#s25-word");
+    glint(tl, "#s25-word", word("L12", 8) - LEAD);
+    tl.fromTo("#s25-hero .rim", { scale: 1 }, { scale: 1.14, duration: 0.12, ease: "power2.out" }, word("L12", 9) - LEAD);   // brand light swells on "schools"
+    tl.to("#s25-hero .rim", { scale: 1, duration: 0.6, ease: "power2.out" }, word("L12", 9) - LEAD + 0.12);
   }
   function S26(tl) {
     const s = S.S26;
@@ -409,6 +427,17 @@
     tl.to("#fadeout", { opacity: 1, duration: 0.6, ease: "power1.in" }, END - 0.6);   // the final scene fades out with the music
   }
 
+  // MOTION_PHILOSOPHY §4: every tween starts and ends on a 1/60 s frame boundary, so steep-tail eases
+  // (power4.in slams, expo exits) land on a rendered frame instead of between two.
+  function snapFrames(tl) {
+    const f = 1 / 60, q = (t) => Math.round(t / f) * f;
+    tl.getChildren(false, true, false).forEach((tw) => {
+      const st = tw.startTime(), d = tw.duration();
+      if (d > 0) tw.duration(Math.max(f, q(st + d) - q(st)));
+      tw.startTime(q(st));
+    });
+  }
+
   const SHOTS = { S01, S02, S03, S04, S05, S06, S07, S08, S09, S10: (t) => side(t, "S10"), S11: (t) => side(t, "S11"),
     S12: (t) => side(t, "S12"), S13, S13b, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27 };
   window.FILM = {
@@ -418,6 +447,7 @@
       lighting(tl, has);
       opts.shots.forEach((id) => SHOTS[id] && SHOTS[id](tl));
       transitions(tl, opts.shots);
+      snapFrames(tl);
       tl.to({}, { duration: END }, 0);   // Law 11: the timeline fills the film
     },
   };

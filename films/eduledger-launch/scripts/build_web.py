@@ -16,7 +16,7 @@ labelled placeholder when it does not. Re-run this script (scripts/build_all.sh)
   brand/logo-mark.svg, brand/logo-wordmark-on-dark.svg   preferred over the PROVISIONAL PNGs when present
   sfx/Xnn(_v1).wav|mp3          picked up by scripts/mix.py (placeholders in sfx/placeholder/ otherwise)
 """
-import glob, json, os, shutil, subprocess
+import glob, json, os, re, shutil, subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -53,7 +53,7 @@ def size(path):
 UI_LABEL = {"dashboard": "dashboard", "students": "student records", "admissions": "admissions", "attendance": "attendance",
             "fees": "fees / invoices", "receipt": "fee receipt", "payroll": "staff & payroll", "cashbook": "cashbook report",
             "parent-chat": "parent chat card", "phone": "phone view"}
-def ui(slot, key, cls="", demo=True, aspect=(16, 9)):
+def ui(slot, key, cls="", demo=True, aspect=(16, 9), extra=""):
     """An app screenshot in a frame. `slot` is the element id. Real file: ui/<key>.*; else a labelled placeholder."""
     src = find(f"ui/{key}")
     tag = '<div class="demo-tag">Demo</div>' if demo else ""
@@ -64,11 +64,11 @@ def ui(slot, key, cls="", demo=True, aspect=(16, 9)):
         shutil.copy(src, dst)
         w, h = size(src)
         manifest.setdefault(f"ui/{key}", {"status": "REAL", "file": src, "size": [w, h], "slots": []})["slots"].append(slot)
-        return (f'<div class="uiframe {cls}" id="{slot}" style="aspect-ratio:{w}/{h}">'
-                f'<div class="uiimg" style="background-image:url(assets/ui/{key}.{ext})"></div>{tag}</div>')
+        return (f'<div class="uiframe {cls}" id="{slot}" style="aspect-ratio:{w}/{h}"{extra}>'
+                f'<div class="uiimg" style="background-image:url(assets/ui/{key}.{ext})"></div><i class="sheen" data-layout-allow-overflow></i>{tag}</div>')
     manifest.setdefault(f"ui/{key}", {"status": "PLACEHOLDER", "slots": []})["slots"].append(slot)
-    return (f'<div class="uiframe ph-ui {cls}" id="{slot}" style="aspect-ratio:{aspect[0]}/{aspect[1]}">'
-            f'<span>PLACEHOLDER · UI {UI_LABEL[key]} screenshot<em>ui/{key}.png</em></span>{tag}</div>')
+    return (f'<div class="uiframe ph-ui {cls}" id="{slot}" style="aspect-ratio:{aspect[0]}/{aspect[1]}"{extra}>'
+            f'<span>PLACEHOLDER · UI {UI_LABEL[key]} screenshot<em>ui/{key}.png</em></span><i class="sheen" data-layout-allow-overflow></i>{tag}</div>')
 
 HERO_LABEL = {"H1": "3D ledger book", "H2": "3D receipt stack", "H3": "3D rupee coin", "H4": "3D phone", "H5": "3D school building"}
 def hero(slot, h, tint="brand"):
@@ -163,40 +163,47 @@ def words_html(prefix, ws, cls="support halo", id_=None):
     spans = "".join(f'<span class="w chrome" id="{prefix}-w{i + 1}">{w}</span>' for i, w in enumerate(ws))
     return f'<div class="{cls}" id="{id_ or prefix + "-text"}">{spans}</div>'
 
+# S20: EduLedger's own chat card (BRIEF trademark rule). The real ui/parent-chat.* replaces the code-drawn stand-in.
+if find("ui/parent-chat"):
+    S20_CARD = ui("s20-card", "parent-chat", cls="chatreal")
+else:
+    manifest["ui/parent-chat"] = {"status": "PLACEHOLDER", "slots": ["s20-card"], "note": "code-drawn stand-in card, approved at Stage D"}
+    S20_CARD = ('<div id="s20-card"><div class="hd"><div class="cardmark"></div><div><div class="who">EduLedger</div>'
+                '<div class="sub">School update</div></div><div class="demo">Demo</div></div>'
+                f'<div class="msg">{msg}</div><div class="meta"><span id="s20-ticks">✓✓</span></div></div>'
+                '<div id="s20-cardnote">Card design: placeholder until EduLedger’s chat card arrives (ui/parent-chat.png)</div>')
+
 PART = {
  "S01": hero("s01-book", "H1", "red") + '<div id="s01-ring"></div>' + kin("s01-word", "REGISTERS", halo="halo-red"),
  "S02": hero("s02-hero", "H2", "red") + kin("s02-word", "RECEIPTS", halo="halo-red"),
  "S03": f'<div class="layer" id="s03-rings">{rings}</div>' + kin("s03-word", "REMINDERS", halo="halo-red"),
- "S04": f'<div id="s04-persp"><div id="s04-sheet">{cellsx}</div></div>' + kin("s04-word", "SPREADSHEETS", halo="halo-red"),
+ "S04": f'<div id="s04-persp" data-layout-allow-overflow><div id="s04-sheet" data-layout-allow-overflow>{cellsx}</div></div>' + kin("s04-word", "SPREADSHEETS", halo="halo-red"),
  "S05": ('<div id="s05-paper"><div class="rows"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>'
          f'<svg viewBox="0 0 900 540" id="s05-ticks">{scribble}</svg></div>' + kin("s05-word", "PAPER", halo="halo-red")),
- "S06": kin("s06-word", "PHONE CALLS", halo="halo-red") + f'<div class="layer" id="s06-layer">{bubbles}</div>',
+ "S06": f'<div class="layer" id="s06-layer">{bubbles}</div>' + kin("s06-word", "PHONE CALLS", halo="halo-red"),   # the word stays on top of the pile
  "S07": ledger("s07-line", "white"),
  "S08": ledger("s08-line-w", "white") + ledger("s08-line-b", "brand", ' style="opacity:0"') + LOCK.format(id="s08-lock"),
- "S09": (words_html("s09", ["One", "connected", "platform"]) + '<div class="subline" id="s09-sub">for your entire school.</div>'
+ "S09": (words_html("s09", ["One", "connected", "platform"]) + '<div class="subline halo-soft" id="s09-sub"><span class="chrome dim">for your entire school.</span></div>'
          + ledger("s09-line") + '<div class="persp" id="s09-persp"><div class="tilt">' + ui("s09-ui", "dashboard") + '</div></div>'),
- "S10": kin("s10-word", "Students", cls="sideword") + '<div class="sidecard">' + ui("s10-ui", "students") + '</div>',
- "S11": kin("s11-word", "Staff", cls="sideword") + '<div class="sidecard">' + ui("s11-ui", "payroll") + '</div>',
- "S12": kin("s12-word", "Fees", cls="sideword") + '<div class="sidecard">' + ui("s12-ui", "fees") + '</div>',
- "S13": ('<div class="support halo" id="s13-title"><span class="w chrome" id="s13-w1">Admissions</span><span class="w arrow" id="s13-w2">→</span>'
+ "S10": kin("s10-word", "Students", cls="kinetic sideword") + '<div class="sidecard">' + ui("s10-ui", "students") + '</div>',
+ "S11": kin("s11-word", "Staff", cls="kinetic sideword") + '<div class="sidecard">' + ui("s11-ui", "payroll") + '</div>',
+ "S12": kin("s12-word", "Fees", cls="kinetic sideword") + '<div class="sidecard">' + ui("s12-ui", "fees") + '</div>',
+ "S13": ('<div class="support halo" id="s13-title"><span class="w chrome" id="s13-w1">Admissions</span><span class="w arrow chrome brandlight" id="s13-w2">→</span>'
          '<span class="w chrome" id="s13-w3">Attendance</span></div>'
          f'<div id="s13-plane"><div id="s13-grid">{seats}</div></div>'),
  "S13b": words_html("s13b", ["One", "clean", "dashboard."]) + '<div class="persp" id="s13b-persp"><div class="tilt">' + ui("s13b-ui", "dashboard") + '</div></div>',
  "S14": words_html("s14", ["Fees?", "Collected."]) + '<div id="s14-spin">' + hero("s14-coin", "H3") + '</div>'
         f'<div id="s14-ok"><div class="okring"></div><div class="okdot">{CHECK}</div></div>',
- "S15": words_html("s15", ["Receipted."]) + ledger("s15-slot") + '<div id="s15-mask">' + ui("s15-ui", "receipt", aspect=(3, 4)) + '</div>',
+ "S15": words_html("s15", ["Receipted."]) + ledger("s15-slot") + '<div id="s15-mask" data-layout-allow-overflow>' + ui("s15-ui", "receipt", aspect=(3, 4), extra=" data-layout-allow-overflow") + '</div>',
  "S16": (words_html("s16", ["Tracked,", "in", "real", "time."]) + '<div class="persp" id="s16-persp"><div class="tilt">' + ui("s16-ui", "fees")
          + '</div></div><div id="s16-bar"><div class="track"></div>' + ledger("s16-fill") + '<div id="s16-live"><i></i>Live</div></div>'),
  "S17": (words_html("s17", ["Payroll", "+", "cashbook.", "Done."]) + '<div id="s17-stack">' + ui("s17-ui-a", "payroll") + ui("s17-ui-b", "cashbook")
          + '</div>'),
- "S18": words_html("s18", ["Less", "paperwork."]) + f'<div class="layer" id="s18-sheets">{sheets}</div><div class="layer" id="s18-pts">{particles}</div>',
+ "S18": f'<div class="layer" id="s18-sheets">{sheets}</div><div class="layer" id="s18-pts">{particles}</div>' + words_html("s18", ["Less", "paperwork."]),   # particles pass behind the words
  "S19": words_html("s19", ["And", "parents?"]) + '<div id="s19-phone">' + hero("s19-hero", "H4") + '</div>',
  "S20": ('<div id="s20-phonewrap">' + hero("s20-phone", "H4") + '</div>'
          '<div id="s20-chip">Add-on</div>'
-         '<div id="s20-card"><div class="hd"><div class="cardmark"></div><div><div class="who">EduLedger</div>'
-         '<div class="sub">School update</div></div><div class="demo">Demo</div></div>'
-         f'<div class="msg">{msg}</div><div class="meta"><span id="s20-ticks">✓✓</span></div></div>'
-         '<div id="s20-cardnote">Card design: placeholder until EduLedger’s chat card arrives (ui/parent-chat.png)</div>'
+         + S20_CARD +
          '<div class="support halo" id="s20-text"><div><span class="w chrome" id="s20-w1">Updated</span></div>'
          '<div><span class="w chrome" id="s20-w2">instantly</span></div>'
          '<div><span class="w chrome" id="s20-w3">on</span> <span class="w chrome" id="s20-w4">WhatsApp.</span></div></div>'),
@@ -205,16 +212,16 @@ PART = {
                    for i, t in enumerate(["Attendance", "Fee receipts", "Results"])) + '</div>'),
  "S22": (words_html("s22a", ["Every", "number", "that", "matters."], id_="s22-a")
          + words_html("s22b", ["One", "command", "centre."], id_="s22-b")
-         + '<div id="s22-cam"><div class="persp" id="s22-persp"><div class="tilt">' + ui("s22-ui", "dashboard") + '</div></div>'
+         + '<div id="s22-cam"><div class="persp" id="s22-persp" data-layout-allow-occlusion><div class="tilt">' + ui("s22-ui", "dashboard") + '</div></div>'
          '<div id="s22-card"><div class="cardhd"><div><div class="ov">OVERVIEW</div><div class="school">Greenfield Public School</div></div>'
          '<div class="demo">Demo</div></div><div class="stats">'
          '<div class="stat"><b id="s22-n1">0</b><span>Students</span></div><div class="stat"><b id="s22-n2">0</b><span>Present</span></div>'
          '<div class="stat"><b id="s22-n3">₹0L</b><span>Collected</span></div><div class="stat"><b id="s22-n4">0%</b><span>Attendance</span></div>'
          '</div></div></div>'),
- "S23": '<div class="stamp" id="s23-stamp"><div class="stampbox"></div>' + kin("s23-word", "NO SETUP FEE", cls="kinetic stampword") + '</div>',
+ "S23": '<div class="stamp" id="s23-stamp"><div class="stampbox"></div>' + kin("s23-word", "NO SETUP FEE", cls="kinetic stampword glinty") + '</div>',
  "S24": (f'<div id="s24-shield">{SHIELD}</div><div class="stamp" id="s24-stamp"><div class="stampbox"></div>'
-         + kin("s24-word", "SECURE BY DESIGN", cls="kinetic stampword") + '</div>'),
- "S25": hero("s25-hero", "H5") + '<div class="stamp" id="s25-stamp">' + kin("s25-word", "BUILT FOR INDIAN SCHOOLS", cls="kinetic stampword small") + '</div>',
+         + kin("s24-word", "SECURE BY DESIGN", cls="kinetic stampword glinty") + '</div>'),
+ "S25": hero("s25-hero", "H5") + '<div class="stamp" id="s25-stamp">' + kin("s25-word", "BUILT FOR INDIAN SCHOOLS", cls="kinetic stampword small glinty") + '</div>',
  "S26": (ledger("s26-line") + LOCK.format(id="s26-lock")
          + '<div class="support halo" id="s26-tag"><span class="w chrome" id="s26-w1">Manage</span><span class="w chrome" id="s26-w2">better.</span>'
          '<span class="w chrome" id="s26-w3">Educate</span><span class="w chrome" id="s26-w4">smarter.</span></div>'),
@@ -231,13 +238,35 @@ GLOBAL_BOTTOM = ('<div id="bg" class="full"></div><div id="glow-red" class="full
                  '<div id="floorwrap" class="full"><div class="floor" id="floor-neutral" data-layout-allow-overflow></div>'
                  '<div class="floor" id="floor-brand" data-layout-allow-overflow></div></div>'
                  f'<div id="crosses" class="full">{cross}</div>')
-GLOBAL_TOP = ('<div id="streak"></div><div id="glitch" class="full"><i></i><i></i><i></i><i></i></div>'
+GLOBAL_TOP = ('<div id="streak"></div><div id="glitch" class="full" data-layout-allow-overflow><i></i><i></i><i></i><i></i></div>'
               '<div id="vignette" class="full"></div><div id="grain" class="full"></div><div id="flash" class="full"></div><div id="fadeout" class="full"></div>'
               '<div id="corners" class="full"><div class="corner tl"></div><div class="corner tr"></div>'
               '<div class="corner bl"></div><div class="corner br"></div></div>')
 
+def _norm(t):
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9/.\-]", " ", t.lower())).strip()
+def _first_match(phrase, t_min):
+    """The kit validator's findAnchorStart(): first transcript word at/after t_min that starts the phrase."""
+    toks = phrase.lower().split()
+    for i, w in enumerate(transcript):
+        if w["start"] < t_min:
+            continue
+        joined = _norm(" ".join(x["text"] for x in transcript[i:i + len(toks)]))
+        if joined.startswith(_norm(phrase)):
+            return w["start"]
+        if len(toks) == 1 and _norm(phrase).replace(" ", "") in _norm(w["text"]).replace(" ", ""):
+            return w["start"]
+    return None
 def anchor_of(s):
-    return s["word"].strip(".,?")
+    """data-anchor: the shot's VO word, extended word by word until the kit validator cannot match an earlier
+    occurrence (e.g. "EduLedger", "fees", "One" are said more than once)."""
+    ws = words[s["line"]]
+    i = min(range(len(ws)), key=lambda k: abs(ws[k]["t"] - s["word_onset"]))
+    for n in range(1, len(ws) - i + 1):
+        phrase = " ".join(w["text"] for w in ws[i:i + n]).strip(".,?!")
+        if _first_match(phrase, max(0, s["start"] - 10)) == ws[i]["t"]:
+            return phrase
+    return phrase
 
 def page(name, title, off, dur, only=None, prefix="", audio="assets/audio/mix.wav"):
     secs = []
@@ -277,7 +306,9 @@ def page(name, title, off, dur, only=None, prefix="", audio="assets/audio/mix.wa
   FILM.build(film, {{ shots: {shots_js} }});
 """
     if off == 0:
-        html += "  window.__timelines[\"main\"] = film;\n"
+        html += ("  const tl = film;\n"
+                 "  tl.to({}, { duration: EL.END }, 0);   // full length stated inline too (kit preflight reads inline scripts)\n"
+                 "  window.__timelines[\"main\"] = tl;\n")
     else:
         html += (f"  const tl = gsap.timeline({{ paused: true }});\n"
                  f"  tl.add(film.tweenFromTo({off:.4f}, {off + dur:.4f}, {{ duration: {dur:.4f}, ease: \"none\" }}), 0);\n"

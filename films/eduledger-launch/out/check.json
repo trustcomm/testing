@@ -1,0 +1,250 @@
+{
+  "ok": true,
+  "strict": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 3,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "pointer_events_none",
+        "severity": "info",
+        "message": "`.full` sets `pointer-events: none`. Elements matching this selector are harder to select in the Studio preview.",
+        "selector": ".full",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/testing/films/eduledger-launch/web/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "If these elements should be selectable in the Studio, remove `pointer-events: none` or move it to a wrapper that doesn't contain editable content."
+      },
+      {
+        "code": "pointer_events_none",
+        "severity": "info",
+        "message": "`.hero .rim` sets `pointer-events: none`. Elements matching this selector are harder to select in the Studio preview.",
+        "selector": ".hero .rim",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/testing/films/eduledger-launch/web/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "If these elements should be selectable in the Studio, remove `pointer-events: none` or move it to a wrapper that doesn't contain editable content."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 1 has 7 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/testing/films/eduledger-launch/web/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 2 has 16 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/testing/films/eduledger-launch/web/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      },
+      {
+        "code": "timeline_track_too_dense",
+        "severity": "warning",
+        "message": "Track 3 has 5 timed elements in this HTML file. Smaller sub-compositions keep timelines easier to read, iterate on, and diff.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "/home/user/testing/films/eduledger-launch/web/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move coherent scene groups into separate .html files under compositions/ and mount them from the parent with data-composition-src so the timeline stays easier to inspect, revise, and validate."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 2,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "info",
+        "time": 23.27,
+        "selector": "#s15-ui",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 1040,
+          "top": 196.12,
+          "right": 1640,
+          "bottom": 996.12,
+          "width": 600,
+          "height": 800
+        },
+        "containerSelector": "#s15-mask",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 1040,
+          "top": 202,
+          "right": 1640,
+          "bottom": 1042,
+          "width": 600,
+          "height": 840
+        },
+        "overflow": {
+          "top": 5.88
+        },
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 1040,
+          "y": 196.12,
+          "width": 600,
+          "height": 800
+        },
+        "firstSeen": 23.27,
+        "lastSeen": 23.27,
+        "occurrences": 1
+      },
+      {
+        "code": "text_occluded",
+        "severity": "info",
+        "time": 28.62,
+        "selector": "#s18-w1",
+        "message": "Text is hidden beneath an opaque element.",
+        "rect": {
+          "left": 488.08,
+          "top": 98.08,
+          "right": 750.62,
+          "bottom": 251.17,
+          "width": 262.53,
+          "height": 153.09
+        },
+        "containerSelector": "i.pt",
+        "text": "Less",
+        "fixHint": "Give the text its own zone, raise its stacking order above the covering element, or mark intentional layering with data-layout-allow-occlusion.",
+        "coveredFraction": 0.04,
+        "dataAttributes": {},
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 488.08,
+          "y": 98.08,
+          "width": 262.53,
+          "height": 153.09
+        },
+        "firstSeen": 28.62,
+        "lastSeen": 28.62,
+        "occurrences": 1
+      }
+    ],
+    "duration": 52.55,
+    "samples": [
+      0.52,
+      1.42,
+      2.52,
+      4.01,
+      5.49,
+      7.39,
+      9.99,
+      11.98,
+      14.6,
+      16.01,
+      16.72,
+      17.42,
+      19.44,
+      21.03,
+      22.36,
+      23.27,
+      24.97,
+      26.91,
+      28.62,
+      29.77,
+      31.7,
+      34.2,
+      37.43,
+      39.31,
+      40.81,
+      42.62,
+      45.81,
+      50.87
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 2,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.52,
+      9.99,
+      21.03,
+      31.7,
+      50.87
+    ],
+    "checked": 48,
+    "passed": 48
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  },
+  "_meta": {
+    "version": "0.7.109",
+    "latestVersion": "0.8.137",
+    "updateAvailable": true
+  }
+}
