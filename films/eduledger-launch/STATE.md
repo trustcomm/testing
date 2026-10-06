@@ -21,14 +21,21 @@ This file is updated after every stage. The brief is `BRIEF.md` (Director's Pack
   - VO 1.0, normalised to −16 LUFS.
   - SFX at 0.2–0.4, each peak-normalised first.
   - Music −6 dB, then sidechain-ducked 7.8 dB under the voice, so the VO sits 13 dB over the music.
-  - Master: one linear gain plus a 4× oversampled limiter. **−14.0 LUFS, true peak −1.6 dBTP.**
+  - Master: one linear gain plus a 4× oversampled limiter at −1.9 dBFS.
+    - WAV: **−14.0 LUFS, −1.9 dBTP**.
+    - The delivered AAC file: **−14.1 LUFS, −1.5 dBTP**.
+    - The limiter leaves headroom for AAC's decoder overshoot: the first render's AAC came out at −1.0 dBTP, which fails, and `mix.py` now checks an AAC encode before accepting the master.
 - **Gates:**
   - `hyperframes lint`: 0 errors, 3 warnings ("track too dense", readability advice for one-file films).
   - Kit preflight: passed.
   - Kit beat-sync validator: 28/28.
   - Exact-word sync: 28/28, with each cut 3–140 ms ahead of its word and on the beat grid.
   - `hyperframes check`: passed at 56 sample times.
-  - MOTION_PHILOSOPHY §4/§5 audit: 9/9 measured items pass, plus palette, callback and frame review.
+  - MOTION_PHILOSOPHY §4/§5 audit: 10/10 measured items pass, including seek-order determinism, plus palette, callback and frame review.
+  - **Render check:**
+    - 3,153/3,153 frames.
+    - **27/27 cuts on their planned frame:** 24 have the biggest change on that frame (±1); in 3 the exit motion peaks 2–4 frames early, with a sharp change still on the planned frame. All confirmed in the strips.
+    - Stillness 15.3% by the Stage A rule (target ≤ 20%), only in the S07 rest and the end of S22.
   - Details in VERIFY.md.
 - **Review fixes in Stage E:**
   - S06 headline stays above the call bubbles.
@@ -37,6 +44,13 @@ This file is updated after every stage. The brief is `BRIEF.md` (Director's Pack
   - Reveals added on VO words where the §4 audit found more than 1 s with nothing new (S09, S13, S23–S25; TIMELINE.md §7).
   - Every tween snapped to the 60 fps frame grid.
   - Repeating tweens end inside the film.
+- **Found by verifying the first render (fixed, then re-rendered):**
+  - **Whip streak late.** It crossed the screen 1–9 frames after the cut, so the frames at the cut were nearly empty. It now accelerates in and crosses mid-frame on the cut frame itself, at full thickness.
+  - **Seek-order bug.** The streak's and the S09 sweep's opacity was set only by a "from" value, so after a backward seek they could vanish. Every value is now explicit.
+    - The §4 audit now checks that every frame renders the same whatever order frames are drawn in: forward, backward, or jumping from 0.
+    - Checked against the old code, the test fails it: 8 mismatches.
+  - **AAC true peak** at −1.0 dBTP, fixed as above.
+  - The first render is kept locally (`out/draft/work/`), not in git.
 
 **Waiting on the user (Stage E gate):**
 1. Watch the draft and approve it, or list changes with their times.
@@ -229,6 +243,7 @@ The network policy denies huggingface.co, openaipublic.azureedge.net and eduledg
   - Inputs auto-swap (`scripts/build_web.py`), tested with stand-in files.
   - Mix and master (`scripts/mix.py`), with real-SFX pickup and automatic sync points (tested).
   - Gates: lint, check sweep (contrast now 90/90), kit preflight, kit beat-sync plus an exact-word check, and the §4/§5 audit (`scripts/motion_audit.mjs`).
-  - Full 60 fps draft rendered and verified (`scripts/verify_render.py`, VERIFY.md).
+  - Full 60 fps draft rendered (about 15 min, 3 workers) and verified.
+  - Verification found the late streak, the seek-order bug and the AAC peak. All fixed, then re-rendered and re-verified (`scripts/verify_render.py`, VERIFY.md).
   - Worker restarts mid-stage: work committed early, nothing lost.
   - Stopped at the gate. No credits used.

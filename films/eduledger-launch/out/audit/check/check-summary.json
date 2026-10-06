@@ -36,54 +36,31 @@
   48.9,
   50.87
  ],
+ "layout_times": 56,
  "findings": [
-  [
-   0.52,
-   "text_box_overflow",
-   "info",
-   "span.chrome"
-  ],
-  [
-   16.47,
-   "container_overflow",
-   "info",
-   "div.inner"
-  ],
-  [
-   29.44,
-   "container_overflow",
-   "info",
-   "div.inner"
-  ],
-  [
-   13.53,
-   "container_overflow",
-   "info",
-   "i.sheen"
-  ],
-  [
-   13.53,
-   "escaped_container",
-   "info",
-   "i.sheen"
-  ],
-  [
-   17.18,
-   "container_overflow",
-   "info",
-   "div.inner"
-  ],
-  [
-   14.6,
-   "container_overflow",
-   "info",
-   "i.sheen"
-  ],
-  [
-   14.6,
-   "escaped_container",
-   "info",
-   "i.sheen"
-  ]
+  {
+   "time": 0.52,
+   "code": "text_box_overflow",
+   "severity": "info",
+   "selector": "span.chrome"
+  },
+  {
+   "time": 16.47,
+   "code": "container_overflow",
+   "severity": "info",
+   "selector": "div.inner"
+  },
+  {
+   "time": 29.44,
+   "code": "container_overflow",
+   "severity": "info",
+   "selector": "div.inner"
+  },
+  {
+   "time": 17.18,
+   "code": "container_overflow",
+   "severity": "info",
+   "selector": "div.inner"
+  }
  ]
 }

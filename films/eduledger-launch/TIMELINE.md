@@ -147,3 +147,5 @@ The shot times above are unchanged: `web/index.html` carries them exactly (data-
 - **Deliberate holds:** S07 (the brief's rest beat, 2.82 s) and the S27 CTA (5.62 s).
 - **Frames:** every tween starts and ends on a 1/60 s frame boundary (719/719), so the power4.in slams of S01 and the stamps land on a frame.
 - **SFX:** the same 45 events. The new reveals have no sound of their own.
+- **Whips:** the streak, which is the ledger line, crosses mid-frame on the cut frame of each streak, vertical-whip and slide-up cut (S09, S11, S12, S13, S14, S17, S19, S21). It is fastest and thickest on that frame: 0.15 s in and 0.15 s out.
+- **Render check:** 27/27 cuts land on their planned frame (VERIFY.md, with a 7-frame strip per cut in `out/verify/`).

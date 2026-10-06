@@ -101,86 +101,8 @@
     "ok": true,
     "errorCount": 0,
     "warningCount": 0,
-    "infoCount": 3,
+    "infoCount": 1,
     "findings": [
-      {
-        "code": "container_overflow",
-        "severity": "info",
-        "time": 13.53,
-        "selector": "i.sheen",
-        "message": "Element extends outside a clipping layout container.",
-        "rect": {
-          "left": -464.13,
-          "top": 253.68,
-          "right": 355.81,
-          "bottom": 1169.37,
-          "width": 819.94,
-          "height": 915.7
-        },
-        "containerSelector": "#s09-ui",
-        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
-        "containerRect": {
-          "left": 235.56,
-          "top": 317.01,
-          "right": 1684.44,
-          "bottom": 1082.86,
-          "width": 1448.89,
-          "height": 765.85
-        },
-        "overflow": {
-          "left": 699.69,
-          "top": 63.33,
-          "bottom": 86.51
-        },
-        "dataAttributes": {},
-        "sourceFile": "index.html",
-        "bbox": {
-          "x": -464.13,
-          "y": 253.68,
-          "width": 819.94,
-          "height": 915.7
-        },
-        "firstSeen": 13.53,
-        "lastSeen": 13.53,
-        "occurrences": 1
-      },
-      {
-        "code": "escaped_container",
-        "severity": "info",
-        "time": 13.53,
-        "selector": "i.sheen",
-        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
-        "rect": {
-          "left": -464.13,
-          "top": 253.68,
-          "right": 355.81,
-          "bottom": 1169.37,
-          "width": 819.94,
-          "height": 915.7
-        },
-        "containerSelector": "#s09-ui",
-        "text": "",
-        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
-        "containerRect": {
-          "left": 235.56,
-          "top": 317.01,
-          "right": 1684.44,
-          "bottom": 1082.86,
-          "width": 1448.89,
-          "height": 765.85
-        },
-        "dataAttributes": {},
-        "sourceFile": "index.html",
-        "bbox": {
-          "x": -464.13,
-          "y": 253.68,
-          "width": 819.94,
-          "height": 915.7
-        },
-        "firstSeen": 13.53,
-        "lastSeen": 13.53,
-        "occurrences": 1
-      },
       {
         "code": "container_overflow",
         "severity": "info",
@@ -236,7 +158,7 @@
     "transitionSamples": [],
     "transitionSamplesDropped": 0,
     "tolerance": 2,
-    "totalIssueCount": 3,
+    "totalIssueCount": 1,
     "truncated": false
   },
   "motion": {

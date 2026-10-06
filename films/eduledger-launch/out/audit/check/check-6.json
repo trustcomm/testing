@@ -101,87 +101,8 @@
     "ok": true,
     "errorCount": 0,
     "warningCount": 0,
-    "infoCount": 2,
-    "findings": [
-      {
-        "code": "container_overflow",
-        "severity": "info",
-        "time": 14.6,
-        "selector": "i.sheen",
-        "message": "Element extends outside a clipping layout container.",
-        "rect": {
-          "left": 2095.35,
-          "top": 249.61,
-          "right": 2600.81,
-          "bottom": 1178.32,
-          "width": 505.46,
-          "height": 928.71
-        },
-        "containerSelector": "#s09-ui",
-        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
-        "containerRect": {
-          "left": 225.26,
-          "top": 313.84,
-          "right": 1694.74,
-          "bottom": 1090.57,
-          "width": 1469.47,
-          "height": 776.73
-        },
-        "overflow": {
-          "right": 906.07,
-          "top": 64.23,
-          "bottom": 87.75
-        },
-        "dataAttributes": {},
-        "sourceFile": "index.html",
-        "bbox": {
-          "x": 2095.35,
-          "y": 249.61,
-          "width": 505.46,
-          "height": 928.71
-        },
-        "firstSeen": 14.6,
-        "lastSeen": 14.6,
-        "occurrences": 1
-      },
-      {
-        "code": "escaped_container",
-        "severity": "info",
-        "time": 14.6,
-        "selector": "i.sheen",
-        "message": "Positioned element renders far outside its offset parent — its coordinates were likely computed in a different frame (canvas/viewport pixels).",
-        "rect": {
-          "left": 2095.35,
-          "top": 249.61,
-          "right": 2600.81,
-          "bottom": 1178.32,
-          "width": 505.46,
-          "height": 928.71
-        },
-        "containerSelector": "#s09-ui",
-        "text": "",
-        "fixHint": "Compute left/top in the offset parent's frame (subtract its rect), or mark intentional placement with data-layout-allow-overflow.",
-        "containerRect": {
-          "left": 225.26,
-          "top": 313.84,
-          "right": 1694.74,
-          "bottom": 1090.57,
-          "width": 1469.47,
-          "height": 776.73
-        },
-        "dataAttributes": {},
-        "sourceFile": "index.html",
-        "bbox": {
-          "x": 2095.35,
-          "y": 249.61,
-          "width": 505.46,
-          "height": 928.71
-        },
-        "firstSeen": 14.6,
-        "lastSeen": 14.6,
-        "occurrences": 1
-      }
-    ],
+    "infoCount": 0,
+    "findings": [],
     "duration": 52.55,
     "samples": [
       2.52,
@@ -197,7 +118,7 @@
     "transitionSamples": [],
     "transitionSamplesDropped": 0,
     "tolerance": 2,
-    "totalIssueCount": 2,
+    "totalIssueCount": 0,
     "truncated": false
   },
   "motion": {
