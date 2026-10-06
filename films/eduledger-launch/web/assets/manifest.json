@@ -1,4 +1,9 @@
 {
+ "_mode": "draft",
+ "audio/mix": {
+  "status": "MASTER",
+  "file": "out/mix/master.wav"
+ },
  "brand/logo-mark": {
   "status": "PROVISIONAL",
   "file": "web/assets/brand/logo-mark.png"
@@ -6,13 +11,6 @@
  "brand/logo-wordmark-dark": {
   "status": "PROVISIONAL",
   "file": "web/assets/brand/logo-wordmark-dark.png"
- },
- "ui/parent-chat": {
-  "status": "PLACEHOLDER",
-  "slots": [
-   "s20-card"
-  ],
-  "note": "code-drawn stand-in card, approved at Stage D"
  },
  "heroes/H1": {
   "status": "PLACEHOLDER",
@@ -26,50 +24,10 @@
    "s02-hero"
   ]
  },
- "ui/dashboard": {
-  "status": "PLACEHOLDER",
-  "slots": [
-   "s09-ui",
-   "s13b-ui",
-   "s22-ui"
-  ]
- },
- "ui/students": {
-  "status": "PLACEHOLDER",
-  "slots": [
-   "s10-ui"
-  ]
- },
- "ui/payroll": {
-  "status": "PLACEHOLDER",
-  "slots": [
-   "s11-ui",
-   "s17-ui-a"
-  ]
- },
- "ui/fees": {
-  "status": "PLACEHOLDER",
-  "slots": [
-   "s12-ui",
-   "s16-ui"
-  ]
- },
  "heroes/H3": {
   "status": "PLACEHOLDER",
   "slots": [
    "s14-coin"
-  ]
- },
- "ui/receipt": {
-  "status": "PLACEHOLDER",
-  "slots": [
-   "s15-ui"
-  ]
- },
- "ui/cashbook": {
-  "status": "PLACEHOLDER",
-  "slots": [
-   "s17-ui-b"
   ]
  },
  "heroes/H4": {
@@ -86,8 +44,88 @@
    "s25-hero"
   ]
  },
- "audio/mix": {
-  "status": "MASTER",
-  "file": "out/mix/master.wav"
+ "ui/cashbook": {
+  "status": "MOCK",
+  "file": "web/assets/ui/mock/cashbook.png",
+  "size": [
+   1920,
+   1080
+  ],
+  "slots": [
+   "s17-ui-b"
+  ]
+ },
+ "ui/dashboard": {
+  "status": "MOCK",
+  "file": "web/assets/ui/mock/dashboard.png",
+  "size": [
+   1920,
+   1080
+  ],
+  "slots": [
+   "s09-ui",
+   "s13b-ui",
+   "s22-ui"
+  ]
+ },
+ "ui/fees": {
+  "status": "MOCK",
+  "file": "web/assets/ui/mock/fees.png",
+  "size": [
+   1920,
+   1080
+  ],
+  "slots": [
+   "s12-ui",
+   "s16-ui"
+  ]
+ },
+ "ui/parent-chat": {
+  "status": "MOCK",
+  "slots": [
+   "s20-card"
+  ],
+  "note": "code-drawn card in the site's style (approved at Stage D as a stand-in)"
+ },
+ "ui/payroll": {
+  "status": "MOCK",
+  "file": "web/assets/ui/mock/payroll.png",
+  "size": [
+   1920,
+   1080
+  ],
+  "slots": [
+   "s11-ui",
+   "s17-ui-a"
+  ]
+ },
+ "ui/receipt": {
+  "status": "MOCK",
+  "file": "web/assets/ui/mock/receipt.png",
+  "size": [
+   1200,
+   1600
+  ],
+  "slots": [
+   "s15-ui"
+  ]
+ },
+ "ui/s22-callout": {
+  "status": "MOCK",
+  "slots": [
+   "s22-card"
+  ],
+  "note": "count-up callout of the site's demo stats"
+ },
+ "ui/students": {
+  "status": "MOCK",
+  "file": "web/assets/ui/mock/students.png",
+  "size": [
+   1920,
+   1080
+  ],
+  "slots": [
+   "s10-ui"
+  ]
  }
 }

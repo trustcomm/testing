@@ -20,6 +20,11 @@ import glob, json, os, re, shutil, subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
+# draft (default): a missing app screen shows its TEMPORARY MOCK (scripts/build_mocks.mjs, watermarked) if one is built.
+# final (EL_MODE=final): mocks are never used; anything missing stays a PLACEHOLDER and scripts/final_gate.py fails.
+MODE = os.environ.get("EL_MODE", "draft")
+assert MODE in ("draft", "final"), MODE
+MOCK_WM = '<div class="mock-wm">MOCK — internal draft</div>'
 tl = json.load(open("timeline.json"))
 lines = {l["id"]: l for l in json.load(open("vo/lines.json"))["lines"]}
 place = {v["id"]: v["start"] for v in tl["vo"]}
@@ -66,6 +71,12 @@ def ui(slot, key, cls="", demo=True, aspect=(16, 9), extra=""):
         manifest.setdefault(f"ui/{key}", {"status": "REAL", "file": src, "size": [w, h], "slots": []})["slots"].append(slot)
         return (f'<div class="uiframe {cls}" id="{slot}" style="aspect-ratio:{w}/{h}"{extra}>'
                 f'<div class="uiimg" style="background-image:url(assets/ui/{key}.{ext})"></div><i class="sheen" data-layout-allow-overflow></i>{tag}</div>')
+    mock = f"web/assets/ui/mock/{key}.png"
+    if MODE == "draft" and os.path.exists(mock):
+        w, h = size(mock)
+        manifest.setdefault(f"ui/{key}", {"status": "MOCK", "file": mock, "size": [w, h], "slots": []})["slots"].append(slot)
+        return (f'<div class="uiframe mock {cls}" id="{slot}" data-mock="ui/{key}" style="aspect-ratio:{w}/{h}"{extra}>'
+                f'<div class="uiimg" style="background-image:url(assets/ui/mock/{key}.png)"></div><i class="sheen" data-layout-allow-overflow></i>{tag}</div>')
     manifest.setdefault(f"ui/{key}", {"status": "PLACEHOLDER", "slots": []})["slots"].append(slot)
     return (f'<div class="uiframe ph-ui {cls}" id="{slot}" style="aspect-ratio:{aspect[0]}/{aspect[1]}"{extra}>'
             f'<span>PLACEHOLDER · UI {UI_LABEL[key]} screenshot<em>ui/{key}.png</em></span><i class="sheen" data-layout-allow-overflow></i>{tag}</div>')
@@ -164,14 +175,24 @@ def words_html(prefix, ws, cls="support halo", id_=None):
     return f'<div class="{cls}" id="{id_ or prefix + "-text"}">{spans}</div>'
 
 # S20: EduLedger's own chat card (BRIEF trademark rule). The real ui/parent-chat.* replaces the code-drawn stand-in.
-if find("ui/parent-chat"):
+if find("ui/parent-chat") or MODE == "final":
     S20_CARD = ui("s20-card", "parent-chat", cls="chatreal")
 else:
-    manifest["ui/parent-chat"] = {"status": "PLACEHOLDER", "slots": ["s20-card"], "note": "code-drawn stand-in card, approved at Stage D"}
-    S20_CARD = ('<div id="s20-card"><div class="hd"><div class="cardmark"></div><div><div class="who">EduLedger</div>'
+    manifest["ui/parent-chat"] = {"status": "MOCK", "slots": ["s20-card"], "note": "code-drawn card in the site's style (approved at Stage D as a stand-in)"}
+    S20_CARD = ('<div id="s20-card" class="mockcard" data-mock="ui/parent-chat"><div class="hd"><div class="cardmark"></div><div><div class="who">EduLedger</div>'
                 '<div class="sub">School update</div></div><div class="demo">Demo</div></div>'
-                f'<div class="msg">{msg}</div><div class="meta"><span id="s20-ticks">✓✓</span></div></div>'
-                '<div id="s20-cardnote">Card design: placeholder until EduLedger’s chat card arrives (ui/parent-chat.png)</div>')
+                f'<div class="msg">{msg}</div><div class="meta"><span id="s20-ticks">✓✓</span></div>{MOCK_WM}</div>')
+
+# S22: the count-up callout card is code-drawn UI, so it is a MOCK too: drafts only, and only while ui/dashboard is not real.
+# With the real dashboard (or in a final build) S22 shows the real screen and a light sweep instead.
+S22_CARD = ""
+if MODE == "draft" and not find("ui/dashboard"):
+    manifest["ui/s22-callout"] = {"status": "MOCK", "slots": ["s22-card"], "note": "count-up callout of the site's demo stats"}
+    S22_CARD = ('<div id="s22-card" class="mockcard" data-mock="ui/s22-callout"><div class="cardhd"><div><div class="ov">OVERVIEW</div><div class="school">Greenfield Public School</div></div>'
+                '<div class="demo">Demo</div></div><div class="stats">'
+                '<div class="stat"><b id="s22-n1">0</b><span>Students</span></div><div class="stat"><b id="s22-n2">0</b><span>Present</span></div>'
+                '<div class="stat"><b id="s22-n3">₹0L</b><span>Collected</span></div><div class="stat"><b id="s22-n4">0%</b><span>Attendance</span></div>'
+                f'</div>{MOCK_WM}</div>')
 
 PART = {
  "S01": hero("s01-book", "H1", "red") + '<div id="s01-ring"></div>' + kin("s01-word", "REGISTERS", halo="halo-red"),
@@ -213,11 +234,7 @@ PART = {
  "S22": (words_html("s22a", ["Every", "number", "that", "matters."], id_="s22-a")
          + words_html("s22b", ["One", "command", "centre."], id_="s22-b")
          + '<div id="s22-cam"><div class="persp" id="s22-persp" data-layout-allow-occlusion><div class="tilt">' + ui("s22-ui", "dashboard") + '</div></div>'
-         '<div id="s22-card"><div class="cardhd"><div><div class="ov">OVERVIEW</div><div class="school">Greenfield Public School</div></div>'
-         '<div class="demo">Demo</div></div><div class="stats">'
-         '<div class="stat"><b id="s22-n1">0</b><span>Students</span></div><div class="stat"><b id="s22-n2">0</b><span>Present</span></div>'
-         '<div class="stat"><b id="s22-n3">₹0L</b><span>Collected</span></div><div class="stat"><b id="s22-n4">0%</b><span>Attendance</span></div>'
-         '</div></div></div>'),
+         + S22_CARD + '</div>'),
  "S23": '<div class="stamp" id="s23-stamp"><div class="stampbox"></div>' + kin("s23-word", "NO SETUP FEE", cls="kinetic stampword glinty") + '</div>',
  "S24": (f'<div id="s24-shield">{SHIELD}</div><div class="stamp" id="s24-stamp"><div class="stampbox"></div>'
          + kin("s24-word", "SECURE BY DESIGN", cls="kinetic stampword glinty") + '</div>'),
@@ -332,8 +349,10 @@ shutil.copy("web/hyperframes.json", "web-tests/motion-s07-s08/hyperframes.json")
 json.dump({"id": "eduledger-motion-s07-s08", "name": "EduLedger motion test S07→S08", "createdAt": "2026-10-06T10:00:00.000Z"},
           open("web-tests/motion-s07-s08/meta.json", "w"), indent=2)
 page("web-tests/motion-s07-s08/index.html", "EduLedger motion test S07→S08", 7.40, 5.00, only=["S06", "S07", "S08"])
+manifest = {"_mode": MODE, **dict(sorted(manifest.items()))}
 json.dump(manifest, open("web/assets/manifest.json", "w"), indent=1)
-real = sorted(k for k, v in manifest.items() if v["status"] in ("REAL", "MASTER"))
-ph = sorted(k for k, v in manifest.items() if v["status"] not in ("REAL", "MASTER"))
-print(f"inputs REAL: {real or 'none'}")
-print(f"inputs PLACEHOLDER/PROVISIONAL/PREVIEW: {ph}")
+by = lambda st: sorted(k for k, v in manifest.items() if k != "_mode" and v["status"] in st)
+print(f"build mode: {MODE}")
+print(f"inputs REAL: {by(('REAL', 'MASTER')) or 'none'}")
+print(f"inputs MOCK (internal drafts only): {by(('MOCK',)) or 'none'}")
+print(f"inputs PLACEHOLDER/PROVISIONAL/PREVIEW: {by(('PLACEHOLDER', 'PROVISIONAL', 'PREVIEW')) or 'none'}")

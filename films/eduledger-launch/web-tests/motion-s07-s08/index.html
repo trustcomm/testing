@@ -199,7 +199,7 @@ body { font-family: "Inter", sans-serif; color: var(--white); }
 .uiimg { position: absolute; inset: 0; background-size: cover; background-position: top center; background-repeat: no-repeat; }
 .ph-ui { display: flex; align-items: center; justify-content: center; border: 2px dashed rgba(244, 246, 255, 0.5); background: rgba(13, 26, 46, 0.92); }
 .ph-ui span { font: 600 20px/1.5 "Inter", sans-serif; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(244, 246, 255, 0.85); text-align: center; }
-.demo-tag { position: absolute; top: 14px; right: 14px; font: 600 15px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
+.demo-tag { position: absolute; bottom: 14px; right: 14px; z-index: 5; font: 600 15px/1 "Inter", sans-serif; letter-spacing: 0.08em; text-transform: uppercase;
   color: #e7ebf8; background: rgba(7, 17, 31, 0.7); border: 1px solid rgba(214, 222, 255, 0.45); border-radius: 999px; padding: 7px 11px; }
 .persp { position: absolute; left: 0; right: 0; perspective: 1800px; perspective-origin: 50% 0%; }
 .persp .tilt { position: absolute; left: 0; right: 0; top: 0; display: flex; justify-content: center; transform: rotateX(20deg); transform-origin: 50% 0%; }
@@ -353,6 +353,11 @@ body { font-family: "Inter", sans-serif; color: var(--white); }
 /* UI sweep: a soft band of brand light crosses the frame once (x tweened by GSAP; no CSS transform here) */
 .uiframe .sheen { position: absolute; top: -10%; bottom: -10%; left: -40%; width: 34%; opacity: 0; z-index: 2;
   background: linear-gradient(100deg, rgba(160, 140, 255, 0) 0%, rgba(160, 140, 255, 0.26) 50%, rgba(160, 140, 255, 0) 100%); }
+
+/* TEMPORARY MOCK UI (internal drafts only): the code-drawn cards carry the same watermark as the mock screens */
+.mockcard { padding-bottom: 64px !important; }
+.mock-wm { position: absolute; left: 16px; bottom: 14px; z-index: 6; font: 700 16px/1 "Inter", sans-serif; letter-spacing: 0.02em; color: #ffffff;
+  background: rgba(15, 23, 50, 0.94); border: 2px dashed #f5b83d; border-radius: 8px; padding: 8px 11px; white-space: nowrap; }
 
 </style>
 </head>

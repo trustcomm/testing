@@ -345,7 +345,6 @@
     const tick = sfx("X11", "S20")[0];
     const chars = document.querySelectorAll("#s20-card .ch");
     if (chars.length) {   // code-drawn stand-in: the message types on the VO, ticks land on X11
-      tl.fromTo("#s20-cardnote", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power1.out" }, s.start + 0.3);
       const t0 = word("L10", 2), tw = word("L10", 5) - 0.12;
       tl.fromTo(chars, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none", stagger: (tw - t0) / chars.length }, t0);
       tl.fromTo("#s20-ticks", { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(3)" }, tick);
@@ -369,8 +368,12 @@
     const one = word("L11", 4);
     tl.to("#s22-a", { y: -40, opacity: 0, duration: 0.25, ease: "power2.in" }, one - LEAD - 0.25);
     wordsIn(tl, ["#s22b-w1", "#s22b-w2", "#s22b-w3"], [one, word("L11", 5), word("L11", 6)], "pop");
-    tl.fromTo("#s22-card", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, s.start + 0.3);
     const ticks = sfx("X09", "S22"), c0 = ticks[0], dur = ticks[ticks.length - 1] - c0;
+    if (!document.querySelector("#s22-card")) {   // real dashboard (or a final build): no code-drawn callout, a light sweep instead
+      sweep(tl, "#s22-ui", c0);
+      return;
+    }
+    tl.fromTo("#s22-card", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, s.start + 0.3);
     const fmtIN = (n) => Math.round(n).toLocaleString("en-IN");
     [["#s22-n1", 2486, fmtIN], ["#s22-n2", 2357, fmtIN], ["#s22-n3", 8.4, (v) => `₹${v.toFixed(1)}L`], ["#s22-n4", 94.8, (v) => `${v.toFixed(1)}%`]]
       .forEach(([sel, to, fmt]) => {
