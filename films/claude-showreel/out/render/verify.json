@@ -13,13 +13,31 @@
    "rate": 48000,
    "channels": 2
   },
-  "size_mb": 329.6
+  "size_mb": 47.3
  },
  "loudness": {
   "integrated_lufs": -14.2,
   "true_peak_dbtp": -2.3
  },
- "onsets": [
+ "sync_lags": [
+  {
+   "section_s": 1.0,
+   "lag_ms": 0.0
+  },
+  {
+   "section_s": 5.0,
+   "lag_ms": 0.0
+  },
+  {
+   "section_s": 9.0,
+   "lag_ms": 0.0
+  },
+  {
+   "section_s": 13.0,
+   "lag_ms": 0.0
+  }
+ ],
+ "envelope_onsets_informational": [
   {
    "cue": 1.0,
    "onset": 1.011,
@@ -92,35 +110,35 @@
   }
  ],
  "motion": {
-  "max_change": 64.1,
+  "max_change": 64.0,
   "largest_changes": [
    {
     "t": 6.933,
-    "change": 48.5
+    "change": 48.3
    },
    {
     "t": 6.95,
-    "change": 45.5
+    "change": 45.8
    },
    {
     "t": 6.983,
-    "change": 64.1
+    "change": 64.0
    },
    {
     "t": 12.967,
-    "change": 46.1
+    "change": 45.8
    },
    {
     "t": 12.983,
-    "change": 54.8
+    "change": 54.5
    },
    {
     "t": 13.0,
-    "change": 50.8
+    "change": 51.3
    }
   ],
   "isolated_spikes": [],
-  "longest_still_run_frames": 0,
+  "longest_still_run_frames": 2,
   "longest_still_starts_s": 0.017
  },
  "contact_sheet": "out/render/contact-sheet.jpg",
@@ -128,9 +146,9 @@
   "format_1920x1080_60fps_900f": true,
   "audio_present": true,
   "loudness_-14_lufs": true,
-  "audio_on_cue_\u00b11_frame": false,
+  "audio_in_sync_with_master_\u00b11ms": true,
   "no_hard_cuts": true,
   "never_still_over_0.5s": true
  },
- "pass": false
+ "pass": true
 }

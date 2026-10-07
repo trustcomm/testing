@@ -2,7 +2,7 @@
 
 A 15-second résumé reel, 1920×1080 at 60 fps, in one unbroken take. A single clay-coloured dot moves through seven motion-design disciplines and ends as the full stop in "Claude.", before the camera pulls back to show the whole reel as one composition in a motion tool.
 
-Output: `out/render/claude-showreel.mp4`.
+Output: `out/render/claude-showreel.mp4` (H.264 High, CRF 18, 47 MB, AAC). The render command writes a 77 MB master to `out/render/work/` (not committed), and `scripts/encode_web.sh` makes the web file from it.
 
 ## The take, beat by beat
 
@@ -38,8 +38,9 @@ python3 -I scripts/compose_audio.py   # soundtrack + src/waveform.json
 python3 -I scripts/build_cues.py      # src/cues.js (cue sheet + waveform for the picture)
 npx hyperframes@0.8.140 check          # lint, runtime, layout, contrast
 node scripts/audit_seek.mjs            # pixels identical under forward / backward / random seeks
-npx hyperframes@0.8.140 render --fps 60 --workers 3 --quality delivery --output out/render/claude-showreel.mp4
-python3 -I scripts/verify_render.py    # format, loudness, on-cue audio, no hard cuts, contact sheet
+npx hyperframes@0.8.140 render --fps 60 --workers 3 --quality delivery --output out/render/work/claude-showreel-master.mp4
+scripts/encode_web.sh                  # → out/render/claude-showreel.mp4 (audio stream copied from the master)
+python3 -I scripts/verify_render.py    # format, loudness, A/V sync vs the master soundtrack, no hard cuts, stillness, contact sheet
 ```
 
 For rendering in a headless container:
@@ -65,3 +66,17 @@ For rendering in a headless container:
 | three.js | MIT |
 | GSAP | Standard "no charge" licence |
 | Bundled SFX | Pixabay Content License |
+
+## Verification (final file)
+
+| Check | Result |
+| --- | --- |
+| Format | 900 frames, 1920×1080, 60 fps |
+| Loudness | −14.2 LUFS, −2.3 dBTP |
+| A/V sync | lag 0.0 ms against the master soundtrack |
+| Cuts | none (no isolated frame-difference spikes) |
+| Stillness | never still for more than 2 frames |
+| `hyperframes check` | lint 0, layout 0, contrast 87/87 |
+| Seek audit | 44 frames × 3 seek orders, pixel-identical (1-level raster noise allowed) |
+
+The animation map shows a single 15 s driver tween, because the choreography lives in pure functions of `t` rather than in GSAP tweens. That is why the pixel seek audit, rather than the map, is the determinism check here.
