@@ -1,0 +1,23 @@
+{
+ "integrated_lufs": -14.0,
+ "true_peak_dbtp": -2.7,
+ "aac": {
+  "lufs": -14.0,
+  "true_peak_dbtp": -2.7
+ },
+ "pre_master": {
+  "lufs": -14.4,
+  "true_peak": -3.1
+ },
+ "gain_db": 0.4,
+ "limit_dbfs": -1.9,
+ "kicks": 23,
+ "stems_rms_db": {
+  "drums": -7.4,
+  "bass": -9.2,
+  "music": -13.6,
+  "fx": -18.1,
+  "sfx": -8.4
+ },
+ "pass": true
+}

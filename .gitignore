@@ -24,3 +24,9 @@ films/eduledger-launch/out/mix/*.m4a
 films/eduledger-launch/web/snapshots/
 films/eduledger-launch/out/final/work/
 films/eduledger-launch/out/mocks/
+films/claude-showreel/out/audio/stems/
+films/claude-showreel/out/audio/*.wav
+films/claude-showreel/out/audio/*.m4a
+films/claude-showreel/out/render/work*/
+films/claude-showreel/out/frames/
+films/claude-showreel/snapshots/
