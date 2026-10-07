@@ -1023,8 +1023,9 @@
   }
 
   function renderGrain(t) {
-    const h = hash(Math.round(frameOf(t)) + 17);
-    D.grain.style.backgroundPosition = `${h % 256}px ${(h >>> 8) % 256}px`;
+    // grain stepped "on threes" (a new offset every 3rd frame, 20 Hz): reads as film, costs a third of the bits
+    const h = hash(Math.floor(frameOf(t) / 3 + 1e-6) + 17);
+    D.grain.style.backgroundPosition = `${h % 512}px ${(h >>> 9) % 512}px`;
   }
 
   let lastT = -1;

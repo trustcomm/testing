@@ -36,7 +36,7 @@ A résumé reel in one unbroken take. A single clay-coloured dot is the protagon
 
   The HUD is the reel's "animator's monitor". At the close it turns out to be part of the tool UI.
 - **Registration marks** in the four corners and a faint 64 px baseline grid: an artboard, not a web page.
-- **Grain** on every frame (seeded, stepped per frame), never decorative noise bursts.
+- **Grain** stepped on threes (a new seeded offset every 3rd frame, 20 Hz, 2 px grain), never decorative noise bursts.
 
 ## Composition rules
 - One focal element per beat, always the dot or what it became; the HUD is the second focal layer.
