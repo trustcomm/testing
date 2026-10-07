@@ -17,7 +17,7 @@ All frames live in one composition (`index.html`). The piece is one continuous t
 - duration: 1s
 - poster: 0.55
 - transition_in: none (first frame)
-- status: outline
+- status: built
 - src: index.html
 - blueprint: zoom-out-workspace-reveal (hook sub-shape A: full-bleed detail → one decelerating zoom-out)
 - rules: motion-blur-streak (vertical fall smear), physics-press-reaction (contact squash)
@@ -28,7 +28,7 @@ All frames live in one composition (`index.html`). The piece is one continuous t
 - duration: 2s
 - poster: 2.25
 - transition_in: continuous (same ball)
-- status: outline
+- status: built
 - src: index.html
 - rules: svg-path-draw (dotted arc + floor), motion-blur-streak path B (ghost trail → onion skins), spring-pop-entrance (keyframe diamonds), chart-scrub-readout playhead form (HUD curve)
 
@@ -38,17 +38,17 @@ All frames live in one composition (`index.html`). The piece is one continuous t
 - duration: 2s
 - poster: 4.1
 - transition_in: continuous (ball lands, becomes the goo)
-- status: outline
+- status: built
 - src: index.html
-- rules: sine-wave-loop (damped wobble), scale-swap-transition (blob → bar at the same anchor); technique: SVG filter metaballs
+- rules: sine-wave-loop (damped wobble), scale-swap-transition (blob → bar at the same anchor); technique: signed-distance metaballs (smooth-min) in a WebGL shader (crisper than an SVG goo filter, and a 22 px bar survives the merge)
 
 ## Frame 4 — 03 Kinetic Type
 
-- scene: TIMING. SPACING. WEIGHT. FEEL. rise from the line, each moving the way its word means; the full stop swallows the frame
+- scene: TIMING. SPACING. WEIGHT. FEEL. rise from the line, each moving the way its word means; the camera dives into Feel.'s full stop (log-space, mirroring the cold open)
 - duration: 2s
 - poster: 6.25
 - transition_in: continuous (the line becomes the baseline)
-- status: outline
+- status: built
 - src: index.html
 - blueprint: kinetic-type-beats (sub-shape B, multi-beat statement build)
 - rules: kinetic-beat-slam (one beat array, a distinct entrance per word); technique: variable-font axes (wght, SOFT, WONK)
@@ -59,7 +59,7 @@ All frames live in one composition (`index.html`). The piece is one continuous t
 - duration: 2s
 - poster: 8.1
 - transition_in: continuous (clay full frame = extreme close-up of the sphere)
-- status: outline
+- status: built
 - src: index.html
 - adapter: three (seeked from the GSAP timeline)
 - rules: 3d-camera-flight (dolly + orbit), depth-of-field-blur (fog falloff)
@@ -70,17 +70,17 @@ All frames live in one composition (`index.html`). The piece is one continuous t
 - duration: 2s
 - poster: 9.9
 - transition_in: continuous (the burst comes from the sphere's last position)
-- status: outline
+- status: built
 - src: index.html
-- rules: particle-burst (index-seeded pure-function flight, generalised to Canvas 2D), depth-scatter-assemble (scatter → layout)
+- rules: particle-burst (index-seeded pure-function flight, generalised to Canvas 2D, drawn as 2-frame light trails), depth-scatter-assemble (scatter → layout)
 
 ## Frame 7 — 06 Data
 
-- scene: This reel, in numbers: 900 frames, 30 beats, 7 disciplines, 0 cuts. The zero bar is just the dot.
+- scene: This reel, in numbers: 900 frames, 30 beats, 7 disciplines, 0 cuts, drawn as an honest isotype chart (one dot per unit, 30 per row; each dot lights as its number counts). The zero is just the dot.
 - duration: 2s
 - poster: 12.75
 - transition_in: continuous (particles solidify into the bars)
-- status: outline
+- status: built
 - src: index.html
 - blueprint: dataviz-countup
 - rules: stat-bars-and-fills, counting-dynamic-scale
@@ -91,7 +91,7 @@ All frames live in one composition (`index.html`). The piece is one continuous t
 - duration: 2s
 - poster: 14.9
 - transition_in: continuous (paper iris opens from the dot)
-- status: outline
+- status: built
 - src: index.html
 - blueprints: logo-assemble-lockup (brand-outro morph chain), zoom-out-workspace-reveal (hook A: artboard inside a design-tool canvas, timeline with playhead)
 - rules: spring-pop-entrance, chart-scrub-readout (playhead form), svg-path-draw (waveform)

@@ -1,0 +1,55 @@
+{
+ "buildMs": 617,
+ "samples": 44,
+ "mismatches": [],
+ "rasterNoise": [
+  {
+   "t": "14.4000",
+   "passes": "forward/random",
+   "values": 3,
+   "maxLevel": 1
+  },
+  {
+   "t": "14.9833",
+   "passes": "forward/random",
+   "values": 4,
+   "maxLevel": 1
+  }
+ ],
+ "errors": [],
+ "beats": {
+  "contacts": [
+   {
+    "t": 1,
+    "sx": 1.42,
+    "before": 1.249
+   },
+   {
+    "t": 1.5,
+    "sx": 1.42,
+    "before": 1.27
+   },
+   {
+    "t": 2,
+    "sx": 1.42,
+    "before": 1.27
+   },
+   {
+    "t": 2.5,
+    "sx": 1.42,
+    "before": 1.27
+   }
+  ],
+  "landJelly": 1.18,
+  "period": {
+   "x": 1019.546875,
+   "y": 587.55,
+   "r": 21.000000000000004,
+   "sx": 1.3599999999999999,
+   "sy": 0.7,
+   "rot": 0,
+   "a": 1
+  }
+ },
+ "pass": true
+}

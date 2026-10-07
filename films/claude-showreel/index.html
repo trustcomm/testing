@@ -3,53 +3,393 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <title>Claude — Motion Reel</title>
+    <script src="assets/vendor/gsap-3.14.2.min.js"></script>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      @font-face {
+        font-family: "Fraunces";
+        src: url("assets/fonts/fraunces-latin-full-normal.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "Fraunces";
+        src: url("assets/fonts/fraunces-latin-full-italic.woff2") format("woff2");
+        font-weight: 100 900;
+        font-style: italic;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("assets/fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+        font-display: block;
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("assets/fonts/jetbrains-mono-latin-700-normal.woff2") format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: block;
+      }
+      :root {
+        --paper: #f2ede3;
+        --paper-2: #e7dfd1;
+        --ink: #1b1714;
+        --ink-2: #27211c;
+        --clay: #d2643a;
+        --clay-light: #efa27f;
+        --clay-deep: #9c4122;
+        --muted-ink: #5e554c;
+        --muted-paper: #b7ac9f;
       }
       html,
       body {
         margin: 0;
+        padding: 0;
+        background: var(--ink);
+      }
+      body {
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #0a0a0a;
       }
       #root {
+        position: relative;
         width: 100%;
         height: 100%;
+        overflow: hidden;
+        background: var(--ink);
+        font-family: "JetBrains Mono", monospace;
+        -webkit-font-smoothing: antialiased;
+      }
+      .layer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1920px;
+        height: 1080px;
+      }
+      .fr {
+        font-family: "Fraunces", serif;
+        font-variation-settings: "opsz" var(--opsz, 144), "wght" var(--wght, 560), "SOFT" var(--soft, 0), "WONK" var(--wonk, 0);
+        font-weight: normal;
+      }
+      .mono {
+        font-family: "JetBrains Mono", monospace;
+        font-weight: 400;
+      }
+      .g {
+        position: absolute;
+        display: block;
+        line-height: 0;
+        white-space: pre;
+      }
+      .mask {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1920px;
+        overflow: hidden;
+      }
+
+      /* ---------- the artboard (the video frame itself; scales into the tool at the close) */
+      #artboard {
+        transform-origin: 0 0;
+        overflow: hidden;
+        background: var(--paper);
+      }
+      #bg {
+        background: var(--paper);
+      }
+      #cam {
+        transform-origin: 0 0;
+      }
+      #gl,
+      #field {
+        display: none;
+      }
+      #c3rule {
+        position: absolute;
+        background: var(--clay);
+        border-radius: 999px;
+        display: none;
+      }
+
+      /* ---------- c6 chart type */
+      .num {
+        position: absolute;
+        line-height: 0;
+        white-space: pre;
+        color: var(--paper);
+        transform-origin: 0 0;
+      }
+      .num .d {
+        display: inline-block;
+        text-align: center;
+      }
+      .lab {
+        position: absolute;
+        font-size: 18px;
+        letter-spacing: 0.12em;
+        color: var(--muted-paper);
+        line-height: 0;
+        white-space: pre;
+      }
+
+      /* ---------- c7 lockup */
+      #c7sub {
+        position: absolute;
+        font-size: 30px;
+        letter-spacing: 0.3em;
+        color: var(--ink);
+        line-height: 0;
+        white-space: pre;
+      }
+      #c7cursor {
+        position: absolute;
+        width: 15px;
+        height: 30px;
+        background: var(--ink);
+      }
+      #c7tag {
+        position: absolute;
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 40px;
+        font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 50, "WONK" 0;
+        color: var(--muted-ink);
+        line-height: 0;
+        white-space: pre;
+      }
+
+      /* ---------- HUD (screen space) */
+      #hud {
+        pointer-events: none;
+        color: var(--ink);
+      }
+      .hud-blk {
+        position: absolute;
+        transform-origin: 0 0;
+      }
+      #hud-tl {
+        left: 64px;
+        top: 52px;
+      }
+      #hud-name {
+        font-family: "Fraunces", serif;
+        font-size: 30px;
+        font-variation-settings: "opsz" 144, "wght" 600, "SOFT" 30, "WONK" 0;
+        line-height: 36px;
+      }
+      .hud-sub {
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: 0.06em;
+      }
+      #hud-tr {
+        right: 64px;
+        top: 52px;
+        text-align: right;
+      }
+      #hud-tc {
+        display: inline-block;
+        font-size: 24px;
+        line-height: 34px;
+        letter-spacing: 0.04em;
+      }
+      #hud-beats {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 14px;
+        height: 26px;
+      }
+      .sq-row {
+        display: flex;
+        gap: 6px;
+      }
+      .sq {
+        width: 10px;
+        height: 10px;
+        box-sizing: border-box;
+      }
+      #hud-bl {
+        left: 64px;
+        bottom: 52px;
+        width: 760px;
+        height: 96px;
+      }
+      .chap {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 760px;
+        white-space: nowrap;
+      }
+      .chap .idx {
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: 0.06em;
+      }
+      .chap .ttl {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 44px;
+        line-height: 54px;
+        font-variation-settings: "opsz" 144, "wght" 420, "SOFT" 60, "WONK" 1;
+      }
+      #hud-br {
+        right: 64px;
+        bottom: 52px;
+        width: 300px;
+        height: 182px;
+      }
+      #hud-ease {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 300px;
+        height: 26px;
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: 0.04em;
+        white-space: nowrap;
+      }
+      #hud-curve {
+        position: absolute;
+        left: 0;
+        top: 32px;
+        width: 300px;
+        height: 150px;
+        overflow: visible;
+        transform-origin: 0 0;
+      }
+
+      /* ---------- the tool UI (the close) */
+      #tool {
+        display: none;
+        transform-origin: 0 0;
+        color: var(--paper);
+      }
+      #toolbg {
+        display: none;
+        background: var(--ink);
+      }
+      .panel {
+        position: absolute;
+        background: var(--ink-2);
+        box-sizing: border-box;
+      }
+      .t18 {
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+      }
+      .muted {
+        color: var(--muted-paper);
+      }
+      .row {
+        position: absolute;
+        left: 0;
+        width: 300px;
+        height: 40px;
+        box-sizing: border-box;
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        gap: 14px;
+        padding-left: 24px;
       }
-      #title {
-        color: #f4f4f5;
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
+      .row.sel {
+        background: rgba(210, 100, 58, 0.18);
+        box-shadow: inset 3px 0 0 var(--clay);
+      }
+      .clipbox {
+        position: absolute;
+        height: 38px;
+        box-sizing: border-box;
+        border-radius: 14px;
+        padding: 0 12px;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 18px;
+        line-height: 34px;
+      }
+
+      #grain {
+        pointer-events: none;
+        opacity: 0.055;
+        background-size: 256px 256px;
+      }
+      .measure {
+        position: absolute;
+        left: 0;
+        top: 0;
+        visibility: hidden;
+        white-space: pre;
+        line-height: 0;
       }
     </style>
   </head>
   <body>
-    <div
-      id="root"
-      data-composition-id="main"
-      data-start="0"
-      data-duration="10"
-      data-width="1920"
-      data-height="1080"
-    >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-fps="60" data-duration="15">
+      <div id="toolbg" class="layer"></div>
+      <div id="artboard" class="layer">
+        <div id="bg" class="layer"></div>
+        <div id="cam" class="layer">
+          <svg id="grid" class="layer" viewBox="0 0 1920 1080" width="1920" height="1080" data-layout-allow-overflow></svg>
+          <svg id="c1" class="layer" viewBox="0 0 1920 1080" width="1920" height="1080" overflow="visible"></svg>
+          <div id="c3" class="layer">
+            <div id="c3rule"></div>
+          </div>
+        </div>
+        <canvas id="gl" class="layer" width="1920" height="1080"></canvas>
+        <canvas id="field" class="layer" width="1920" height="1080"></canvas>
+        <div id="c6" class="layer"></div>
+        <div id="c7" class="layer"></div>
+        <svg id="covers" class="layer" viewBox="0 0 1920 1080" width="1920" height="1080"></svg>
+        <svg id="marks" class="layer" viewBox="0 0 1920 1080" width="1920" height="1080"></svg>
+      </div>
+      <div id="tool" class="layer"></div>
+      <div id="hud" class="layer">
+        <div id="hud-tl" class="hud-blk">
+          <div id="hud-name">Claude</div>
+          <div class="hud-sub mono" id="hud-reel">MOTION REEL — 2026</div>
+        </div>
+        <div id="hud-tr" class="hud-blk">
+          <div id="hud-tc" class="mono" data-layout-allow-overlap>00:00:00:00</div>
+          <div id="hud-beats" class="mono">
+            <span class="hud-sub" id="hud-bpm">120 BPM · 60 FPS</span>
+            <span class="sq-row"><span class="sq"></span><span class="sq"></span><span class="sq"></span><span class="sq"></span></span>
+          </div>
+        </div>
+        <div id="hud-bl" class="hud-blk mono"></div>
+        <div id="hud-br" class="hud-blk mono">
+          <div id="hud-ease"></div>
+          <svg id="hud-curve" viewBox="0 0 300 150" width="300" height="150"></svg>
+        </div>
+      </div>
+      <div id="grain" class="layer"></div>
+      <audio id="soundtrack" src="assets/audio/soundtrack.wav" data-start="0" data-duration="15" data-track-index="10"></audio>
     </div>
     <script>
-      const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 0);
-      window.__timelines["main"] = tl;
-      tl.seek(0);
+      // Three.js is an ES module; import it relative to this document so the path holds wherever the page is served.
+      window.__THREE = import("./assets/vendor/three.module.min.js");
+    </script>
+    <script src="src/cues.js"></script>
+    <script src="src/lib.js"></script>
+    <script src="src/gl.js"></script>
+    <script src="src/reel.js"></script>
+    <script>
+      // Register the root timeline only once the async build (fonts, WebGL, measured type) has finished.
+      window.__hf.buildReady["reel"] = (async () => {
+        const { tl } = await window.__reelBuild();
+        window.__timelines["main"] = tl;
+        if (window.__hfForceTimelineRebind) window.__hfForceTimelineRebind();
+      })();
     </script>
   </body>
 </html>

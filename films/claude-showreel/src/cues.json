@@ -15,7 +15,7 @@
     { "id": "c7", "n": "07", "title": "Identity", "start": 13.0, "end": 15.0, "ease": "expo.inOut" }
   ],
   "visual": {
-    "c0": { "zoomEnd": 0.62, "land": 1.0, "ball": [560, 330], "floorY": 760, "r": 70 },
+    "c0": { "zoomEnd": 0.62, "land": 1.0, "ball": [600, 330], "floorY": 760, "r": 70 },
     "c1": { "contacts": [1.0, 1.5, 2.0, 2.5], "xs": [600, 900, 1200, 1500], "apex": 270, "launch": 2.5, "land": [960, 600], "rBig": 240 },
     "c2": { "land": 3.0, "split": 3.5, "pulse": 4.0, "merge": 4.5, "stretch": 4.85, "bar": [150, 760, 1180, 22] },
     "c3": { "words": [[5.0, "Timing."], [5.5, "Spacing."], [6.0, "Weight."], [6.5, "Feel."]], "swallow": 6.75 },

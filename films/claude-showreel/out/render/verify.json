@@ -1,0 +1,136 @@
+{
+ "file": "out/render/claude-showreel.mp4",
+ "probe": {
+  "width": 1920,
+  "height": 1080,
+  "fps": "60/1",
+  "frames": 900,
+  "video_codec": "h264",
+  "pix_fmt": "yuv420p",
+  "duration_s": 15.0,
+  "audio": {
+   "codec": "aac",
+   "rate": 48000,
+   "channels": 2
+  },
+  "size_mb": 329.6
+ },
+ "loudness": {
+  "integrated_lufs": -14.2,
+  "true_peak_dbtp": -2.3
+ },
+ "onsets": [
+  {
+   "cue": 1.0,
+   "onset": 1.011,
+   "offset_ms": 11.0
+  },
+  {
+   "cue": 1.5,
+   "onset": 1.534,
+   "offset_ms": 34.0
+  },
+  {
+   "cue": 2.0,
+   "onset": 2.023,
+   "offset_ms": 23.0
+  },
+  {
+   "cue": 2.5,
+   "onset": 2.524,
+   "offset_ms": 24.0
+  },
+  {
+   "cue": 3.0,
+   "onset": 3.033,
+   "offset_ms": 33.0
+  },
+  {
+   "cue": 5.0,
+   "onset": 5.033,
+   "offset_ms": 33.0
+  },
+  {
+   "cue": 6.0,
+   "onset": 6.003,
+   "offset_ms": 3.0
+  },
+  {
+   "cue": 7.0,
+   "onset": 7.029,
+   "offset_ms": 29.0
+  },
+  {
+   "cue": 7.5,
+   "onset": 7.532,
+   "offset_ms": 32.0
+  },
+  {
+   "cue": 8.0,
+   "onset": 8.0,
+   "offset_ms": 0.0
+  },
+  {
+   "cue": 8.5,
+   "onset": 8.53,
+   "offset_ms": 30.0
+  },
+  {
+   "cue": 9.0,
+   "onset": 9.023,
+   "offset_ms": 23.0
+  },
+  {
+   "cue": 11.0,
+   "onset": 11.01,
+   "offset_ms": 10.0
+  },
+  {
+   "cue": 13.0,
+   "onset": 13.018,
+   "offset_ms": 18.0
+  }
+ ],
+ "motion": {
+  "max_change": 64.1,
+  "largest_changes": [
+   {
+    "t": 6.933,
+    "change": 48.5
+   },
+   {
+    "t": 6.95,
+    "change": 45.5
+   },
+   {
+    "t": 6.983,
+    "change": 64.1
+   },
+   {
+    "t": 12.967,
+    "change": 46.1
+   },
+   {
+    "t": 12.983,
+    "change": 54.8
+   },
+   {
+    "t": 13.0,
+    "change": 50.8
+   }
+  ],
+  "isolated_spikes": [],
+  "longest_still_run_frames": 0,
+  "longest_still_starts_s": 0.017
+ },
+ "contact_sheet": "out/render/contact-sheet.jpg",
+ "checks": {
+  "format_1920x1080_60fps_900f": true,
+  "audio_present": true,
+  "loudness_-14_lufs": true,
+  "audio_on_cue_\u00b11_frame": false,
+  "no_hard_cuts": true,
+  "never_still_over_0.5s": true
+ },
+ "pass": false
+}

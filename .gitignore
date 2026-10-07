@@ -30,3 +30,7 @@ films/claude-showreel/out/audio/*.m4a
 films/claude-showreel/out/render/work*/
 films/claude-showreel/out/frames/
 films/claude-showreel/snapshots/
+films/claude-showreel/out/render/render.log
+films/claude-showreel/out/audit/mismatch/
+films/claude-showreel/out/render/*.mp4
+!films/claude-showreel/out/render/claude-showreel.mp4
