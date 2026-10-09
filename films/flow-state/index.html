@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Flow State</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        overflow: hidden;
+      }
+      canvas {
+        display: block;
+        width: 1080px;
+        height: 1920px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="film" width="1080" height="1920"></canvas>
+    <script src="src/timeline.js"></script>
+    <script src="src/lib.js"></script>
+    <script src="src/film.js"></script>
+    <script>
+      // Fonts and the logo load first; renderFrame(f) is only called once READY is set.
+      (async () => {
+        const faces = [
+          ["Outfit", "assets/fonts/outfit-latin-200-normal.woff2", { weight: "200" }],
+          ["Outfit", "assets/fonts/outfit-latin-300-normal.woff2", { weight: "300" }],
+          ["Cormorant Garamond", "assets/fonts/cormorant-garamond-latin-400-italic.woff2", { weight: "400", style: "italic" }],
+          ["Cormorant Garamond", "assets/fonts/cormorant-garamond-latin-500-italic.woff2", { weight: "500", style: "italic" }],
+        ];
+        for (const [family, url, desc] of faces) {
+          const face = new FontFace(family, `url(${url})`, desc);
+          await face.load();
+          document.fonts.add(face);
+        }
+        await document.fonts.ready;
+        const logo = new Image();
+        logo.src = "assets/img/godevlevel-on-dark.png";
+        await logo.decode();
+        window.FILM.init({ logo });
+        window.renderFrame(0);
+        window.READY = true;
+      })().catch((e) => {
+        window.READY_ERROR = String((e && e.stack) || e);
+      });
+    </script>
+  </body>
+</html>
