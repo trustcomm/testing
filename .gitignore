@@ -35,3 +35,4 @@ films/claude-showreel/out/audit/mismatch/
 films/claude-showreel/out/render/*.mp4
 !films/claude-showreel/out/render/claude-showreel.mp4
 films/flow-state/build/
+films/flow-state/out/*-review.mp4

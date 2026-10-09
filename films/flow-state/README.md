@@ -85,6 +85,25 @@ Every frame is a pure function of its frame number:
 
 `scripts/logo.py` makes the on-dark GoDevLevel wordmark from the supplied logo. The slate letters become moon white, and the orange is kept exactly.
 
+## Verification (final file)
+
+`python3 -I scripts/verify.py` writes `out/verify.json` and `out/contact-sheet.jpg`.
+
+| Check | Result |
+| --- | --- |
+| Format | 1824 frames, 1080×1920, 60 fps, 30.4 s, H.264 High yuv420p, 35.35 MB |
+| Colour | BT.709 primaries, transfer and matrix; limited (TV) range |
+| Audio | AAC-LC, 48 kHz stereo, 314 kb/s |
+| Fast start | `moov` box before `mdat` |
+| Loudness (after AAC) | -14.0 LUFS integrated, -1.5 dBTP true peak, LRA 4.9 LU |
+| Score master | -14.0 LUFS, -1.5 dBTP; the limiter touches only two transients (at most 2.9 dB of gain reduction, each under 30 ms); click scan 0 |
+| Mix | sound design -15.5 LUFS, music bed -18.8 LUFS, water ambience -37.1 LUFS |
+| Picture/sound sync | lag 0.0 ms against the master score; every event sound starts on frame × 800 samples (swells end there) |
+| Event onsets | impact, shine and splash transients 2–20 ms after their frame (synthesized attacks and the strummed chime) |
+| Cuts | none: no isolated frame-difference spikes (flashes ignite over two frames) |
+| Stillness | never still for more than 3 frames (the first frames of the fade from black) |
+| Text | every line fully legible for 1.17–1.63 s |
+
 ## Credits
 
 | Asset | Licence |

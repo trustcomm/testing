@@ -1,0 +1,121 @@
+{
+ "file": "out/flow-state.mp4",
+ "probe": {
+  "video": {
+   "codec_name": "h264",
+   "profile": "High",
+   "width": 1080,
+   "height": 1920,
+   "r_frame_rate": "60/1",
+   "pix_fmt": "yuv420p",
+   "color_space": "bt709",
+   "color_primaries": "bt709",
+   "color_transfer": "bt709",
+   "color_range": "tv",
+   "nb_read_frames": "1824",
+   "bit_rate": "8975908"
+  },
+  "audio": {
+   "codec_name": "aac",
+   "profile": "LC",
+   "sample_rate": "48000",
+   "channels": 2,
+   "bit_rate": "313799"
+  },
+  "duration_s": 30.4,
+  "size_mb": 35.35
+ },
+ "top_level_boxes": [
+  "ftyp",
+  "moov",
+  "free",
+  "mdat"
+ ],
+ "loudness": {
+  "integrated_lufs": -14.0,
+  "true_peak_dbtp": -1.5,
+  "lra_lu": 4.9
+ },
+ "sync_lags": [
+  {
+   "section_s": 2.0,
+   "lag_ms": 0.0
+  },
+  {
+   "section_s": 9.0,
+   "lag_ms": 0.0
+  },
+  {
+   "section_s": 16.0,
+   "lag_ms": 0.0
+  },
+  {
+   "section_s": 22.0,
+   "lag_ms": 0.0
+  },
+  {
+   "section_s": 28.5,
+   "lag_ms": 0.0
+  }
+ ],
+ "event_onsets": [
+  {
+   "frame": 144,
+   "type": "drop",
+   "offset_ms": 7.0
+  },
+  {
+   "frame": 144,
+   "type": "sub",
+   "offset_ms": 7.0
+  },
+  {
+   "frame": 1344,
+   "type": "chime",
+   "offset_ms": 9.0
+  },
+  {
+   "frame": 1344,
+   "type": "sub",
+   "offset_ms": 9.0
+  },
+  {
+   "frame": 1572,
+   "type": "chime",
+   "offset_ms": 20.0
+  },
+  {
+   "frame": 1572,
+   "type": "sub",
+   "offset_ms": 20.0
+  },
+  {
+   "frame": 1764,
+   "type": "drop",
+   "offset_ms": 2.0
+  }
+ ],
+ "motion": {
+  "frames": 1824,
+  "mean_change": 0.311,
+  "max_change": 5.59,
+  "max_change_frame": 1344,
+  "isolated_spikes": [],
+  "longest_still_run_frames": 3
+ },
+ "contact_sheet": "out/contact-sheet.jpg",
+ "checks": {
+  "format_1080x1920_60fps_1824f": true,
+  "h264_high_yuv420p": true,
+  "bt709_tv_range": true,
+  "aac_48k_stereo_320k": true,
+  "duration_30.4s": true,
+  "faststart": true,
+  "loudness_-14_lufs": true,
+  "true_peak_below_-1_dbtp": true,
+  "audio_in_sync_\u00b11ms": true,
+  "no_hard_cuts": true,
+  "never_still_over_0.5s": true
+ },
+ "pass": true
+}
