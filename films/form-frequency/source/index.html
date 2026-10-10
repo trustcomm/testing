@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%2F%3E">
+<title>FORM / FREQUENCY — a coded motion study</title>
+<style>
+@font-face{font-family:Inter;src:url(fonts/Inter.woff2);font-weight:100 900}
+@font-face{font-family:Mono;src:url(fonts/Mono.ttf)}
+*{box-sizing:border-box}body{margin:0;background:#080c10;color:#e9eddf;font:14px Inter,sans-serif;min-height:100vh;display:grid;place-content:center;gap:20px;padding:24px}
+canvas{width:min(94vw,1440px);height:auto;display:block;border-radius:2px;box-shadow:0 24px 100px #0008}
+.controls{display:flex;align-items:center;gap:20px}button{font:600 14px Inter;padding:12px 24px;border:0;background:#c6fa53;color:#101511;cursor:pointer}span{font:12px Mono;letter-spacing:.05em;opacity:.65}button:disabled{opacity:.4}input{flex:1;accent-color:#c6fa53}
+</style>
+<canvas id="film" width="1920" height="1080" aria-label="FORM / FREQUENCY motion graphics film"></canvas>
+<div class="controls"><button id="play">Play with sound</button><input id="scrub" type="range" min="0" max="15" step=".0166667" value="0" aria-label="Timeline"><span id="clock">00.00 / 15.00</span></div>
+<script src="shaders.js"></script><script src="score.js"></script><script src="film.js"></script>
+</html>

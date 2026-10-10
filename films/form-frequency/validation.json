@@ -1,0 +1,50 @@
+{
+  "filename": "form-frequency-15s.mp4",
+  "duration_seconds": 15,
+  "frames": 900,
+  "fps": 60,
+  "width": 1920,
+  "height": 1080,
+  "video_codec": "h264",
+  "pixel_format": "yuv420p",
+  "audio_codec": "aac",
+  "audio_channels": 2,
+  "audio_sample_rate": 48000,
+  "full_decode": "passed",
+  "fast_start": true,
+  "top_level_atoms": [
+    [
+      "ftyp",
+      0
+    ],
+    [
+      "moov",
+      32
+    ],
+    [
+      "free",
+      25275
+    ],
+    [
+      "mdat",
+      25283
+    ]
+  ],
+  "shader_resolution": [
+    1920,
+    1080
+  ],
+  "scene_cuts_on_beat": "passed",
+  "audio_synthesis": {
+    "duration": 15.0,
+    "sample_rate": 48000,
+    "channels": 2,
+    "peak_dbfs": -3.7125018129359857,
+    "rms_dbfs": -20.327189695392676,
+    "clipped_samples": 0,
+    "stereo_correlation": 0.9979079123986953,
+    "synthesis": "Web Audio OfflineAudioContext: oscillators, seeded noise, filters, delay, compression"
+  },
+  "sha256": "c98283a3620613cc1474dd65b67c41a04f546fd8da6c5cc893a5a5874c4d5273",
+  "bytes": 7722295
+}

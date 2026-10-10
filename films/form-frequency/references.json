@@ -1,0 +1,21 @@
+{
+  "query": "kinetic shader cinematic audio motion",
+  "count": 1,
+  "results": [
+    {
+      "slug": "prasenx-693512",
+      "author": "prasenx",
+      "category": "motion",
+      "tech_tags": [
+        "shader",
+        "canvas",
+        "audio"
+      ],
+      "post_url": "https://x.com/prasenx/status/2103538744695693512",
+      "reference_url": "https://skillry.dev/ai-videos/opus-5-5/prasenx-693512",
+      "prompt_availability": "full",
+      "prompt": "make a dynamic 15-second motion graphics video that shows what an incredible motion designer you are, like it's your showreel for a résumé. go all out.\n\ncompose the soundtrack yourself, fully synthesized in code. no samples, no audio files, no VST instruments. every cut and transition must land on the beat.\n\n1920x1080, 60fps. render the final video with the music mixed in as an MP4 and tell me where it's saved.",
+      "score": 1.13532
+    }
+  ]
+}

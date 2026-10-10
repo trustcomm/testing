@@ -1,0 +1,34 @@
+{
+  "duration": 15,
+  "width": 1920,
+  "height": 1080,
+  "seeked": [
+    {
+      "time": 0.6,
+      "readyState": 4
+    },
+    {
+      "time": 2.8,
+      "readyState": 4
+    },
+    {
+      "time": 4.8,
+      "readyState": 4
+    },
+    {
+      "time": 7.8,
+      "readyState": 4
+    },
+    {
+      "time": 10,
+      "readyState": 4
+    },
+    {
+      "time": 14,
+      "readyState": 4
+    }
+  ],
+  "playbackAdvancedSeconds": 0.6109010000000001,
+  "decodedFrames": 426,
+  "mediaError": null
+}

@@ -1,0 +1,8 @@
+{
+  "name": "form-frequency-motion-study",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Deterministic GLSL + Canvas film with an original Web Audio score",
+  "scripts": {"preview": "node render.cjs --preview", "render": "node render.cjs", "serve": "node render.cjs --serve"},
+  "dependencies": {"@remotion/renderer": "4.0.532"}
+}

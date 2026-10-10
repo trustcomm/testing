@@ -1,0 +1,16 @@
+{
+  "repository": "https://github.com/yihui-dev/awesome-opus5-5-videos",
+  "commit": "756290289742535eb0ac3817548f152e9759cc70",
+  "catalog_sha256": "6a7a5664e693e7741567c9092af127fb5906bbf3a194f4c6475292c15f540776",
+  "entries": 513,
+  "categories": {
+    "motion": 317,
+    "explainer": 67,
+    "interactive": 70,
+    "3d": 59
+  },
+  "full_prompts": 279,
+  "partial_prompts": 234,
+  "upstream_has_skill_md": false,
+  "adapter": "Project-local Codex skill; upstream catalog retained unmodified."
+}
