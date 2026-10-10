@@ -1,0 +1,52 @@
+{
+  "title": "Beyond the Feed",
+  "file": "beyond-the-feed-45s.mp4",
+  "bytes": 42068799,
+  "sha256": "d89bd93138b47668fa7b43ffb9385a3c5556e95c4c9b23a47dd8ee075500b78f",
+  "duration_seconds": 45,
+  "frames": 1350,
+  "fps": 30,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "video_codec": "H.264",
+  "pixel_format": "yuv420p",
+  "profile": "High",
+  "audio_codec": "AAC",
+  "audio_channels": 2,
+  "audio_duration_seconds": 45.013,
+  "fast_start": true,
+  "full_decode": "passed",
+  "editable_source_typecheck": "passed",
+  "narration": "Fictional AI monologue with locally generated synthetic voice",
+  "audio_master_lufs": -16.52,
+  "audio_master_true_peak_db": -1.5,
+  "browser_playback": "passed in Chromium",
+  "browser_seeks_seconds": [
+    3,
+    9,
+    15,
+    21,
+    28,
+    35,
+    43.5
+  ],
+  "color_range": "limited (TV)",
+  "compact_copy": {
+    "file": "beyond-the-feed-45s-720p.mp4",
+    "bytes": 14479044,
+    "sha256": "e2de131ad8d8c95fd089c60140dbd9387002a8c902653c2597b17f18722da404",
+    "dimensions": [
+      1280,
+      720
+    ],
+    "full_decode": "passed"
+  },
+  "editable_source": {
+    "file": "Beyond-The-Feed-Editable-Source.zip",
+    "bytes": 51336015,
+    "sha256": "7c12804f0bfe2e427c1d2cefd6a38268fb908b35d3f4fd51253f747275e9bf56",
+    "archive_integrity": "passed"
+  }
+}
