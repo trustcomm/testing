@@ -80,7 +80,7 @@ window.WorldGeometry = function (E) {
   }
 
   function stripes(t, zoom) {
-    // rows of tiny type clipped to the 4's counter; drawn in screen space under the camera transform
+    // rows of tiny type clipped to the 4's counter
     g.save();
     g.beginPath();
     SH.counterPoly.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y)));
@@ -94,9 +94,16 @@ window.WorldGeometry = function (E) {
       g.fillRect(-1e5, -1e5, 2e5, 2e5);
     }
     const reveal = U.seg(t, 7.96875, 8.30, U.E.p3out);
-    g.fillStyle = "rgba(237,230,218,0.92)";
-    g.font = `600 ${SH.FONT_PX}px Archivo`;
+    // as the zoom lands the rows must match the type world glyph for glyph: full-alpha bone, and no kerning (the type
+    // world places each glyph by its own advance, so a kerned row would drift ~25 px by the visible stretch)
+    g.fillStyle = `rgba(237,230,218,${U.mix(0.92, 1, U.seg(t, T_ZOOM, T1, U.E.p3io)).toFixed(4)})`;
+    g.fontKerning = "none";
     g.textBaseline = "middle";
+    // the clips live in camera space, but the text is set in screen space at its true zoomed size: a 10.6 px row under
+    // a 15x canvas transform has its origin rounded in user units (several screen px at full zoom), which made the rows
+    // step while the zoom landed and sit ~4 px off the type world's glyphs
+    const cam = g.getTransform();
+    const font = `600 ${(SH.FONT_PX * zoom).toFixed(3)}px Archivo`;
     for (let k = 0; k < SH.ROWS; k++) {
       const y = SH.rowY(k);
       const wipe = U.clamp(reveal * 1.6 - (k / SH.ROWS) * 0.6);
@@ -105,7 +112,9 @@ window.WorldGeometry = function (E) {
       g.beginPath();
       g.rect(0, y - SH.ROW_PX / 2, 1920 * wipe, SH.ROW_PX);
       g.clip();
-      g.fillText(SH.rowText(k), SH.rowX(k, t), y);
+      g.setTransform(1, 0, 0, 1, 0, 0);
+      g.font = font;
+      g.fillText(SH.rowText(k), cam.e + SH.rowX(k, t) * cam.a, cam.f + y * cam.d);
       g.restore();
     }
     g.restore();

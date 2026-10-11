@@ -138,6 +138,7 @@ window.WorldType = function (E) {
         const F = fontFor(px, stretchIdx);
         g.font = F.font;
         g.fontStretch = F.stretch;
+        g.fontKerning = "none";
         const text = SH.rowText(L.row);
         // walk the row's glyphs; each glyph i has row-x (screen) and maps to arc length s
         let x = rowX0;
