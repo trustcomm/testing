@@ -69,20 +69,20 @@ Behind: a leader test-chart (thick concentric rings, crosshair, tick scales in m
 
 ## Frame 5 — 4 · Geometry
 
-- scene: Flat shards snap into a constructed 4 of primitives, masks and patterns; a pie-wedge sweep reveals it
+- scene: The flat 5 cracks into its parts, which fly into a constructed 4 of primitives, masks and patterns; the bowl closes into the leader circle
 - duration: 1.875s
 - poster: 8.6s
 - transition_in: shape continuity (glass shards → primitives)
 - status: animated
 - src: src/worlds/geometry.js
 - rules: center-outward-expansion, spring-pop-entrance, svg-path-draw
-- sync: 7.500 clack (tiles land) · 7.734 / 7.969 / 8.203 / 8.438 assembly snaps on 8ths · 16th dot pulses · 8.906 zoom into stripes
+- sync: 7.500 clack (pieces jump apart) · 7.734 diagonal stamps in · 7.969 the bowl's arc closes into the ring · 8.203 sweep + quadrant ticks · 8.438 lock flash · 16th dot pulses · 8.906 zoom into stripes, landing at rest at 9.375
 
-Bauhaus on the void: the shards land as tiles, flip on 8ths, and assemble a **4** from a triangle, a bar and a crossbar, each filled through a mask (stripes, dots, a solid). The leader sweep is literal here: a pie wedge rotates and reveals ice behind the 4. On beat 4 the camera zooms into the triangle's stripes, and the stripes resolve into lines of type.
+Bauhaus on the void: the flat 5 cracks along straight lines and its parts fly (bbox morphs with a mid-flight swap). The top bar becomes the 4's crossbar and the stem its stem. The bowl rolls out into an open arc of its own weight, which closes, thins and cools from bone to ice into the leader circle. An infrared diagonal stamps in, and the 4's open counter fills with stripes of tiny type through a mask. The leader sweep is literal here: a pie wedge rotates and reveals a 16th-note dot grid behind the 4. On beat 4 the camera pushes into the counter (ease-in-out, the zoom blur following the velocity); the counter's interior veils to void, and the push lands at rest on the rows of type the 3 starts from.
 
 ## Frame 6 — 3 · Kinetic type
 
-- scene: Lines of type bend into the two arcs of a 3, flowing as ribbons in three depths, then unspool into one line
+- scene: Lines of type bend into the two arcs of a 3, flowing as ribbons masked apart at the waist, then converge into one line
 - duration: 1.875s
 - poster: 10.5s
 - transition_in: pattern → type (stripes are lines of text)
@@ -91,7 +91,7 @@ Bauhaus on the void: the shards land as tiles, flip on 8ths, and assemble a **4*
 - rules: kinetic-beat-slam, waterfall-entry, depth-of-field-blur
 - sync: 9.375 swoop (lines bend into arcs) · 9.844 / 10.313 word hits (width steps) · 10.313 tighten · 10.781 unspool
 
-The text lines curve into a **3**: ribbons of the craft's own words (TIMING · SPACING · WEIGHT · RHYTHM · LIGHT · DEPTH · FORM · MOTION) flow along both arcs at different speeds, in three depth layers with focus falloff. Words step through Archivo's width axis on 8ths; key words flash infra on beats. On beat 3 the lanes tighten into a solid 3; on beat 4 they unspool off the bottom stroke into a single bright line.
+The text lines curve into a **3**: ribbons of the craft's own words (TIMING · SPACING · WEIGHT · RHYTHM · LIGHT · DEPTH · FORM · MOTION) flow along both arcs at different speeds, over a blurred depth layer of ghost words and a ghost 3 outline. As the rows settle, a seam zips closed along the 3's waist and masks the two bowls apart. Words step through Archivo's width axis on 8ths; key words flash infra on beats. On beat 3 the lanes tighten; on beat 4 they converge into a single bright line that straightens into the leader's sweep hand.
 
 ## Frame 7 — 2 · Camera
 
