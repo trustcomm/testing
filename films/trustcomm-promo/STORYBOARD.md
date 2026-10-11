@@ -339,7 +339,7 @@ Sound sync (local s):
 - duration: 2.5s
 - poster: 2.1s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/05-chorus.html
 - type: benefit_highlight
 - persuasion: Future pacing (the full picture of your customers)

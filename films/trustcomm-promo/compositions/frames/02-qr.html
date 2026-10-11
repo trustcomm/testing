@@ -1,0 +1,616 @@
+<template>
+  <script src="assets/vendor/gsap-3.14.2.min.js"></script>
+  <script src="assets/qr-trustcomm.js"></script>
+  <style>
+    @font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/Inter-500.woff2") format("woff2");}
+    @font-face{font-family:"Inter";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/Inter-600.woff2") format("woff2");}
+    @font-face{font-family:"Inter";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/Inter-700.woff2") format("woff2");}
+    @font-face{font-family:"Poppins";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/Poppins-600.woff2") format("woff2");}
+    @font-face{font-family:"Poppins";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/Poppins-700.woff2") format("woff2");}
+    @font-face{font-family:"Poppins";font-weight:800;font-style:normal;font-display:block;src:url("assets/fonts/Poppins-800.woff2") format("woff2");}
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+    }
+
+    /* full-bleed ground (clip, lowest track) */
+    [id="02-qr-bg"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      background: #FAF9F5;
+    }
+
+    [id="02-qr-scene"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+    }
+
+    /* ---------- voice bars (handoff_in) ---------- */
+    [class~="02-qr-bar"] {
+      position: absolute;
+      top: 631px;
+      width: 22px;
+      height: 18px;
+      border-radius: 11px;
+      background: #1E5EFE;
+      opacity: 0.18;
+      transform-origin: 50% 50%;
+    }
+    [id="02-qr-bar-loud"] {
+      top: 560px;
+      height: 160px;
+      background: #dc2626;
+      opacity: 1;
+    }
+
+    /* ---------- counter group: card + QR + label ---------- */
+    [id="02-qr-counter"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      transform-origin: 700px 450px;
+    }
+    [id="02-qr-card"] {
+      position: absolute;
+      left: 480px;
+      top: 190px;
+      width: 440px;
+      height: 520px;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(30, 94, 254, 0.2);
+      border-radius: 28px;
+      transform-origin: 50% 50%;
+    }
+    [id="02-qr-persp"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      perspective: 1200px;
+      perspective-origin: 700.5px 420.5px;
+    }
+    [id="02-qr-stage"] {
+      position: absolute;
+      left: 700.5px;
+      top: 420.5px;
+      width: 0;
+      height: 0;
+      transform-style: preserve-3d;
+    }
+    [class~="02-qr-mod"] {
+      position: absolute;
+      left: -5.5px;
+      top: -5.5px;
+      width: 11px;
+      height: 11px;
+      border-radius: 3px;
+      background: #111216;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+    }
+    [class~="02-qr-ring"] {
+      position: absolute;
+      width: 89px;
+      height: 89px;
+      box-sizing: border-box;
+      border: 12px solid #111216;
+      border-radius: 22px;
+      transform-origin: 50% 50%;
+    }
+    [class~="02-qr-eye"] {
+      position: absolute;
+      width: 39px;
+      height: 39px;
+      border-radius: 9px;
+      background: #111216;
+      transform-origin: 50% 50%;
+    }
+    [id="02-qr-shop"],
+    [id="02-qr-tagline"] {
+      position: absolute;
+      left: 480px;
+      width: 440px;
+      text-align: center;
+      white-space: nowrap;
+      font-family: "Inter";
+    }
+    [id="02-qr-shop"] {
+      top: 630px;
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.2;
+      color: #111216;
+    }
+    [id="02-qr-tagline"] {
+      top: 668px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.2;
+      color: #6D6D75;
+    }
+
+    /* ---------- right column ---------- */
+    [id="02-qr-head"] {
+      position: absolute;
+      left: 1060px;
+      top: 265.92px; /* baseline 330 = top + 64.08 (Poppins asc 1.05 / desc .35, lh 1.08) */
+      font-family: "Poppins";
+      font-weight: 800;
+      font-size: 72px;
+      line-height: 77.76px;
+      letter-spacing: -0.02em;
+      color: #111216;
+      white-space: nowrap;
+    }
+    [class~="02-qr-line"] {
+      display: block;
+      height: 77.76px;
+    }
+    [class~="02-qr-word"] {
+      display: inline-block;
+    }
+    [class~="02-qr-accent"] {
+      color: #1E5EFE;
+    }
+    [id="02-qr-chips"] {
+      position: absolute;
+      left: 1060px;
+      top: 452px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    [class~="02-qr-pill"] {
+      display: block;
+      padding: 14px 28px;
+      border-radius: 100px;
+      background: rgba(30, 94, 254, 0.08);
+      color: #1E5EFE;
+      font-family: "Poppins";
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1;
+      white-space: nowrap;
+      transform-origin: 50% 50%;
+    }
+
+    /* ---------- PHONE (shared geometry with frames 3–4) ---------- */
+    [id="02-qr-phone"] {
+      position: absolute;
+      left: 510px;
+      top: 80px;
+      width: 380px;
+      height: 780px;
+    }
+    [id="02-qr-screen"] {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      width: 356px;
+      height: 756px;
+      border-radius: 46px;
+      overflow: hidden;
+    }
+    [id="02-qr-body"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 380px;
+      height: 780px;
+      display: block;
+    }
+    [id="02-qr-speaker"] {
+      position: absolute;
+      left: 145px;
+      top: 18px;
+      width: 90px;
+      height: 8px;
+      border-radius: 4px;
+      background: #2A2B30;
+    }
+    [id="02-qr-tint"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 356px;
+      height: 756px;
+      background: rgba(17, 18, 22, 0.28);
+    }
+    [class~="02-qr-bracket"] {
+      position: absolute;
+      width: 46px;
+      height: 46px;
+      box-sizing: border-box;
+      border: 0 solid #FFFFFF;
+    }
+    [id="02-qr-br-tl"] { left: 8px;   top: 158px; border-top-width: 6px;    border-left-width: 6px;  border-top-left-radius: 12px; }
+    [id="02-qr-br-tr"] { left: 303px; top: 158px; border-top-width: 6px;    border-right-width: 6px; border-top-right-radius: 12px; }
+    [id="02-qr-br-bl"] { left: 8px;   top: 453px; border-bottom-width: 6px; border-left-width: 6px;  border-bottom-left-radius: 12px; }
+    [id="02-qr-br-br"] { left: 303px; top: 453px; border-bottom-width: 6px; border-right-width: 6px; border-bottom-right-radius: 12px; }
+    [id="02-qr-scan"] {
+      position: absolute;
+      left: 16px;
+      top: 118px;
+      width: 325px;
+      height: 48px;
+      box-sizing: border-box;
+      border-bottom: 3px solid #1E5EFE;
+      background: linear-gradient(to bottom, rgba(30, 94, 254, 0) 0%, rgba(30, 94, 254, 0.3) 100%);
+    }
+
+    /* rating page = frame 3's opening screen */
+    [id="02-qr-page"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 356px;
+      height: 756px;
+      background: #FAF9F5;
+      font-family: "Inter";
+      color: #111216;
+    }
+    [class~="02-qr-q"] {
+      position: absolute;
+      left: 24px;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    [class~="02-qr-stars"] {
+      position: absolute;
+      left: 73px; /* 5 × 34 + 4 × 10 = 210, centred in 356 */
+      display: flex;
+      gap: 10px;
+    }
+    [class~="02-qr-star"] {
+      display: block;
+      width: 34px;
+      height: 34px;
+      overflow: visible;
+    }
+    [id="02-qr-mention"] {
+      position: absolute;
+      left: 24px;
+      top: 340px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    [id="02-qr-mention-sub"] {
+      position: absolute;
+      left: 24px;
+      top: 368px;
+      width: 308px;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 1.4;
+      color: #6D6D75;
+    }
+    [id="02-qr-chiprows"] {
+      position: absolute;
+      left: 24px;
+      top: 418px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    [class~="02-qr-chiprow"] {
+      display: flex;
+      gap: 6px;
+    }
+    [class~="02-qr-chip"] {
+      display: flex;
+      align-items: center;
+      height: 32px;
+      padding: 0 8px;
+      box-sizing: border-box;
+      border: 1.5px solid #E6E5E1;
+      border-radius: 100px;
+      background: #FFFFFF;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 1;
+      white-space: nowrap;
+      color: #111216;
+    }
+    [id="02-qr-continue"] {
+      position: absolute;
+      left: 24px;
+      top: 676px;
+      width: 308px;
+      height: 52px;
+      border-radius: 26px;
+      background: #1E5EFE;
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    [id="02-qr-flash"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 356px;
+      height: 756px;
+      background: #FFFFFF;
+    }
+  </style>
+
+  <div id="root" data-composition-id="02-qr" data-width="1920" data-height="1080" data-duration="2">
+    <div id="02-qr-bg" class="clip" data-start="0" data-duration="2" data-track-index="0"></div>
+
+    <div id="02-qr-scene" class="clip" data-start="0" data-duration="2" data-track-index="1">
+
+      <!-- counter card + QR + shop label -->
+      <div id="02-qr-counter">
+        <div id="02-qr-card"></div>
+        <div id="02-qr-persp">
+          <div id="02-qr-stage"></div>
+        </div>
+        <div id="02-qr-shop">Meera's Tiffin Room</div>
+        <div id="02-qr-tagline">Scan to share your visit</div>
+      </div>
+
+      <!-- the 13 voice bars from frame 1 (x = 960 + (i − 6) × 36, centred y = 640) -->
+      <div id="02-qr-bars">
+        <div class="02-qr-bar" style="left:733px"></div>
+        <div class="02-qr-bar" style="left:769px"></div>
+        <div class="02-qr-bar" style="left:805px"></div>
+        <div class="02-qr-bar" style="left:841px"></div>
+        <div class="02-qr-bar" style="left:877px"></div>
+        <div class="02-qr-bar" style="left:913px"></div>
+        <div class="02-qr-bar" id="02-qr-bar-loud" style="left:949px"></div>
+        <div class="02-qr-bar" style="left:985px"></div>
+        <div class="02-qr-bar" style="left:1021px"></div>
+        <div class="02-qr-bar" style="left:1057px"></div>
+        <div class="02-qr-bar" style="left:1093px"></div>
+        <div class="02-qr-bar" style="left:1129px"></div>
+        <div class="02-qr-bar" style="left:1165px"></div>
+      </div>
+
+      <!-- right column -->
+      <div id="02-qr-head">
+        <div class="02-qr-line"><span class="02-qr-word">One</span> <span class="02-qr-word">QR</span> <span class="02-qr-word">code</span></div>
+        <div class="02-qr-line"><span class="02-qr-word">on</span> <span class="02-qr-word">your</span> <span class="02-qr-word 02-qr-accent">counter.</span></div>
+      </div>
+      <div id="02-qr-chips">
+        <div class="02-qr-pill" id="02-qr-pill-app">No app</div>
+        <div class="02-qr-pill" id="02-qr-pill-signin">No sign-in</div>
+      </div>
+
+      <!-- PHONE -->
+      <div id="02-qr-phone">
+        <div id="02-qr-screen">
+          <div id="02-qr-tint"></div>
+          <div id="02-qr-scan"></div>
+          <div class="02-qr-bracket" id="02-qr-br-tl"></div>
+          <div class="02-qr-bracket" id="02-qr-br-tr"></div>
+          <div class="02-qr-bracket" id="02-qr-br-bl"></div>
+          <div class="02-qr-bracket" id="02-qr-br-br"></div>
+
+          <div id="02-qr-page">
+            <div class="02-qr-q" style="top:70px">How was the food?</div>
+            <div class="02-qr-stars" style="top:110px">
+              <svg class="02-qr-star" viewBox="2 1.5 20 20"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#DCDBD7" stroke="#DCDBD7" stroke-width="1" stroke-linejoin="round"/></svg>
+              <svg class="02-qr-star" viewBox="2 1.5 20 20"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#DCDBD7" stroke="#DCDBD7" stroke-width="1" stroke-linejoin="round"/></svg>
+              <svg class="02-qr-star" viewBox="2 1.5 20 20"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#DCDBD7" stroke="#DCDBD7" stroke-width="1" stroke-linejoin="round"/></svg>
+              <svg class="02-qr-star" viewBox="2 1.5 20 20"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#DCDBD7" stroke="#DCDBD7" stroke-width="1" stroke-linejoin="round"/></svg>
+              <svg class="02-qr-star" viewBox="2 1.5 20 20"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#DCDBD7" stroke="#DCDBD7" stroke-width="1" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="02-qr-q" style="top:200px">How was the service?</div>
+            <div class="02-qr-stars" style="top:240px">
+              <svg class="02-qr-star" viewBox="2 1.5 20 20"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#DCDBD7" stroke="#DCDBD7" stroke-width="1" stroke-linejoin="round"/></svg>
+              <svg class="02-qr-star" viewBox="2 1.5 20 20"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#DCDBD7" stroke="#DCDBD7" stroke-width="1" stroke-linejoin="round"/></svg>
+              <svg class="02-qr-star" viewBox="2 1.5 20 20"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#DCDBD7" stroke="#DCDBD7" stroke-width="1" stroke-linejoin="round"/></svg>
+              <svg class="02-qr-star" viewBox="2 1.5 20 20"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#DCDBD7" stroke="#DCDBD7" stroke-width="1" stroke-linejoin="round"/></svg>
+              <svg class="02-qr-star" viewBox="2 1.5 20 20"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#DCDBD7" stroke="#DCDBD7" stroke-width="1" stroke-linejoin="round"/></svg>
+            </div>
+            <div id="02-qr-mention">What should the review mention?</div>
+            <div id="02-qr-mention-sub">Pick only what you want mentioned. Nothing is ticked for you.</div>
+            <div id="02-qr-chiprows">
+              <div class="02-qr-chiprow">
+                <div class="02-qr-chip">The food</div>
+                <div class="02-qr-chip">How long it took</div>
+                <div class="02-qr-chip">The price</div>
+              </div>
+              <div class="02-qr-chiprow">
+                <div class="02-qr-chip">How clean it was</div>
+                <div class="02-qr-chip">The staff</div>
+                <div class="02-qr-chip">The portions</div>
+              </div>
+            </div>
+            <div id="02-qr-continue">Continue</div>
+          </div>
+
+          <div id="02-qr-flash"></div>
+        </div>
+        <svg id="02-qr-body" width="380" height="780" viewBox="0 0 380 780">
+          <path fill="#111216" fill-rule="evenodd" d="M56 0H324A56 56 0 0 1 380 56V724A56 56 0 0 1 324 780H56A56 56 0 0 1 0 724V56A56 56 0 0 1 56 0Z M58 12H322A46 46 0 0 1 368 58V722A46 46 0 0 1 322 768H58A46 46 0 0 1 12 722V58A46 46 0 0 1 58 12Z"/>
+        </svg>
+        <div id="02-qr-speaker"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var byId = function (s) { return document.getElementById("02-qr-" + s); };
+      var byClass = function (s) { return Array.prototype.slice.call(byId("scene").getElementsByClassName("02-qr-" + s)); };
+
+      // Real QR for https://trustcomm.app (25×25, "1" = dark). Loaded from assets/qr-trustcomm.js; inline copy is a fallback only.
+      var QR = window.QR_TRUSTCOMM || ["1111111001101100001111111","1000001001001111101000001","1011101011100001101011101","1011101011001110001011101","1011101010110000101011101","1000001011100001101000001","1111111010101010101111111","0000000011101011100000000","1011111000010110001111100","1000010110010010110100010","1010001100100001101001011","1010000001110000100100001","1000001100001110011110111","1101010100100010110101010","1011111011111001111111011","1000100010110000011110001","1001101100110001111110100","0000000010101101100011000","1111111000000110101010111","1000001011001100100011011","1011101010001011111110111","1011101011000001011011111","1011101010111000010001101","1000001001110010101111001","1111111011110000010111111"];
+
+      var N = 25, PITCH = 13, MID = 12;
+      var CX = 700.5, CY = 420.5;            // stage origin (QR centre, half-px for crisp module edges)
+      var stage = byId("stage");
+
+      // ---------- build the module DOM synchronously ----------
+      var mods = [];
+      var r, c;
+      for (r = 0; r < N; r++) {
+        for (c = 0; c < N; c++) {
+          if (QR[r].charAt(c) !== "1") continue;
+          var el = document.createElement("div");
+          el.className = "02-qr-mod";
+          stage.appendChild(el);
+          var finder = (r < 7 && c < 7) || (r < 7 && c >= N - 7) || (r >= N - 7 && c < 7);
+          mods.push({ el: el, r: r, c: c, tx: (c - MID) * PITCH, ty: (r - MID) * PITCH, finder: finder });
+        }
+      }
+      // finder patterns: one rounded outer ring + one rounded inner square each
+      var finderCentres = [[3, 3], [3, 21], [21, 3]]; // [row, col]
+      var rings = [], eyes = [];
+      finderCentres.forEach(function (fc) {
+        var ox = (fc[1] - MID) * PITCH, oy = (fc[0] - MID) * PITCH;
+        var ring = document.createElement("div");
+        ring.className = "02-qr-ring";
+        ring.style.left = (ox - 44.5) + "px";
+        ring.style.top = (oy - 44.5) + "px";
+        stage.appendChild(ring);
+        rings.push(ring);
+        var eye = document.createElement("div");
+        eye.className = "02-qr-eye";
+        eye.style.left = (ox - 19.5) + "px";
+        eye.style.top = (oy - 19.5) + "px";
+        stage.appendChild(eye);
+        eyes.push(eye);
+      });
+
+      var tl = gsap.timeline({ paused: true });
+
+      // ================= Scene 1 (0.00–0.50): bars leap, split into a 3D module cloud =================
+      var bars = byClass("bar");
+      var loud = byId("bar-loud");
+      tl.fromTo(loud, { scaleY: 1, opacity: 1 }, { scaleY: 0, opacity: 0, duration: 0.2, ease: "power2.out" }, 0);
+
+      var quiet = bars.filter(function (b) { return b !== loud; }); // 12 bars, left → right
+      var splits = [];
+      quiet.forEach(function (bar, b) {
+        var i = b < 6 ? b : b + 1;
+        var sx = 960 + (i - 6) * 36;
+        var px = sx + 0.55 * (CX - sx);
+        var py = 640 + 0.55 * (CY - 640) - 70 - 25 * Math.sin(Math.PI * b / 11);
+        var ts = 0.22 + 0.006 * b;
+        splits.push({ x: px, y: py, t: ts });
+        // turn voiced on the downbeat
+        tl.fromTo(bar, { opacity: 0.18 }, { opacity: 1, duration: 0.08, ease: "power1.out" }, 0);
+        // leap: x lags (sine.in) while y rises fast (power2.out) → an arc up and over toward the QR
+        tl.fromTo(bar, { x: 0, rotation: 0 }, { x: px - sx, rotation: -(sx - px) / 10, duration: ts, ease: "sine.in" }, 0);
+        tl.fromTo(bar, { y: 0 }, { y: py - 640, duration: ts, ease: "power2.out" }, 0);
+        tl.fromTo(bar, { scaleY: 1 }, { scaleY: 2.6, duration: 0.14, ease: "power2.out" }, 0);
+        // mid-flight split: the bar collapses as its modules burst out
+        tl.fromTo(bar, { scaleY: 2.6, scaleX: 1, opacity: 1 },
+          { scaleY: 0.3, scaleX: 0.5, opacity: 0, duration: 0.07, ease: "power2.in", immediateRender: false }, ts - 0.03);
+      });
+
+      // depth-scatter cloud points: index-derived (golden angle + stepped depth), no randomness
+      var GOLDEN = Math.PI * (3 - Math.sqrt(5));
+      var n = mods.length;           // 328
+      var DMAX = Math.sqrt(2) * MID;
+      mods.forEach(function (m, k) {
+        var j = (k * 97) % n, jd = (k * 61) % n;
+        var a = j * GOLDEN, a2 = jd * GOLDEN;
+        var rad = 175 * Math.sqrt((j + 0.5) / n);
+        m.cx = m.tx * 0.22 + Math.cos(a) * rad;
+        m.cy = m.ty * 0.22 + Math.sin(a) * rad * 0.85;
+        m.cz = 170 - (jd / (n - 1)) * 430;      // +170 … −260: a shallow depth cloud
+        m.rx = Math.sin(a2) * 68;
+        m.ry = Math.cos(a) * 68;
+        m.rz = ((k % 9) - 4) * 11;
+
+        var sp = splits[k % 12];
+        var burstAt = sp.t - 0.02 + ((k * 7) % 5) * 0.006;
+        tl.fromTo(m.el,
+          { x: sp.x - CX, y: sp.y - CY, z: 0, rotationX: 0, rotationY: 0, rotation: 0, scale: 0.45, opacity: 0, backgroundColor: "#1E5EFE" },
+          { x: m.cx, y: m.cy, z: m.cz, rotationX: m.rx, rotationY: m.ry, rotation: m.rz, scale: 1, opacity: 1, duration: 0.2, ease: "power2.out" },
+          burstAt);
+
+        // ============ Scene 2: centre-outward cascade into exact cells, 0.50 → 1.00 ============
+        var d = Math.sqrt((m.c - MID) * (m.c - MID) + (m.r - MID) * (m.r - MID));
+        var landAt = 0.5 + 0.25 * (d / DMAX);
+        tl.fromTo(m.el,
+          { x: m.cx, y: m.cy, z: m.cz, rotationX: m.rx, rotationY: m.ry, rotation: m.rz, backgroundColor: "#1E5EFE" },
+          { x: m.tx, y: m.ty, z: 0, rotationX: 0, rotationY: 0, rotation: 0, backgroundColor: "#111216", duration: 0.25, ease: "power3.out", immediateRender: false },
+          landAt);
+      });
+
+      // the cloud breathes in 3D, then resolves flat by 1.00
+      tl.fromTo(stage, { rotationY: 0, rotationX: 0 }, { rotationY: 22, rotationX: -10, duration: 0.38, ease: "sine.inOut" }, 0.22);
+      tl.fromTo(stage, { rotationY: 22, rotationX: -10 }, { rotationY: 0, rotationX: 0, duration: 0.4, ease: "power2.inOut", immediateRender: false }, 0.6);
+
+      // ================= Scene 2 (0.50–1.25) =================
+      tl.fromTo(byId("card"), { scale: 0.92, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "power3.out" }, 0.5);
+
+      // finder rings snap last, contact at 1.00
+      var finderShapes = rings.concat(eyes);
+      tl.fromTo(finderShapes, { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "power1.out" }, 0.9);
+      tl.fromTo(finderShapes, { scale: 1.35 }, { scale: 1, duration: 0.1, ease: "power2.in" }, 0.9);
+      var finderMods = mods.filter(function (m) { return m.finder; }).map(function (m) { return m.el; });
+      tl.set(finderMods, { opacity: 0, immediateRender: false }, 1.0);
+
+      // shop label rises in at 1.00
+      tl.fromTo(byId("shop"), { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 1.0);
+      tl.fromTo(byId("tagline"), { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 1.06);
+
+      // headline per line: line 1 at 0.50, line 2 at 0.75 — words slide up 30 px
+      var lines = byClass("line");
+      [0.5, 0.75].forEach(function (at, li) {
+        var words = Array.prototype.slice.call(lines[li].getElementsByClassName("02-qr-word"));
+        words.forEach(function (w, wi) {
+          tl.fromTo(w, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, at + wi * 0.05);
+        });
+      });
+
+      // ================= Scene 3 (1.25–2.00): phone rises and scans =================
+      tl.fromTo(byId("phone"), { y: 1020 }, { y: 0, duration: 0.25, ease: "expo.out" }, 1.25);
+
+      // viewfinder brackets snap inward onto the QR, contact at 1.50
+      var brackets = [[byId("br-tl"), -22, -22], [byId("br-tr"), 22, -22], [byId("br-bl"), -22, 22], [byId("br-br"), 22, 22]];
+      brackets.forEach(function (bk) {
+        tl.fromTo(bk[0], { opacity: 0 }, { opacity: 1, duration: 0.05, ease: "power1.out" }, 1.38);
+        tl.fromTo(bk[0], { x: bk[1], y: bk[2] }, { x: 0, y: 0, duration: 0.12, ease: "power2.in" }, 1.38);
+      });
+
+      // scan line sweeps the QR top → bottom, 1.50 → 1.70
+      var scan = byId("scan");
+      tl.fromTo(scan, { y: 0 }, { y: 325, duration: 0.2, ease: "sine.inOut" }, 1.5);
+      tl.fromTo(scan, { opacity: 0 }, { opacity: 1, duration: 0.03, ease: "none" }, 1.5);
+      tl.fromTo(scan, { opacity: 1 }, { opacity: 0, duration: 0.05, ease: "power1.out", immediateRender: false }, 1.68);
+
+      // 1.75 flash: 0 → 1 → 0 over 0.15 s; rating page takes the screen at the peak
+      var flash = byId("flash");
+      tl.fromTo(flash, { opacity: 0 }, { opacity: 1, duration: 0.075, ease: "power1.out" }, 1.75);
+      tl.fromTo(flash, { opacity: 1 }, { opacity: 0, duration: 0.075, ease: "power1.in", immediateRender: false }, 1.825);
+      tl.fromTo(byId("page"), { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, 1.815);
+
+      // counter card tucks away behind the phone: opacity 0 by 2.00 (handoff)
+      tl.fromTo(byId("counter"), { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.94, duration: 0.125, ease: "power2.out", immediateRender: false }, 1.825);
+
+      // right-column chips spring in on half-beats (smooth, no overshoot)
+      tl.fromTo(byId("pill-app"), { scale: 0, opacity: 0, y: 12 }, { scale: 1, opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 1.5);
+      tl.fromTo(byId("pill-signin"), { scale: 0, opacity: 0, y: 12 }, { scale: 1, opacity: 1, y: 0, duration: 0.25, ease: "power3.out" }, 1.75);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["02-qr"] = tl;
+    })();
+  </script>
+</template>

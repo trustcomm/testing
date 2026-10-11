@@ -1,0 +1,593 @@
+<template>
+  <style>
+    @font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/Inter-500.woff2") format("woff2");}
+    @font-face{font-family:"Inter";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/Inter-600.woff2") format("woff2");}
+    @font-face{font-family:"Inter";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/Inter-700.woff2") format("woff2");}
+    @font-face{font-family:"Poppins";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/Poppins-600.woff2") format("woff2");}
+    @font-face{font-family:"Poppins";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/Poppins-700.woff2") format("woff2");}
+    @font-face{font-family:"Poppins";font-weight:800;font-style:normal;font-display:block;src:url("assets/fonts/Poppins-800.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans Devanagari";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/NotoSans-devanagari-600.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans Kannada";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/NotoSans-kannada-600.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans Tamil";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/NotoSans-tamil-600.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans Telugu";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/NotoSans-telugu-600.woff2") format("woff2");}
+
+    #root {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+    }
+
+    /* ---------- layers ---------- */
+    [id="03-rate-bg"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      background: #FAF9F5;
+    }
+    [id="03-rate-world"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      transform-origin: 700px 470px;
+    }
+    [id="03-rate-copy"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+    }
+
+    /* ---------- PHONE (shared geometry: 380x780 @ centre 700,470) ---------- */
+    [id="03-rate-phone"] {
+      position: absolute;
+      left: 510px;
+      top: 80px;
+      width: 380px;
+      height: 780px;
+      border-radius: 56px;
+      background: #111216;
+    }
+    [id="03-rate-screen"] {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      width: 356px;
+      height: 756px;
+      border-radius: 46px;
+      background: #FAF9F5;
+      overflow: hidden;
+      color: #111216;
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+    }
+    [id="03-rate-speaker"] {
+      position: absolute;
+      left: 145px;
+      top: 18px;
+      width: 90px;
+      height: 8px;
+      border-radius: 4px;
+      background: #2A2B30;
+    }
+
+    /* question slot (the cycling line) */
+    [id="03-rate-slot"] {
+      position: absolute;
+      left: 16px;
+      top: 58px;
+      width: 324px;
+      height: 52px;
+      overflow: hidden;
+    }
+    [class~="03-rate-q"] {
+      position: absolute;
+      left: 8px;
+      top: 12px;
+      height: 28px;
+      line-height: 28px;
+      font-size: 22px;
+      font-weight: 600;
+      white-space: nowrap;
+      color: #111216;
+    }
+    [class~="03-rate-q-latin"] { font-family: "Inter", sans-serif; }
+    [class~="03-rate-q-hi"] { font-family: "Noto Sans Devanagari", "Inter", sans-serif; top: 14.5px; }
+    [class~="03-rate-q-kn"] { font-family: "Noto Sans Kannada", "Inter", sans-serif; top: 17px; }
+    [class~="03-rate-q-ta"] { font-family: "Noto Sans Tamil", "Inter", sans-serif; font-size: 18px; top: 15.5px; }
+    [class~="03-rate-q-te"] { font-family: "Noto Sans Telugu", "Inter", sans-serif; top: 16px; }
+
+    [class~="03-rate-label"] {
+      position: absolute;
+      left: 24px;
+      height: 28px;
+      line-height: 28px;
+      font-size: 22px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* star rows: 5 x 34px, gap 10 -> 210 wide, centred in the screen */
+    [class~="03-rate-stars"] {
+      position: absolute;
+      left: 73px;
+      width: 210px;
+      height: 34px;
+    }
+    [class~="03-rate-stars"] svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 210px;
+      height: 34px;
+      overflow: visible;
+    }
+    [class~="03-rate-excellent"] {
+      position: absolute;
+      left: 0;
+      width: 356px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 15px;
+      font-weight: 500;
+      text-align: center;
+      color: #6D6D75;
+    }
+    [class~="03-rate-ripple"] {
+      position: absolute;
+      left: 243px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(30, 94, 254, 0.2);
+    }
+
+    [id="03-rate-mention"] {
+      position: absolute;
+      left: 24px;
+      top: 340px;
+      width: 308px;
+      line-height: 24px;
+      font-size: 18px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    [id="03-rate-mention-sub"] {
+      position: absolute;
+      left: 24px;
+      top: 368px;
+      width: 308px;
+      line-height: 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #6D6D75;
+    }
+    [id="03-rate-chips"] {
+      position: absolute;
+      left: 20px;
+      top: 416px;
+      width: 316px;
+    }
+    [class~="03-rate-chiprow"] {
+      display: flex;
+      gap: 4px;
+      height: 34px;
+      margin-bottom: 7px;
+    }
+    [class~="03-rate-chipwrap"] {
+      position: relative;
+      flex: 0 0 auto;
+    }
+    [class~="03-rate-chip"] {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 34px;
+      padding: 0 9px;
+      box-sizing: border-box;
+      border: 1.5px solid #E6E5E1;
+      border-radius: 17px;
+      background: #FFFFFF;
+      color: #111216;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 18px;
+      white-space: nowrap;
+    }
+    [id="03-rate-tick-group"] {
+      display: flex;
+      align-items: center;
+    }
+    [id="03-rate-tick-check"] {
+      display: block;
+      width: 10px;
+      height: 10px;
+      margin-right: 4px;
+      overflow: visible;
+    }
+    [id="03-rate-tick-burst"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 34px;
+      z-index: 0;
+      border-radius: 17px;
+      background: #1E5EFE;
+      filter: blur(6px);
+    }
+    [id="03-rate-divider"] {
+      position: absolute;
+      left: 0;
+      top: 652px;
+      width: 356px;
+      height: 1px;
+      background: #E6E5E1;
+    }
+    [id="03-rate-continue"] {
+      position: absolute;
+      left: 24px;
+      top: 676px;
+      width: 308px;
+      height: 52px;
+      border-radius: 26px;
+      background: #1E5EFE;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 52px;
+      text-align: center;
+    }
+
+    /* ---------- RIGHT COLUMN (x = 1060) ---------- */
+    [class~="03-rate-line"] {
+      position: absolute;
+      left: 1060px;
+      height: 78px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 800;
+      font-size: 72px;
+      line-height: 78px;
+      letter-spacing: -0.02em;
+      color: #111216;
+      white-space: nowrap;
+    }
+    /* line-height 78 puts the Poppins baseline 64px below the line top */
+    [class~="03-rate-line-a"] { top: 266px; } /* baseline y = 330 */
+    [class~="03-rate-line-b"] { top: 344px; } /* baseline y = 408 */
+    [class~="03-rate-w"] { display: inline-block; }
+    [class~="03-rate-accent"] { color: #1E5EFE; }
+
+    [id="03-rate-tags"] {
+      position: absolute;
+      left: 1060px;
+      top: 452px;
+      display: flex;
+      gap: 16px;
+    }
+    [class~="03-rate-tag"] {
+      display: block;
+      padding: 14px 28px;
+      border-radius: 100px;
+      background: rgba(30, 94, 254, 0.08);
+      color: #1E5EFE;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 32px;
+      white-space: nowrap;
+    }
+
+    /* language chip column: tag-pill chips, 54px pitch from y = 452 */
+    [class~="03-rate-lang"] {
+      position: absolute;
+      left: 1060px;
+      height: 42px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    [class~="03-rate-lang-base"],
+    [class~="03-rate-lang-on"] {
+      display: block;
+      height: 42px;
+      padding: 0 22px;
+      box-sizing: border-box;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 42px;
+    }
+    [class~="03-rate-lang-base"] {
+      background: rgba(30, 94, 254, 0.08);
+      color: #1E5EFE;
+    }
+    [class~="03-rate-lang-on"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      background: #1E5EFE;
+      color: #FFFFFF;
+    }
+    [class~="03-rate-lang-latin"] [class~="03-rate-lang-base"],
+    [class~="03-rate-lang-latin"] [class~="03-rate-lang-on"] { font-family: "Poppins", sans-serif; }
+    [class~="03-rate-lang-hi"] [class~="03-rate-lang-base"],
+    [class~="03-rate-lang-hi"] [class~="03-rate-lang-on"] { font-family: "Noto Sans Devanagari", "Poppins", sans-serif; }
+    [class~="03-rate-lang-kn"] [class~="03-rate-lang-base"],
+    [class~="03-rate-lang-kn"] [class~="03-rate-lang-on"] { font-family: "Noto Sans Kannada", "Poppins", sans-serif; }
+    [class~="03-rate-lang-ta"] [class~="03-rate-lang-base"],
+    [class~="03-rate-lang-ta"] [class~="03-rate-lang-on"] { font-family: "Noto Sans Tamil", "Poppins", sans-serif; }
+    [class~="03-rate-lang-te"] [class~="03-rate-lang-base"],
+    [class~="03-rate-lang-te"] [class~="03-rate-lang-on"] { font-family: "Noto Sans Telugu", "Poppins", sans-serif; }
+  </style>
+
+  <div id="root" data-composition-id="03-rate" data-width="1920" data-height="1080" data-duration="3">
+    <!-- full-bleed ground -->
+    <div id="03-rate-bg" class="clip" data-start="0" data-duration="3" data-track-index="0"></div>
+
+    <!-- camera: pushes 1.00 -> 1.04 around the phone centre (700, 470) -->
+    <div id="03-rate-world" class="clip" data-start="0" data-duration="3" data-track-index="1">
+      <div id="03-rate-phone">
+        <div id="03-rate-screen">
+          <!-- cycling question slot -->
+          <div id="03-rate-slot" data-layout-allow-overflow>
+            <div id="03-rate-q-en0" class="03-rate-q 03-rate-q-latin">How was the food?</div>
+            <div id="03-rate-q-hg" class="03-rate-q 03-rate-q-latin">Khana kaisa tha?</div>
+            <div id="03-rate-q-hi" class="03-rate-q 03-rate-q-hi" lang="hi">खाना कैसा था?</div>
+            <div id="03-rate-q-kn" class="03-rate-q 03-rate-q-kn" lang="kn">ಊಟ ಹೇಗಿತ್ತು?</div>
+            <div id="03-rate-q-ta" class="03-rate-q 03-rate-q-ta" lang="ta">சாப்பாடு எப்படி இருந்தது?</div>
+            <div id="03-rate-q-te" class="03-rate-q 03-rate-q-te" lang="te">భోజనం ఎలా ఉంది?</div>
+            <div id="03-rate-q-en1" class="03-rate-q 03-rate-q-latin">How was the food?</div>
+          </div>
+
+          <!-- food stars -->
+          <div class="03-rate-stars" style="top: 110px">
+            <svg viewBox="0 0 210 34" aria-hidden="true">
+              <g fill="#DCDBD7" stroke="#DCDBD7" stroke-width="2.4" stroke-linejoin="round">
+                <path d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(44 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(88 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(132 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(176 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+              </g>
+            </svg>
+            <svg id="03-rate-fill-food" viewBox="0 0 210 34" aria-hidden="true">
+              <g fill="#1E5EFE" stroke="#1E5EFE" stroke-width="2.4" stroke-linejoin="round">
+                <path d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(44 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(88 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(132 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(176 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+              </g>
+            </svg>
+          </div>
+          <div id="03-rate-ex-food" class="03-rate-excellent" style="top: 152px">Excellent</div>
+          <div id="03-rate-ripple-food" class="03-rate-ripple" style="top: 105px"></div>
+
+          <!-- service -->
+          <div class="03-rate-label" style="top: 200px">How was the service?</div>
+          <div class="03-rate-stars" style="top: 240px">
+            <svg viewBox="0 0 210 34" aria-hidden="true">
+              <g fill="#DCDBD7" stroke="#DCDBD7" stroke-width="2.4" stroke-linejoin="round">
+                <path d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(44 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(88 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(132 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(176 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+              </g>
+            </svg>
+            <svg id="03-rate-fill-service" viewBox="0 0 210 34" aria-hidden="true">
+              <g fill="#1E5EFE" stroke="#1E5EFE" stroke-width="2.4" stroke-linejoin="round">
+                <path d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(44 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(88 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(132 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                <path transform="translate(176 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+              </g>
+            </svg>
+          </div>
+          <div id="03-rate-ex-service" class="03-rate-excellent" style="top: 282px">Excellent</div>
+          <div id="03-rate-ripple-service" class="03-rate-ripple" style="top: 235px"></div>
+
+          <!-- mention chips -->
+          <div id="03-rate-mention">What should the review mention?</div>
+          <div id="03-rate-mention-sub">Pick only what you want mentioned. Nothing is ticked for you.</div>
+          <div id="03-rate-chips">
+            <div class="03-rate-chiprow">
+              <div class="03-rate-chipwrap"><div class="03-rate-chip">The food</div></div>
+              <div class="03-rate-chipwrap">
+                <div id="03-rate-tick-burst"></div>
+                <div id="03-rate-tick" class="03-rate-chip">
+                  <span id="03-rate-tick-group">
+                    <svg id="03-rate-tick-check" viewBox="0 0 10 10" aria-hidden="true"><polyline points="1.2,5.4 3.9,8 8.8,2.1" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                    <span>How long it took</span>
+                  </span>
+                </div>
+              </div>
+              <div class="03-rate-chipwrap"><div class="03-rate-chip">The price</div></div>
+            </div>
+            <div class="03-rate-chiprow">
+              <div class="03-rate-chipwrap"><div class="03-rate-chip">How clean it was</div></div>
+              <div class="03-rate-chipwrap"><div class="03-rate-chip">The staff</div></div>
+              <div class="03-rate-chipwrap"><div class="03-rate-chip">The portions</div></div>
+            </div>
+          </div>
+
+          <div id="03-rate-divider"></div>
+          <div id="03-rate-continue">Continue</div>
+        </div>
+        <div id="03-rate-speaker"></div>
+      </div>
+    </div>
+
+    <!-- right column copy -->
+    <div id="03-rate-copy" class="clip" data-start="0" data-duration="3" data-track-index="2">
+      <!-- handoff_in headline (from Frame 2) -->
+      <div class="03-rate-line 03-rate-line-a"><span class="03-rate-w 03-rate-w-old">One</span> <span class="03-rate-w 03-rate-w-old">QR</span> <span class="03-rate-w 03-rate-w-old">code</span></div>
+      <div class="03-rate-line 03-rate-line-b"><span class="03-rate-w 03-rate-w-old">on</span> <span class="03-rate-w 03-rate-w-old">your</span> <span class="03-rate-w 03-rate-w-old 03-rate-accent">counter.</span></div>
+
+      <!-- Scene 1 headline -->
+      <div class="03-rate-line 03-rate-line-a"><span class="03-rate-w 03-rate-w-mid">They</span> <span class="03-rate-w 03-rate-w-mid">rate</span></div>
+      <div class="03-rate-line 03-rate-line-b"><span class="03-rate-w 03-rate-w-mid">their</span> <span class="03-rate-w 03-rate-w-mid 03-rate-accent">visit.</span></div>
+
+      <!-- Scene 2 headline -->
+      <div class="03-rate-line 03-rate-line-a"><span class="03-rate-w 03-rate-w-new">In</span> <span class="03-rate-w 03-rate-w-new">their</span> <span class="03-rate-w 03-rate-w-new">own</span></div>
+      <div class="03-rate-line 03-rate-line-b"><span class="03-rate-w 03-rate-w-new 03-rate-accent">language.</span></div>
+
+      <!-- handoff_in chips (from Frame 2) -->
+      <div id="03-rate-tags">
+        <div class="03-rate-tag">No app</div>
+        <div class="03-rate-tag">No sign-in</div>
+      </div>
+
+      <!-- language chip column -->
+      <div id="03-rate-lang-en" class="03-rate-lang 03-rate-lang-latin" style="top: 452px"><span class="03-rate-lang-base">English</span><span class="03-rate-lang-on">English</span></div>
+      <div id="03-rate-lang-hg" class="03-rate-lang 03-rate-lang-latin" style="top: 506px"><span class="03-rate-lang-base">Hinglish</span><span class="03-rate-lang-on">Hinglish</span></div>
+      <div id="03-rate-lang-hi" class="03-rate-lang 03-rate-lang-hi" lang="hi" style="top: 560px"><span class="03-rate-lang-base">हिंदी</span><span class="03-rate-lang-on">हिंदी</span></div>
+      <div id="03-rate-lang-kn" class="03-rate-lang 03-rate-lang-kn" lang="kn" style="top: 614px"><span class="03-rate-lang-base">ಕನ್ನಡ</span><span class="03-rate-lang-on">ಕನ್ನಡ</span></div>
+      <div id="03-rate-lang-ta" class="03-rate-lang 03-rate-lang-ta" lang="ta" style="top: 668px"><span class="03-rate-lang-base">தமிழ்</span><span class="03-rate-lang-on">தமிழ்</span></div>
+      <div id="03-rate-lang-te" class="03-rate-lang 03-rate-lang-te" lang="te" style="top: 722px"><span class="03-rate-lang-base">తెలుగు</span><span class="03-rate-lang-on">తెలుగు</span></div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap-3.14.2.min.js"></script>
+  <script>
+    (function () {
+      var FID = "03-rate";
+      var scope = document.querySelector('[data-composition-id="' + FID + '"]') || document;
+      function byId(name) {
+        return document.getElementById(FID + "-" + name);
+      }
+      function byClass(name) {
+        return Array.prototype.slice.call(scope.getElementsByClassName(FID + "-" + name));
+      }
+      function onLayer(el) {
+        return el.getElementsByClassName(FID + "-lang-on")[0];
+      }
+
+      var tl = gsap.timeline({ paused: true });
+
+      // Velocity-matched waterfall (cut-catalog #4, vertical: everything travels UP).
+      var D = 56; // shared travel distance, exit and entry
+      var MOVE = 0.22; // shared motion duration (power4.in exit / power4.out entry)
+      var FADE = 0.09; // exit fade, dies early in the travel
+      var STAG = 0.012; // exit stagger, reading order
+      // entry opacity: invisible before start, ignites at 0.35 on the first frame, then settles
+      function ignite(p) {
+        return p <= 0 ? 0 : 0.35 + 0.65 * (1 - Math.pow(1 - p, 4));
+      }
+      function waterfallOut(els, t) {
+        els.forEach(function (el, i) {
+          var s = t + i * STAG;
+          tl.fromTo(el, { y: 0 }, { y: -D, duration: MOVE, ease: "power4.in", immediateRender: false }, s);
+          tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: FADE, ease: "power1.in", immediateRender: false }, s);
+        });
+      }
+      function waterfallIn(els, t) {
+        var gap = 0.03;
+        var s = t;
+        els.forEach(function (el) {
+          tl.fromTo(el, { y: D }, { y: 0, duration: MOVE, ease: "power4.out" }, s);
+          tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: MOVE, ease: ignite }, s);
+          s += gap;
+          gap *= 0.84; // shrinking gaps: the cascade accelerates
+        });
+      }
+
+      // ---------------- Scene 1 (0.00 - 1.50) ----------------
+      // camera push on the phone, then hold
+      tl.fromTo(byId("world"), { scale: 1 }, { scale: 1.04, duration: 1.5, ease: "power2.inOut" }, 0);
+
+      // headline swap on the downbeat: old out 0.00-0.15, new in 0.10-0.40
+      waterfallOut(byClass("w-old"), 0);
+      waterfallIn(byClass("w-mid"), 0.1);
+
+      // tap 1 (0.50): ripple on the 5th food star, then the row wipes left -> right
+      function tap(ripple, fill, excellent, t) {
+        tl.fromTo(ripple, { scale: 0 }, { scale: 1, duration: 0.18, ease: "power2.out" }, t - 0.08);
+        tl.fromTo(ripple, { opacity: 0 }, { opacity: 1, duration: 0.04, ease: "none" }, t - 0.08);
+        tl.fromTo(ripple, { opacity: 1 }, { opacity: 0, duration: 0.16, ease: "power1.in", immediateRender: false }, t + 0.02);
+        tl.fromTo(
+          fill,
+          { clipPath: "inset(0% 100% 0% 0%)" },
+          { clipPath: "inset(0% 0% 0% 0%)", duration: 0.12, ease: "power1.out" },
+          t
+        );
+        tl.fromTo(excellent, { opacity: 0, y: 6 }, { opacity: 1, y: 0, duration: 0.2, ease: "power2.out" }, t + 0.06);
+      }
+      tap(byId("ripple-food"), byId("fill-food"), byId("ex-food"), 0.5);
+      // tap 2 (1.00): service row
+      tap(byId("ripple-service"), byId("fill-service"), byId("ex-service"), 1.0);
+
+      // 1.25: "How long it took" ticks (press-release-spring, state change at release)
+      var chip = byId("tick");
+      var PRESS_START = 1.17;
+      var PRESS_DUR = 0.08;
+      var RELEASE = PRESS_START + PRESS_DUR; // 1.25
+      tl.fromTo(chip, { scale: 1 }, { scale: 0.92, duration: PRESS_DUR, ease: "power1.in" }, PRESS_START);
+      tl.fromTo(chip, { scale: 0.92 }, { scale: 1, duration: 0.45, ease: "back.out(2)", immediateRender: false }, RELEASE);
+      tl.fromTo(
+        chip,
+        { backgroundColor: "#FFFFFF", borderColor: "#E6E5E1", color: "#111216" },
+        { backgroundColor: "#1E5EFE", borderColor: "#1E5EFE", color: "#FFFFFF", duration: 0.06, ease: "power1.out" },
+        RELEASE
+      );
+      tl.fromTo(byId("tick-group"), { x: -7 }, { x: 0, duration: 0.22, ease: "power3.out" }, RELEASE);
+      tl.fromTo(byId("tick-check"), { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.8)" }, RELEASE);
+      tl.fromTo(byId("tick-burst"), { scale: 1, opacity: 0 }, { scale: 1.35, opacity: 0.4, duration: 0.22, ease: "power2.out" }, RELEASE);
+      tl.fromTo(byId("tick-burst"), { opacity: 0.4 }, { opacity: 0, duration: 0.3, ease: "power2.in", immediateRender: false }, RELEASE + 0.22);
+
+      // ---------------- Scene 2 (1.50 - 3.00): the language burst ----------------
+      // headline + "No app"/"No sign-in" chips clear in the same waterfall; new headline rises in
+      waterfallOut(byClass("w-mid"), 1.5);
+      waterfallOut(byClass("tag"), 1.5);
+      waterfallIn(byClass("w-new"), 1.6);
+
+      // question slot: 0.08s vertical roll (old up and out, new up and in) on a hard ease
+      var ROLL = 0.08;
+      var H = 52; // slot height
+      var slot = [byId("q-en0"), byId("q-hg"), byId("q-hi"), byId("q-kn"), byId("q-ta"), byId("q-te"), byId("q-en1")];
+      var SWAPS = [1.5, 2.0, 2.375, 2.625, 2.75, 2.875];
+      slot.forEach(function (el, i) {
+        if (i === 0) return;
+        // waiting lines sit below the slot, hidden, until their swap
+        tl.fromTo(el, { y: H }, { y: 0, duration: ROLL, ease: "power4.inOut" }, SWAPS[i - 1]);
+        tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.01, ease: "none" }, SWAPS[i - 1]);
+      });
+      slot.forEach(function (el, i) {
+        if (i === slot.length - 1) return;
+        tl.fromTo(el, { y: 0 }, { y: -H, duration: ROLL, ease: "power4.inOut", immediateRender: false }, SWAPS[i]);
+        tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: 0.01, ease: "none", immediateRender: false }, SWAPS[i] + ROLL);
+      });
+
+      // language chips: reveal one by one on each swap; the newest chip arrives lit,
+      // the previous one drops back to accent-light
+      var langs = [byId("lang-en"), byId("lang-hg"), byId("lang-hi"), byId("lang-kn"), byId("lang-ta"), byId("lang-te")];
+      // English shows (and is the lit chip) as the burst starts; Hinglish cascades in right behind it
+      var REVEAL = [1.5, 1.56, 2.0, 2.375, 2.625, 2.75];
+      langs.forEach(function (el, i) {
+        var t = REVEAL[i];
+        tl.fromTo(el, { y: 28 }, { y: 0, duration: 0.22, ease: "power3.out" }, t);
+        tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "power1.out" }, t);
+        var next = REVEAL[i + 1] !== undefined ? REVEAL[i + 1] : 2.875;
+        tl.fromTo(onLayer(el), { opacity: 1 }, { opacity: 0, duration: 0.06, ease: "power1.out", immediateRender: false }, next);
+      });
+      // 2.875: back to English, "English" re-lights; all six stay
+      tl.fromTo(onLayer(langs[0]), { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power1.out", immediateRender: false }, 2.875);
+
+      // hold to the frame's fixed length
+      tl.set({}, {}, 3);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FID] = tl;
+    })();
+  </script>
+</template>
