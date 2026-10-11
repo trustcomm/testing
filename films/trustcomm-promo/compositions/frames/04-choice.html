@@ -1,0 +1,737 @@
+<template id="04-choice-template">
+  <style>
+    @font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/Inter-500.woff2") format("woff2");}
+    @font-face{font-family:"Inter";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/Inter-600.woff2") format("woff2");}
+    @font-face{font-family:"Poppins";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/Poppins-600.woff2") format("woff2");}
+    @font-face{font-family:"Poppins";font-weight:800;font-style:normal;font-display:block;src:url("assets/fonts/Poppins-800.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans Devanagari";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/NotoSans-devanagari-600.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans Kannada";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/NotoSans-kannada-600.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans Tamil";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/NotoSans-tamil-600.woff2") format("woff2");}
+    @font-face{font-family:"Noto Sans Telugu";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/NotoSans-telugu-600.woff2") format("woff2");}
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+    }
+
+    /* ---------- layers ---------- */
+    [id="04-choice-bg"] {
+      position: absolute;
+      inset: 0;
+      background: #FAF9F5;
+    }
+    [id="04-choice-stage"] {
+      position: absolute;
+      inset: 0;
+    }
+    /* camera: holds the phone only, scaled about the phone centre (700, 470) */
+    [id="04-choice-world"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      transform-origin: 700px 470px;
+    }
+
+    /* ---------- PHONE (380x780 @ centre 700,470) ---------- */
+    [id="04-choice-phone"] {
+      position: absolute;
+      left: 510px;
+      top: 80px;
+      width: 380px;
+      height: 780px;
+      border-radius: 56px;
+      background: #111216;
+      transform-origin: 50% 50%;
+    }
+    [id="04-choice-screen"] {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      width: 356px;
+      height: 756px;
+      border-radius: 46px;
+      background: #FAF9F5;
+      overflow: hidden;
+      color: #111216;
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+    }
+    [id="04-choice-speaker"] {
+      position: absolute;
+      left: 145px;
+      top: 18px;
+      width: 90px;
+      height: 8px;
+      border-radius: 4px;
+      background: #2A2B30;
+    }
+    [class~="04-choice-page"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 356px;
+      height: 756px;
+      background: #FAF9F5;
+    }
+
+    /* page A: the rating page (Frame 3's last state) */
+    [class~="04-choice-q"] {
+      position: absolute;
+      left: 24px;
+      height: 28px;
+      line-height: 28px;
+      font-size: 22px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    [class~="04-choice-stars"] {
+      position: absolute;
+      left: 73px;
+      width: 210px;
+      height: 34px;
+      overflow: visible;
+    }
+    [class~="04-choice-excellent"] {
+      position: absolute;
+      left: 0;
+      width: 356px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 15px;
+      font-weight: 500;
+      text-align: center;
+      color: #6D6D75;
+    }
+    [id="04-choice-mention"] {
+      position: absolute;
+      left: 24px;
+      top: 340px;
+      width: 308px;
+      line-height: 24px;
+      font-size: 18px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    [id="04-choice-mention-sub"] {
+      position: absolute;
+      left: 24px;
+      top: 368px;
+      width: 308px;
+      line-height: 18px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #6D6D75;
+    }
+    [id="04-choice-chips"] {
+      position: absolute;
+      left: 20px;
+      top: 418px;
+      width: 316px;
+    }
+    [class~="04-choice-chiprow"] {
+      display: flex;
+      gap: 4px;
+      height: 34px;
+      margin-bottom: 7px;
+    }
+    [class~="04-choice-chip"] {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 34px;
+      padding: 0 9px;
+      box-sizing: border-box;
+      border: 1.5px solid #E6E5E1;
+      border-radius: 17px;
+      background: #FFFFFF;
+      color: #111216;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 18px;
+      white-space: nowrap;
+    }
+    [class~="04-choice-chip-on"] {
+      background: #1E5EFE;
+      border-color: #1E5EFE;
+      color: #FFFFFF;
+    }
+    [class~="04-choice-chip-check"] {
+      display: block;
+      width: 10px;
+      height: 10px;
+      margin-right: 4px;
+      overflow: visible;
+    }
+    [id="04-choice-divider"] {
+      position: absolute;
+      left: 0;
+      top: 652px;
+      width: 356px;
+      height: 1px;
+      background: #E6E5E1;
+    }
+    [id="04-choice-continue"] {
+      position: absolute;
+      left: 24px;
+      top: 676px;
+      width: 308px;
+      height: 52px;
+      border-radius: 26px;
+      background: #1E5EFE;
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 52px;
+      text-align: center;
+    }
+
+    /* page B: the choice page (rebuilt from demo-2) */
+    [id="04-choice-dots"] {
+      position: absolute;
+      left: 0;
+      top: 40px;
+      width: 356px;
+      height: 8px;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+    [class~="04-choice-dot"] {
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      background: #1E5EFE;
+    }
+    [class~="04-choice-dot-long"] { width: 24px; }
+    [class~="04-choice-dot-off"] { background: #DCDBD7; }
+    [id="04-choice-where"] {
+      position: absolute;
+      left: 24px;
+      top: 260px;
+      width: 308px;
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 32px;
+      letter-spacing: -0.01em;
+    }
+    [id="04-choice-both"] {
+      position: absolute;
+      left: 24px;
+      top: 334px;
+      width: 308px;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 20px;
+      color: #6D6D75;
+    }
+    /* option card (phone) and its lifted copy share these text styles */
+    [class~="04-choice-opt"] {
+      position: absolute;
+      left: 24px;
+      width: 308px;
+      height: 84px;
+      box-sizing: border-box;
+      padding: 0 16px;
+      border: 1.5px solid #E6E5E1;
+      border-radius: 12px;
+      background: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    [class~="04-choice-opt-title"] {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 20px;
+      color: #111216;
+      white-space: nowrap;
+    }
+    [class~="04-choice-opt-sub"] {
+      margin-top: 4px;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 16px;
+      color: #6D6D75;
+    }
+
+    /* ---------- RIGHT COLUMN (Frame 3's last state, x = 1060) ---------- */
+    [class~="04-choice-line"] {
+      position: absolute;
+      left: 1060px;
+      height: 78px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 800;
+      font-size: 72px;
+      line-height: 78px;
+      letter-spacing: -0.02em;
+      color: #111216;
+      white-space: nowrap;
+    }
+    [class~="04-choice-line-a"] { top: 266px; } /* baseline y = 330 */
+    [class~="04-choice-line-b"] { top: 344px; } /* baseline y = 408 */
+    [class~="04-choice-w"] { display: inline-block; }
+    [class~="04-choice-accent"] { color: #1E5EFE; }
+    [class~="04-choice-lang"] {
+      position: absolute;
+      left: 1060px;
+      height: 42px;
+      padding: 0 22px;
+      box-sizing: border-box;
+      border-radius: 100px;
+      background: rgba(30, 94, 254, 0.08);
+      color: #1E5EFE;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 42px;
+      white-space: nowrap;
+    }
+    [class~="04-choice-lang-on"] {
+      background: #1E5EFE;
+      color: #FFFFFF;
+    }
+    [class~="04-choice-lang-hi"] { font-family: "Noto Sans Devanagari", "Poppins", sans-serif; }
+    [class~="04-choice-lang-kn"] { font-family: "Noto Sans Kannada", "Poppins", sans-serif; }
+    [class~="04-choice-lang-ta"] { font-family: "Noto Sans Tamil", "Poppins", sans-serif; }
+    [class~="04-choice-lang-te"] { font-family: "Noto Sans Telugu", "Poppins", sans-serif; }
+
+    /* ---------- CHOICE CARDS (shared perspective parent, origin = canvas centre) ---------- */
+    [id="04-choice-persp"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      perspective: 1400px;
+      perspective-origin: 960px 540px;
+    }
+    /* each card is centred on its anchor via xPercent/yPercent (-50) set in script */
+    [class~="04-choice-card"] {
+      position: absolute;
+      top: 560px;
+      width: 620px;
+      height: 470px;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(30, 94, 254, 0.2);
+      border-radius: 14px;
+      overflow: hidden;
+      transform-origin: 50% 50%;
+      font-family: "Inter", sans-serif;
+      color: #111216;
+      visibility: hidden;
+    }
+    [id="04-choice-card-l"] { left: 560px; }
+    [id="04-choice-card-r"] { left: 1360px; }
+    /* lifted copy of the phone option card: 308x84 at the card's centre */
+    [class~="04-choice-lift"] {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 308px;
+      height: 84px;
+      margin-left: -154px;
+      margin-top: -42px;
+      box-sizing: border-box;
+      padding: 0 17.5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    /* landed content: fixed 617x467 (= the card's padding box at full size), centred */
+    [class~="04-choice-content"] {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 617px;
+      height: 467px;
+      margin-left: -308.5px;
+      margin-top: -233.5px;
+      padding: 28px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    [class~="04-choice-panel"] {
+      background: #E4EAF8;
+      border-radius: 10px;
+      padding: 18px 22px;
+    }
+    [class~="04-choice-panel-title"] {
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    [class~="04-choice-panel-sub"] {
+      margin-top: 6px;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+    [class~="04-choice-textbox"] {
+      position: relative;
+      flex: 1;
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 16px 18px;
+      overflow: hidden;
+    }
+    [class~="04-choice-textbox-focus"] {
+      border: 2px solid #1E5EFE;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+    [class~="04-choice-textbox-plain"] {
+      border: 1.5px solid #E6E5E1;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    [class~="04-choice-chunk"] { display: none; }
+    [id="04-choice-caret"] {
+      display: inline-block;
+      width: 2px;
+      height: 22px;
+      margin-left: 1px;
+      vertical-align: -4px;
+      background: #111216;
+    }
+    /* draft reveal: white bands with a soft leading edge sweep right, one per line */
+    [class~="04-choice-band"] {
+      position: absolute;
+      left: -40px;
+      width: 640px;
+      height: 24px;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0px, #FFFFFF 40px);
+    }
+    [class~="04-choice-card-title"] {
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+    [class~="04-choice-note"] {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 1.4;
+      color: #6D6D75;
+      margin-top: -4px;
+    }
+    [class~="04-choice-pill"] {
+      height: 56px;
+      border-radius: 100px;
+      background: #1E5EFE;
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 19px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+
+    /* ---------- inner-edge badges (flat parent, never inside a tilted card) ---------- */
+    [class~="04-choice-badge"] {
+      position: absolute;
+      height: 50px;
+      padding: 0 26px;
+      border-radius: 100px;
+      background: #1E5EFE;
+      color: #FFFFFF;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 50px;
+      white-space: nowrap;
+    }
+    /* y-centres 400 / 720; each overlaps its card's inner edge by ~15% of its width */
+    [id="04-choice-badge-private"] { left: 847px; top: 375px; transform-origin: 20px 50%; }
+    [id="04-choice-badge-public"] { left: 797px; top: 695px; transform-origin: calc(100% - 45px) 50%; }
+
+    /* ---------- title: baseline y = 230 (top = baseline - (lineHeight/2 + 0.35em)) ---------- */
+    [id="04-choice-title"] {
+      position: absolute;
+      left: 0;
+      top: 165.4px;
+      width: 1920px;
+      height: 76px;
+      text-align: center;
+      white-space: nowrap;
+      font-family: "Poppins", sans-serif;
+      font-weight: 800;
+      font-size: 76px;
+      line-height: 76px;
+      letter-spacing: -0.02em;
+      color: #111216;
+    }
+    [id="04-choice-title"] > span { display: inline-block; }
+  </style>
+
+  <div id="root" data-composition-id="04-choice" data-start="0" data-duration="2.5" data-width="1920" data-height="1080">
+    <!-- full-bleed ground -->
+    <div id="04-choice-bg" class="clip" data-start="0" data-duration="2.5" data-track-index="0"></div>
+
+    <div id="04-choice-stage" class="clip" data-start="0" data-duration="2.5" data-track-index="1">
+      <!-- camera: 1.04 -> 1.00 about the phone centre -->
+      <div id="04-choice-world">
+        <div id="04-choice-phone">
+          <div id="04-choice-screen">
+            <!-- page A: rating page, both rows full, "How long it took" ticked -->
+            <div id="04-choice-page-a" class="04-choice-page">
+              <div class="04-choice-q" style="top: 70px">How was the food?</div>
+              <svg class="04-choice-stars" style="top: 110px" viewBox="0 0 210 34" aria-hidden="true">
+                <g fill="#1E5EFE" stroke="#1E5EFE" stroke-width="2.4" stroke-linejoin="round">
+                  <path d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                  <path transform="translate(44 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                  <path transform="translate(88 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                  <path transform="translate(132 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                  <path transform="translate(176 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                </g>
+              </svg>
+              <div class="04-choice-excellent" style="top: 152px">Excellent</div>
+              <div class="04-choice-q" style="top: 200px">How was the service?</div>
+              <svg class="04-choice-stars" style="top: 240px" viewBox="0 0 210 34" aria-hidden="true">
+                <g fill="#1E5EFE" stroke="#1E5EFE" stroke-width="2.4" stroke-linejoin="round">
+                  <path d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                  <path transform="translate(44 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                  <path transform="translate(88 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                  <path transform="translate(132 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                  <path transform="translate(176 0)" d="M17.00 1.80 L21.11 12.34 L32.41 12.99 L23.66 20.16 L26.52 31.11 L17.00 25.00 L7.48 31.11 L10.34 20.16 L1.59 12.99 L12.89 12.34 Z" />
+                </g>
+              </svg>
+              <div class="04-choice-excellent" style="top: 282px">Excellent</div>
+              <div id="04-choice-mention">What should the review mention?</div>
+              <div id="04-choice-mention-sub">Pick only what you want mentioned. Nothing is ticked for you.</div>
+              <div id="04-choice-chips">
+                <div class="04-choice-chiprow">
+                  <div class="04-choice-chip">The food</div>
+                  <div class="04-choice-chip 04-choice-chip-on">
+                    <svg class="04-choice-chip-check" viewBox="0 0 10 10" aria-hidden="true"><polyline points="1.2,5.4 3.9,8 8.8,2.1" fill="none" stroke="#FFFFFF" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                    <span>How long it took</span>
+                  </div>
+                  <div class="04-choice-chip">The price</div>
+                </div>
+                <div class="04-choice-chiprow">
+                  <div class="04-choice-chip">How clean it was</div>
+                  <div class="04-choice-chip">The staff</div>
+                  <div class="04-choice-chip">The portions</div>
+                </div>
+              </div>
+              <div id="04-choice-divider"></div>
+              <div id="04-choice-continue">Continue</div>
+            </div>
+
+            <!-- page B: "Where should your words go?" -->
+            <div id="04-choice-page-b" class="04-choice-page">
+              <div id="04-choice-dots">
+                <div class="04-choice-dot"></div>
+                <div class="04-choice-dot 04-choice-dot-long"></div>
+                <div class="04-choice-dot 04-choice-dot-off"></div>
+              </div>
+              <div id="04-choice-where">Where should your words go?</div>
+              <div id="04-choice-both">You can do both, if you like.</div>
+              <div id="04-choice-opt-owner" class="04-choice-opt" style="top: 374px">
+                <div class="04-choice-opt-title">Straight to the owner</div>
+                <div class="04-choice-opt-sub">Only Meera's Tiffin Room reads it. Not posted anywhere.</div>
+              </div>
+              <div id="04-choice-opt-google" class="04-choice-opt" style="top: 470px">
+                <div class="04-choice-opt-title">On Google</div>
+                <div class="04-choice-opt-sub">Anyone looking up Meera's Tiffin Room sees it.</div>
+              </div>
+            </div>
+          </div>
+          <div id="04-choice-speaker"></div>
+        </div>
+      </div>
+
+      <!-- right column (handoff in): headline + language chips, English active -->
+      <div class="04-choice-line 04-choice-line-a"><span class="04-choice-w 04-choice-rc">In</span> <span class="04-choice-w 04-choice-rc">their</span> <span class="04-choice-w 04-choice-rc">own</span></div>
+      <div class="04-choice-line 04-choice-line-b"><span class="04-choice-w 04-choice-rc 04-choice-accent">language.</span></div>
+      <div class="04-choice-lang 04-choice-lang-on 04-choice-rc" style="top: 452px">English</div>
+      <div class="04-choice-lang 04-choice-rc" style="top: 506px">Hinglish</div>
+      <div class="04-choice-lang 04-choice-lang-hi 04-choice-rc" lang="hi" style="top: 560px">हिंदी</div>
+      <div class="04-choice-lang 04-choice-lang-kn 04-choice-rc" lang="kn" style="top: 614px">ಕನ್ನಡ</div>
+      <div class="04-choice-lang 04-choice-lang-ta 04-choice-rc" lang="ta" style="top: 668px">தமிழ்</div>
+      <div class="04-choice-lang 04-choice-lang-te 04-choice-rc" lang="te" style="top: 722px">తెలుగు</div>
+
+      <!-- the two equal choice cards -->
+      <div id="04-choice-persp">
+        <div id="04-choice-card-l" class="04-choice-card">
+          <div id="04-choice-lift-l" class="04-choice-lift">
+            <div class="04-choice-opt-title">Straight to the owner</div>
+            <div class="04-choice-opt-sub">Only Meera's Tiffin Room reads it. Not posted anywhere.</div>
+          </div>
+          <div class="04-choice-content">
+            <div id="04-choice-l1" class="04-choice-panel">
+              <div class="04-choice-panel-title">Your message to Meera's Tiffin Room</div>
+              <div class="04-choice-panel-sub">The owner reads this personally. It isn't posted publicly.</div>
+            </div>
+            <div id="04-choice-l2" class="04-choice-textbox 04-choice-textbox-focus"><span id="04-choice-typed"></span><span id="04-choice-caret"></span></div>
+            <div id="04-choice-l3" class="04-choice-pill">Send to owner</div>
+          </div>
+        </div>
+        <div id="04-choice-card-r" class="04-choice-card">
+          <div id="04-choice-lift-r" class="04-choice-lift">
+            <div class="04-choice-opt-title">On Google</div>
+            <div class="04-choice-opt-sub">Anyone looking up Meera's Tiffin Room sees it.</div>
+          </div>
+          <div class="04-choice-content">
+            <div id="04-choice-r1" class="04-choice-card-title">Here's a draft</div>
+            <div id="04-choice-r2" class="04-choice-textbox 04-choice-textbox-plain">Filter coffee at Meera's Tiffin Room was absolutely wonderful and served steaming hot. The food tasted brilliant, and the staff brought everything to the table amazingly fast.<div id="04-choice-band-0" class="04-choice-band" style="top: 16px"></div><div id="04-choice-band-1" class="04-choice-band" style="top: 40px"></div><div id="04-choice-band-2" class="04-choice-band" style="top: 64px"></div></div>
+            <div id="04-choice-r3" class="04-choice-note">Change anything that doesn't sound like you. It goes out in your name.</div>
+            <div id="04-choice-r4" class="04-choice-pill">Copy my words</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- inner-edge badges -->
+      <div id="04-choice-badge-private" class="04-choice-badge">Private</div>
+      <div id="04-choice-badge-public" class="04-choice-badge">Public, in their name</div>
+
+      <!-- title: baseline 230 -->
+      <div id="04-choice-title"><span>Their</span> <span>words.</span> <span class="04-choice-accent">Their</span> <span class="04-choice-accent">choice.</span></div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap-3.14.2.min.js"></script>
+  <script>
+    (function () {
+      var FRAME_ID = "04-choice";
+      var tl = gsap.timeline({ paused: true });
+      var $ = function (id) { return document.getElementById(id); };
+      var toArr = function (list) { return Array.prototype.slice.call(list); };
+
+      var world = $("04-choice-world");
+      var phone = $("04-choice-phone");
+      var pageA = $("04-choice-page-a");
+      var pageB = $("04-choice-page-b");
+      var optOwner = $("04-choice-opt-owner");
+      var optGoogle = $("04-choice-opt-google");
+      var cardL = $("04-choice-card-l");
+      var cardR = $("04-choice-card-r");
+      var liftL = $("04-choice-lift-l");
+      var liftR = $("04-choice-lift-r");
+      var typed = $("04-choice-typed");
+      var caret = $("04-choice-caret");
+      var badgePrivate = $("04-choice-badge-private");
+      var badgePublic = $("04-choice-badge-public");
+      var title = $("04-choice-title");
+      var rightCol = toArr($("04-choice-stage").getElementsByClassName("04-choice-rc"));
+
+      /* ================= Scene 1 (0.00-0.50): page swap, right column clears, camera eases out ================= */
+      // camera 1.04 -> 1.00 about (700, 470)
+      tl.fromTo(world, { scale: 1.04 }, { scale: 1, duration: 0.5, ease: "power2.inOut" }, 0);
+      // phone page swap: old page out left, new page in from the right (0.15 s, expo.out)
+      tl.fromTo(pageA, { x: 0 }, { x: -356, duration: 0.15, ease: "expo.out" }, 0);
+      tl.fromTo(pageB, { x: 356 }, { x: 0, duration: 0.15, ease: "expo.out" }, 0);
+      // right column: 0.2 s waterfall downward (power4.in ramp; fade finishes before 0.20)
+      rightCol.forEach(function (el, i) {
+        var at = i * 0.008;
+        tl.fromTo(el, { y: 0 }, { y: 150, duration: 0.16, ease: "power4.in" }, at);
+        tl.fromTo(el, { opacity: 1 }, { opacity: 0, duration: 0.12, ease: "power2.in" }, at);
+      });
+
+      /* ================= Scene 2 (0.50-1.50): split-tilt entry out of the phone ================= */
+      var LIFT_AT = 0.5, FLY = 0.4; // land at 0.90
+      // cards are centred on their anchors (560,560) / (1360,560)
+      gsap.set([cardL, cardR], { xPercent: -50, yPercent: -50 });
+      // hand-off: the phone's option cards become the flying cards at exactly 0.50
+      tl.set([optOwner, optGoogle], { opacity: 0 }, LIFT_AT);
+      tl.set([cardL, cardR], { autoAlpha: 1 }, LIFT_AT);
+      // owner card: phone option centre (700, 508) -> (560, 560), book-open +12deg
+      tl.fromTo(cardL,
+        { x: 140, y: -52, width: 308, height: 84, rotateY: 0, borderRadius: 12, borderColor: "#E6E5E1" },
+        { x: 0, y: 0, width: 620, height: 470, rotateY: 12, borderRadius: 14, borderColor: "rgba(30,94,254,0.2)", duration: FLY, ease: "expo.out" },
+        LIFT_AT);
+      // Google card: phone option centre (700, 604) -> (1360, 560), mirrored -12deg
+      tl.fromTo(cardR,
+        { x: -660, y: 44, width: 308, height: 84, rotateY: 0, borderRadius: 12, borderColor: "#E6E5E1" },
+        { x: 0, y: 0, width: 620, height: 470, rotateY: -12, borderRadius: 14, borderColor: "rgba(30,94,254,0.2)", duration: FLY, ease: "expo.out" },
+        LIFT_AT);
+      // short motion blur only while moving fast (identical on both cards)
+      tl.fromTo([cardL, cardR], { filter: "blur(0px)" }, { filter: "blur(3px)", duration: 1 / 60, ease: "none" }, LIFT_AT);
+      tl.fromTo([cardL, cardR], { filter: "blur(3px)" }, { filter: "blur(0px)", duration: FLY - 1 / 60, ease: "expo.out", immediateRender: false }, LIFT_AT + 1 / 60);
+      tl.set([cardL, cardR], { filter: "none" }, LIFT_AT + FLY);
+      // the lifted option copy fades as the card opens up
+      tl.fromTo([liftL, liftR], { opacity: 1 }, { opacity: 0, duration: 0.12, ease: "power1.out" }, LIFT_AT);
+      // the phone recedes behind the cards (0.50-0.80)
+      tl.fromTo(phone, { scale: 1, opacity: 1 }, { scale: 0.8, opacity: 0, duration: 0.3, ease: "power2.out" }, LIFT_AT);
+
+      // content resolves as the cards land (same rhythm on both sides)
+      var reveal = function (el, at) {
+        tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" }, at);
+      };
+      reveal($("04-choice-l1"), 0.78);
+      reveal($("04-choice-r1"), 0.78);
+      reveal($("04-choice-l2"), 0.82);
+      reveal($("04-choice-r2"), 0.82);
+      reveal($("04-choice-r3"), 0.86);
+      reveal($("04-choice-l3"), 0.90);
+      reveal($("04-choice-r4"), 0.90);
+
+      // left: the private message types on, 0.90 -> 1.40 (discrete keystroke-cluster states)
+      var SEQUENCE = [
+        { t: 0.900, text: "The" },
+        { t: 0.935, text: "The ta" },
+        { t: 0.965, text: "The table" },
+        { t: 1.000, text: "The table by" },
+        { t: 1.030, text: "The table by the" },
+        { t: 1.070, text: "The table by the do" },
+        { t: 1.100, text: "The table by the door" },
+        { t: 1.140, text: "The table by the door gets" },
+        { t: 1.180, text: "The table by the door gets cold" },
+        { t: 1.220, text: "The table by the door gets cold in" },
+        { t: 1.260, text: "The table by the door gets cold in the" },
+        { t: 1.300, text: "The table by the door gets cold in the eve" },
+        { t: 1.340, text: "The table by the door gets cold in the even" },
+        { t: 1.400, text: "The table by the door gets cold in the evening" }
+      ];
+      var prev = "";
+      SEQUENCE.forEach(function (s) {
+        var span = document.createElement("span");
+        span.className = "04-choice-chunk";
+        span.textContent = s.text.slice(prev.length);
+        typed.appendChild(span);
+        tl.set(span, { display: "inline" }, s.t);
+        prev = s.text;
+      });
+      // caret: solid while typing, then a deterministic blink, off at the hand-off
+      tl.set(caret, { opacity: 0 }, 1.70);
+      tl.set(caret, { opacity: 1 }, 2.00);
+      tl.set(caret, { opacity: 0 }, 2.30);
+
+      // right: the draft reveals line by line, in sync with the typing (0.90 -> 1.40)
+      [0, 1, 2].forEach(function (k) {
+        tl.fromTo($("04-choice-band-" + k), { x: 0 }, { x: 640, duration: 1 / 6, ease: "power1.inOut" }, 0.9 + k / 6);
+      });
+
+      // title slides down from above at 1.00
+      tl.fromTo(title, { y: -44, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 1.0);
+
+      /* ================= Scene 3 (1.50-2.50): inner-edge badges pop, then hold ================= */
+      tl.fromTo(badgePrivate, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.2)" }, 1.5);
+      tl.fromTo(badgePublic, { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.2)" }, 1.75);
+
+      // subtle phase-opposed jitter (2 px), returns to rest with zero velocity at 2.50
+      var groupL = [cardL, badgePrivate], groupR = [cardR, badgePublic];
+      tl.fromTo(groupL, { y: 0 }, { y: -2, duration: 0.75, ease: "sine.inOut", immediateRender: false }, 1.0);
+      tl.fromTo(groupL, { y: -2 }, { y: 0, duration: 0.75, ease: "sine.inOut", immediateRender: false }, 1.75);
+      tl.fromTo(groupR, { y: 0 }, { y: 2, duration: 0.75, ease: "sine.inOut", immediateRender: false }, 1.0);
+      tl.fromTo(groupR, { y: 2 }, { y: 0, duration: 0.75, ease: "sine.inOut", immediateRender: false }, 1.75);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FRAME_ID] = tl;
+    })();
+  </script>
+</template>

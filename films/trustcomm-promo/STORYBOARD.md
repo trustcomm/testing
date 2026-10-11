@@ -187,7 +187,7 @@ Sound sync (local s):
 - duration: 3.0s
 - poster: 2.4s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/03-rate.html
 - type: feature_showcase
 - persuasion: Show-don't-tell proof

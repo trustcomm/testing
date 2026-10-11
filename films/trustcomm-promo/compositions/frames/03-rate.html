@@ -190,7 +190,7 @@
       align-items: center;
       justify-content: center;
       height: 34px;
-      padding: 0 9px;
+      padding: 0 8px;
       box-sizing: border-box;
       border: 1.5px solid #E6E5E1;
       border-radius: 17px;
@@ -317,6 +317,13 @@
       background: #1E5EFE;
       color: #FFFFFF;
     }
+    /* optical centring: the Indic glyph masses sit high on a 42px line, nudge them down */
+    [class~="03-rate-lang-hi"] [class~="03-rate-lang-base"],
+    [class~="03-rate-lang-hi"] [class~="03-rate-lang-on"],
+    [class~="03-rate-lang-kn"] [class~="03-rate-lang-base"],
+    [class~="03-rate-lang-kn"] [class~="03-rate-lang-on"] { padding-top: 6px; line-height: 36px; }
+    [class~="03-rate-lang-te"] [class~="03-rate-lang-base"],
+    [class~="03-rate-lang-te"] [class~="03-rate-lang-on"] { padding-top: 8px; line-height: 34px; }
     [class~="03-rate-lang-latin"] [class~="03-rate-lang-base"],
     [class~="03-rate-lang-latin"] [class~="03-rate-lang-on"] { font-family: "Poppins", sans-serif; }
     [class~="03-rate-lang-hi"] [class~="03-rate-lang-base"],
