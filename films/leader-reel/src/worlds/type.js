@@ -227,8 +227,8 @@ window.WorldType = function (E) {
     matShow.uniforms.uTex.value = tex;
     matShow.uniforms.uTexB.value = texB;
     E.pass(matShow, target);
-    const zb = 0.25 * (1 - U.seg(t, T0, T0 + 0.16, U.E.p2out));
-    return { bloom: 0.32, bloomThreshold: 1.05, zoomBlur: zb, zoomCenter: [0.5, 0.5], speed: zb * 2 + U.seg(t, T_BEND0, T_BEND1) * (1 - U.seg(t, 9.7, T_BEND1)) * 0.3 };
+    // the geometry zoom lands at rest on these rows, so the type world starts sharp (no carried-over zoom blur)
+    return { bloom: 0.32, bloomThreshold: 1.05, speed: U.seg(t, T_BEND0, T_BEND1) * (1 - U.seg(t, 9.7, T_BEND1)) * 0.3 };
   }
 
   const matShow = E.material(`

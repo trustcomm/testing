@@ -84,6 +84,13 @@ window.WorldGeometry = function (E) {
     SH.counterPoly.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y)));
     g.closePath();
     g.clip();
+    // during the blurred middle of the zoom the counter's interior goes to void (hiding the dot grid and the hand
+    // behind it), so the push lands on rows of type alone, exactly what the type world starts from
+    const veil = U.seg(t, T_ZOOM + 0.08, T1 - 0.1, U.E.p2io);
+    if (veil > 0) {
+      g.fillStyle = `rgba(6,7,11,${veil})`;
+      g.fillRect(-1e5, -1e5, 2e5, 2e5);
+    }
     const reveal = U.seg(t, 7.96875, 8.30, U.E.p3out);
     g.fillStyle = "rgba(237,230,218,0.92)";
     g.font = `600 ${SH.FONT_PX}px Archivo`;
@@ -103,8 +110,11 @@ window.WorldGeometry = function (E) {
   }
 
   function render(t, target) {
-    // camera: slight push, then the zoom into the counter stripes
-    const zk = U.seg(t, T_ZOOM, T1, U.E.expoIn);
+    // camera: slight push, then the zoom into the counter stripes. Ease-in-out in log scale, so the push lands on
+    // the rows at rest and the type world picks them up without a jolt; zv is the normalized zoom velocity (0..1)
+    const zs = U.seg(t, T_ZOOM, T1);
+    const zk = U.E.p3io(zs);
+    const zv = zs < 0.5 ? 4 * zs * zs : 4 * (1 - zs) * (1 - zs);
     const zoom = U.mix(1.0, 1.035, U.seg(t, T0, T_ZOOM, U.E.sineIo)) * Math.exp(Math.log(SH.ZOOM_END / 1.035) * zk);
     const f = SH.focus;
     const fx = U.mix(960, f[0], U.seg(t, T_ZOOM - 0.1, T1, U.E.p2io)), fy = U.mix(540, f[1], U.seg(t, T_ZOOM - 0.1, T1, U.E.p2io));
@@ -234,9 +244,9 @@ window.WorldGeometry = function (E) {
     }
     tex.needsUpdate = true;
     matShow.uniforms.uTex.value = tex;
-    matShow.uniforms.uZoomBlur.value = zk;
+    matShow.uniforms.uZoomBlur.value = zv;
     E.pass(matShow, target);
-    return { bloom: 0.3, bloomThreshold: 1.1, speed: zk * 0.6, zoomBlur: zk * 0.25, zoomCenter: [0.5, 0.5], grain: 0.03 };
+    return { bloom: 0.3, bloomThreshold: 1.1, speed: zv * 0.6, zoomBlur: zv * 0.3, zoomCenter: [0.5, 0.5], grain: 0.03 };
   }
   function scaleBox(b, s) {
     if (s === 1) return b;

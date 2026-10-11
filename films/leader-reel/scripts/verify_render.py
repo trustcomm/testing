@@ -79,6 +79,7 @@ def sheet(fps):
     times = [0.25, 0.9, 1.6, 2.3, 2.9, 3.5, 4.3, 5.0, 5.9, 6.6, 7.4, 8.4, 9.0, 9.6, 10.2, 10.8, 11.4, 12.0, 12.6, 13.4, 13.9, 14.3, 14.7, 14.97]
     tiles = []
     for t in times:
+        t = min(t, DUR - 1.5 / fps)
         raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-i", MP4, "-frames:v", "1", "-vf", "scale=384:216", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True, check=True).stdout
         tiles.append((t, Image.frombytes("RGB", (384, 216), raw)))
     cols = 6
