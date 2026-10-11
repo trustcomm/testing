@@ -2,6 +2,15 @@
 
 A 15-second motion-design showreel, 1920×1080 at 60 fps. A film-leader countdown, reimagined. Each numeral from 8 to 2 is one bar of music and one discipline, and the numeral's own shape is the reason for its technique. The count drops into a SHOW / REEL lockup whose letters are windows into every world.
 
+## Deliverables
+
+| File | Spec |
+| --- | --- |
+| `renders/leader-reel.mp4` (master, not in git) | 1920×1080, 60 fps, H.264 high quality, BT.709, AAC 48 kHz; 82 MB |
+| `deliver/leader-reel-web.mp4` | The same, two-pass 15 Mbps web encode with fast start; 29 MB (SSIM 0.983 against the master) |
+
+Both are 15.000 s, −13.9 LUFS integrated with a true peak of −1.4 dBTP after AAC, and have picture and sound in sync (0 ms lag measured).
+
 ## The count, bar by bar
 
 | Time | Numeral | Discipline | What happens | How it is made |
