@@ -404,7 +404,7 @@ Sound sync (local s):
 - duration: 2.5s
 - poster: 2.2s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/06-cta.html
 - type: cta
 - persuasion: Risk reversal (free trial, no card)
