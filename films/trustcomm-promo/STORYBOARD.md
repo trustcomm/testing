@@ -59,7 +59,7 @@ fps: 60
 - duration: 2.5s
 - poster: 1.8s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/01-hook.html
 - type: hook
 - persuasion: Pain validation through negative contrast
