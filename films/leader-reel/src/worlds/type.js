@@ -108,51 +108,69 @@ window.WorldType = function (E) {
   }
   const LINE_PTS = Array.from({ length: LINE_N }, (_, i) => centreline(i, 0));
 
+  // the two bowls are masked apart at the 3's waist: once the rows have nearly settled onto the arcs, a seam zips
+  // closed along the waist (tongue → right edge) and each bowl keeps only its own side of it, so the lanes never pile
+  // up where the bowls meet. Left of the zip nothing is masked, so the zip never cuts a glyph that is still in flight.
+  const Y_SEAM = toScr(0, -355.5)[1], X_ZIP0 = toScr(330, 0)[0], X_ZIP1 = toScr(840, 0)[0];
   function drawLanes(t, m, laneW, alpha, tight) {
     const z0 = SH.ZOOM_END;
     const fRow = SH.FONT_PX * z0;
     const n8 = Math.floor((t - 9.84375) / E8);
-    for (const L of lanes) {
-      const tab = laneTable(L, laneW);
-      // row geometry at the hand-off (zoomed stripes), in screen px
-      const rowY = 540 + (SH.rowY(L.row) - SH.focus[1]) * z0;
-      const rowX0 = 960 + (SH.rowX(L.row, t) - SH.focus[0]) * z0;
-      const px = U.mix(fRow, FONT_L, m);
-      const stretchIdx = m < 0.98 ? 1 : (n8 < 0 ? 1 : (n8 + L.row) % 3);
-      const F = fontFor(px, stretchIdx);
-      g.font = F.font;
-      g.fontStretch = F.stretch;
-      const text = SH.rowText(L.row);
-      // walk the row's glyphs; each glyph i has row-x (screen) and maps to arc length s
-      let x = rowX0;
-      let wi = 0, word = "";
-      const zs = fRow / FONT_L;   // how much the type shrinks from row to lane
-      const flowShift = U.seg(t, T_BEND0, T1, U.E.linear) * L.speed * L.dir * 1.8 + U.E.p3in(U.seg(t, T_UNSPOOL, T1)) * 900;
-      for (let ci = 0; ci < text.length; ci++) {
-        const ch = text[ci];
-        if (ch === " " || ch === "·") { word = ""; } else if (!word) { let e = ci; while (e < text.length && text[e] !== " ") e++; word = text.slice(ci, e); }
-        const aRow = advOf(`600 ${fRow.toFixed(2)}px Archivo`, "normal", ch);
-        const aLane = advOf(F.font, F.stretch, ch) * (1 - tight * 0.06);
-        const cxRow = x + aRow / 2;
-        x += aRow;
-        // row position (m = 0)
-        if (cxRow < -400 || cxRow > 2320) { if (m < 0.02) continue; }
-        const s = (cxRow - 960) / zs * (1 - tight * 0.06) + tab.total * 0.5 + flowShift;
-        const visArc = s > 0 && s < tab.total ? 1 : 0;
-        const fadeEdge = U.clamp(Math.min(s, tab.total - s) / 40);
-        const a = (1 - m) * (cxRow > -200 && cxRow < 2120 ? 1 : 0) + m * visArc * fadeEdge;
-        if (a <= 0.01) continue;
-        const [ax, ay, ang] = at(tab, s);
-        const X = U.mix(cxRow, ax, m), Y = U.mix(rowY, ay, m), R = U.mix(0, ang, m);
-        const flash = KEY.has(word) && ((t > 9.84375 && t < 9.84375 + 0.18) || (t > T_TIGHT && t < T_TIGHT + 0.2)) && m > 0.9;
-        g.save();
-        g.translate(X, Y);
-        g.rotate(R);
-        g.globalAlpha = a * alpha;
-        g.fillStyle = flash ? INFRA : BONE;
-        g.fillText(ch, -aLane / 2, 0);
-        g.restore();
+    const zipK = U.seg(m, 0.8, 1, U.E.p2out);
+    const zip = U.mix(X_ZIP0, X_ZIP1, zipK);
+    for (let b = 0; b < 2; b++) {
+      g.save();
+      if (zipK > 0) {
+        g.beginPath();
+        if (b === 0) g.rect(-6000, -6000, 6000 + zip, 6000 + Y_SEAM);
+        else g.rect(-6000, Y_SEAM, 6000 + zip, 12000);
+        g.rect(zip, -6000, 12000, 12000);
+        g.clip();
       }
+      for (const L of lanes) {
+        if (L.bowl !== b) continue;
+        const tab = laneTable(L, laneW);
+        // row geometry at the hand-off (zoomed stripes), in screen px
+        const rowY = 540 + (SH.rowY(L.row) - SH.focus[1]) * z0;
+        const rowX0 = 960 + (SH.rowX(L.row, t) - SH.focus[0]) * z0;
+        const px = U.mix(fRow, FONT_L, m);
+        const stretchIdx = m < 0.98 ? 1 : (n8 < 0 ? 1 : (n8 + L.row) % 3);
+        const F = fontFor(px, stretchIdx);
+        g.font = F.font;
+        g.fontStretch = F.stretch;
+        const text = SH.rowText(L.row);
+        // walk the row's glyphs; each glyph i has row-x (screen) and maps to arc length s
+        let x = rowX0;
+        let wi = 0, word = "";
+        const zs = fRow / FONT_L;   // how much the type shrinks from row to lane
+        const flowShift = U.seg(t, T_BEND0, T1, U.E.linear) * L.speed * L.dir * 1.8 + U.E.p3in(U.seg(t, T_UNSPOOL, T1)) * 900;
+        for (let ci = 0; ci < text.length; ci++) {
+          const ch = text[ci];
+          if (ch === " " || ch === "·") { word = ""; } else if (!word) { let e = ci; while (e < text.length && text[e] !== " ") e++; word = text.slice(ci, e); }
+          const aRow = advOf(`600 ${fRow.toFixed(2)}px Archivo`, "normal", ch);
+          const aLane = advOf(F.font, F.stretch, ch) * (1 - tight * 0.06);
+          const cxRow = x + aRow / 2;
+          x += aRow;
+          // row position (m = 0)
+          if (cxRow < -400 || cxRow > 2320) { if (m < 0.02) continue; }
+          const s = (cxRow - 960) / zs * (1 - tight * 0.06) + tab.total * 0.5 + flowShift;
+          const visArc = s > 0 && s < tab.total ? 1 : 0;
+          const fadeEdge = U.clamp(Math.min(s, tab.total - s) / 40);
+          const a = (1 - m) * (cxRow > -200 && cxRow < 2120 ? 1 : 0) + m * visArc * fadeEdge;
+          if (a <= 0.01) continue;
+          const [ax, ay, ang] = at(tab, s);
+          const X = U.mix(cxRow, ax, m), Y = U.mix(rowY, ay, m), R = U.mix(0, ang, m);
+          const flash = KEY.has(word) && ((t > 9.84375 && t < 9.84375 + 0.18) || (t > T_TIGHT && t < T_TIGHT + 0.2)) && m > 0.9;
+          g.save();
+          g.translate(X, Y);
+          g.rotate(R);
+          g.globalAlpha = a * alpha;
+          g.fillStyle = flash ? INFRA : BONE;
+          g.fillText(ch, -aLane / 2, 0);
+          g.restore();
+        }
+      }
+      g.restore();
     }
   }
 

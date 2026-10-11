@@ -9,7 +9,9 @@ window.WorldGeometry = function (E) {
   const SH = window.SHARED;
   const T0 = 7.265625, T_CLACK = 7.5, T_LOCK = 8.4375, T_ZOOM = 8.90625, T1 = 9.375;
   const B = 0.46875, E8 = B / 2, E16 = B / 4;
-  const BONE = "#EDE6DA", INFRA = "#FF4A24", ICE = "#8FD8FF", VOID = "#06070B", SLATE = "#1B2230";
+  const BONE = "#EDE6DA", INFRA = "#FF4A24", ICE = "#8FD8FF", VOID = "#06070B";
+  const BONE_RGB = [237, 230, 218], ICE_RGB = [143, 216, 255];
+  const BOWL_W = 180;   // the flat 5's bowl stroke (measured: ~255 px vertical, ~170 px horizontal; 180 matches its counter)
 
   const cv = document.createElement("canvas");
   cv.width = 1920;
@@ -173,12 +175,12 @@ window.WorldGeometry = function (E) {
     const bowl5 = jump(BB.bowl5, 10, 28, kClack * (1 - kBowl));
 
     // leader circle (the bowl's destination): ring stroke grows as the bowl arrives
-    const ringA = U.seg(t, 7.8, 7.97);
-    if (ringA > 0) {
-      g.strokeStyle = `rgba(143,216,255,${0.9 * ringA})`;
+    // (the bowl's closing arc becomes this ring at kBowl = 1, same radius, width, colour and alpha)
+    if (kBowl >= 1) {
+      g.strokeStyle = "rgba(143,216,255,0.9)";
       g.lineWidth = 4;
       g.beginPath();
-      g.arc(CIRC.x, CIRC.y, CIRC.r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * U.seg(t, 7.8, 8.05, U.E.p2out));
+      g.arc(CIRC.x, CIRC.y, CIRC.r, 0, Math.PI * 2);
       g.stroke();
       // registration ticks at the quadrants (pop on the 8th)
       const tk = U.E.backOut(U.seg(t, 8.203125, 8.33), 2);
@@ -194,19 +196,42 @@ window.WorldGeometry = function (E) {
       }
     }
 
-    // bowl → circle: the bowl rolls out, scales up and becomes the ring's disc, then fades into the ring
+    // bowl → circle: the bowl rolls out (it turns as it flies) and swaps mid-flight for an open arc of its own weight,
+    // opening where the bowl opens; the arc closes, thins and cools from bone to ice until it is the leader ring
     if (kBowl < 1) {
       const target = [CIRC.x - CIRC.r, CIRC.y - CIRC.r, CIRC.x + CIRC.r, CIRC.y + CIRC.r];
       const box = lerpBox(bowl5, target, kBowl);
-      const alpha = 1 - U.seg(kBowl, 0.35, 0.8);
-      const col = kBowl < 0.5 ? BONE : SLATE;
-      g.save();
+      // the arc fades in under the bowl, then the bowl fades off the top: mid-swap the two read as one opaque
+      // silhouette (their union) instead of two translucent ones
+      const aIn = U.sstep(0.12, 0.22, kBowl), aOut = 1 - U.sstep(0.2, 0.3, kBowl);
+      const roll = U.E.p2out(kBowl) * Math.PI * 0.4;
       const cxb = (box[0] + box[2]) / 2, cyb = (box[1] + box[3]) / 2;
-      g.translate(cxb, cyb);
-      g.rotate(U.E.p2out(kBowl) * Math.PI * 0.4);
-      g.translate(-cxb, -cyb);
-      drawPiece(path5, R5.bowl, p5, BB.bowl5, box, col, alpha, true);
-      g.restore();
+      if (aIn > 0) {
+        const w = U.mix(BOWL_W, 4, U.E.p2io(U.seg(kBowl, 0.12, 1)));
+        const gap = U.mix(1.7, 0, U.E.p2io(U.seg(kBowl, 0.15, 1)));
+        const cool = U.seg(kBowl, 0.45, 0.95);
+        // the stroke's outer edge stays on the flight box, so the arc fills the same footprint the bowl did
+        const rx = Math.max(2, (box[2] - box[0]) / 2 - (w - 4) / 2), ry = Math.max(2, (box[3] - box[1]) / 2 - (w - 4) / 2);
+        const c = BONE_RGB.map((v, i) => Math.round(U.mix(v, ICE_RGB[i], cool)));
+        g.save();
+        g.globalAlpha = aIn * U.mix(1, 0.9, cool);
+        g.strokeStyle = `rgb(${c[0]},${c[1]},${c[2]})`;
+        g.lineWidth = w;
+        g.lineCap = "butt";
+        g.beginPath();
+        const a0 = Math.PI + roll + gap / 2;
+        g.ellipse(cxb, cyb, rx, ry, 0, a0, a0 + Math.PI * 2 - gap);
+        g.stroke();
+        g.restore();
+      }
+      if (aOut > 0) {
+        g.save();
+        g.translate(cxb, cyb);
+        g.rotate(roll);
+        g.translate(-cxb, -cyb);
+        drawPiece(path5, R5.bowl, p5, BB.bowl5, box, BONE, aOut, true);
+        g.restore();
+      }
     }
     // the diagonal stamps in from the top-left along its own axis
     if (kDiag > 0) {
