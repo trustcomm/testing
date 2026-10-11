@@ -39,6 +39,10 @@
       return C.worlds[C.worlds.length - 1];
     }
 
+    // camera punch on the big hits (scale jolt, decays in ~0.15 s); labels stay steady (overlay is sampled unpunched)
+    const PUNCH = { "impact": 0.03, "forge-hit": 0.028, "snap-six": 0.016, "glass-bloom": 0.022, "clack": 0.016, "four-lock": 0.01, "drop": 0.04 };
+    const punchEv = C.events.filter((e) => PUNCH[e.id]).map((e) => [e.t, PUNCH[e.id]]);
+    const punchAt = (t) => punchEv.reduce((s, [te, a]) => s + (t >= te ? a * Math.exp(-(t - te) * 16) * (1 + 0.35 * Math.sin((t - te) * 60)) : 0), 0);
     let lastT = -1;
     function renderAt(t) {
       t = U.clamp(t, 0, C.duration);
@@ -67,6 +71,7 @@
         flicker: info.flicker != null ? info.flicker : 1,
         contrast: info.contrast != null ? info.contrast : 1.04,
         sat: info.sat != null ? info.sat : 1,
+        punch: punchAt(t),
         weaveX: info.weaveX || 0,
         weaveY: info.weaveY || 0,
       });

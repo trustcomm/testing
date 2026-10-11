@@ -204,7 +204,7 @@ window.WorldType = function (E) {
       gb.font = "900 190px Archivo";
       gb.fontStretch = "expanded";
       gb.textBaseline = "middle";
-      gb.strokeStyle = `rgba(143,216,255,${0.22 * showD})`;
+      gb.strokeStyle = `rgba(143,216,255,${0.12 * showD})`;
       gb.lineWidth = 1.6;
       gb.strokeText("MOTION", -120 + (t - 9.6) * 60, 120);
       gb.strokeText("RHYTHM", 360 - (t - 9.6) * 50, 440);

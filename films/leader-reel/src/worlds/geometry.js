@@ -188,12 +188,12 @@ window.WorldGeometry = function (E) {
     if (kBowl < 1) {
       const target = [CIRC.x - CIRC.r, CIRC.y - CIRC.r, CIRC.x + CIRC.r, CIRC.y + CIRC.r];
       const box = lerpBox(bowl5, target, kBowl);
-      const alpha = 1 - U.seg(kBowl, 0.55, 1.0);
+      const alpha = 1 - U.seg(kBowl, 0.35, 0.8);
       const col = kBowl < 0.5 ? BONE : SLATE;
       g.save();
       const cxb = (box[0] + box[2]) / 2, cyb = (box[1] + box[3]) / 2;
       g.translate(cxb, cyb);
-      g.rotate(kBowl * Math.PI * 1.5);
+      g.rotate(U.E.p2out(kBowl) * Math.PI * 0.4);
       g.translate(-cxb, -cyb);
       drawPiece(path5, R5.bowl, p5, BB.bowl5, box, col, alpha, true);
       g.restore();

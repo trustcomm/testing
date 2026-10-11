@@ -21,7 +21,7 @@ Every numeral owns exactly one bar. Worlds land on their downbeat; beat 4 carrie
 - duration: 1.875s
 - poster: 1.2s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: src/worlds/fluid.js
 - rules: ambient-glow-bloom, multi-phase-camera, motion-blur-streak
 - sync: 0.000 impact (splash ring) · 0.469 / 0.938 / 1.406 dye pulses on beats · 1.406 vortex spin-up · 1.640 dive whoosh
@@ -34,7 +34,7 @@ Frame 0 is the moment of impact: a point of light on the void and a ring of ice 
 - duration: 1.875s
 - poster: 2.6s
 - transition_in: luminance match (vortex core → backlight)
-- status: outline
+- status: animated
 - src: src/worlds/chrome.js
 - rules: 3d-camera-flight, ambient-glow-bloom, depth-of-field-blur
 - sync: 1.875 hit (silhouette against the light) · 2.344 ice key-light sweep ("shing") · 2.813 infra sweep + ray pulse · 3.281 dissolve begins
@@ -47,7 +47,7 @@ The white-out resolves into the backlight behind a true-3D extruded **7** (Archi
 - duration: 1.875s
 - poster: 4.9s
 - transition_in: mesh → particles (same scene, same camera)
-- status: outline
+- status: animated
 - src: src/worlds/particles.js
 - rules: particle-burst, depth-scatter-assemble, depth-of-field-blur
 - sync: 3.750 burst · 4.219 spiral swell · 4.688 SNAP (the 6 locks) · 5.156 implosion · 5.625 point
@@ -60,7 +60,7 @@ The sparks burst outward, are caught in a spiral vortex and stream in galaxy arm
 - duration: 1.875s
 - poster: 6.4s
 - transition_in: point match (particle point → glass droplet)
-- status: outline
+- status: animated
 - src: src/worlds/glass.js
 - rules: scale-swap-transition, ambient-glow-bloom, coordinate-target-zoom
 - sync: 5.625 bloom + shock-wave ripple · 6.094 drift · 6.563 lens push (dispersion peak) · 7.031 freeze to flat
@@ -73,7 +73,7 @@ Behind: a leader test-chart (thick concentric rings, crosshair, tick scales in m
 - duration: 1.875s
 - poster: 8.6s
 - transition_in: shape continuity (glass shards → primitives)
-- status: outline
+- status: animated
 - src: src/worlds/geometry.js
 - rules: center-outward-expansion, spring-pop-entrance, svg-path-draw
 - sync: 7.500 clack (tiles land) · 7.734 / 7.969 / 8.203 / 8.438 assembly snaps on 8ths · 16th dot pulses · 8.906 zoom into stripes
@@ -86,7 +86,7 @@ Bauhaus on the void: the shards land as tiles, flip on 8ths, and assemble a **4*
 - duration: 1.875s
 - poster: 10.5s
 - transition_in: pattern → type (stripes are lines of text)
-- status: outline
+- status: animated
 - src: src/worlds/type.js
 - rules: kinetic-beat-slam, waterfall-entry, depth-of-field-blur
 - sync: 9.375 swoop (lines bend into arcs) · 9.844 / 10.313 word hits (width steps) · 10.313 tighten · 10.781 unspool
@@ -99,7 +99,7 @@ The text lines curve into a **3**: ribbons of the craft's own words (TIMING · S
 - duration: 1.875s
 - poster: 12.3s
 - transition_in: line → sweep hand
-- status: outline
+- status: animated
 - src: src/worlds/flight.js
 - rules: 3d-camera-flight, motion-blur-streak, multi-phase-camera
 - sync: 11.250 2-POP (1 kHz beep on silence) · 11.719 dive · 16th ring flashes · 12.656 exit glow · 13.125 drop
@@ -112,7 +112,7 @@ The single line sweeps a full circle as the leader's hand and reveals the classi
 - duration: 1.875s
 - poster: 14.6s
 - transition_in: tunnel exit → letter window (zoom-out reveal)
-- status: outline
+- status: animated
 - src: src/worlds/lockup.js
 - blueprint: logo-assemble-lockup (Adapt), zoom-out-workspace-reveal (Adapt)
 - sync: 13.125 DROP (hit + crash) · 13.594 letters fill bone in a cascade · 14.063 discipline line types on · 14.531 last glint · 15.000 end

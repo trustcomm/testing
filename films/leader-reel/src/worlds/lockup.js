@@ -90,7 +90,7 @@ window.WorldLockup = function (E, stills) {
       for (int i = 0; i < 8; i++){ vec4 b = uBox[i]; if (p.x >= b.x - 3. && p.x <= b.z + 3. && p.y >= b.y - 3. && p.y <= b.w + 3.) idx = i; }
       if (idx >= 0 && m > 0.) {
         vec4 b = uBox[idx];
-        vec3 win = still(idx, p) * 1.25;
+        vec3 win = still(idx, p) * 1.7;
         // fill rises from the baseline; a hot edge rides on top of it
         float f = uFill[idx];
         float yy = 1. - (p.y - b.y) / (b.w - b.y);

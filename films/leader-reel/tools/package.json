@@ -1,1 +1,8 @@
-{ "name": "leader-reel-tools", "private": true, "type": "module", "devDependencies": { "fontkit": "2.0.4", "three": "0.181.2" } }
+{
+  "name": "leader-reel-tools",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "three": "0.181.2"
+  }
+}

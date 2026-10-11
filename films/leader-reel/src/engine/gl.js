@@ -183,7 +183,7 @@ window.createEngine = function (THREE, canvas) {
   const matComposite = material(`
     uniform sampler2D uScene, uBloom, uOverlay;
     uniform float uExposure, uBloomStrength, uCA, uVignette, uGrain, uFrame, uOverlayAlpha, uFlicker, uContrast, uSat;
-    uniform vec2 uWeave;
+    uniform vec2 uWeave; uniform float uPunch;
     vec3 aces(vec3 x){ const float a = 2.51, b = .03, c = 2.43, d = .59, e = .14; return clamp((x * (a * x + b)) / (x * (c * x + d) + e), 0., 1.); }
     vec3 sampleScene(vec2 uv){
       if (uCA <= 0.0001) return texture(uScene, uv).rgb + texture(uBloom, uv).rgb * uBloomStrength;
@@ -195,7 +195,7 @@ window.createEngine = function (THREE, canvas) {
       return c;
     }
     void main(){
-      vec2 uv = vUv + uWeave;
+      vec2 uv = .5 + (vUv - .5) / (1. + uPunch) + uWeave;
       vec3 c = sampleScene(uv) * uExposure * uFlicker;
       c = aces(c);
       // grade: warm the top end toward bone, keep the floor at void
@@ -221,7 +221,7 @@ window.createEngine = function (THREE, canvas) {
       uScene: { value: null }, uBloom: { value: null }, uOverlay: { value: null },
       uExposure: { value: 1 }, uBloomStrength: { value: 0.6 }, uCA: { value: 0 }, uVignette: { value: 0.55 },
       uGrain: { value: 0.035 }, uFrame: { value: 0 }, uOverlayAlpha: { value: 1 }, uFlicker: { value: 1 },
-      uContrast: { value: 1.04 }, uSat: { value: 1.0 }, uWeave: { value: new THREE.Vector2() },
+      uContrast: { value: 1.04 }, uSat: { value: 1.0 }, uWeave: { value: new THREE.Vector2() }, uPunch: { value: 0 },
     });
 
   function composite(sceneTex, bloomTex, overlayTex, p) {
@@ -240,6 +240,7 @@ window.createEngine = function (THREE, canvas) {
     u.uContrast.value = p.contrast;
     u.uSat.value = p.sat;
     u.uWeave.value.set(p.weaveX || 0, p.weaveY || 0);
+    u.uPunch.value = p.punch || 0;
     pass(matComposite, null);
   }
 

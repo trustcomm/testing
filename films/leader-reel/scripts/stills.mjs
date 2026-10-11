@@ -6,7 +6,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { mkdirSync } from "node:fs";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const TIMES = [1.25, 2.95, 5.05, 6.3, 8.6, 10.1, 12.2, 11.5];
+const TIMES = [1.25, 2.12, 5.05, 6.3, 8.6, 10.1, 12.2, 11.5];
 const out = join(ROOT, "build/frames/stills");
 mkdirSync(join(ROOT, "assets/stills"), { recursive: true });
 execFileSync("node", [join(ROOT, "scripts/frames.mjs"), "--at", TIMES.join(","), "--out", "build/frames/stills", "--cols", "4", "--scale", "0.25"], { stdio: "inherit" });
