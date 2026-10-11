@@ -319,8 +319,9 @@
         var g = L.querySelector("." + CSS.escape("06-cta-g"));
         var pill = L.querySelector("." + CSS.escape("06-cta-pill"));
         var at = 0.25 + rank * 0.025;
-        // appears as a 22 px pill at the centre...
-        tl.fromTo(L, { opacity: 0 }, { opacity: 1, duration: 1 / 60, ease: "none" }, at);
+        // appears as a 22 px pill at the centre (the pop completes just before `at`, so the
+        // frame that lands on `at` always shows it, with no float ambiguity at the boundary)...
+        tl.fromTo(L, { opacity: 0 }, { opacity: 1, duration: 0.001, ease: "none" }, at - 0.002);
         // ...scatters outward to its slot on expo.out...
         tl.fromTo(L, { x: 960 - INK_CX[o.idx] }, { x: 0, duration: 0.55, ease: "expo.out" }, at);
         // ...and morphs into its glyph (opacity + scale-x 0.2 -> 1) as the pill dissolves

@@ -116,7 +116,7 @@ Sound sync (local s):
 - duration: 2.0s
 - poster: 1.2s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/02-qr.html
 - type: product_intro
 - persuasion: Friction reduction
