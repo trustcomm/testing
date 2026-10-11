@@ -1,0 +1,394 @@
+<template>
+  <style>
+    @font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:block;src:url("assets/fonts/Inter-500.woff2") format("woff2");}
+    @font-face{font-family:"Inter";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/Inter-600.woff2") format("woff2");}
+    @font-face{font-family:"Inter";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/Inter-700.woff2") format("woff2");}
+    @font-face{font-family:"Poppins";font-weight:600;font-style:normal;font-display:block;src:url("assets/fonts/Poppins-600.woff2") format("woff2");}
+    @font-face{font-family:"Poppins";font-weight:700;font-style:normal;font-display:block;src:url("assets/fonts/Poppins-700.woff2") format("woff2");}
+    @font-face{font-family:"Poppins";font-weight:800;font-style:normal;font-display:block;src:url("assets/fonts/Poppins-800.woff2") format("woff2");}
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+    }
+
+    /* full-bleed ground: a dedicated clip on the lowest track */
+    [id="05-chorus-bg"] {
+      position: absolute;
+      inset: 0;
+      background: #FAF9F5;
+    }
+    [id="05-chorus-stage"] {
+      position: absolute;
+      inset: 0;
+    }
+
+    /* camera: holds the waveform only, pushes around (960, 640) */
+    [id="05-chorus-world"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      transform-origin: 960px 640px;
+    }
+    /* voice bar: 22 wide, radius 11, centred on y = 640; apparent height is a clip-path inset on a 440 px box */
+    [class~="05-chorus-bar"] {
+      position: absolute;
+      top: 420px;
+      width: 22px;
+      height: 440px;
+      background: #1E5EFE;
+      clip-path: inset(220px 0px 220px 0px round 11px);
+      visibility: hidden;
+    }
+    [class~="05-chorus-bar-loud"] {
+      background: #dc2626;
+    }
+
+    /* Frame 4 handoff: shared perspective parent (origin = canvas centre) */
+    [id="05-chorus-persp"] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      perspective: 1400px;
+      perspective-origin: 960px 540px;
+    }
+    [class~="05-chorus-card"] {
+      position: absolute;
+      top: 325px;
+      width: 620px;
+      height: 470px;
+      box-sizing: border-box;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(30, 94, 254, 0.2);
+      border-radius: 14px;
+      overflow: hidden;
+      transform-origin: 50% 50%;
+      font-family: "Inter", sans-serif;
+      color: #111216;
+    }
+    [id="05-chorus-card-left"] { left: 250px; }
+    [id="05-chorus-card-right"] { left: 1050px; }
+    [class~="05-chorus-card-content"] {
+      position: absolute;
+      inset: 0;
+      padding: 28px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    [class~="05-chorus-panel"] {
+      background: #E4EAF8;
+      border-radius: 10px;
+      padding: 18px 22px;
+    }
+    [class~="05-chorus-panel-title"] {
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    [class~="05-chorus-panel-sub"] {
+      margin-top: 6px;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 1.4;
+      white-space: nowrap;
+    }
+    [class~="05-chorus-textbox"] {
+      flex: 1;
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+    [class~="05-chorus-textbox-focus"] {
+      border: 2px solid #1E5EFE;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+    [class~="05-chorus-textbox-plain"] {
+      border: 1.5px solid #E6E5E1;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    [class~="05-chorus-card-title"] {
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+    [class~="05-chorus-note"] {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 1.4;
+      color: #6D6D75;
+      margin-top: -4px;
+    }
+    [class~="05-chorus-pill"] {
+      height: 56px;
+      border-radius: 100px;
+      background: #1E5EFE;
+      color: #FFFFFF;
+      font-weight: 600;
+      font-size: 19px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+
+    /* inner-edge badges live on the flat parent, never inside a tilted card */
+    [class~="05-chorus-badge"] {
+      position: absolute;
+      height: 50px;
+      padding: 0 26px;
+      border-radius: 100px;
+      background: #1E5EFE;
+      color: #FFFFFF;
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 50px;
+      white-space: nowrap;
+      transform-origin: 50% 50%;
+    }
+    [id="05-chorus-badge-private"] { left: 847px; top: 375px; }
+    [id="05-chorus-badge-public"] { left: 797px; top: 695px; }
+
+    /* type: Poppins, centred lines; top = baseline - (lineHeight/2 + 0.35em) */
+    [class~="05-chorus-line"] {
+      position: absolute;
+      left: 0;
+      width: 1920px;
+      text-align: center;
+      white-space: nowrap;
+      font-family: "Poppins", sans-serif;
+    }
+    [class~="05-chorus-line"] > span {
+      display: inline-block;
+    }
+    [id="05-chorus-title"] {
+      top: 165.4px;
+      height: 76px;
+      font-weight: 800;
+      font-size: 76px;
+      line-height: 76px;
+      letter-spacing: -0.02em;
+      color: #111216;
+    }
+    [id="05-chorus-headline"] {
+      top: 225.2px;
+      height: 88px;
+      font-weight: 800;
+      font-size: 88px;
+      line-height: 88px;
+      letter-spacing: -0.02em;
+      color: #111216;
+    }
+    [id="05-chorus-subline"] {
+      top: 342.6px;
+      height: 44px;
+      font-weight: 600;
+      font-size: 44px;
+      line-height: 44px;
+      color: #6D6D75;
+    }
+    [class~="05-chorus-accent"] {
+      color: #1E5EFE;
+    }
+  </style>
+
+  <div id="root" data-composition-id="05-chorus" data-start="0" data-duration="2.5" data-width="1920" data-height="1080">
+    <div id="05-chorus-bg" class="clip" data-start="0" data-duration="2.5" data-track-index="0"></div>
+
+    <div id="05-chorus-stage" class="clip" data-start="0" data-duration="2.5" data-track-index="1">
+      <!-- waveform (bars are built in script from the H(k) formula) -->
+      <div id="05-chorus-world"></div>
+
+      <!-- Frame 4's last state: the two tilted cards -->
+      <div id="05-chorus-persp">
+        <div id="05-chorus-card-left" class="05-chorus-card">
+          <div class="05-chorus-card-content">
+            <div class="05-chorus-panel">
+              <div class="05-chorus-panel-title">Your message to Meera's Tiffin Room</div>
+              <div class="05-chorus-panel-sub">The owner reads this personally. It isn't posted publicly.</div>
+            </div>
+            <div class="05-chorus-textbox 05-chorus-textbox-focus">The table by the door gets cold in the evening</div>
+            <div class="05-chorus-pill">Send to owner</div>
+          </div>
+        </div>
+        <div id="05-chorus-card-right" class="05-chorus-card">
+          <div class="05-chorus-card-content">
+            <div class="05-chorus-card-title">Here's a draft</div>
+            <div class="05-chorus-textbox 05-chorus-textbox-plain">Filter coffee at Meera's Tiffin Room was absolutely wonderful and served steaming hot. The food tasted brilliant, and the staff brought everything to the table amazingly fast.</div>
+            <div class="05-chorus-note">Change anything that doesn't sound like you. It goes out in your name.</div>
+            <div class="05-chorus-pill">Copy my words</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="05-chorus-badge-private" class="05-chorus-badge">Private</div>
+      <div id="05-chorus-badge-public" class="05-chorus-badge">Public, in their name</div>
+
+      <!-- outgoing title (baseline 230) -->
+      <div id="05-chorus-title" class="05-chorus-line"><span>Their</span> <span>words.</span> <span class="05-chorus-accent">Their</span> <span class="05-chorus-accent">choice.</span></div>
+
+      <!-- payoff copy -->
+      <div id="05-chorus-headline" class="05-chorus-line"><span>Hear</span> <span>from</span> <span class="05-chorus-accent">more</span> <span>of</span> <span>your</span> <span>customers.</span></div>
+      <div id="05-chorus-subline" class="05-chorus-line"><span>Not just the loudest ones.</span></div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap-3.14.2.min.js"></script>
+  <script>
+    (function () {
+      var FRAME_ID = "05-chorus";
+      var DURATION = 2.5;
+      var tl = gsap.timeline({ paused: true });
+
+      var $ = function (id) { return document.getElementById(id); };
+      var world = $("05-chorus-world");
+      var cardL = $("05-chorus-card-left");
+      var cardR = $("05-chorus-card-right");
+      var badges = [$("05-chorus-badge-private"), $("05-chorus-badge-public")];
+      var titleWords = Array.prototype.slice.call($("05-chorus-title").children);
+      var headWords = Array.prototype.slice.call($("05-chorus-headline").children);
+      var subline = $("05-chorus-subline").children[0];
+      var cardContents = [cardL.firstElementChild, cardR.firstElementChild];
+
+      var p2o = gsap.parseEase("power2.out");
+      var p2io = gsap.parseEase("power2.inOut");
+      var p3o = gsap.parseEase("power3.out");
+      var p3i = gsap.parseEase("power3.in");
+      var clamp01 = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
+      var r3 = function (v) { return Math.round(v * 1000) / 1000; };
+
+      /* ---------------- WAVE geometry ---------------- */
+      var N = 41, MID = 20, PITCH = 36, CX = 960, BOX = 440;
+      var LOUD = 26, SEEDS = { 12: true, 28: true };
+      var X = [], H = [], START = [], PERIOD = [], PHASE = [], bars = [];
+      for (var k = 0; k < N; k++) {
+        X[k] = CX + (k - MID) * PITCH;
+        H[k] = Math.round(60 + 300 * Math.exp(-Math.pow((k - MID) / 11, 2)) * (0.62 + 0.38 * Math.abs(Math.sin(k * 1.7))));
+        START[k] = 0.5 + Math.abs(k - MID) * 0.012;           // centre-out cascade from bar 20
+        PERIOD[k] = 0.9 + 0.4 * Math.abs(Math.sin(k * 2.3 + 0.5)); // deterministic per-index jitter period
+        PHASE[k] = k * 1.9;
+        var b = document.createElement("div");
+        b.className = "05-chorus-bar" + (k === LOUD ? " 05-chorus-bar-loud" : "");
+        b.style.left = (X[k] - 11) + "px";
+        world.appendChild(b);
+        bars.push(b);
+      }
+
+      // Pure function of local time: grow (power3) -> unified pulse -> low jitter -> converge (power3).
+      function barHeight(k, t) {
+        var seed = SEEDS[k] ? 18 : 0;
+        var h;
+        if (t < START[k]) h = t >= 0.3 ? seed : 0;
+        else if (t < 1.0) h = seed + (H[k] - seed) * p3o((t - START[k]) / (1.0 - START[k]));
+        else h = H[k];
+        if (t >= 1.0 && t < 1.1) h *= 1 + 0.12 * p2o((t - 1.0) / 0.1);
+        else if (t >= 1.1 && t < 1.3) h *= 1 + 0.12 * (1 - p2io((t - 1.1) / 0.2));
+        if (t > 1.3 && t < 2.25) {
+          var u = (t - 1.3) / 0.95;
+          var env = Math.pow(Math.sin(Math.PI * u), 2);
+          h += 4 * env * Math.sin((2 * Math.PI * (t - 1.3)) / PERIOD[k] + PHASE[k]);
+        }
+        if (t >= 2.25) {
+          var c = p3i(clamp01((t - 2.25) / 0.25));
+          h = H[k] + (120 - H[k]) * c;
+        }
+        return h;
+      }
+      function barShift(k, t) {
+        if (t < 2.25) return 0;
+        return (CX - X[k]) * 0.4 * p3i(clamp01((t - 2.25) / 0.25));
+      }
+      function renderBars(t) {
+        for (var k = 0; k < N; k++) {
+          var h = Math.max(0, barHeight(k, t));
+          var inset = r3((BOX - h) / 2);
+          var el = bars[k];
+          el.style.visibility = h > 0.01 ? "visible" : "hidden";
+          el.style.clipPath = "inset(" + inset + "px 0px " + inset + "px 0px round 11px)";
+          el.style.transform = "translateX(" + r3(barShift(k, t)) + "px)";
+        }
+      }
+
+      /* ---------------- Scene 1: card-morph-anchor (0.00 -> 0.30) ---------------- */
+      var SX = 22 / 620, SY = 18 / 470;          // 620x470 -> 22x18 apparent
+      var RX = 9 / SX, RY = 9 / SY;              // pre-scale radii that land a 9 px apparent pill cap
+      var CARDS = [
+        { el: cardL, dx: 672 - 560, dy: 640 - 560, ry: 12 },   // -> bar 12
+        { el: cardR, dx: 1248 - 1360, dy: 640 - 560, ry: -12 } // -> bar 28
+      ];
+      var morph = { p: 0 };
+      var mix = function (a, b, p) { return a + (b - a) * p; };
+      function renderCards() {
+        var p = morph.p;
+        var sx = mix(1, SX, p), sy = mix(1, SY, p);
+        var bg = "rgb(" + Math.round(mix(255, 30, p)) + "," + Math.round(mix(255, 94, p)) + "," + Math.round(mix(255, 254, p)) + ")";
+        var bd = "rgba(30,94,254," + r3(mix(0.2, 1, p)) + ")";
+        var rad = r3(mix(14, RX, p)) + "px / " + r3(mix(14, RY, p)) + "px";
+        for (var i = 0; i < CARDS.length; i++) {
+          var c = CARDS[i];
+          c.el.style.transform = "translate(" + r3(c.dx * p) + "px, " + r3(c.dy * p) + "px) rotateY(" + r3(c.ry * (1 - p)) + "deg) scale(" + sx + ", " + sy + ")";
+          c.el.style.backgroundColor = bg;
+          c.el.style.borderColor = bd;
+          c.el.style.borderRadius = rad;
+          c.el.style.visibility = p >= 1 ? "hidden" : "visible"; // the real bars 12 / 28 take over at 0.30
+        }
+      }
+      // one tween, all morph channels in lockstep
+      tl.fromTo(morph, { p: 0 }, { p: 1, duration: 0.3, ease: "power2.inOut", onUpdate: renderCards }, 0);
+      // old content fades in the first 40 % of the morph
+      tl.fromTo(cardContents, { opacity: 1 }, { opacity: 0, duration: 0.12, ease: "power1.in" }, 0);
+      // badges fold away with their cards
+      tl.fromTo(badges, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.6, duration: 0.12, ease: "power2.in" }, 0);
+      // title clears upward: 0.2 s waterfall (power4.in ramp, fade done early, last word dies at 0.20)
+      titleWords.forEach(function (w, i) {
+        tl.fromTo(w, { y: 0 }, { y: -150, duration: 0.24, ease: "power4.in" }, i * 0.02);
+        tl.fromTo(w, { opacity: 1 }, { opacity: 0, duration: 0.14, ease: "power1.in" }, i * 0.02);
+      });
+
+      /* ---------------- Scene 2: crowd + headline on 8ths ---------------- */
+      // the waveform clock: one linear driver, every bar a pure function of local time
+      var clock = { t: 0 };
+      tl.fromTo(clock, { t: 0 }, {
+        t: DURATION, duration: DURATION, ease: "none",
+        onUpdate: function () { renderBars(clock.t); }
+      }, 0);
+
+      // camera push 1.00 -> 1.04 around (960, 640) on the unified pulse
+      tl.fromTo(world, { scale: 1 }, { scale: 1.04, duration: 0.75, ease: "power3.out" }, 1.0);
+
+      // word-by-word build, pre-computed on the 8th-note grid
+      var EIGHTH = 0.125, HEAD_AT = 0.5;
+      var SEQ = headWords.map(function (el, i) { return { el: el, start: HEAD_AT + i * EIGHTH }; });
+      SEQ.forEach(function (s) {
+        tl.fromTo(s.el,
+          { y: 30, opacity: 0, filter: "blur(8px)" },
+          { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.45, ease: "power3.out" },
+          s.start);
+      });
+
+      /* ---------------- Scene 3: sub-line, hold, gather ---------------- */
+      tl.fromTo(subline, { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 1.5);
+
+      // initial state (t = 0) before any seek
+      renderCards();
+      renderBars(0);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines[FRAME_ID] = tl;
+    })();
+  </script>
+</template>
