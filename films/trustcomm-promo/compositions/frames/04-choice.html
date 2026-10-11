@@ -345,20 +345,23 @@
       flex-direction: column;
       justify-content: center;
     }
-    /* landed content: fixed 617x467 (= the card's padding box at full size), centred */
+    /* landed content: fixed 618x468 (= the card's laid-out padding box at full size; the 1.5px border lays out as 1px), centred */
     [class~="04-choice-content"] {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 617px;
-      height: 467px;
-      margin-left: -308.5px;
-      margin-top: -233.5px;
+      width: 618px;
+      height: 468px;
+      margin-left: -309px;
+      margin-top: -234px;
       padding: 28px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       gap: 18px;
+    }
+    [class~="04-choice-content"] > div {
+      position: relative;
     }
     [class~="04-choice-panel"] {
       background: #E4EAF8;
@@ -455,9 +458,9 @@
       line-height: 50px;
       white-space: nowrap;
     }
-    /* y-centres 400 / 720; each overlaps its card's inner edge by ~15% of its width */
-    [id="04-choice-badge-private"] { left: 847px; top: 375px; transform-origin: 20px 50%; }
-    [id="04-choice-badge-public"] { left: 797px; top: 695px; transform-origin: calc(100% - 45px) 50%; }
+    /* mirrored tabs: each badge centred on its own card's top edge (x 560 / 1360, y-centre 318) */
+    [id="04-choice-badge-private"] { left: 560px; top: 293px; translate: -50% 0; transform-origin: 50% 50%; }
+    [id="04-choice-badge-public"] { left: 1360px; top: 293px; translate: -50% 0; transform-origin: 50% 50%; }
 
     /* ---------- title: baseline y = 230 (top = baseline - (lineHeight/2 + 0.35em)) ---------- */
     [id="04-choice-title"] {
@@ -577,7 +580,7 @@
               <div class="04-choice-panel-title">Your message to Meera's Tiffin Room</div>
               <div class="04-choice-panel-sub">The owner reads this personally. It isn't posted publicly.</div>
             </div>
-            <div id="04-choice-l2" class="04-choice-textbox 04-choice-textbox-focus"><span id="04-choice-typed"></span><span id="04-choice-caret"></span></div>
+            <div id="04-choice-l2" class="04-choice-textbox 04-choice-textbox-focus"><span id="04-choice-typed"></span><span id="04-choice-typed-full" class="04-choice-chunk">The table by the door gets cold in the evening</span><span id="04-choice-caret"></span></div>
             <div id="04-choice-l3" class="04-choice-pill">Send to owner</div>
           </div>
         </div>
@@ -670,6 +673,7 @@
 
       // content resolves as the cards land (same rhythm on both sides)
       var reveal = function (el, at) {
+        // transform offset (sub-pixel smooth); y: 0 at rest renders identically to no transform
         tl.fromTo(el, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" }, at);
       };
       reveal($("04-choice-l1"), 0.78);
@@ -698,7 +702,13 @@
         { t: 1.400, text: "The table by the door gets cold in the evening" }
       ];
       var prev = "";
-      SEQUENCE.forEach(function (s) {
+      SEQUENCE.forEach(function (s, i) {
+        if (i === SEQUENCE.length - 1) {
+          // final keystroke: swap the chunks for one text node (shapes identically to Frame 5's text box)
+          tl.set(typed, { display: "none" }, s.t);
+          tl.set($("04-choice-typed-full"), { display: "inline" }, s.t);
+          return;
+        }
         var span = document.createElement("span");
         span.className = "04-choice-chunk";
         span.textContent = s.text.slice(prev.length);

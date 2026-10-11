@@ -12,25 +12,23 @@
       }
       html,
       body {
-        margin: 0;
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #0a0a0a;
+        background: #000;
       }
       #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #FAF9F5;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-      }
-      #title {
-        color: #f4f4f5;
-        font-size: 72px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
       }
     </style>
   </head>
@@ -39,17 +37,85 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="10"
+      data-duration="15"
       data-width="1920"
       data-height="1080"
     >
-      <h1 id="title" class="clip" data-start="0" data-duration="10" data-track-index="0">Title</h1>
+      <div
+        id="el-01-hook"
+        class="scene"
+        data-composition-id="01-hook"
+        data-composition-src="compositions/frames/01-hook.html"
+        data-start="0"
+        data-duration="2.5"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-02-qr"
+        class="scene"
+        data-composition-id="02-qr"
+        data-composition-src="compositions/frames/02-qr.html"
+        data-start="2.5"
+        data-duration="2"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-03-rate"
+        class="scene"
+        data-composition-id="03-rate"
+        data-composition-src="compositions/frames/03-rate.html"
+        data-start="4.5"
+        data-duration="3"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-04-choice"
+        class="scene"
+        data-composition-id="04-choice"
+        data-composition-src="compositions/frames/04-choice.html"
+        data-start="7.5"
+        data-duration="2.5"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-05-chorus"
+        class="scene"
+        data-composition-id="05-chorus"
+        data-composition-src="compositions/frames/05-chorus.html"
+        data-start="10"
+        data-duration="2.5"
+        data-track-index="1"
+      ></div>
+
+      <div
+        id="el-06-cta"
+        class="scene"
+        data-composition-id="06-cta"
+        data-composition-src="compositions/frames/06-cta.html"
+        data-start="12.5"
+        data-duration="2.5"
+        data-track-index="1"
+      ></div>
+
+      <!-- BGM -->
+      <audio
+        id="el-bgm"
+        src="assets/score.wav"
+        data-start="0"
+        data-duration="15"
+        data-track-index="11"
+        data-volume="1"
+      ></audio>
+
     </div>
+
     <script>
-      const tl = gsap.timeline({ paused: true });
-      // Example: tl.fromTo("#title", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6 }, 0);
-      window.__timelines["main"] = tl;
-      tl.seek(0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
     </script>
   </body>
 </html>

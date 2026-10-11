@@ -261,7 +261,7 @@ Sound sync (local s):
 - duration: 2.5s
 - poster: 2.0s
 - transition_in: cut
-- status: outline
+- status: animated
 - src: compositions/frames/04-choice.html
 - type: feature_showcase
 - persuasion: Risk reversal through transparency (the customer decides; nothing is filtered)

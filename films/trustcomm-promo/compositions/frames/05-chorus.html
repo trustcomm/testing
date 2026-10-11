@@ -160,8 +160,9 @@
       white-space: nowrap;
       transform-origin: 50% 50%;
     }
-    [id="05-chorus-badge-private"] { left: 847px; top: 375px; }
-    [id="05-chorus-badge-public"] { left: 797px; top: 695px; }
+    /* matches 04-choice: each badge centred on its own card's top edge */
+    [id="05-chorus-badge-private"] { left: 560px; top: 293px; translate: -50% 0; }
+    [id="05-chorus-badge-public"] { left: 1360px; top: 293px; translate: -50% 0; }
 
     /* type: Poppins, centred lines; top = baseline - (lineHeight/2 + 0.35em) */
     [class~="05-chorus-line"] {
@@ -317,7 +318,7 @@
           var h = Math.max(0, barHeight(k, t));
           var inset = r3((BOX - h) / 2);
           var el = bars[k];
-          el.style.visibility = h > 0.01 ? "visible" : "hidden";
+          el.style.visibility = h > 0.01 ? "inherit" : "hidden";
           el.style.clipPath = "inset(" + inset + "px 0px " + inset + "px 0px round 11px)";
           el.style.transform = "translateX(" + r3(barShift(k, t)) + "px)";
         }
@@ -344,7 +345,7 @@
           c.el.style.backgroundColor = bg;
           c.el.style.borderColor = bd;
           c.el.style.borderRadius = rad;
-          c.el.style.visibility = p >= 1 ? "hidden" : "visible"; // the real bars 12 / 28 take over at 0.30
+          c.el.style.visibility = p >= 1 ? "hidden" : "inherit"; // the real bars 12 / 28 take over at 0.30
         }
       }
       // one tween, all morph channels in lockstep
