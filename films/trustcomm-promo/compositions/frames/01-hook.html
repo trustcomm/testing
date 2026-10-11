@@ -1,0 +1,202 @@
+<template id="01-hook-template">
+  <style>
+    @font-face { font-family: "Poppins"; font-weight: 600; font-style: normal; font-display: block; src: url("assets/fonts/Poppins-600.woff2") format("woff2"); }
+    @font-face { font-family: "Poppins"; font-weight: 700; font-style: normal; font-display: block; src: url("assets/fonts/Poppins-700.woff2") format("woff2"); }
+    @font-face { font-family: "Poppins"; font-weight: 800; font-style: normal; font-display: block; src: url("assets/fonts/Poppins-800.woff2") format("woff2"); }
+
+    #root {
+      position: absolute;
+      inset: 0;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+    }
+
+    /* full-bleed ground: bg #FAF9F5 */
+    .\30 1-hook-bg {
+      position: absolute;
+      inset: 0;
+      background: #FAF9F5;
+    }
+
+    .\30 1-hook-stage {
+      position: absolute;
+      inset: 0;
+    }
+
+    /* Voice bars. Each slot is a zero-height anchor on y = 640; the flex
+       centring keeps the pill centred there, so height grows up and down equally. */
+    .\30 1-hook-slot {
+      position: absolute;
+      top: 640px;
+      width: 22px;
+      height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .\30 1-hook-bar {
+      flex: none;
+      width: 22px;
+      height: 18px;
+      border-radius: 11px;
+      background: rgba(30, 94, 254, 0.18);
+    }
+    .\30 1-hook-bar.\30 1-hook-loud {
+      background: #dc2626;
+    }
+
+    /* Headline: Poppins 800 / 104px / -0.02em, ink. line-height = 1.4em
+       (Poppins ascent 1.05em + descent 0.35em), so the baseline sits exactly
+       109.2px below each line box top. */
+    .\30 1-hook-line {
+      position: absolute;
+      left: 0;
+      width: 1920px;
+      text-align: center;
+      white-space: nowrap;
+      font-family: "Poppins", sans-serif;
+      font-weight: 800;
+      font-size: 104px;
+      line-height: 145.6px;
+      letter-spacing: -0.02em;
+      color: #111216;
+    }
+    .\30 1-hook-line1 { top: 190.8px; } /* baseline y = 300 */
+    .\30 1-hook-line2 { top: 310.8px; } /* baseline y = 420 */
+    .\30 1-hook-word {
+      display: inline-block;
+      transform-origin: 50% 55%;
+    }
+    .\30 1-hook-red {
+      color: #dc2626;
+    }
+  </style>
+
+  <div id="root" data-composition-id="01-hook" data-start="0" data-duration="2.5" data-width="1920" data-height="1080">
+    <div id="01-hook-bg" class="clip 01-hook-bg" data-start="0" data-duration="2.5" data-track-index="0"></div>
+
+    <div id="01-hook-stage" class="clip 01-hook-stage" data-start="0" data-duration="2.5" data-track-index="1">
+      <div class="01-hook-slot" style="left: 733px"><div class="01-hook-bar"></div></div>
+      <div class="01-hook-slot" style="left: 769px"><div class="01-hook-bar"></div></div>
+      <div class="01-hook-slot" style="left: 805px"><div class="01-hook-bar"></div></div>
+      <div class="01-hook-slot" style="left: 841px"><div class="01-hook-bar"></div></div>
+      <div class="01-hook-slot" style="left: 877px"><div class="01-hook-bar"></div></div>
+      <div class="01-hook-slot" style="left: 913px"><div class="01-hook-bar"></div></div>
+      <div class="01-hook-slot" style="left: 949px"><div class="01-hook-bar 01-hook-loud"></div></div>
+      <div class="01-hook-slot" style="left: 985px"><div class="01-hook-bar"></div></div>
+      <div class="01-hook-slot" style="left: 1021px"><div class="01-hook-bar"></div></div>
+      <div class="01-hook-slot" style="left: 1057px"><div class="01-hook-bar"></div></div>
+      <div class="01-hook-slot" style="left: 1093px"><div class="01-hook-bar"></div></div>
+      <div class="01-hook-slot" style="left: 1129px"><div class="01-hook-bar"></div></div>
+      <div class="01-hook-slot" style="left: 1165px"><div class="01-hook-bar"></div></div>
+
+      <div class="01-hook-line 01-hook-line1"><span class="01-hook-word">Only</span> <span class="01-hook-word">the</span> <span class="01-hook-word 01-hook-red">loudest</span></div>
+      <div class="01-hook-line 01-hook-line2"><span class="01-hook-word">get</span> <span class="01-hook-word">heard.</span></div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/gsap-3.14.2.min.js"></script>
+  <script>
+    (function () {
+      var stage = document.getElementById("01-hook-stage");
+      var toArr = function (list) { return Array.prototype.slice.call(list); };
+      var slots = toArr(stage.getElementsByClassName("01-hook-slot"));
+      var bars = toArr(stage.getElementsByClassName("01-hook-bar"));
+      var words = toArr(stage.getElementsByClassName("01-hook-word"));
+
+      var LOUD = 6;
+      var loudBar = bars[LOUD];
+      var loudSlot = slots[LOUD];
+
+      // One beat grid drives everything: a beat every 0.25 s of local time.
+      var PULSE = 0.25;
+      var beat = function (n) { return n * PULSE; };
+
+      var tl = gsap.timeline({ paused: true });
+
+      // Finite decaying horizontal shake: +-amp, three cycles over 0.25 s, back to 0.
+      function shake(target, t0, amp) {
+        var seq = [amp, -amp, amp * 2 / 3, -amp * 2 / 3, amp / 3, -amp / 3, 0];
+        var seg = 0.25 / seq.length;
+        var prev = 0;
+        for (var k = 0; k < seq.length; k++) {
+          tl.fromTo(target, { x: prev }, { x: seq[k], duration: seg, ease: "sine.inOut", immediateRender: false }, t0 + k * seg);
+          prev = seq[k];
+        }
+      }
+
+      // The red bar SHOUTS: spike in 0.12 s on expo.out, shake, then ease back.
+      function shout(t0, from, peak, settle, settleEnd) {
+        tl.fromTo(loudBar, { height: from }, { height: peak, duration: 0.12, ease: "expo.out", immediateRender: false }, t0);
+        tl.fromTo(loudBar, { height: peak }, { height: settle, duration: settleEnd - (t0 + 0.18), ease: "power2.inOut", immediateRender: false }, t0 + 0.18);
+        shake(loudSlot, t0, 6);
+      }
+
+      // The 12 quiet bars try to speak: 18 -> 34 -> 18 over 0.25 s, rippling
+      // outward from bar 6 at 0.02 s per step.
+      function flicker(t0) {
+        for (var i = 0; i < bars.length; i++) {
+          if (i === LOUD) continue;
+          var t = t0 + (Math.abs(i - LOUD) - 1) * 0.02;
+          tl.fromTo(bars[i], { height: 18 }, { height: 34, duration: 0.1, ease: "power2.out", immediateRender: false }, t);
+          tl.fromTo(bars[i], { height: 34 }, { height: 18, duration: 0.15, ease: "power2.inOut", immediateRender: false }, t + 0.1);
+        }
+      }
+
+      // Scene 1 (0.00-0.50): shout #1 on the downbeat, then "Only" slams.
+      shout(beat(0), 18, 520, 360, 0.45);
+      tl.fromTo(words[0],
+        { scale: 1.35, filter: "blur(12px)", opacity: 0 },
+        { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.4, ease: "expo.out" }, beat(1));
+
+      // Scene 2 (0.50-2.00): per-word slams, each with its own direction.
+      // "the" drops in from 40 px above.
+      tl.fromTo(words[1],
+        { y: -40, filter: "blur(12px)", opacity: 0 },
+        { y: 0, filter: "blur(0px)", opacity: 1, duration: 0.35, ease: "power4.out" }, beat(2));
+
+      // "loudest" (red) slams heavy with a recoil while the bar shouts again.
+      tl.fromTo(words[2],
+        { filter: "blur(12px)", opacity: 0 },
+        { filter: "blur(0px)", opacity: 1, duration: 0.35, ease: "power4.out" }, beat(3));
+      tl.fromTo(words[2],
+        { scale: 1.7 },
+        { scale: 1, duration: 0.45, ease: "back.out(1.7)", immediateRender: false }, beat(3));
+      shake(words[2], beat(3), 3);
+      shout(beat(3), 360, 560, 300, 1.2);
+
+      // Quiet flicker #1.
+      flicker(beat(4));
+
+      // "get" rises from 40 px below.
+      tl.fromTo(words[3],
+        { y: 40, filter: "blur(12px)", opacity: 0 },
+        { y: 0, filter: "blur(0px)", opacity: 1, duration: 0.35, ease: "circ.out" }, beat(5));
+
+      // "heard." slams with a twist; the bar shouts a third time.
+      tl.fromTo(words[4],
+        { scale: 1.45, rotation: -4, filter: "blur(12px)", opacity: 0 },
+        { scale: 1, rotation: 0, filter: "blur(0px)", opacity: 1, duration: 0.4, ease: "expo.out" }, beat(6));
+      shout(beat(6), 300, 480, 240, 1.95);
+
+      // Scene 3 (2.00-2.50): quiet flicker #2, the red bar settles to 160.
+      flicker(beat(8));
+      tl.fromTo(loudBar, { height: 240 }, { height: 160, duration: 0.35, ease: "sine.inOut", immediateRender: false }, beat(8));
+
+      // Waterfall cut from 2.25: words fall 60 px, blur 0 -> 10 px, fade out,
+      // 0.03 s apart left to right, the last gone at 2.48.
+      for (var k = 0; k < words.length; k++) {
+        var tw = beat(9) + k * 0.03;
+        tl.fromTo(words[k], { y: 0, filter: "blur(0px)" }, { y: 60, filter: "blur(10px)", duration: 0.11, ease: "power3.in", immediateRender: false }, tw);
+        tl.fromTo(words[k], { opacity: 1 }, { opacity: 0, duration: 0.11, ease: "power2.in", immediateRender: false }, tw);
+      }
+
+      // Handoff hold: bars static through the cut (bar 6 pinned at 160 to 2.50).
+      tl.fromTo(loudBar, { height: 160 }, { height: 160, duration: 0.15, ease: "none", immediateRender: false }, 2.35);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["01-hook"] = tl;
+    })();
+  </script>
+</template>

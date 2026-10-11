@@ -1,0 +1,30 @@
+SOURCE: no live capture (the environment's network policy blocks trustcomm.app). Text below is the client fact ledger
+read from trustcomm.app on 2026-10-05 (../../trustcomm-launch/client/FACTS.md) plus the copy visible in the real
+/r/demo screenshots (capture/assets/demo-*.jpg). Nothing on screen may go beyond it.
+
+F1  Helps shops get more Google reviews from their real customers. (homepage headline)
+F2  Hear from more of your customers, not just the loudest ones. (homepage)
+F3  One QR code on the counter, printed with the shop's name and colours; setup in a few steps. (how it works, step 1)
+F4  Customers scan and rate: no app, no sign-in, under a minute. (step 2 / demo)
+F5  Languages: English, Hinglish, Hindi, Kannada, Tamil, Telugu. (step 2)
+F6  Customer picks what the review mentions; nothing is ticked for them. (demo)
+F7  Customer chooses: post on Google (starting from a draft built from what they tapped, which they edit and post in
+    their own name) or send the owner a private message. (step 3)
+F8  14-day free trial, no card needed to start. (CTA)
+F9  ₹699 a month after the trial. (CTA)
+F10 Trustcomm does not create reviews for people who haven't visited; reviews are written and posted by customers. (footer)
+
+/r/demo screen copy (demo shop: Meera's Tiffin Room):
+- How was the food? / How was the service? / Excellent
+- What should the review mention? Pick only what you want mentioned. Nothing is ticked for you.
+  The food · How long it took · The price · How clean it was · The staff · The portions
+- What did you have? Masala Dosa · Filter Coffee · Idli Vada · Continue
+- Where should your words go? You can do both, if you like.
+  Straight to the owner — Only Meera's Tiffin Room reads it. Not posted anywhere.
+  On Google — Anyone looking up Meera's Tiffin Room sees it.
+- Your message to Meera's Tiffin Room — The owner reads this personally. It isn't posted publicly. Send to owner
+- Here's a draft — "Filter coffee at Meera's Tiffin Room was absolutely wonderful and served steaming hot. The food
+  tasted brilliant, and the staff brought everything to the table amazingly fast. Wonderful service made the whole
+  meal even better." Change anything that doesn't sound like you. It goes out in your name. Copy my words
+- Thank you — That's it — you're done.
+Site's private-note example: "The table by the door gets cold in the evening"
