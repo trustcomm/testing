@@ -1,6 +1,6 @@
 import { tokens as T } from "../tokens.js";
 import { win, outExpo, inOutQuint } from "../engine/ease.js";
-import { grid, setType, fitPx, drawLabel } from "../engine/layout.js";
+import { grid, setType, fitPx, drawLabel, drawBackground } from "../engine/layout.js";
 
 const DUR = 5, WORDS = ["CODE", "IS", "THE", "CAMERA"], ACCENT = 3;   // one accent word per card
 const IN0 = 0.3, STAGGER = 0.09, IN_DUR = 0.6, EXIT = 0.5, PUSH = 0.03;
@@ -18,10 +18,7 @@ export default {
     ctx.translate(grid.cx, grid.cy); ctx.scale(push, push); ctx.translate(-grid.cx, -grid.cy);
 
     // 1. background: a slow drifting radial light
-    const gx = T.W * (0.3 + 0.08 * Math.sin(t * 0.4)), gy = T.H * 0.35;
-    const g = ctx.createRadialGradient(gx, gy, 0, gx, gy, T.W * 0.8);
-    g.addColorStop(0, T.color.glow); g.addColorStop(1, T.color.bg);
-    ctx.fillStyle = g; ctx.fillRect(0, 0, T.W, T.H);
+    drawBackground(ctx, t);
 
     // 2. headline: words rise in on a stagger, the blur resolves; sized to stay inside the safe box through the push
     const line = WORDS.join(" ");

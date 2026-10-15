@@ -6,7 +6,10 @@ import { tokens as T } from "./tokens.js";
 import { scenes } from "./scenes/index.js";
 import { replay } from "./engine/sim.js";
 
-let K = 150;   // set below: frame 150 if the video is long enough, else a late frame
+// the type demo's timing rules (seconds)
+const RULES = { entrance: [0.3, 0.6], exit: [0.15, 0.3] };
+const EPS = 1e-9;
+// frames chosen to land inside moves: 262 odometer roll, 300 marker wipe, 385 split exit
 const sha = (b) => createHash("sha256").update(b).digest("hex");
 let failed = 0;
 const report = (ok, name, detail = "") => { console.log(`${ok ? "PASS" : "FAIL"}  ${name}${detail ? "  " + detail : ""}`); if (!ok) failed++; };
@@ -21,9 +24,14 @@ for (const f of FILES) {
   report(hits.length === 0, `no banned calls in ${f}`, hits.map(([n, l]) => `line ${n}: ${l.trim()}`).join(" | "));
 }
 
-// 2. The hold rule: every statement stays fully legible for at least T.hold seconds after it finishes animating in.
+// 2. Statement timing: held at least T.hold; and, for statements that declare inStart/outEnd, the entrance and exit windows.
 for (const sc of scenes) for (const st of sc.statements ?? []) {
-  report(st.outStart - st.inDone >= T.hold, `${st.id}: held ${(st.outStart - st.inDone).toFixed(2)} s (rule: at least ${T.hold} s)`);
+  report(st.outStart - st.inDone >= T.hold - EPS, `${st.id}: held ${(st.outStart - st.inDone).toFixed(2)} s (rule: at least ${T.hold} s)`);
+  if (st.inStart == null) continue;
+  const e = st.inDone - st.inStart, x = st.outEnd - st.outStart;
+  report(e >= RULES.entrance[0] - EPS && e <= RULES.entrance[1] + EPS, `${st.id}: entrance ${e.toFixed(2)} s (rule: ${RULES.entrance.join("-")} s)`);
+  report(x >= RULES.exit[0] - EPS && x <= RULES.exit[1] + EPS, `${st.id}: exit ${x.toFixed(2)} s (rule: ${RULES.exit.join("-")} s)`);
+  report(st.outEnd <= sc.dur + EPS, `${st.id}: finishes inside its scene (${st.outEnd.toFixed(2)} of ${sc.dur} s)`);
 }
 
 // 3. replay() gives the same states whichever order they are asked for.
@@ -35,33 +43,38 @@ for (const sc of scenes) for (const st of sc.statements ?? []) {
   report(JSON.stringify(fwd) === JSON.stringify(rev) && JSON.stringify(fwd) === JSON.stringify(shuf), "replay(): forward, reverse and shuffled queries agree");
 }
 
-// 4. Frame K in a fresh page, then in another page after frames 0..K in order.
+// 4. Frames K in a fresh page (each drawn first), against the same frames after rendering 0..K in order.
 const { open, close } = await start();
 try {
   const fresh = await open();
-  if (fresh.frames <= K) K = Math.floor(fresh.frames * 0.9);   // a 5 s card has no frame 150: take one at 90 % (the start of its exit)
-  report(fresh.fps === 30 && fresh.frames > K, `page exposes FPS = 30 and DURATION ${fresh.duration} s (${fresh.frames} frames)`);
-  const a = sha(await fresh.png(K));
+  report(fresh.fps === 30, `page exposes FPS = 30 and DURATION ${fresh.duration} s (${fresh.frames} frames)`);
+  const KS = [...new Set([150, 262, 300, 385].map((k) => Math.min(k, fresh.frames - 1)))].sort((a, b) => a - b);
+  const cold = {}, warm = {};
+  for (const K of KS) cold[K] = sha(await (await open()).png(K));
   const replayed = await open();
-  let b;
-  for (let i = 0; i <= K; i++) { const png = await replayed.png(i); if (i === K) b = sha(png); }
-  report(a === b, `frame ${K}: fresh page = after frames 0..${K}`, `${a.slice(0, 16)} ${b.slice(0, 16)}`);
+  for (let i = 0; i <= KS.at(-1); i++) { const png = await replayed.png(i); if (KS.includes(i)) warm[i] = sha(png); }
+  for (const K of KS) report(cold[K] === warm[K], `frame ${K}: fresh page = after frames 0..${K}`, `${cold[K].slice(0, 16)} ${warm[K].slice(0, 16)}`);
 
   // extras: random access, and a control that the page is not simply static
-  const hop = await open();
+  const K = KS[0], hop = await open();
   for (const i of [K + 25, 3, K - 1]) await hop.png(i);
   const c = sha(await hop.png(K));
-  report(a === c, `frame ${K}: fresh page = after hops (${K + 25}, 3, ${K - 1})`, `${a.slice(0, 16)} ${c.slice(0, 16)}`);
-  report(a !== sha(await fresh.png(K + 1)), `frame ${K} differs from frame ${K + 1} (the page is not static)`);
+  report(cold[K] === c, `frame ${K}: fresh page = after hops (${K + 25}, 3, ${K - 1})`, `${cold[K].slice(0, 16)} ${c.slice(0, 16)}`);
+  report(cold[K] !== sha(await fresh.png(K + 1)), `frame ${K} differs from frame ${K + 1} (the page is not static)`);
 
-  // 5. The safe box: the bright type stays inside it for the whole hold, push included.
+  // 5. The safe box: the bright type stays inside it while a statement holds. Statements overlap, and a line that is
+  //    sliding in or out may cross the margin on purpose, so only frames where every other statement is at rest or hidden count.
+  const moving = (st, u) => (u >= st.inStart && u < st.inDone) || (u >= st.outStart && u <= st.outEnd);
   for (const sc of scenes) for (const st of sc.statements ?? []) {
-    let worst = null;
-    for (let i = Math.ceil(st.inDone * fresh.fps); i < Math.floor(st.outStart * fresh.fps); i += 6) {
+    let worst = null, checked = 0;
+    for (let i = Math.ceil((sc.start + st.inDone) * fresh.fps); i < Math.floor((sc.start + st.outStart) * fresh.fps); i += 3) {
+      const u = i / fresh.fps - sc.start;
+      if ((sc.statements ?? []).some((o) => o !== st && moving(o, u))) continue;
+      checked++;
       const b = await fresh.bright(i);
-      if (b && (b.x0 < T.safe.x || b.x1 > T.W - T.safe.x || b.y0 < T.safe.y || b.y1 > T.H - T.safe.y)) { worst = { i, ...b }; break; }
+      if (b && (b.x0 < T.safe.x || b.x1 > T.W - T.safe.x || b.y0 < T.safe.y || b.y1 > T.H - T.safe.y)) { worst = { frame: i, ...b }; break; }
     }
-    report(!worst, `${st.id}: type stays inside the safe box (x ${T.safe.x}..${T.W - T.safe.x}, y ${T.safe.y}..${T.H - T.safe.y})`, worst ? JSON.stringify(worst) : "");
+    report(!worst && checked > 0, `${st.id}: type stays inside the safe box (x ${T.safe.x}..${T.W - T.safe.x}, y ${T.safe.y}..${T.H - T.safe.y}), ${checked} frames`, worst ? JSON.stringify(worst) : "");
   }
 } catch (e) {
   report(false, "a page threw while rendering", String(e.message).split("\n")[0]);

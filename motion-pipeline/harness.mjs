@@ -48,5 +48,5 @@ export async function start() {
     }, i / fps);
     return { fps, duration, frames: Math.round(duration * fps), png, bright };
   }
-  return { open, close: async () => { await browser.close(); server.close(); } };
+  return { open, browser, close: async () => { await browser.close(); server.close(); } };
 }

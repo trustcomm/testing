@@ -1,14 +1,15 @@
 # Project state
 
 Silent motion graphics from code: a page draws one frame at a time, headless Chrome captures it, ffmpeg encodes it.
-Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 (the 5 s title card and the layout grid).
+Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 (the 5 s title card and the layout grid), then engine/type.js and the 8 s type demo.
 
 ## Run
 
     export CHROME_PATH=/path/to/chrome   # optional; unset, puppeteer uses its own Chrome
     npm test          # test-determinism.mjs: banned calls, hold rule, replay order, frame K fresh vs after 0..K vs hops, safe box
     npm run render    # frames/f00000.png ... (all frames, t = i / FPS)
-    npm run encode    # out/title.mp4 (the framerate in package.json must match FPS in tokens.js)
+    npm run encode    # out/video.mp4: the whole timeline, 13 s (the framerate in package.json must match FPS in tokens.js)
+    npm run qa:type   # qa/type_sheet.png: a still at the middle of every entrance and hold of the type demo
     npm run stills    # frames/stills.jpg: four stills (default t = 0.4, 1.2, 2.5, 4.8) with the safe box in red
     open http://localhost:8080/index.html   # live preview (serve the folder; no ?render)
 
@@ -32,6 +33,24 @@ Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 
 - The hold rule: every statement stays fully legible for at least `tokens.hold` (1.2 s) after it finishes animating in. A scene lists `statements: [{ id, inDone, outStart }]` and the test enforces it. Exit in the last 0.5 s so the next scene can overlap it.
 - Stagger per word 0.06-0.12 s (this card: 0.09). Use `ctx.filter = blur()` on text only, never on a full-frame fill.
 
+## Kinetic type (engine/type.js)
+
+Every move is `(ctx, t, opts)`, draws immediately, is a pure function of t and restores the context. Shared opts: `text, x, y` (left end of the baseline), `role` (default "h1") and `size`, `t0` (entrance start), `color`, `out: [start, end]` (a quick fade-and-lift exit).
+
+- `layoutGlyphs(ctx, str, x, y, font, trackPx)` -> `{ glyphs: [{ ch, i, x, y, w }], width }`. Prefix-measured, so kerning and tracking match the whole string.
+- `riseIn` per-glyph stagger (0.03 s), rise + blur + alpha on outExpo; `riseInDur(text)` gives the entrance length (10 glyphs = 0.57 s).
+- `scramble` resolves left to right; unlocked glyphs are `hash(i, seed + floor(t*20))` picks from A-Z 0-9 `/<>`, centred in the slots of the FINAL string. Use a mono role so every slot is the same width.
+- `typeOn` uneven keystrokes (hashed), the last char lands at t0 + dur; solid caret while typing, 2 Hz blink after; newest char accent.
+- `odometer` columns clipped to the line height, outCubic, all land together; `prefix`/`suffix`/`affixColor`. A column whose digit is unchanged still rolls one turn; `spins` adds more. Fast columns smear (taps follow the speed) over a crisp lead digit.
+- `markerWipe` accent pill grows behind a word (the words slide apart to make room); the word flips to dark-on-accent, clipped to the pill so it is never unreadable. (`ink` is light, so ink-on-accent would not be legible: the flip uses the bg colour.)
+- `splitExit` breaks before the middle word, halves slide apart with a 6-tap blur (shutter 1/90 s); optional `in: [a, b]` slides them together on the way in.
+
+## The type demo (scenes/s02_type_demo.js, starts at 5 s, 8 s long)
+
+Six statements cannot each hold 1.2 s and fit in 8 s one at a time (6 x (0.3 + 1.2 + 0.15) = 9.9 s), so they overlap, alternating between two rows. Per statement: entrance 0.40-0.57 s, hold 1.25-1.3 s, exit 0.2-0.25 s; `npm test` enforces 0.3-0.6 / at least 1.2 / 0.15-0.3. The safe-box test only counts frames where no other statement is moving (a line sliding in may cross the margin on purpose).
+
+QA (qa/type_sheet.png): the weakest move was the odometer (four ghost copies per digit mid-roll read as a glitch). Also fixed from the same sheet: the marker pill touched the word before it, and the split's six taps showed as separate ghosts.
+
 ## Decisions
 
 - `renderFrame` fills an opaque background after the reset: a transparent PNG would encode to black, not the token colour.
@@ -43,5 +62,7 @@ Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 
 ## Layout of the folder
 
 - `tokens.js` (frozen) · `engine/` ease, rng, sim, layout (frozen once it works)
-- `scenes/s01_title.js` "CODE IS THE CAMERA", 0-5 s, label "01 / INTRO"
+- `scenes/s01_title.js` "CODE IS THE CAMERA", 0-5 s, label "01 / INTRO" · `scenes/s02_type_demo.js` the six type moves, 5-13 s
+- `engine/type.js` kinetic type · `engine/layout.js` also has `fontFor` and `drawBackground` (pass scene t + scene start so the light does not jump at a cut)
+- `qa/` contact sheets · `qa-type-sheet.mjs` draws the stills onto one canvas
 - `fonts/` Space Grotesk 700 and JetBrains Mono 500 (SIL OFL, licences alongside) · `frames/` PNGs and stills, git-ignored · `out/` MP4s

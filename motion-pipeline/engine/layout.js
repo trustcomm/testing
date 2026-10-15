@@ -5,9 +5,12 @@ export const grid = { l: T.safe.x, r: T.W - T.safe.x, t: T.safe.y, b: T.H - T.sa
 
 const FACE = { hero: ["700", T.font.display], h1: ["700", T.font.display], h2: ["700", T.font.display], label: ["500", T.font.mono] };
 
+// The CSS font string for a type role at `px` (default: the role's token size).
+export const fontFor = (role, px = T.size[role]) => `${FACE[role][0]} ${px}px ${FACE[role][1]}`;
+
 // Font and tracking for a type role (tracking is in em, as in the tokens). Set both before measuring.
 export function setType(ctx, role, px = T.size[role]) {
-  ctx.font = `${FACE[role][0]} ${px}px ${FACE[role][1]}`;
+  ctx.font = fontFor(role, px);
   ctx.letterSpacing = `${(T.track[role] ?? 0) * px}px`;
   return px;
 }
@@ -25,4 +28,13 @@ export function drawLabel(ctx, text, alpha = 1) {
   setType(ctx, "label");
   ctx.fillText(text, grid.l, grid.t + T.size.label * 0.75);
   ctx.restore();
+}
+
+// The drifting radial light behind every card. Pass time that continues across scenes (scene t + its start)
+// so the light does not jump at a cut.
+export function drawBackground(ctx, t) {
+  const gx = T.W * (0.3 + 0.08 * Math.sin(t * 0.4)), gy = T.H * 0.35;
+  const g = ctx.createRadialGradient(gx, gy, 0, gx, gy, T.W * 0.8);
+  g.addColorStop(0, T.color.glow); g.addColorStop(1, T.color.bg);
+  ctx.fillStyle = g; ctx.fillRect(0, 0, T.W, T.H);
 }
