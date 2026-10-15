@@ -5,11 +5,12 @@ import { start } from "./harness.mjs";
 import { tokens as T } from "./tokens.js";
 import { scenes } from "./scenes/index.js";
 import { replay } from "./engine/sim.js";
+import { hue } from "./engine/draw.js";
 
 // the type demo's timing rules (seconds)
 const RULES = { entrance: [0.3, 0.6], exit: [0.15, 0.3] };
 const EPS = 1e-9;
-// frames chosen to land inside moves: 262 odometer roll, 300 marker wipe, 385 split exit
+// frames chosen to land inside moves: 262 odometer roll, 300 marker wipe, 385 split exit, 510 the diagram pulse
 const sha = (b) => createHash("sha256").update(b).digest("hex");
 let failed = 0;
 const report = (ok, name, detail = "") => { console.log(`${ok ? "PASS" : "FAIL"}  ${name}${detail ? "  " + detail : ""}`); if (!ok) failed++; };
@@ -24,6 +25,20 @@ for (const f of FILES) {
   report(hits.length === 0, `no banned calls in ${f}`, hits.map(([n, l]) => `line ${n}: ${l.trim()}`).join(" | "));
 }
 
+// 1b. Tokens only: at most four hues; no colour literals in the engine or the scenes; no stroke width as a bare number.
+{
+  const NEUTRAL = ["bg", "ink", "dim", "glow"], names = Object.keys(T.color).filter((k) => !NEUTRAL.includes(k));
+  report(names.length <= 4, `palette: ${names.length} hues (${names.join(", ")}) plus the neutrals ${NEUTRAL.join(", ")} (max 4 hues)`);
+  const gaps = names.flatMap((a, i) => names.slice(i + 1).map((b) => { const d = Math.abs(hue(T.color[a]) - hue(T.color[b])); return [a, b, Math.min(d, 360 - d)]; }));
+  report(gaps.every(([, , d]) => d >= 40), "the hues are distinct (at least 40 degrees apart)", gaps.filter(([, , d]) => d < 40).map(([a, b, d]) => `${a}/${b} ${d.toFixed(0)}`).join(", "));
+  for (const dir of ["engine", "scenes"]) for (const f of await readdir(dir)) {
+    if (!f.endsWith(".js")) continue;
+    const bad = (await readFile(`${dir}/${f}`, "utf8")).split("\n").map((l, n) => [n + 1, l.replace(/\/\/.*$/, "")])
+      .filter(([, l]) => /#[0-9a-fA-F]{3,8}\b/.test(l) || (f !== "draw.js" && /["'`]rgba?\(/.test(l)) || /lineWidth\s*=\s*[0-9.]/.test(l));
+    report(bad.length === 0, `tokens only in ${dir}/${f}`, bad.map(([n, l]) => `line ${n}: ${l.trim()}`).join(" | "));
+  }
+}
+
 // 2. Statement timing: held at least T.hold; and, for statements that declare inStart/outEnd, the entrance and exit windows.
 for (const sc of scenes) for (const st of sc.statements ?? []) {
   report(st.outStart - st.inDone >= T.hold - EPS, `${st.id}: held ${(st.outStart - st.inDone).toFixed(2)} s (rule: at least ${T.hold} s)`);
@@ -31,6 +46,7 @@ for (const sc of scenes) for (const st of sc.statements ?? []) {
   const e = st.inDone - st.inStart, x = st.outEnd - st.outStart;
   report(e >= RULES.entrance[0] - EPS && e <= RULES.entrance[1] + EPS, `${st.id}: entrance ${e.toFixed(2)} s (rule: ${RULES.entrance.join("-")} s)`);
   report(x >= RULES.exit[0] - EPS && x <= RULES.exit[1] + EPS, `${st.id}: exit ${x.toFixed(2)} s (rule: ${RULES.exit.join("-")} s)`);
+  if (st.cue) report(Math.abs(st.inStart - st.cue.propStart - 0.2) < 1e-6, `${st.id}: arrives 0.2 s after its prop (${st.cue.prop})`);
   report(st.outEnd <= sc.dur + EPS, `${st.id}: finishes inside its scene (${st.outEnd.toFixed(2)} of ${sc.dur} s)`);
 }
 
@@ -48,7 +64,7 @@ const { open, close } = await start();
 try {
   const fresh = await open();
   report(fresh.fps === 30, `page exposes FPS = 30 and DURATION ${fresh.duration} s (${fresh.frames} frames)`);
-  const KS = [...new Set([150, 262, 300, 385].map((k) => Math.min(k, fresh.frames - 1)))].sort((a, b) => a - b);
+  const KS = [...new Set([150, 262, 300, 385, 510].map((k) => Math.min(k, fresh.frames - 1)))].sort((a, b) => a - b);
   const cold = {}, warm = {};
   for (const K of KS) cold[K] = sha(await (await open()).png(K));
   const replayed = await open();

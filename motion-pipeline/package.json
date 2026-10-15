@@ -8,7 +8,9 @@
     "render": "node render.mjs",
     "encode": "ffmpeg -y -framerate 30 -i frames/f%05d.png -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags +faststart out/video.mp4",
     "stills": "node stills.mjs",
-    "qa:type": "node qa-type-sheet.mjs"
+    "qa:type": "node qa-type-sheet.mjs",
+    "qa:diagram": "node qa-diagram.mjs",
+    "qa:props": "node qa-props.mjs"
   },
   "keywords": [],
   "author": "",

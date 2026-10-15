@@ -1,15 +1,17 @@
 # Project state
 
 Silent motion graphics from code: a page draws one frame at a time, headless Chrome captures it, ffmpeg encodes it.
-Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 (the 5 s title card and the layout grid), then engine/type.js and the 8 s type demo.
+Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 (the 5 s title card and the layout grid), then engine/type.js and the 8 s type demo, then engine/draw.js, engine/props.js and the 6 s diagram.
 
 ## Run
 
     export CHROME_PATH=/path/to/chrome   # optional; unset, puppeteer uses its own Chrome
     npm test          # test-determinism.mjs: banned calls, hold rule, replay order, frame K fresh vs after 0..K vs hops, safe box
     npm run render    # frames/f00000.png ... (all frames, t = i / FPS)
-    npm run encode    # out/video.mp4: the whole timeline, 13 s (the framerate in package.json must match FPS in tokens.js)
+    npm run encode    # out/video.mp4: the whole timeline, 19 s (the framerate in package.json must match FPS in tokens.js)
     npm run qa:type   # qa/type_sheet.png: a still at the middle of every entrance and hold of the type demo
+    npm run qa:diagram  # qa/diagram_t4.png (scene time 4 s) and qa/diagram_zoom.png (a 200 % crop; args: x y w h)
+    npm run qa:props    # qa/props_sheet.png: all four props side by side
     npm run stills    # frames/stills.jpg: four stills (default t = 0.4, 1.2, 2.5, 4.8) with the safe box in red
     open http://localhost:8080/index.html   # live preview (serve the folder; no ?render)
 
@@ -51,6 +53,19 @@ Six statements cannot each hold 1.2 s and fit in 8 s one at a time (6 x (0.3 + 1
 
 QA (qa/type_sheet.png): the weakest move was the odometer (four ghost copies per digit mid-roll read as a glitch). Also fixed from the same sheet: the marker pill touched the word before it, and the split's six taps showed as separate ghosts.
 
+## Illustration finish (engine/draw.js) and props (engine/props.js)
+
+Tokens added: `stroke {outline 4.5, detail 3}`, `radius 16`, `shadowAlpha 0.3`, and four hues (accent lime, ice, coral, violet) plus the neutrals bg, ink, dim, glow. `npm test` fails on a fifth hue, a hex/rgba literal outside tokens.js, or a bare-number `lineWidth` in the engine or scenes. Lighting constants that belong to the look, not the palette, live in props.js (`RIM`, `GLASS`, `GLOW`).
+
+- `shade(hex, dl)` HSL lightness shift (dl a fraction, +0.1 = ten points lighter). `litFill(ctx, x, y, w, h, base)` returns a top-left-lit 3-stop gradient. `rgba`, `lightness`, `hue` are helpers.
+- `grain(ctx, t)` overlay blend at 8 % of a 512x512 seeded tile (built once at load with mulberry32; no tile under Node), offset by `hash(frame)`. Call it last.
+- `boilPath(ctx, pts, t, { amp 1.5, fps 8, seed, closed, step, weight, color })` jitters vertices with `hash(i, seed + floor(t*fps))`, width +-15 %. `step` > 1 hashes every few vertices and blends between them (smooth wobble, no chipped corners); `weight`/`color` give per-segment width and colour.
+- `contactShadow(ctx, x, y, w)` a penumbra and a tight core, both blurred ellipses at 0.3. `pool(ctx, x, y, w, color)` a pool of the object's colour on the floor, so the shadow has something to darken.
+- `measure(pts)` caches path lengths (call it at load); `drawOn(ctx, pts, p)` dash-offset reveal; `pulseAlong(ctx, pts, p)` bright head and an 8-dot additive tail.
+- Props: `laptop`, `chatBubble`, `chartCard`, `folder`, each `(ctx, t, { x, y, s, rot, seed })`, with `.foot` and `.w`. Each part has a top-left gradient, an outline that is thin and light on lit edges and heavy and dark on shaded ones, a rim light, a bounce of shadow, and a contact shadow.
+
+What made the first pass read as clip-art, and the fix: uniform outline weight (now light-aware), flat slabs with no thickness (two-tone base, lips), a rainbow of equal bars on a dead screen (one accent line, a glow, a glass reflection), a contact shadow too faint to see (penumbra plus core), lumpy corners from per-vertex jitter (`step`), and a perfectly square-on layout (outer props tilt by 0.03 rad).
+
 ## Decisions
 
 - `renderFrame` fills an opaque background after the reset: a transparent PNG would encode to black, not the token colour.
@@ -63,6 +78,7 @@ QA (qa/type_sheet.png): the weakest move was the odometer (four ghost copies per
 
 - `tokens.js` (frozen) · `engine/` ease, rng, sim, layout (frozen once it works)
 - `scenes/s01_title.js` "CODE IS THE CAMERA", 0-5 s, label "01 / INTRO" · `scenes/s02_type_demo.js` the six type moves, 5-13 s
+- `scenes/s03_diagram.js` three props, two lines that draw on, a pulse, labels 0.2 s after each prop, 13-19 s · `engine/draw.js`, `engine/props.js`
 - `engine/type.js` kinetic type · `engine/layout.js` also has `fontFor` and `drawBackground` (pass scene t + scene start so the light does not jump at a cut)
 - `qa/` contact sheets · `qa-type-sheet.mjs` draws the stills onto one canvas
 - `fonts/` Space Grotesk 700 and JetBrains Mono 500 (SIL OFL, licences alongside) · `frames/` PNGs and stills, git-ignored · `out/` MP4s
