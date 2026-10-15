@@ -35,7 +35,18 @@ export async function start() {
       const url = await page.evaluate((t) => { window.renderFrame(t); return document.getElementById("c").toDataURL("image/png"); }, i / fps);
       return Buffer.from(url.split(",")[1], "base64");
     };
-    return { fps, duration, frames: Math.round(duration * fps), png };
+    // bounding box of the bright pixels (the ink and the accent, not the dim label or the glow) in frame i
+    const bright = (i) => page.evaluate((t) => {
+      window.renderFrame(t);
+      const { data, width, height } = document.getElementById("c").getContext("2d").getImageData(0, 0, 1920, 1080);
+      let x0 = width, y0 = height, x1 = -1, y1 = -1;
+      for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+        const o = (y * width + x) * 4;
+        if (data[o] * 0.3 + data[o + 1] * 0.59 + data[o + 2] * 0.11 > 150) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+      }
+      return x1 < 0 ? null : { x0, y0, x1, y1 };
+    }, i / fps);
+    return { fps, duration, frames: Math.round(duration * fps), png, bright };
   }
   return { open, close: async () => { await browser.close(); server.close(); } };
 }
