@@ -1,7 +1,7 @@
 # Project state
 
 Silent motion graphics from code: a page draws one frame at a time, headless Chrome captures it, ffmpeg encodes it.
-Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 (the 5 s title card and the layout grid), then engine/type.js and the 8 s type demo, then engine/draw.js, engine/props.js and the 6 s diagram.
+Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 (the 5 s title card and the layout grid), then engine/type.js and the 8 s type demo, then engine/draw.js, engine/props.js and the 6 s diagram, then the WebGL2 layer and post chain (engine/gl.js, shaders/).
 
 ## Run
 
@@ -12,10 +12,13 @@ Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 
     npm run qa:type   # qa/type_sheet.png: a still at the middle of every entrance and hold of the type demo
     npm run qa:diagram  # qa/diagram_t4.png (scene time 4 s) and qa/diagram_zoom.png (a 200 % crop; args: x y w h)
     npm run qa:props    # qa/props_sheet.png: all four props side by side
+    npm run qa:post     # qa/post_ab.png (t = 1 and 3, post off | on), qa/post_zoom.png, and the bloom wash-out numbers
     npm run stills    # frames/stills.jpg: four stills (default t = 0.4, 1.2, 2.5, 4.8) with the safe box in red
     open http://localhost:8080/index.html   # live preview (serve the folder; no ?render)
 
 ## The contract
+
+`#c` is a WebGL2 canvas (`{ preserveDrawingBuffer: true, antialias: false }`). The scenes draw in 2D on a transparent `OffscreenCanvas` (`window.LAYER`); `engine/gl.js` uploads it each frame and renders the background shader, the composite and the post chain. The harness captures `#c`. `window.renderLayer(t)` draws the 2D layer alone (fast; QA and the layer tests use it); `renderFrame(t)` is the whole pipeline.
 
 - `window.renderFrame(t)` clears the canvas (`ctx.reset()`, which also resets all context state) and repaints it from t and constants only. `window.FPS` = 30 and `window.DURATION` come from tokens and scenes.
 - `window.READY` is false until every font in `tokens.fonts` has loaded (`document.fonts.load` each, then `document.fonts.ready`) and every scene's optional `async load()` has resolved: that is where a scene decodes images or compiles shaders.
@@ -34,6 +37,18 @@ Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 
 - A constant slow push (scale 1.00 to 1.03 about the centre) keeps a card from looking frozen. Size the headline for the end of the push: `grid.w / 1.03`.
 - The hold rule: every statement stays fully legible for at least `tokens.hold` (1.2 s) after it finishes animating in. A scene lists `statements: [{ id, inDone, outStart }]` and the test enforces it. Exit in the last 0.5 s so the next scene can overlap it.
 - Stagger per word 0.06-0.12 s (this card: 0.09). Use `ctx.filter = blur()` on text only, never on a full-frame fill.
+
+## The GL layer and post chain (engine/gl.js, shaders/*.frag)
+
+Per frame: upload the layer (premultiplied) -> `bg.frag` (slow domain-warped fbm through the token colours bg -> dim -> accent, `BG_INTENSITY` 0.04, rendered at a quarter size and upsampled; loops bounded by the `uOne` uniform, `uTime`/`uRes`/`uFrame`) -> `comp.frag` (layer over the background, in linear light) -> bloom (threshold on the brightest channel, 5 levels of 13-tap downsample, tent upsample; skipped entirely when `bloom` is 0) -> `tone.frag` (exposure, ACES fit, sRGB, S-curve grade, warm highs / cool lows at most 6 %) -> `final.frag` (radial chromatic aberration, vignette, luminance-weighted grain seeded by `uFrame`). Every pass between is RGBA16F; `EXT_color_buffer_float` is required and a missing one throws. `program()` throws with the shader info log (and the numbered source).
+
+`window.POST = { bloom 0.25, thresh 1.05, ca 0.8 px, grain 0.045, vig 0.35, exposure 1 }`. A scene may override any of them while it draws; every `renderFrame` resets them to the defaults first. `POST.on = false` is the A/B switch (the composite alone) and `POST.force = {...}` wins over a scene's values: both are QA switches and are not reset.
+
+- The bloom threshold is in linear scene light. Text tops out at 1.0 (the accent's green), so at the first-pass 0.85 the accent word bloomed (a halo, and +5/+2/+10 on its RGB). At 1.05 type never blooms; glows and the pulse (additive, above 1) do.
+- ACES and the grade, not bloom, are what move the accent: with post off the lime letters are exactly 200,255,61; with post on and no bloom they are 215,217,104 (pale yellow). Exposure 0.8 gives 203,210,85. It is an art-direction choice, so the default stays 1.0; set `POST.exposure` per scene or change the default.
+- Under software GL (SwiftShader) a frame costs about 0.7 s, mostly texture fetches in the bloom chain; a render of 19 s is about 7 minutes. On a GPU it is milliseconds.
+- `drawBackground()` is now a no-op (the background is the shader), and the 2D `grain()` is no longer called (the post chain has the grain).
+- The harness launches Chrome with `--ignore-gpu-blocklist`, `--use-angle=metal` on macOS, and `--enable-unsafe-swiftshader` on Linux (software GL where there is no GPU).
 
 ## Kinetic type (engine/type.js)
 

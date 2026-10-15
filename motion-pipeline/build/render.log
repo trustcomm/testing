@@ -1,0 +1,5 @@
+
+> motion-pipeline@1.0.0 render
+> node render.mjs
+
+wrote 570 frames (19 s at 30 fps)

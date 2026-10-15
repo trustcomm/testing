@@ -116,7 +116,8 @@ export function pool(ctx, x, y, w, color) {
   ctx.save();
   ctx.translate(x, y); ctx.scale(1, 0.26);
   const g = ctx.createRadialGradient(0, 0, 0, 0, 0, w / 2);
-  g.addColorStop(0, rgba(color, T.shadowAlpha)); g.addColorStop(1, rgba(color, 0));
+  // a long soft tail: the grade's S-curve steepens a straight falloff into a visible edge
+  for (const [at, k] of [[0, 1], [0.35, 0.45], [0.7, 0.1], [1, 0]]) g.addColorStop(at, rgba(color, T.shadowAlpha * k));
   ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, w / 2, 0, Math.PI * 2); ctx.fill();
   ctx.restore();
 }

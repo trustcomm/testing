@@ -10,7 +10,8 @@
     "stills": "node stills.mjs",
     "qa:type": "node qa-type-sheet.mjs",
     "qa:diagram": "node qa-diagram.mjs",
-    "qa:props": "node qa-props.mjs"
+    "qa:props": "node qa-props.mjs",
+    "qa:post": "node qa-post.mjs"
   },
   "keywords": [],
   "author": "",

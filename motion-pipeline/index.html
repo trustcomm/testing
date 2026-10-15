@@ -10,27 +10,44 @@
 <script type="module">
 import { tokens as T } from "./tokens.js";
 import { scenes } from "./scenes/index.js";
+import { createGL } from "./engine/gl.js";
 
 window.READY = false;
-const c = document.getElementById("c");
+const c = document.getElementById("c");              // the WebGL2 canvas: what the render captures
 c.width = T.W; c.height = T.H;
-const ctx = c.getContext("2d");
+const layer = new OffscreenCanvas(T.W, T.H);         // the scenes draw here, in 2D, on a transparent layer
+const ctx = layer.getContext("2d");
+window.LAYER = layer;                                // for QA: the design layer before the post chain
+const gl = await createGL(c);
 
-// The whole draw path: a pure function of t and constants. reset() clears the canvas and all context state.
-function renderFrame(t) {
-  ctx.reset();
-  ctx.fillStyle = T.color.bg;           // opaque backdrop: a transparent PNG would encode to black, not the token colour
-  ctx.fillRect(0, 0, T.W, T.H);
+// post chain parameters. A scene may override any of them while it draws; every renderFrame starts from the defaults.
+// `on` (false = the composite alone) and `force` (values that win over a scene's) are QA switches, not parameters: they are left as they are.
+// thresh is in linear scene light: text tops out at 1.0 (the accent's green), so 1.05 keeps type out of the bloom and leaves it to
+// anything brighter than white (glows, pulses). At the first-pass 0.85 the accent word bloomed and washed toward yellow.
+const POST_DEFAULTS = { bloom: 0.25, thresh: 1.05, ca: 0.8, grain: 0.045, vig: 0.35, exposure: 1.0 };
+window.POST = { ...POST_DEFAULTS, on: true, force: {} };
+
+// The design layer: a pure function of t and constants. reset() clears the layer and all context state.
+function renderLayer(t) {
+  ctx.reset();                                       // transparent: the background shader shows through
   for (const s of scenes) {
     if (t >= s.start && t < s.start + s.dur) { ctx.save(); s.draw(ctx, t - s.start, s.dur); ctx.restore(); }
   }
 }
+// The whole draw path: the layer, then the GL passes. The post parameters start from their defaults on every call.
+function renderFrame(t) {
+  Object.assign(window.POST, POST_DEFAULTS);
+  renderLayer(t);
+  Object.assign(window.POST, window.POST.force);        // QA: values forced from outside win over the scene's
+  gl.frame({ t, frame: Math.round(t * T.FPS), layer, post: window.POST });
+}
+window.renderLayer = renderLayer;                    // for QA: the design layer without the GL passes (fast)
 window.renderFrame = renderFrame;
 window.FPS = T.FPS;                     // 30
 window.DURATION = scenes.reduce((a, s) => Math.max(a, s.start + s.dur), 0);
 
-// READY only once everything a frame needs exists: every font, then whatever images or shaders the scenes declare
-// (a scene may export `async load()` that resolves when its images are decoded or its shaders are compiled).
+// READY only once everything a frame needs exists: the context and the shaders (createGL, above), every font, then
+// whatever images the scenes declare (a scene may export `async load()` that resolves when they are decoded).
 await Promise.all(T.fonts.map((f) => document.fonts.load(f)));
 await document.fonts.ready;
 await Promise.all(scenes.map((s) => s.load?.()));

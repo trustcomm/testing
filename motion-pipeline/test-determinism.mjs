@@ -59,24 +59,35 @@ for (const sc of scenes) for (const st of sc.statements ?? []) {
   report(JSON.stringify(fwd) === JSON.stringify(rev) && JSON.stringify(fwd) === JSON.stringify(shuf), "replay(): forward, reverse and shuffled queries agree");
 }
 
-// 4. Frames K in a fresh page (each drawn first), against the same frames after rendering 0..K in order.
+// 4. Determinism. The 2D design layer is replayed fast (no GL) at five frames; the full pipeline, which in software GL
+//    costs about 0.7 s a frame, is replayed from 0 for frame 150 and hopped around for frame 510.
 const { open, close } = await start();
 try {
   const fresh = await open();
   report(fresh.fps === 30, `page exposes FPS = 30 and DURATION ${fresh.duration} s (${fresh.frames} frames)`);
   const KS = [...new Set([150, 262, 300, 385, 510].map((k) => Math.min(k, fresh.frames - 1)))].sort((a, b) => a - b);
-  const cold = {}, warm = {};
-  for (const K of KS) cold[K] = sha(await (await open()).png(K));
-  const replayed = await open();
-  for (let i = 0; i <= KS.at(-1); i++) { const png = await replayed.png(i); if (KS.includes(i)) warm[i] = sha(png); }
-  for (const K of KS) report(cold[K] === warm[K], `frame ${K}: fresh page = after frames 0..${K}`, `${cold[K].slice(0, 16)} ${warm[K].slice(0, 16)}`);
 
-  // extras: random access, and a control that the page is not simply static
-  const K = KS[0], hop = await open();
-  for (const i of [K + 25, 3, K - 1]) await hop.png(i);
-  const c = sha(await hop.png(K));
-  report(cold[K] === c, `frame ${K}: fresh page = after hops (${K + 25}, 3, ${K - 1})`, `${cold[K].slice(0, 16)} ${c.slice(0, 16)}`);
-  report(cold[K] !== sha(await fresh.png(K + 1)), `frame ${K} differs from frame ${K + 1} (the page is not static)`);
+  const cold = {}, warm = {};
+  for (const K of KS) cold[K] = await (await open()).layerHash(K);
+  const replayed = await open();
+  for (let i = 0; i <= KS.at(-1); i++) { if (KS.includes(i)) warm[i] = await replayed.layerHash(i); else await replayed.layerDraw(i); }
+  for (const K of KS) report(cold[K] === warm[K], `layer, frame ${K}: fresh page = after frames 0..${K}`, `${cold[K].slice(0, 16)} ${warm[K].slice(0, 16)}`);
+
+  const K0 = KS[0], a = sha(await (await open()).png(K0));                      // the whole pipeline, frame K0, in a fresh page
+  const full = await open();
+  for (let i = 0; i < K0; i++) await full.draw(i);
+  const b = sha(await full.png(K0));                                           // ... and after frames 0..K0 in another
+  report(a === b, `pipeline, frame ${K0}: fresh page = after frames 0..${K0}`, `${a.slice(0, 16)} ${b.slice(0, 16)}`);
+
+  const K1 = KS.at(-1), c = sha(await (await open()).png(K1)), hop = await open();
+  for (const i of [K1 + 15, 3, K1 - 1]) await hop.draw(i);
+  const d = sha(await hop.png(K1));
+  report(c === d, `pipeline, frame ${K1}: fresh page = after hops (${K1 + 15}, 3, ${K1 - 1})`, `${c.slice(0, 16)} ${d.slice(0, 16)}`);
+  report(a !== sha(await fresh.png(K0 + 1)), `frame ${K0} differs from frame ${K0 + 1} (the page is not static)`);
+
+  // the post parameters come back to their defaults at the start of every renderFrame
+  const got = await fresh.page.evaluate(() => { window.POST.bloom = 9; window.POST.ca = 9; window.renderFrame(3); return [window.POST.bloom, window.POST.ca]; });
+  report(got[0] === 0.25 && got[1] === 0.8, "window.POST: overrides are reset to the defaults by the next renderFrame", JSON.stringify(got));
 
   // 5. The safe box: the bright type stays inside it while a statement holds. Statements overlap, and a line that is
   //    sliding in or out may cross the margin on purpose, so only frames where every other statement is at rest or hidden count.

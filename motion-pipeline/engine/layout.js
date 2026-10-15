@@ -30,11 +30,6 @@ export function drawLabel(ctx, text, alpha = 1) {
   ctx.restore();
 }
 
-// The drifting radial light behind every card. Pass time that continues across scenes (scene t + its start)
-// so the light does not jump at a cut.
-export function drawBackground(ctx, t) {
-  const gx = T.W * (0.3 + 0.08 * Math.sin(t * 0.4)), gy = T.H * 0.35;
-  const g = ctx.createRadialGradient(gx, gy, 0, gx, gy, T.W * 0.8);
-  g.addColorStop(0, T.color.glow); g.addColorStop(1, T.color.bg);
-  ctx.fillStyle = g; ctx.fillRect(0, 0, T.W, T.H);
-}
+// The background now lives in the GL layer (shaders/bg.frag, composited under the 2D layer), so this draws nothing.
+// Scenes keep calling it, which keeps the 2D layer transparent and marks where a scene's backdrop starts.
+export function drawBackground() {}

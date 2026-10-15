@@ -1,7 +1,7 @@
 import { tokens as T } from "../tokens.js";
 import { win, lerp, outBack, outExpo, inOutQuint } from "../engine/ease.js";
 import { drawBackground, setType } from "../engine/layout.js";
-import { measure, drawOn, pulseAlong, grain, pool } from "../engine/draw.js";
+import { measure, drawOn, pulseAlong, pool } from "../engine/draw.js";
 import { chatBubble, laptop, chartCard } from "../engine/props.js";
 import { riseIn, riseInDur } from "../engine/type.js";
 
@@ -72,6 +72,5 @@ export default {
     for (const [a, b, i] of PULSES) pulseAlong(ctx, LINES[i].pts, win(t, a, b));
     ctx.restore();
 
-    grain(ctx, t);
   },
 };
