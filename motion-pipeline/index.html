@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>html,body{margin:0;background:#0b0b0f}canvas{display:block}</style>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+const cv = document.getElementById("c");
+const g = cv.getContext("2d");
+
+// Must draw the same frame for any t. Nothing here may read a clock or random numbers.
+window.renderFrame = (t) => {
+  g.fillStyle = "#0b0b0f";
+  g.fillRect(0, 0, 1920, 1080);
+  g.fillStyle = "#fff";
+  g.font = "120px system-ui, sans-serif";
+  g.textAlign = "center";
+  g.textBaseline = "middle";
+  g.fillText("PIPELINE OK", 960, 540);
+};
+window.DURATION = 1;
+window.FPS = 30;
+
+window.renderFrame(0);
+window.READY = true;
+</script>
