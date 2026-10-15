@@ -1,24 +1,39 @@
 <!doctype html>
 <meta charset="utf-8">
-<style>html,body{margin:0;background:#0b0b0f}canvas{display:block}</style>
-<canvas id="c" width="1920" height="1080"></canvas>
+<style>
+  @font-face { font-family: "Space Grotesk"; font-weight: 700; src: url(fonts/space-grotesk-700.woff2) format("woff2"); }
+  html, body { margin: 0; background: #0b0b0f }
+  canvas { display: block }
+</style>
+<canvas id="c"></canvas>
 <script type="module">
-const cv = document.getElementById("c");
-const g = cv.getContext("2d");
+import { tokens as T } from "./tokens.js";
+import { scenes } from "./scenes/index.js";
 
-// Must draw the same frame for any t. Nothing here may read a clock or random numbers.
-window.renderFrame = (t) => {
-  g.fillStyle = "#0b0b0f";
-  g.fillRect(0, 0, 1920, 1080);
-  g.fillStyle = "#fff";
-  g.font = "120px system-ui, sans-serif";
-  g.textAlign = "center";
-  g.textBaseline = "middle";
-  g.fillText("PIPELINE OK", 960, 540);
-};
-window.DURATION = 1;
-window.FPS = 30;
+const c = document.getElementById("c");
+c.width = T.W; c.height = T.H;
+const ctx = c.getContext("2d");
 
-window.renderFrame(0);
+// A pure function of t: repaints everything from scratch, from t and constants only.
+function renderFrame(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = T.color.bg;           // opaque fill, not clearRect: PNGs keep their alpha, and the encode would turn it black
+  ctx.fillRect(0, 0, T.W, T.H);
+  for (const s of scenes) {
+    if (t >= s.start && t < s.start + s.dur) { ctx.save(); s.draw(ctx, t - s.start, s.dur); ctx.restore(); }
+  }
+}
+window.renderFrame = renderFrame;
+window.FPS = T.FPS;
+window.DURATION = scenes.reduce((a, s) => Math.max(a, s.start + s.dur), 0);
+await document.fonts.load(T.font(120));
+await document.fonts.ready;
 window.READY = true;
+
+// Live preview only: the render harness (?render) never runs this loop.
+if (!location.search.includes("render")) {
+  const t0 = performance.now();
+  (function loop() { renderFrame(((performance.now() - t0) / 1000) % window.DURATION); requestAnimationFrame(loop); })();
+}
 </script>
