@@ -10,28 +10,32 @@
 import { tokens as T } from "./tokens.js";
 import { scenes } from "./scenes/index.js";
 
+window.READY = false;
 const c = document.getElementById("c");
 c.width = T.W; c.height = T.H;
 const ctx = c.getContext("2d");
 
-// A pure function of t: repaints everything from scratch, from t and constants only.
+// The whole draw path: a pure function of t and constants. reset() clears the canvas and all context state.
 function renderFrame(t) {
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
-  ctx.globalAlpha = 1;
-  ctx.fillStyle = T.color.bg;           // opaque fill, not clearRect: PNGs keep their alpha, and the encode would turn it black
+  ctx.reset();
+  ctx.fillStyle = T.color.bg;           // opaque backdrop: a transparent PNG would encode to black, not the token colour
   ctx.fillRect(0, 0, T.W, T.H);
   for (const s of scenes) {
     if (t >= s.start && t < s.start + s.dur) { ctx.save(); s.draw(ctx, t - s.start, s.dur); ctx.restore(); }
   }
 }
 window.renderFrame = renderFrame;
-window.FPS = T.FPS;
+window.FPS = T.FPS;                     // 30
 window.DURATION = scenes.reduce((a, s) => Math.max(a, s.start + s.dur), 0);
-await document.fonts.load(T.font(120));
+
+// READY only once everything a frame needs exists: every font, then whatever images or shaders the scenes declare
+// (a scene may export `async load()` that resolves when its images are decoded or its shaders are compiled).
+await Promise.all(T.fonts.map((f) => document.fonts.load(f)));
 await document.fonts.ready;
+await Promise.all(scenes.map((s) => s.load?.()));
 window.READY = true;
 
-// Live preview only: the render harness (?render) never runs this loop.
+// --- live preview: not part of the draw path. It reads the clock only to choose t; it never runs under ?render. ---
 if (!location.search.includes("render")) {
   const t0 = performance.now();
   (function loop() { renderFrame(((performance.now() - t0) / 1000) % window.DURATION); requestAnimationFrame(loop); })();

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node test-contract.mjs",
+    "test": "node test-determinism.mjs",
     "render": "node render.mjs",
     "encode": "ffmpeg -y -framerate 30 -i frames/f%05d.png -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags +faststart out/demo.mp4"
   },
