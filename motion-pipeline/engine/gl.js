@@ -2,6 +2,7 @@
 // light, and the post chain runs: bloom (threshold, 5 levels of 13-tap downsample, tent upsample), exposure, ACES,
 // grade, radial chromatic aberration, vignette, grain. Everything between the passes is RGBA16F.
 import { tokens as T } from "../tokens.js";
+import { glParticles } from "./particles.js";
 
 // every fragment shader starts with this: the version, the fullscreen triangle's varying, and the colour maths
 const HEAD = `#version 300 es
@@ -78,9 +79,8 @@ export async function createGL(canvas) {
     if (!r.ok) throw new Error(`shaders/${file}: HTTP ${r.status}`);
     return r.text();
   };
-  const src = Object.fromEntries(await Promise.all([...SHADERS.map((n) => `${n}.frag`), "particles.vert", "particles.frag"].map(async (f) => [f, await load(f)])));
-  const P = Object.fromEntries(SHADERS.map((n) => [n, program(gl, src[`${n}.frag`])]));
-  P.particles = program(gl, src["particles.frag"], src["particles.vert"]);
+  const src = Object.fromEntries(await Promise.all(SHADERS.map(async (n) => [n, await load(`${n}.frag`)])));
+  const P = Object.fromEntries(SHADERS.map((n) => [n, program(gl, src[n])]));
   const W = canvas.width, H = canvas.height;
   gl.bindVertexArray(gl.createVertexArray());                 // the empty VAO a vertex-less draw needs
 
@@ -121,22 +121,18 @@ export async function createGL(canvas) {
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   };
 
-  const [bg, dim, accent, ink, ice] = [T.color.bg, T.color.dim, T.color.accent, T.color.ink, T.color.ice].map(lin);
+  const [bg, dim, accent] = [T.color.bg, T.color.dim, T.color.accent].map(lin);
 
   // One frame. `post` is window.POST: { on, bloom, thresh, ca, grain, vig, exposure }; `particles` is window.PARTICLES:
-  // { count, density, size, intensity, cam }, the GPU point field (count 0 = none).
+  // { n, density, size, intensity, drift, seed, cam: { dx, dy, z } }, the GPU point field of engine/particles.js (n 0 = none).
   function frame({ t, frame: n, layer, post, particles }) {
     upload(layer);
     pass(P.bg, bgT, {}, { uTime: t, uRes: [bgT.w, bgT.h], uFrame: n, uOne: 1, uIntensity: BG_INTENSITY, uBg: bg, uDim: dim, uAccent: accent });
     pass(P.comp, hdr, { uBg: bgT, uLayer: layerTex });
-    if (particles && particles.count > 0) {                   // points added to the HDR buffer, before bloom
+    if (particles && particles.n > 0) {                       // the GPU point field, added to the HDR buffer before bloom
       gl.bindFramebuffer(gl.FRAMEBUFFER, hdr.fbo);
       gl.viewport(0, 0, W, H);
-      gl.useProgram(P.particles.p);
-      setUniforms(P.particles, { uTime: t, uRes: [W, H], uCam: particles.cam, uDensity: particles.density, uSize: particles.size, uIntensity: particles.intensity, uInk: ink, uAccent: accent, uIce: ice });
-      gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE);
-      gl.drawArrays(gl.POINTS, 0, particles.count);
-      gl.disable(gl.BLEND);
+      glParticles(gl, t, particles);
     }
     if (!post.on) { pass(P.plain, null, { uSrc: hdr }); return; }
 

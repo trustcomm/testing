@@ -72,6 +72,8 @@ export function riseIn(ctx, t, o) {
 
 // when glyph i of n locks in a scramble: left to right across `dur`
 export const scrambleLock = (i, n, o) => o.t0 + ((o.dur ?? 0.5) * (i + 1)) / n;
+// the times all n glyphs lock at: what sparksFromGlyphs (engine/particles.js) takes
+export const lockTimes = (n, o) => Array.from({ length: n }, (_, i) => scrambleLock(i, n, o));
 
 // 3. scramble: glyphs resolve left to right (opts: dur, seed). Slots come from the FINAL string, and each scrambled
 //    character is centred in its slot, so the line never jitters. A mono role keeps every slot the same width.

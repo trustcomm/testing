@@ -66,7 +66,8 @@ export async function start() {
       return [...new Uint8Array(await crypto.subtle.digest("SHA-256", data))].map((b) => b.toString(16).padStart(2, "0")).join("");
     }, i / fps);
     const setPost = (o) => page.evaluate((o) => Object.assign(window.POST, o), o);
-    return { fps, duration, frames: Math.round(duration * fps), png, bright, page, setPost, draw, layerDraw, layerHash };
+    const setParticles = (o) => page.evaluate((o) => Object.assign(window.PARTICLES.force, o), o);   // QA: forced over what the scene sets
+    return { fps, duration, frames: Math.round(duration * fps), png, bright, page, setPost, setParticles, draw, layerDraw, layerHash };
   }
   return { open, browser, close: async () => { await browser.close(); server.close(); } };
 }

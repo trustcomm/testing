@@ -12,7 +12,7 @@
     "qa:diagram": "node qa-diagram.mjs",
     "qa:props": "node qa-props.mjs",
     "qa:post": "node qa-post.mjs",
-    "qa:particles": "node qa-sheet.mjs ./scenes/s04_particles.js qa/particles_sheet.png"
+    "qa:particles": "node qa-particles.mjs qa/particles_sheet.png"
   },
   "keywords": [],
   "author": "",
