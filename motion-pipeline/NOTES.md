@@ -1,18 +1,19 @@
 # Project state
 
 Silent motion graphics from code: a page draws one frame at a time, headless Chrome captures it, ffmpeg encodes it.
-Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 (the 5 s title card and the layout grid), then engine/type.js and the 8 s type demo, then engine/draw.js, engine/props.js and the 6 s diagram, then the WebGL2 layer and post chain (engine/gl.js, shaders/).
+Done: lesson 1 (pipeline), lesson 2 (the strict renderFrame contract), lesson 3 (the 5 s title card and the layout grid), then engine/type.js and the 8 s type demo, then engine/draw.js, engine/props.js and the 6 s diagram, then the WebGL2 layer and post chain (engine/gl.js, shaders/), then particles (engine/particles.js, GPU field) and the 8 s particles scene.
 
 ## Run
 
     export CHROME_PATH=/path/to/chrome   # optional; unset, puppeteer uses its own Chrome
     npm test          # test-determinism.mjs: banned calls, hold rule, replay order, frame K fresh vs after 0..K vs hops, safe box
     npm run render    # frames/f00000.png ... (all frames, t = i / FPS)
-    npm run encode    # out/video.mp4: the whole timeline, 19 s (the framerate in package.json must match FPS in tokens.js)
+    npm run encode    # out/video.mp4: the whole timeline, 27 s (the framerate in package.json must match FPS in tokens.js)
     npm run qa:type   # qa/type_sheet.png: a still at the middle of every entrance and hold of the type demo
     npm run qa:diagram  # qa/diagram_t4.png (scene time 4 s) and qa/diagram_zoom.png (a 200 % crop; args: x y w h)
     npm run qa:props    # qa/props_sheet.png: all four props side by side
     npm run qa:post     # qa/post_ab.png (t = 1 and 3, post off | on), qa/post_zoom.png, and the bloom wash-out numbers
+    npm run qa:particles  # qa/particles_sheet.png: entrance and hold stills of each particle beat
     npm run stills    # frames/stills.jpg: four stills (default t = 0.4, 1.2, 2.5, 4.8) with the safe box in red
     open http://localhost:8080/index.html   # live preview (serve the folder; no ?render)
 
@@ -81,6 +82,23 @@ Tokens added: `stroke {outline 4.5, detail 3}`, `radius 16`, `shadowAlpha 0.3`, 
 
 What made the first pass read as clip-art, and the fix: uniform outline weight (now light-aware), flat slabs with no thickness (two-tone base, lips), a rainbow of equal bars on a dead screen (one accent line, a glow, a glass reflection), a contact shadow too faint to see (penumbra plus core), lumpy corners from per-vertex jitter (`step`), and a perfectly square-on layout (outer props tilt by 0.03 rad).
 
+## Particles (engine/particles.js, shaders/particles.vert/.frag, scenes/s04_particles.js, 19-27 s)
+
+Every attribute is `hash(i, seed + k)` and every position a closed-form function of t, so a particle frame depends on nothing before it. Looping is `age = ((t - born) % life + life) % life`. Every alpha is 0 where a particle appears and disappears, so nothing pops. Colours are tokens.
+
+- `motes(ctx, t, { cam, density, seed })` three depth layers (n 110/80/40, depth .35/.65/1) drawn additively (`lighter`); the far layer is a soft sprite (the blur), the near one a crisp disc. The sprites are built once at load (browser only). Each mote rises from its own height (`riseAt`: `r(11) * (H + 80)`), so the field fills the frame instead of piling at the bottom.
+- `sparks(ctx, t, { x, y, t0, count, speed, life, spread, gravity, seed })` all spawn at t0 with hashed angle and speed; position `v*age + g*age^2/2`; each is a line from the position at `age` to the position at `age - 0.03` (motion blur for free), with a wide faint halo under a core line. Alpha ramps in over 0.15 s (`RAMP`) and falls as `(1-p)^2`.
+- `confetti(ctx, t, { x, y, t0, count, speed, drag, gravity, seed })` ballistic with linear drag, still closed form: `v*(1-e^(-k age))/k + (g/k)*(age - (1-e^(-k age))/k)`. `scaleY = cos(age*spin)` flips it; an edge-on piece is darker.
+- The pure state functions `riseAt`, `sparkAt`, `confettiAt` return what a particle is doing at t (or null); the tests measure those.
+- GPU field: `window.PARTICLES = { count, density, size, intensity, cam }` (reset to defaults every renderFrame, like POST). The vertex shader builds each point from `gl_VertexID` and `uTime`, no buffers; `gl.POINTS` with `blendFunc(ONE, ONE)` into the HDR target, after the layer composite and before bloom. The sin-based hash is fine for particles; it is not good enough for grain at 4K (the grain pass uses PCG).
+- Story ties in s04: the field follows a drifting camera at a depth-scaled rate (`cam`), density is a dial (spike on the reveal and on the landing, thin while the type is read; each particle has a threshold and fades, so the dial never pops one), sparks leave each letter of LOCKED at `scrambleLock(i, n, o)` (the time `scramble` locks that letter), and the confetti goes off when the odometer lands.
+- Interaction (particles that collide or follow something) needs state: simulate at a fixed dt with `engine/sim.js` `replay` and keep N small. s04 has none.
+- QA switches: `NO_PARTICLES = true` makes the 2D particle draws no-ops (the safe-box test measures the design layer alone with it). `npm run qa:particles` writes qa/particles_sheet.png (entrance and hold of each beat).
+
+What `npm test` checks for particles: alpha at the first and last frame of every particle is <= 0.02 (measured 0.000-0.002) and the biggest frame-to-frame alpha jump is <= 0.45 (motes 0.14, camera at 10x 0.22, density dial 0.23, sparks 0.26, confetti 0.33); particles.vert keeps `mod()` age and `sin(pi * age / life)` alpha; the layer hash of frames 150..717 is identical on a fresh page and after replaying 0..K; the full pipeline (GL points included) is identical on a fresh page and after frame hops.
+
+What the first pass got wrong, and the fix: a 0.06-0.08 s birth ramp made sparks and confetti flash in (jumps 0.52 and 0.75): now 0.15 s. The GPU field was born below the frame and rose a few hundred px, so it piled up as a speckled band along the bottom: each particle now starts at its own height. Sparks were thin and short-lived: wider core, a halo, 18 per letter and a longer life.
+
 ## Decisions
 
 - `renderFrame` fills an opaque background after the reset: a transparent PNG would encode to black, not the token colour.
@@ -95,5 +113,6 @@ What made the first pass read as clip-art, and the fix: uniform outline weight (
 - `scenes/s01_title.js` "CODE IS THE CAMERA", 0-5 s, label "01 / INTRO" · `scenes/s02_type_demo.js` the six type moves, 5-13 s
 - `scenes/s03_diagram.js` three props, two lines that draw on, a pulse, labels 0.2 s after each prop, 13-19 s · `engine/draw.js`, `engine/props.js`
 - `engine/type.js` kinetic type · `engine/layout.js` also has `fontFor` and `drawBackground` (pass scene t + scene start so the light does not jump at a cut)
-- `qa/` contact sheets · `qa-type-sheet.mjs` draws the stills onto one canvas
+- `scenes/s04_particles.js` four beats (motes, sparks, confetti, 50,000 on the GPU), 19-27 s · `engine/particles.js`, `shaders/particles.vert/.frag`
+- `qa/` contact sheets · `qa-sheet.mjs <scene module> <out png>` draws a scene's entrance and hold stills onto one canvas
 - `fonts/` Space Grotesk 700 and JetBrains Mono 500 (SIL OFL, licences alongside) · `frames/` PNGs and stills, git-ignored · `out/` MP4s

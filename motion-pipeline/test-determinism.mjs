@@ -6,6 +6,7 @@ import { tokens as T } from "./tokens.js";
 import { scenes } from "./scenes/index.js";
 import { replay } from "./engine/sim.js";
 import { hue } from "./engine/draw.js";
+import { riseAt, sparkAt, confettiAt } from "./engine/particles.js";
 
 // the type demo's timing rules (seconds)
 const RULES = { entrance: [0.3, 0.6], exit: [0.15, 0.3] };
@@ -39,6 +40,34 @@ for (const f of FILES) {
   }
 }
 
+// 1c. Particles must not pop: every particle's alpha is 0 where it appears and where it disappears, and never jumps
+//     between frames. Each look is sampled for 400 particles every 1/240 s; the shader is checked for the same structure.
+{
+  const looks = [
+    ["motes", 0, 14, (i, t) => riseAt(i, t, { seed: 2, depth: 0.65, cam: [t * 18, t * 8] })],
+    ["motes, camera at 10x", 0, 14, (i, t) => riseAt(i, t, { seed: 2, depth: 1, cam: [t * 180, t * 80] })],
+    ["motes, density dial", 0, 14, (i, t) => riseAt(i, t, { seed: 2, depth: 0.65, density: 0.3 + 0.7 * Math.sin(t) ** 2 })],
+    ["sparks", 0, 3, (i, t) => sparkAt(i, t, { x: 500, y: 600, t0: 0.5, seed: 5 })],
+    ["confetti", 0, 5, (i, t) => confettiAt(i, t, { x: 500, y: 600, t0: 0.5, seed: 5 })],
+  ];
+  for (const [name, a, b, at] of looks) {
+    let edge = 0, jump = 0;
+    for (let i = 0; i < 400; i++) {
+      let prev = null;
+      const alpha = [];
+      for (let t = a; t <= b; t += 1 / 240) alpha.push(at(i, t)?.alpha ?? null);
+      alpha.forEach((v, k) => {
+        const near = (k > 0 && alpha[k - 1] === null) || (k + 1 < alpha.length && alpha[k + 1] === null);
+        if (v !== null && near) edge = Math.max(edge, v);                              // appearing or disappearing
+        if (k >= 8 && v !== null && alpha[k - 8] !== null) jump = Math.max(jump, Math.abs(v - alpha[k - 8]));   // one frame at 30 fps
+      });
+    }
+    report(edge <= 0.02 && jump <= 0.45, `particles, ${name}: alpha ${edge.toFixed(3)} at birth/death (max 0.02), biggest frame-to-frame jump ${jump.toFixed(2)} (max 0.45)`);
+  }
+  const vert = await readFile("shaders/particles.vert", "utf8");
+  report(/age\s*=\s*mod\(/.test(vert) && /sin\(3\.14159265\s*\*\s*age\s*\/\s*life\)/.test(vert), "particles.vert: age wraps with mod() and alpha is sin(pi * age / life), 0 at birth and death");
+}
+
 // 2. Statement timing: held at least T.hold; and, for statements that declare inStart/outEnd, the entrance and exit windows.
 for (const sc of scenes) for (const st of sc.statements ?? []) {
   report(st.outStart - st.inDone >= T.hold - EPS, `${st.id}: held ${(st.outStart - st.inDone).toFixed(2)} s (rule: at least ${T.hold} s)`);
@@ -65,7 +94,7 @@ const { open, close } = await start();
 try {
   const fresh = await open();
   report(fresh.fps === 30, `page exposes FPS = 30 and DURATION ${fresh.duration} s (${fresh.frames} frames)`);
-  const KS = [...new Set([150, 262, 300, 385, 510].map((k) => Math.min(k, fresh.frames - 1)))].sort((a, b) => a - b);
+  const KS = [...new Set([150, 262, 300, 385, 510, 645, 717].map((k) => Math.min(k, fresh.frames - 1)))].sort((a, b) => a - b);
 
   const cold = {}, warm = {};
   for (const K of KS) cold[K] = await (await open()).layerHash(K);

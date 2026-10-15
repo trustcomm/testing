@@ -70,6 +70,9 @@ export function riseIn(ctx, t, o) {
   ctx.restore();
 }
 
+// when glyph i of n locks in a scramble: left to right across `dur`
+export const scrambleLock = (i, n, o) => o.t0 + ((o.dur ?? 0.5) * (i + 1)) / n;
+
 // 3. scramble: glyphs resolve left to right (opts: dur, seed). Slots come from the FINAL string, and each scrambled
 //    character is centred in its slot, so the line never jitters. A mono role keeps every slot the same width.
 export function scramble(ctx, t, o) {
@@ -80,7 +83,7 @@ export function scramble(ctx, t, o) {
   ctx.font = font; ctx.letterSpacing = "0px"; ctx.textBaseline = "alphabetic"; ctx.textAlign = "center";
   glyphs.forEach((g, i) => {
     if (g.ch === " ") return;
-    const lock = o.t0 + (dur * (i + 1)) / n, locked = t >= lock;
+    const lock = scrambleLock(i, n, o), locked = t >= lock;
     ctx.globalAlpha = (1 - k) * win(t, o.t0, o.t0 + 0.08);
     ctx.fillStyle = !locked ? T.color.dim : t < lock + 0.12 ? T.color.accent : ink(o);   // a glyph flashes accent as it locks
     ctx.fillText(locked ? g.ch : CHARS[Math.floor(hash(i, seed + frame) * CHARS.length)], g.x + g.w / 2, g.y - LIFT * k);

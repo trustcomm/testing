@@ -26,6 +26,10 @@ const gl = await createGL(c);
 // anything brighter than white (glows, pulses). At the first-pass 0.85 the accent word bloomed and washed toward yellow.
 const POST_DEFAULTS = { bloom: 0.25, thresh: 1.05, ca: 0.8, grain: 0.045, vig: 0.35, exposure: 1.0 };
 window.POST = { ...POST_DEFAULTS, on: true, force: {} };
+// the GPU particle field (shaders/particles.vert): a scene sets what it wants while it draws; count 0 = none, and every
+// renderFrame starts from this
+const PARTICLE_DEFAULTS = { count: 0, density: 1, size: 1.5, intensity: 0.9, cam: [0, 0] };
+window.PARTICLES = { ...PARTICLE_DEFAULTS };
 
 // The design layer: a pure function of t and constants. reset() clears the layer and all context state.
 function renderLayer(t) {
@@ -37,9 +41,10 @@ function renderLayer(t) {
 // The whole draw path: the layer, then the GL passes. The post parameters start from their defaults on every call.
 function renderFrame(t) {
   Object.assign(window.POST, POST_DEFAULTS);
+  Object.assign(window.PARTICLES, PARTICLE_DEFAULTS);
   renderLayer(t);
   Object.assign(window.POST, window.POST.force);        // QA: values forced from outside win over the scene's
-  gl.frame({ t, frame: Math.round(t * T.FPS), layer, post: window.POST });
+  gl.frame({ t, frame: Math.round(t * T.FPS), layer, post: window.POST, particles: window.PARTICLES });
 }
 window.renderLayer = renderLayer;                    // for QA: the design layer without the GL passes (fast)
 window.renderFrame = renderFrame;

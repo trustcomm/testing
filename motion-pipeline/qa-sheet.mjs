@@ -1,8 +1,10 @@
-// QA contact sheet for the type demo: one still at the middle of every entrance and of every hold, drawn onto one
-// canvas (in the headless browser) and saved as qa/type_sheet.png. Full-size stills go to frames/qa/.
+// QA contact sheet for a scene with `statements`: one still at the middle of every entrance and of every hold, drawn onto
+// one canvas (in the headless browser). Full-size stills go to frames/qa/.
+// usage: node qa-sheet.mjs <scene module> <out png>   e.g. node qa-sheet.mjs ./scenes/s02_type_demo.js qa/type_sheet.png
 import { mkdir, writeFile } from "node:fs/promises";
 import { start } from "./harness.mjs";
-import demo from "./scenes/s02_type_demo.js";
+const [, , scenePath = "./scenes/s02_type_demo.js", outPath = "qa/type_sheet.png"] = process.argv;
+const demo = (await import(scenePath)).default;
 
 const TW = 640, TH = 360, CAP = 30, COLS = 4;
 const picks = demo.statements.flatMap((s) => [
@@ -35,6 +37,6 @@ try {
     }
     return c.toDataURL("image/png");
   }, urls, picks, TW, TH, CAP, COLS);
-  await writeFile("qa/type_sheet.png", Buffer.from(sheet.split(",")[1], "base64"));
-  console.log(`wrote qa/type_sheet.png (${picks.length} stills)`);
+  await writeFile(outPath, Buffer.from(sheet.split(",")[1], "base64"));
+  console.log(`wrote ${outPath} (${picks.length} stills)`);
 } finally { await close(); }

@@ -36,10 +36,11 @@ function compile(gl, type, src) {
   return sh;
 }
 
-// Compiles and links a fragment shader against the fullscreen-triangle vertex shader; throws with the info log on failure.
-export function program(gl, fs) {
+// Compiles and links a fragment shader against the fullscreen-triangle vertex shader (or a complete vertex shader of your
+// own); throws with the info log on failure.
+export function program(gl, fs, vs = VS) {
   const p = gl.createProgram();
-  gl.attachShader(p, compile(gl, gl.VERTEX_SHADER, VS));
+  gl.attachShader(p, compile(gl, gl.VERTEX_SHADER, vs));
   gl.attachShader(p, compile(gl, gl.FRAGMENT_SHADER, HEAD + fs));
   gl.linkProgram(p);
   if (!gl.getProgramParameter(p, gl.LINK_STATUS)) throw new Error(`program link failed: ${gl.getProgramInfoLog(p)}`);
@@ -72,12 +73,14 @@ export async function createGL(canvas) {
   const gl = canvas.getContext("webgl2", { preserveDrawingBuffer: true, antialias: false });
   if (!gl) throw new Error("WebGL2 is not available on this canvas (headless Chrome needs --ignore-gpu-blocklist, and --enable-unsafe-swiftshader where there is no GPU)");
   if (!gl.getExtension("EXT_color_buffer_float")) throw new Error("EXT_color_buffer_float is missing: this machine cannot render to RGBA16F, and the post chain needs it");
-  const src = Object.fromEntries(await Promise.all(SHADERS.map(async (n) => {
-    const r = await fetch(`shaders/${n}.frag`);
-    if (!r.ok) throw new Error(`shaders/${n}.frag: HTTP ${r.status}`);
-    return [n, await r.text()];
-  })));
-  const P = Object.fromEntries(SHADERS.map((n) => [n, program(gl, src[n])]));
+  const load = async (file) => {
+    const r = await fetch(`shaders/${file}`);
+    if (!r.ok) throw new Error(`shaders/${file}: HTTP ${r.status}`);
+    return r.text();
+  };
+  const src = Object.fromEntries(await Promise.all([...SHADERS.map((n) => `${n}.frag`), "particles.vert", "particles.frag"].map(async (f) => [f, await load(f)])));
+  const P = Object.fromEntries(SHADERS.map((n) => [n, program(gl, src[`${n}.frag`])]));
+  P.particles = program(gl, src["particles.frag"], src["particles.vert"]);
   const W = canvas.width, H = canvas.height;
   gl.bindVertexArray(gl.createVertexArray());                 // the empty VAO a vertex-less draw needs
 
@@ -118,13 +121,23 @@ export async function createGL(canvas) {
     gl.drawArrays(gl.TRIANGLES, 0, 3);
   };
 
-  const [bg, dim, accent] = [T.color.bg, T.color.dim, T.color.accent].map(lin);
+  const [bg, dim, accent, ink, ice] = [T.color.bg, T.color.dim, T.color.accent, T.color.ink, T.color.ice].map(lin);
 
-  // One frame. `post` is window.POST: { on, bloom, thresh, ca, grain, vig, exposure }.
-  function frame({ t, frame: n, layer, post }) {
+  // One frame. `post` is window.POST: { on, bloom, thresh, ca, grain, vig, exposure }; `particles` is window.PARTICLES:
+  // { count, density, size, intensity, cam }, the GPU point field (count 0 = none).
+  function frame({ t, frame: n, layer, post, particles }) {
     upload(layer);
     pass(P.bg, bgT, {}, { uTime: t, uRes: [bgT.w, bgT.h], uFrame: n, uOne: 1, uIntensity: BG_INTENSITY, uBg: bg, uDim: dim, uAccent: accent });
     pass(P.comp, hdr, { uBg: bgT, uLayer: layerTex });
+    if (particles && particles.count > 0) {                   // points added to the HDR buffer, before bloom
+      gl.bindFramebuffer(gl.FRAMEBUFFER, hdr.fbo);
+      gl.viewport(0, 0, W, H);
+      gl.useProgram(P.particles.p);
+      setUniforms(P.particles, { uTime: t, uRes: [W, H], uCam: particles.cam, uDensity: particles.density, uSize: particles.size, uIntensity: particles.intensity, uInk: ink, uAccent: accent, uIce: ice });
+      gl.enable(gl.BLEND); gl.blendFunc(gl.ONE, gl.ONE);
+      gl.drawArrays(gl.POINTS, 0, particles.count);
+      gl.disable(gl.BLEND);
+    }
     if (!post.on) { pass(P.plain, null, { uSrc: hdr }); return; }
 
     let low = none;                                           // bloom at 0 skips the chain: a scene can opt out of its cost

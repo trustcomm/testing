@@ -8,10 +8,11 @@
     "render": "node render.mjs",
     "encode": "ffmpeg -y -framerate 30 -i frames/f%05d.png -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags +faststart out/video.mp4",
     "stills": "node stills.mjs",
-    "qa:type": "node qa-type-sheet.mjs",
+    "qa:type": "node qa-sheet.mjs ./scenes/s02_type_demo.js qa/type_sheet.png",
     "qa:diagram": "node qa-diagram.mjs",
     "qa:props": "node qa-props.mjs",
-    "qa:post": "node qa-post.mjs"
+    "qa:post": "node qa-post.mjs",
+    "qa:particles": "node qa-sheet.mjs ./scenes/s04_particles.js qa/particles_sheet.png"
   },
   "keywords": [],
   "author": "",

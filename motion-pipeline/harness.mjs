@@ -13,9 +13,10 @@ export async function start() {
       const path = normalize(decodeURIComponent(req.url.split("?")[0]));
       const file = join(ROOT, path.endsWith("/") ? path + "index.html" : path);
       if (!file.startsWith(ROOT)) throw new Error("outside root");
+      const body = await readFile(file);                      // read first: a missing file must still be able to answer 404
       res.writeHead(200, { "content-type": TYPES[extname(file)] || "application/octet-stream" });
-      res.end(await readFile(file));
-    } catch { res.writeHead(404).end(); }
+      res.end(body);
+    } catch { if (!res.headersSent) res.writeHead(404); res.end(); }
   }).listen(8080);
   // CHROME_PATH points at a specific Chrome/Chromium; unset, puppeteer uses its own.
   // WebGL2 needs a GPU path in headless Chrome: --ignore-gpu-blocklist everywhere, ANGLE on Metal on macOS, and SwiftShader
@@ -44,7 +45,9 @@ export async function start() {
     };
     // bounding box of the bright pixels (the ink and the accent, not the dim label) of the design layer in frame i
     const bright = (i) => page.evaluate((t) => {
+      window.NO_PARTICLES = true;                       // the layout rules are about type: leave the particles out
       window.renderLayer(t);
+      window.NO_PARTICLES = false;
       const { data, width, height } = window.LAYER.getContext("2d").getImageData(0, 0, 1920, 1080);   // the design layer, before post
       let x0 = width, y0 = height, x1 = -1, y1 = -1;
       for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
