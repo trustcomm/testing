@@ -1,0 +1,30 @@
+{
+  "name": "remotion-explainer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "transcribe:note": "echo 'words.json comes from ElevenLabs Scribe; see README.md'",
+    "build:timing": "tsx scripts/build-timing.ts",
+    "render": "remotion render src/index.ts Explainer out/explainer.mp4 --codec=h264 --crf=18 --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell",
+    "still": "remotion still src/index.ts Explainer"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.250",
+    "@remotion/cli": "^4.0.250",
+    "@remotion/media-utils": "^4.0.250",
+    "@remotion/renderer": "^4.0.250",
+    "@remotion/shapes": "^4.0.250",
+    "@remotion/transitions": "^4.0.250",
+    "@types/node": "^26.6.5",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^18.3.12",
+    "pngjs": "^7.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.250",
+    "tsx": "^4.23.15",
+    "typescript": "^5.6.3"
+  }
+}

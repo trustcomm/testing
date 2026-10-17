@@ -1,0 +1,10 @@
+{
+  "_note": "Devanagari -> Roman Hinglish, as spoken. Scribe wrote the Hindi words in Devanagari; the timestamps are Scribe's, only the spelling is mapped here. The build fails on any Devanagari word that is not in this table.",
+  "सिर्फ": "sirf", "कहां": "kahan", "गड़बड़": "gadbad", "लोग": "log", "आपकी": "aapki", "देखते": "dekhte",
+  "हैं": "hain", "करते": "karte", "और": "aur", "निकल": "nikal", "जाते": "jaate", "उन्हें": "unhe",
+  "पता": "pata", "ही": "hi", "नहीं": "nahi", "आप": "aap", "कौन": "kaun", "हो": "ho", "क्यों": "kyun",
+  "करें": "karein", "एक": "ek", "पहले": "pehle", "तीन": "teen", "में": "mein", "बोलो": "bolo", "ये": "ye",
+  "किसके": "kiske", "लिए": "liye", "है": "hai", "दो": "do", "लिखो": "likho", "का": "ka", "काम": "kaam",
+  "करो": "karo", "किसी": "kisi", "ने": "ne", "बनाया": "banaya", "से": "se", "चाहिए": "chahiye",
+  "रोज़": "roz", "नया": "naya"
+}
