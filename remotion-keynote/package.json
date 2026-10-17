@@ -1,0 +1,28 @@
+{
+  "name": "remotion-keynote",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render src/index.ts Keynote out/keynote.mp4 --codec=h264 --audio-codec=aac --crf=16 --pixel-format=yuv420p --browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell",
+    "sfx": "python3 -I scripts/make_sfx.py"
+  },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/playfair-display": "^5.3.0",
+    "@remotion/bundler": "^4.0.250",
+    "@remotion/cli": "^4.0.250",
+    "@remotion/media-utils": "^4.0.250",
+    "@remotion/renderer": "^4.0.250",
+    "@types/node": "^26.6.5",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^18.3.12",
+    "pngjs": "^7.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.250",
+    "tsx": "^4.23.15",
+    "typescript": "^5.6.3"
+  }
+}
