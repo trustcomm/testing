@@ -1,0 +1,677 @@
+{
+ "duration": 46.9943125,
+ "words": [
+  {
+   "i": 0,
+   "word": "ek",
+   "start": 0.0,
+   "end": 0.3
+  },
+  {
+   "i": 1,
+   "word": "hi",
+   "start": 0.3,
+   "end": 0.39
+  },
+  {
+   "i": 2,
+   "word": "prompt",
+   "start": 0.39,
+   "end": 0.85
+  },
+  {
+   "i": 3,
+   "word": "claude",
+   "start": 1.33,
+   "end": 1.6
+  },
+  {
+   "i": 4,
+   "word": "ko",
+   "start": 1.6,
+   "end": 1.73
+  },
+  {
+   "i": 5,
+   "word": "laga",
+   "start": 1.73,
+   "end": 2.02
+  },
+  {
+   "i": 6,
+   "word": "ek",
+   "start": 2.02,
+   "end": 2.2
+  },
+  {
+   "i": 7,
+   "word": "ghanta",
+   "start": 2.2,
+   "end": 2.83
+  },
+  {
+   "i": 8,
+   "word": "tirpan",
+   "start": 2.83,
+   "end": 3.34
+  },
+  {
+   "i": 9,
+   "word": "minute",
+   "start": 3.34,
+   "end": 3.71
+  },
+  {
+   "i": 10,
+   "word": "google",
+   "start": 4.14,
+   "end": 4.46
+  },
+  {
+   "i": 11,
+   "word": "ke",
+   "start": 4.46,
+   "end": 4.6
+  },
+  {
+   "i": 12,
+   "word": "naye",
+   "start": 4.6,
+   "end": 4.86
+  },
+  {
+   "i": 13,
+   "word": "gemini",
+   "start": 4.86,
+   "end": 5.42
+  },
+  {
+   "i": 14,
+   "word": "argon",
+   "start": 5.42,
+   "end": 5.87
+  },
+  {
+   "i": 15,
+   "word": "ko",
+   "start": 5.87,
+   "end": 6.22
+  },
+  {
+   "i": 16,
+   "word": "sirf",
+   "start": 6.57,
+   "end": 6.89
+  },
+  {
+   "i": 17,
+   "word": "chaar",
+   "start": 6.89,
+   "end": 7.24
+  },
+  {
+   "i": 18,
+   "word": "minute",
+   "start": 7.24,
+   "end": 7.62
+  },
+  {
+   "i": 19,
+   "word": "kharcha",
+   "start": 7.99,
+   "end": 8.52
+  },
+  {
+   "i": 20,
+   "word": "claude",
+   "start": 8.9,
+   "end": 9.3
+  },
+  {
+   "i": 21,
+   "word": "teis",
+   "start": 9.61,
+   "end": 9.88
+  },
+  {
+   "i": 22,
+   "word": "dollar",
+   "start": 9.88,
+   "end": 10.18
+  },
+  {
+   "i": 23,
+   "word": "gemini",
+   "start": 10.63,
+   "end": 11.17
+  },
+  {
+   "i": 24,
+   "word": "sirf",
+   "start": 11.36,
+   "end": 11.61
+  },
+  {
+   "i": 25,
+   "word": "saadhe",
+   "start": 11.61,
+   "end": 12.06
+  },
+  {
+   "i": 26,
+   "word": "teen",
+   "start": 12.06,
+   "end": 12.4
+  },
+  {
+   "i": 27,
+   "word": "dollar",
+   "start": 12.4,
+   "end": 12.69
+  },
+  {
+   "i": 28,
+   "word": "matlab",
+   "start": 13.12,
+   "end": 13.5
+  },
+  {
+   "i": 29,
+   "word": "gemini",
+   "start": 13.5,
+   "end": 14.15
+  },
+  {
+   "i": 30,
+   "word": "chhabbees",
+   "start": 14.15,
+   "end": 14.73
+  },
+  {
+   "i": 31,
+   "word": "guna",
+   "start": 14.73,
+   "end": 14.98
+  },
+  {
+   "i": 32,
+   "word": "tez",
+   "start": 14.98,
+   "end": 15.78
+  },
+  {
+   "i": 33,
+   "word": "aur",
+   "start": 15.78,
+   "end": 15.98
+  },
+  {
+   "i": 34,
+   "word": "lagbhag",
+   "start": 15.98,
+   "end": 16.4
+  },
+  {
+   "i": 35,
+   "word": "saat",
+   "start": 16.4,
+   "end": 16.84
+  },
+  {
+   "i": 36,
+   "word": "guna",
+   "start": 16.84,
+   "end": 17.04
+  },
+  {
+   "i": 37,
+   "word": "sasta",
+   "start": 17.04,
+   "end": 17.58
+  },
+  {
+   "i": 38,
+   "word": "lekin",
+   "start": 17.94,
+   "end": 18.34
+  },
+  {
+   "i": 39,
+   "word": "twist",
+   "start": 18.34,
+   "end": 18.71
+  },
+  {
+   "i": 40,
+   "word": "yeh",
+   "start": 18.71,
+   "end": 18.91
+  },
+  {
+   "i": 41,
+   "word": "hai",
+   "start": 18.91,
+   "end": 19.07
+  },
+  {
+   "i": 42,
+   "word": "test",
+   "start": 19.53,
+   "end": 19.79
+  },
+  {
+   "i": 43,
+   "word": "karne",
+   "start": 19.79,
+   "end": 20.06
+  },
+  {
+   "i": 44,
+   "word": "wale",
+   "start": 20.06,
+   "end": 20.26
+  },
+  {
+   "i": 45,
+   "word": "creator",
+   "start": 20.26,
+   "end": 20.65
+  },
+  {
+   "i": 46,
+   "word": "ne",
+   "start": 20.65,
+   "end": 20.8
+  },
+  {
+   "i": 47,
+   "word": "kaha",
+   "start": 20.8,
+   "end": 21.28
+  },
+  {
+   "i": 48,
+   "word": "detail",
+   "start": 21.59,
+   "end": 22.0
+  },
+  {
+   "i": 49,
+   "word": "me",
+   "start": 22.0,
+   "end": 22.23
+  },
+  {
+   "i": 50,
+   "word": "claude",
+   "start": 22.23,
+   "end": 22.85
+  },
+  {
+   "i": 51,
+   "word": "ab",
+   "start": 22.85,
+   "end": 23.01
+  },
+  {
+   "i": 52,
+   "word": "bhi",
+   "start": 23.01,
+   "end": 23.2
+  },
+  {
+   "i": 53,
+   "word": "aage",
+   "start": 23.2,
+   "end": 23.45
+  },
+  {
+   "i": 54,
+   "word": "hai",
+   "start": 23.45,
+   "end": 23.58
+  },
+  {
+   "i": 55,
+   "word": "toh",
+   "start": 24.02,
+   "end": 24.15
+  },
+  {
+   "i": 56,
+   "word": "kaunsa",
+   "start": 24.15,
+   "end": 24.47
+  },
+  {
+   "i": 57,
+   "word": "use",
+   "start": 24.47,
+   "end": 24.74
+  },
+  {
+   "i": 58,
+   "word": "karein",
+   "start": 24.74,
+   "end": 25.04
+  },
+  {
+   "i": 59,
+   "word": "jaldi",
+   "start": 25.39,
+   "end": 25.76
+  },
+  {
+   "i": 60,
+   "word": "draft",
+   "start": 25.76,
+   "end": 26.33
+  },
+  {
+   "i": 61,
+   "word": "kam",
+   "start": 26.33,
+   "end": 26.52
+  },
+  {
+   "i": 62,
+   "word": "budget",
+   "start": 26.52,
+   "end": 26.93
+  },
+  {
+   "i": 63,
+   "word": "gemini",
+   "start": 27.22,
+   "end": 27.77
+  },
+  {
+   "i": 64,
+   "word": "har",
+   "start": 28.08,
+   "end": 28.27
+  },
+  {
+   "i": 65,
+   "word": "frame",
+   "start": 28.27,
+   "end": 28.64
+  },
+  {
+   "i": 66,
+   "word": "perfect",
+   "start": 28.64,
+   "end": 29.02
+  },
+  {
+   "i": 67,
+   "word": "chahiye",
+   "start": 29.02,
+   "end": 29.39
+  },
+  {
+   "i": 68,
+   "word": "claude",
+   "start": 29.78,
+   "end": 30.22
+  },
+  {
+   "i": 69,
+   "word": "smart",
+   "start": 30.5,
+   "end": 30.92
+  },
+  {
+   "i": 70,
+   "word": "log",
+   "start": 30.92,
+   "end": 31.23
+  },
+  {
+   "i": 71,
+   "word": "dono",
+   "start": 31.23,
+   "end": 31.56
+  },
+  {
+   "i": 72,
+   "word": "use",
+   "start": 31.56,
+   "end": 31.81
+  },
+  {
+   "i": 73,
+   "word": "karte",
+   "start": 31.81,
+   "end": 32.11
+  },
+  {
+   "i": 74,
+   "word": "hain",
+   "start": 32.11,
+   "end": 32.31
+  },
+  {
+   "i": 75,
+   "word": "gemini",
+   "start": 32.63,
+   "end": 33.04
+  },
+  {
+   "i": 76,
+   "word": "se",
+   "start": 33.04,
+   "end": 33.18
+  },
+  {
+   "i": 77,
+   "word": "draft",
+   "start": 33.18,
+   "end": 33.7
+  },
+  {
+   "i": 78,
+   "word": "claude",
+   "start": 33.94,
+   "end": 34.22
+  },
+  {
+   "i": 79,
+   "word": "se",
+   "start": 34.22,
+   "end": 34.42
+  },
+  {
+   "i": 80,
+   "word": "final",
+   "start": 34.42,
+   "end": 34.83
+  },
+  {
+   "i": 81,
+   "word": "par",
+   "start": 35.29,
+   "end": 35.41
+  },
+  {
+   "i": 82,
+   "word": "yeh",
+   "start": 35.41,
+   "end": 35.61
+  },
+  {
+   "i": 83,
+   "word": "sirf",
+   "start": 35.61,
+   "end": 35.87
+  },
+  {
+   "i": 84,
+   "word": "ek",
+   "start": 35.87,
+   "end": 36.09
+  },
+  {
+   "i": 85,
+   "word": "test",
+   "start": 36.09,
+   "end": 36.39
+  },
+  {
+   "i": 86,
+   "word": "hai",
+   "start": 36.39,
+   "end": 36.52
+  },
+  {
+   "i": 87,
+   "word": "apna",
+   "start": 36.89,
+   "end": 37.13
+  },
+  {
+   "i": 88,
+   "word": "khud",
+   "start": 37.13,
+   "end": 37.41
+  },
+  {
+   "i": 89,
+   "word": "ka",
+   "start": 37.41,
+   "end": 37.55
+  },
+  {
+   "i": 90,
+   "word": "karo",
+   "start": 37.55,
+   "end": 37.87
+  },
+  {
+   "i": 91,
+   "word": "same",
+   "start": 38.15,
+   "end": 38.51
+  },
+  {
+   "i": 92,
+   "word": "prompt",
+   "start": 38.51,
+   "end": 38.92
+  },
+  {
+   "i": 93,
+   "word": "ek",
+   "start": 39.15,
+   "end": 39.36
+  },
+  {
+   "i": 94,
+   "word": "try",
+   "start": 39.36,
+   "end": 39.83
+  },
+  {
+   "i": 95,
+   "word": "aur",
+   "start": 39.83,
+   "end": 40.05
+  },
+  {
+   "i": 96,
+   "word": "teen",
+   "start": 40.05,
+   "end": 40.46
+  },
+  {
+   "i": 97,
+   "word": "cheezein",
+   "start": 40.46,
+   "end": 40.75
+  },
+  {
+   "i": 98,
+   "word": "score",
+   "start": 40.75,
+   "end": 41.02
+  },
+  {
+   "i": 99,
+   "word": "karo",
+   "start": 41.02,
+   "end": 41.38
+  },
+  {
+   "i": 100,
+   "word": "detail",
+   "start": 41.64,
+   "end": 42.17
+  },
+  {
+   "i": 101,
+   "word": "time",
+   "start": 42.38,
+   "end": 42.8
+  },
+  {
+   "i": 102,
+   "word": "cost",
+   "start": 42.93,
+   "end": 43.41
+  },
+  {
+   "i": 103,
+   "word": "fair",
+   "start": 43.7,
+   "end": 44.01
+  },
+  {
+   "i": 104,
+   "word": "test",
+   "start": 44.01,
+   "end": 44.25
+  },
+  {
+   "i": 105,
+   "word": "ka",
+   "start": 44.25,
+   "end": 44.37
+  },
+  {
+   "i": 106,
+   "word": "poora",
+   "start": 44.37,
+   "end": 44.67
+  },
+  {
+   "i": 107,
+   "word": "prompt",
+   "start": 44.67,
+   "end": 44.97
+  },
+  {
+   "i": 108,
+   "word": "chahiye",
+   "start": 44.97,
+   "end": 45.33
+  },
+  {
+   "i": 109,
+   "word": "comment",
+   "start": 45.68,
+   "end": 45.99
+  },
+  {
+   "i": 110,
+   "word": "karo",
+   "start": 45.99,
+   "end": 46.26
+  },
+  {
+   "i": 111,
+   "word": "prompt",
+   "start": 46.26,
+   "end": 46.99
+  }
+ ]
+}

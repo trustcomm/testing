@@ -1,0 +1,31 @@
+{
+  "name": "remotion-argon",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "sh scripts/render.sh",
+    "sfx": "python3 -I scripts/make_sfx.py",
+    "render:nocap": "sh scripts/render-nocap.sh",
+    "music": "python3 -I scripts/make_music.py",
+    "verify": "tsx scripts/verify-sync.ts && node scripts/verify-layout.mjs"
+  },
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/playfair-display": "^5.3.0",
+    "@remotion/bundler": "^4.0.250",
+    "@remotion/cli": "^4.0.250",
+    "@remotion/media-utils": "^4.0.250",
+    "@remotion/renderer": "^4.0.250",
+    "@types/node": "^26.6.5",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^18.3.12",
+    "pngjs": "^7.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.250",
+    "tsx": "^4.23.15",
+    "typescript": "^5.6.3"
+  }
+}
