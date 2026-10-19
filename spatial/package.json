@@ -1,0 +1,43 @@
+{
+  "name": "spatial",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SPATIAL: a 48 s showreel piece about object-based spatial sound. Concept piece. Not affiliated with any audio brand.",
+  "scripts": {
+    "studio": "remotion studio",
+    "timeline": "tsx scripts/export_timeline.ts",
+    "events": "tsx scripts/print_events.ts",
+    "check:timeline": "tsx scripts/check_timeline.ts",
+    "lottie": "python3 -I scripts/make_lotties.py",
+    "audio": "npm run timeline && python3 audio/build_mix.py",
+    "render": "node scripts/render.mjs 9x16",
+    "render:all": "node scripts/render.mjs all",
+    "qa": "python3 scripts/qa.py"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.0",
+    "@fontsource/jetbrains-mono": "^5.2.0",
+    "@react-three/fiber": "^8.18.0",
+    "@remotion/bundler": "4.0.536",
+    "@remotion/cli": "4.0.536",
+    "@remotion/lottie": "4.0.536",
+    "@remotion/media-utils": "4.0.536",
+    "@remotion/motion-blur": "4.0.536",
+    "@remotion/noise": "4.0.536",
+    "@remotion/renderer": "4.0.536",
+    "@remotion/three": "4.0.536",
+    "@types/node": "^22.10.0",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^18.3.12",
+    "@types/three": "^0.170.0",
+    "lottie-web": "5.12.2",
+    "pngjs": "^7.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.536",
+    "three": "^0.170.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.3"
+  }
+}
