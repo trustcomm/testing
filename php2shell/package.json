@@ -1,0 +1,32 @@
+{
+  "name": "php2shell",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "PHP2Shell: a 9:16 Hinglish news-explainer reel (Remotion). Voiceover-synced; no logos.",
+  "scripts": {
+    "studio": "remotion studio",
+    "timeline": "tsx scripts/export_timeline.ts",
+    "audio": "npm run timeline && python3 scripts/build_mix.py",
+    "stills": "node scripts/stills.mjs",
+    "render": "sh scripts/render.sh",
+    "verify": "tsx scripts/verify-sync.ts && node scripts/verify-layout.mjs"
+  },
+  "dependencies": {
+    "@fontsource/instrument-serif": "^5.2.0",
+    "@remotion/bundler": "4.0.536",
+    "@remotion/cli": "4.0.536",
+    "@remotion/media-utils": "4.0.536",
+    "@remotion/noise": "4.0.536",
+    "@remotion/renderer": "4.0.536",
+    "@types/node": "^22.10.0",
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^18.3.12",
+    "pngjs": "^7.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "4.0.536",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.3"
+  }
+}

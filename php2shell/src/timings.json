@@ -1,0 +1,3937 @@
+{
+ "audioDuration": 91.824,
+ "method": "forced alignment of the supplied script (pocketsphinx), phrase by phrase, refined against the speech envelope; see scripts/align.py and scripts/timings.py",
+ "words": [
+  {
+   "i": 0,
+   "text": "21",
+   "bare": "21",
+   "scene": "S1",
+   "phrase": 0,
+   "sentence": 0,
+   "tokens": [
+    "ikkis"
+   ],
+   "start": 0.03,
+   "end": 0.57,
+   "alignStart": 0.03,
+   "alignEnd": 0.46
+  },
+  {
+   "i": 1,
+   "text": "October",
+   "bare": "october",
+   "scene": "S1",
+   "phrase": 0,
+   "sentence": 0,
+   "tokens": [
+    "october"
+   ],
+   "start": 0.68,
+   "end": 0.95,
+   "alignStart": 0.46,
+   "alignEnd": 0.92
+  },
+  {
+   "i": 2,
+   "text": "ki",
+   "bare": "ki",
+   "scene": "S1",
+   "phrase": 0,
+   "sentence": 0,
+   "tokens": [
+    "ki"
+   ],
+   "start": 0.98,
+   "end": 1.11,
+   "alignStart": 0.92,
+   "alignEnd": 1.11
+  },
+  {
+   "i": 3,
+   "text": "raat.",
+   "bare": "raat",
+   "scene": "S1",
+   "phrase": 0,
+   "sentence": 0,
+   "tokens": [
+    "raat"
+   ],
+   "start": 1.11,
+   "end": 1.43,
+   "alignStart": 1.11,
+   "alignEnd": 1.46
+  },
+  {
+   "i": 4,
+   "text": "Duniya",
+   "bare": "duniya",
+   "scene": "S1",
+   "phrase": 1,
+   "sentence": 1,
+   "tokens": [
+    "duniya"
+   ],
+   "start": 1.97,
+   "end": 2.4,
+   "alignStart": 1.99,
+   "alignEnd": 2.37
+  },
+  {
+   "i": 5,
+   "text": "bhar",
+   "bare": "bhar",
+   "scene": "S1",
+   "phrase": 1,
+   "sentence": 1,
+   "tokens": [
+    "bhar"
+   ],
+   "start": 2.4,
+   "end": 2.56,
+   "alignStart": 2.37,
+   "alignEnd": 2.6
+  },
+  {
+   "i": 6,
+   "text": "mein",
+   "bare": "mein",
+   "scene": "S1",
+   "phrase": 1,
+   "sentence": 1,
+   "tokens": [
+    "mein"
+   ],
+   "start": 2.56,
+   "end": 2.9,
+   "alignStart": 2.6,
+   "alignEnd": 2.85
+  },
+  {
+   "i": 7,
+   "text": "server",
+   "bare": "server",
+   "scene": "S1",
+   "phrase": 1,
+   "sentence": 1,
+   "tokens": [
+    "server"
+   ],
+   "start": 2.9,
+   "end": 3.32,
+   "alignStart": 2.85,
+   "alignEnd": 3.28
+  },
+  {
+   "i": 8,
+   "text": "sambhalne",
+   "bare": "sambhalne",
+   "scene": "S1",
+   "phrase": 1,
+   "sentence": 1,
+   "tokens": [
+    "sambhalne"
+   ],
+   "start": 3.32,
+   "end": 3.76,
+   "alignStart": 3.28,
+   "alignEnd": 3.76
+  },
+  {
+   "i": 9,
+   "text": "waalon",
+   "bare": "waalon",
+   "scene": "S1",
+   "phrase": 1,
+   "sentence": 1,
+   "tokens": [
+    "waalon"
+   ],
+   "start": 3.76,
+   "end": 4.1,
+   "alignStart": 3.76,
+   "alignEnd": 4.07
+  },
+  {
+   "i": 10,
+   "text": "ki",
+   "bare": "ki",
+   "scene": "S1",
+   "phrase": 1,
+   "sentence": 1,
+   "tokens": [
+    "ki"
+   ],
+   "start": 4.11,
+   "end": 4.22,
+   "alignStart": 4.07,
+   "alignEnd": 4.22
+  },
+  {
+   "i": 11,
+   "text": "neend",
+   "bare": "neend",
+   "scene": "S1",
+   "phrase": 1,
+   "sentence": 1,
+   "tokens": [
+    "neend"
+   ],
+   "start": 4.22,
+   "end": 4.59,
+   "alignStart": 4.22,
+   "alignEnd": 4.6
+  },
+  {
+   "i": 12,
+   "text": "udd",
+   "bare": "udd",
+   "scene": "S1",
+   "phrase": 1,
+   "sentence": 1,
+   "tokens": [
+    "udd"
+   ],
+   "start": 4.59,
+   "end": 4.77,
+   "alignStart": 4.6,
+   "alignEnd": 4.77
+  },
+  {
+   "i": 13,
+   "text": "gayi.",
+   "bare": "gayi",
+   "scene": "S1",
+   "phrase": 1,
+   "sentence": 1,
+   "tokens": [
+    "gayi"
+   ],
+   "start": 4.79,
+   "end": 4.94,
+   "alignStart": 4.77,
+   "alignEnd": 4.94
+  },
+  {
+   "i": 14,
+   "text": "Aur",
+   "bare": "aur",
+   "scene": "S2",
+   "phrase": 2,
+   "sentence": 2,
+   "tokens": [
+    "aur"
+   ],
+   "start": 5.42,
+   "end": 5.51,
+   "alignStart": 5.39,
+   "alignEnd": 5.5
+  },
+  {
+   "i": 15,
+   "text": "agar",
+   "bare": "agar",
+   "scene": "S2",
+   "phrase": 2,
+   "sentence": 2,
+   "tokens": [
+    "agar"
+   ],
+   "start": 5.51,
+   "end": 5.75,
+   "alignStart": 5.5,
+   "alignEnd": 5.78
+  },
+  {
+   "i": 16,
+   "text": "aapki",
+   "bare": "aapki",
+   "scene": "S2",
+   "phrase": 2,
+   "sentence": 2,
+   "tokens": [
+    "aapki"
+   ],
+   "start": 5.86,
+   "end": 6.03,
+   "alignStart": 5.78,
+   "alignEnd": 6.24
+  },
+  {
+   "i": 17,
+   "text": "website",
+   "bare": "website",
+   "scene": "S2",
+   "phrase": 2,
+   "sentence": 2,
+   "tokens": [
+    "website"
+   ],
+   "start": 6.13,
+   "end": 6.73,
+   "alignStart": 6.24,
+   "alignEnd": 6.76
+  },
+  {
+   "i": 18,
+   "text": "WordPress",
+   "bare": "wordpress",
+   "scene": "S2",
+   "phrase": 2,
+   "sentence": 2,
+   "tokens": [
+    "wordpress"
+   ],
+   "start": 6.73,
+   "end": 7.35,
+   "alignStart": 6.76,
+   "alignEnd": 7.35
+  },
+  {
+   "i": 19,
+   "text": "pe",
+   "bare": "pe",
+   "scene": "S2",
+   "phrase": 2,
+   "sentence": 2,
+   "tokens": [
+    "pe"
+   ],
+   "start": 7.35,
+   "end": 7.445,
+   "alignStart": 7.35,
+   "alignEnd": 7.47
+  },
+  {
+   "i": 20,
+   "text": "hai...",
+   "bare": "hai",
+   "scene": "S2",
+   "phrase": 2,
+   "sentence": 2,
+   "tokens": [
+    "hai"
+   ],
+   "start": 7.445,
+   "end": 7.75,
+   "alignStart": 7.47,
+   "alignEnd": 7.73
+  },
+  {
+   "i": 21,
+   "text": "toh",
+   "bare": "toh",
+   "scene": "S2",
+   "phrase": 3,
+   "sentence": 3,
+   "tokens": [
+    "toh"
+   ],
+   "start": 8.1,
+   "end": 8.17,
+   "alignStart": 8.1,
+   "alignEnd": 8.2
+  },
+  {
+   "i": 22,
+   "text": "yeh",
+   "bare": "yeh",
+   "scene": "S2",
+   "phrase": 3,
+   "sentence": 3,
+   "tokens": [
+    "yeh"
+   ],
+   "start": 8.17,
+   "end": 8.45,
+   "alignStart": 8.2,
+   "alignEnd": 8.42
+  },
+  {
+   "i": 23,
+   "text": "kahani",
+   "bare": "kahani",
+   "scene": "S2",
+   "phrase": 3,
+   "sentence": 3,
+   "tokens": [
+    "kahani"
+   ],
+   "start": 8.47,
+   "end": 8.94,
+   "alignStart": 8.42,
+   "alignEnd": 8.94
+  },
+  {
+   "i": 24,
+   "text": "aapki",
+   "bare": "aapki",
+   "scene": "S2",
+   "phrase": 3,
+   "sentence": 3,
+   "tokens": [
+    "aapki"
+   ],
+   "start": 9.08,
+   "end": 9.48,
+   "alignStart": 9.07,
+   "alignEnd": 9.46
+  },
+  {
+   "i": 25,
+   "text": "bhi",
+   "bare": "bhi",
+   "scene": "S2",
+   "phrase": 3,
+   "sentence": 3,
+   "tokens": [
+    "bhi"
+   ],
+   "start": 9.48,
+   "end": 9.62,
+   "alignStart": 9.46,
+   "alignEnd": 9.62
+  },
+  {
+   "i": 26,
+   "text": "hai.",
+   "bare": "hai",
+   "scene": "S2",
+   "phrase": 3,
+   "sentence": 3,
+   "tokens": [
+    "hai"
+   ],
+   "start": 9.62,
+   "end": 9.79,
+   "alignStart": 9.62,
+   "alignEnd": 9.76
+  },
+  {
+   "i": 27,
+   "text": "WordPress",
+   "bare": "wordpress",
+   "scene": "S3",
+   "phrase": 4,
+   "sentence": 4,
+   "tokens": [
+    "wordpress"
+   ],
+   "start": 10.28,
+   "end": 10.88,
+   "alignStart": 10.24,
+   "alignEnd": 10.87
+  },
+  {
+   "i": 28,
+   "text": "chalta",
+   "bare": "chalta",
+   "scene": "S3",
+   "phrase": 4,
+   "sentence": 4,
+   "tokens": [
+    "chalta"
+   ],
+   "start": 10.91,
+   "end": 11.21,
+   "alignStart": 10.87,
+   "alignEnd": 11.21
+  },
+  {
+   "i": 29,
+   "text": "hai",
+   "bare": "hai",
+   "scene": "S3",
+   "phrase": 4,
+   "sentence": 4,
+   "tokens": [
+    "hai"
+   ],
+   "start": 11.21,
+   "end": 11.37,
+   "alignStart": 11.21,
+   "alignEnd": 11.34
+  },
+  {
+   "i": 30,
+   "text": "PHP",
+   "bare": "php",
+   "scene": "S3",
+   "phrase": 4,
+   "sentence": 4,
+   "tokens": [
+    "pee",
+    "aitch",
+    "pee"
+   ],
+   "start": 11.5,
+   "end": 11.95,
+   "alignStart": 11.34,
+   "alignEnd": 11.91
+  },
+  {
+   "i": 31,
+   "text": "pe.",
+   "bare": "pe",
+   "scene": "S3",
+   "phrase": 4,
+   "sentence": 4,
+   "tokens": [
+    "pe"
+   ],
+   "start": 11.99,
+   "end": 12.08,
+   "alignStart": 11.91,
+   "alignEnd": 12.03
+  },
+  {
+   "i": 32,
+   "text": "Aur",
+   "bare": "aur",
+   "scene": "S3",
+   "phrase": 5,
+   "sentence": 5,
+   "tokens": [
+    "aur"
+   ],
+   "start": 12.45,
+   "end": 12.57,
+   "alignStart": 12.41,
+   "alignEnd": 12.55
+  },
+  {
+   "i": 33,
+   "text": "PHP",
+   "bare": "php",
+   "scene": "S3",
+   "phrase": 5,
+   "sentence": 5,
+   "tokens": [
+    "pee",
+    "aitch",
+    "pee"
+   ],
+   "start": 12.69,
+   "end": 13.14,
+   "alignStart": 12.55,
+   "alignEnd": 13.09
+  },
+  {
+   "i": 34,
+   "text": "ke",
+   "bare": "ke",
+   "scene": "S3",
+   "phrase": 5,
+   "sentence": 5,
+   "tokens": [
+    "ke"
+   ],
+   "start": 13.16,
+   "end": 13.27,
+   "alignStart": 13.09,
+   "alignEnd": 13.23
+  },
+  {
+   "i": 35,
+   "text": "andar",
+   "bare": "andar",
+   "scene": "S3",
+   "phrase": 5,
+   "sentence": 5,
+   "tokens": [
+    "andar"
+   ],
+   "start": 13.27,
+   "end": 13.44,
+   "alignStart": 13.23,
+   "alignEnd": 13.48
+  },
+  {
+   "i": 36,
+   "text": "mile",
+   "bare": "mile",
+   "scene": "S3",
+   "phrase": 5,
+   "sentence": 5,
+   "tokens": [
+    "mile"
+   ],
+   "start": 13.44,
+   "end": 13.77,
+   "alignStart": 13.48,
+   "alignEnd": 13.74
+  },
+  {
+   "i": 37,
+   "text": "do",
+   "bare": "do",
+   "scene": "S3",
+   "phrase": 5,
+   "sentence": 5,
+   "tokens": [
+    "do"
+   ],
+   "start": 13.77,
+   "end": 14.15,
+   "alignStart": 13.74,
+   "alignEnd": 14.15
+  },
+  {
+   "i": 38,
+   "text": "aise",
+   "bare": "aise",
+   "scene": "S3",
+   "phrase": 5,
+   "sentence": 5,
+   "tokens": [
+    "aise"
+   ],
+   "start": 14.15,
+   "end": 14.33,
+   "alignStart": 14.15,
+   "alignEnd": 14.41
+  },
+  {
+   "i": 39,
+   "text": "bug...",
+   "bare": "bug",
+   "scene": "S3",
+   "phrase": 5,
+   "sentence": 5,
+   "tokens": [
+    "bug"
+   ],
+   "start": 14.34,
+   "end": 14.74,
+   "alignStart": 14.41,
+   "alignEnd": 14.74
+  },
+  {
+   "i": 40,
+   "text": "jo",
+   "bare": "jo",
+   "scene": "S3",
+   "phrase": 6,
+   "sentence": 6,
+   "tokens": [
+    "jo"
+   ],
+   "start": 14.98,
+   "end": 15.31,
+   "alignStart": 14.97,
+   "alignEnd": 15.15
+  },
+  {
+   "i": 41,
+   "text": "das",
+   "bare": "das",
+   "scene": "S3",
+   "phrase": 6,
+   "sentence": 6,
+   "tokens": [
+    "das"
+   ],
+   "start": 15.33,
+   "end": 15.58,
+   "alignStart": 15.15,
+   "alignEnd": 15.53
+  },
+  {
+   "i": 42,
+   "text": "saal",
+   "bare": "saal",
+   "scene": "S3",
+   "phrase": 6,
+   "sentence": 6,
+   "tokens": [
+    "saal"
+   ],
+   "start": 15.58,
+   "end": 15.84,
+   "alignStart": 15.53,
+   "alignEnd": 15.82
+  },
+  {
+   "i": 43,
+   "text": "se",
+   "bare": "se",
+   "scene": "S3",
+   "phrase": 6,
+   "sentence": 6,
+   "tokens": [
+    "se"
+   ],
+   "start": 15.84,
+   "end": 16.0,
+   "alignStart": 15.82,
+   "alignEnd": 15.98
+  },
+  {
+   "i": 44,
+   "text": "chupchaap",
+   "bare": "chupchaap",
+   "scene": "S3",
+   "phrase": 6,
+   "sentence": 6,
+   "tokens": [
+    "chupchaap"
+   ],
+   "start": 16.14,
+   "end": 16.67,
+   "alignStart": 15.98,
+   "alignEnd": 16.61
+  },
+  {
+   "i": 45,
+   "text": "baithe",
+   "bare": "baithe",
+   "scene": "S3",
+   "phrase": 6,
+   "sentence": 6,
+   "tokens": [
+    "baithe"
+   ],
+   "start": 16.69,
+   "end": 16.96,
+   "alignStart": 16.61,
+   "alignEnd": 16.92
+  },
+  {
+   "i": 46,
+   "text": "the.",
+   "bare": "the",
+   "scene": "S3",
+   "phrase": 6,
+   "sentence": 6,
+   "tokens": [
+    "the"
+   ],
+   "start": 16.98,
+   "end": 17.12,
+   "alignStart": 16.92,
+   "alignEnd": 17.06
+  },
+  {
+   "i": 47,
+   "text": "Inhe",
+   "bare": "inhe",
+   "scene": "S4",
+   "phrase": 7,
+   "sentence": 7,
+   "tokens": [
+    "inhe"
+   ],
+   "start": 17.54,
+   "end": 17.78,
+   "alignStart": 17.53,
+   "alignEnd": 17.73
+  },
+  {
+   "i": 48,
+   "text": "pakda",
+   "bare": "pakda",
+   "scene": "S4",
+   "phrase": 7,
+   "sentence": 7,
+   "tokens": [
+    "pakda"
+   ],
+   "start": 17.81,
+   "end": 18.14,
+   "alignStart": 17.73,
+   "alignEnd": 18.09
+  },
+  {
+   "i": 49,
+   "text": "Wiz,",
+   "bare": "wiz",
+   "scene": "S4",
+   "phrase": 7,
+   "sentence": 7,
+   "tokens": [
+    "wiz"
+   ],
+   "start": 18.14,
+   "end": 18.54,
+   "alignStart": 18.09,
+   "alignEnd": 18.58
+  },
+  {
+   "i": 50,
+   "text": "Calif",
+   "bare": "calif",
+   "scene": "S4",
+   "phrase": 8,
+   "sentence": 7,
+   "tokens": [
+    "calif"
+   ],
+   "start": 18.78,
+   "end": 19.09,
+   "alignStart": 18.72,
+   "alignEnd": 19.18
+  },
+  {
+   "i": 51,
+   "text": "aur",
+   "bare": "aur",
+   "scene": "S4",
+   "phrase": 9,
+   "sentence": 7,
+   "tokens": [
+    "aur"
+   ],
+   "start": 19.32,
+   "end": 19.5,
+   "alignStart": 19.28,
+   "alignEnd": 19.45
+  },
+  {
+   "i": 52,
+   "text": "OpenAI",
+   "bare": "openai",
+   "scene": "S4",
+   "phrase": 9,
+   "sentence": 7,
+   "tokens": [
+    "openai"
+   ],
+   "start": 19.5,
+   "end": 20.07,
+   "alignStart": 19.45,
+   "alignEnd": 20.03
+  },
+  {
+   "i": 53,
+   "text": "ke",
+   "bare": "ke",
+   "scene": "S4",
+   "phrase": 9,
+   "sentence": 7,
+   "tokens": [
+    "ke"
+   ],
+   "start": 20.07,
+   "end": 20.11,
+   "alignStart": 20.03,
+   "alignEnd": 20.16
+  },
+  {
+   "i": 54,
+   "text": "researchers",
+   "bare": "researchers",
+   "scene": "S4",
+   "phrase": 9,
+   "sentence": 7,
+   "tokens": [
+    "researchers2"
+   ],
+   "start": 20.11,
+   "end": 20.72,
+   "alignStart": 20.16,
+   "alignEnd": 20.73
+  },
+  {
+   "i": 55,
+   "text": "ne.",
+   "bare": "ne",
+   "scene": "S4",
+   "phrase": 9,
+   "sentence": 7,
+   "tokens": [
+    "ne"
+   ],
+   "start": 20.72,
+   "end": 20.89,
+   "alignStart": 20.73,
+   "alignEnd": 20.83
+  },
+  {
+   "i": 56,
+   "text": "Ab",
+   "bare": "ab",
+   "scene": "S5",
+   "phrase": 10,
+   "sentence": 8,
+   "tokens": [
+    "ab"
+   ],
+   "start": 21.28,
+   "end": 21.38,
+   "alignStart": 21.26,
+   "alignEnd": 21.39
+  },
+  {
+   "i": 57,
+   "text": "samjho,",
+   "bare": "samjho",
+   "scene": "S5",
+   "phrase": 10,
+   "sentence": 8,
+   "tokens": [
+    "samjho"
+   ],
+   "start": 21.38,
+   "end": 21.83,
+   "alignStart": 21.39,
+   "alignEnd": 21.85
+  },
+  {
+   "i": 58,
+   "text": "hua",
+   "bare": "hua",
+   "scene": "S5",
+   "phrase": 11,
+   "sentence": 8,
+   "tokens": [
+    "hua"
+   ],
+   "start": 22.09,
+   "end": 22.33,
+   "alignStart": 22.05,
+   "alignEnd": 22.27
+  },
+  {
+   "i": 59,
+   "text": "kya.",
+   "bare": "kya",
+   "scene": "S5",
+   "phrase": 11,
+   "sentence": 8,
+   "tokens": [
+    "kya"
+   ],
+   "start": 22.35,
+   "end": 22.48,
+   "alignStart": 22.27,
+   "alignEnd": 22.57
+  },
+  {
+   "i": 60,
+   "text": "Mumbai",
+   "bare": "mumbai",
+   "scene": "S5",
+   "phrase": 12,
+   "sentence": 9,
+   "tokens": [
+    "mumbai2"
+   ],
+   "start": 23.0,
+   "end": 23.34,
+   "alignStart": 22.99,
+   "alignEnd": 23.31
+  },
+  {
+   "i": 61,
+   "text": "ka",
+   "bare": "ka",
+   "scene": "S5",
+   "phrase": 12,
+   "sentence": 9,
+   "tokens": [
+    "ka"
+   ],
+   "start": 23.38,
+   "end": 23.49,
+   "alignStart": 23.31,
+   "alignEnd": 23.43
+  },
+  {
+   "i": 62,
+   "text": "dabbawala.",
+   "bare": "dabbawala",
+   "scene": "S5",
+   "phrase": 12,
+   "sentence": 9,
+   "tokens": [
+    "dabbawala"
+   ],
+   "start": 23.54,
+   "end": 24.04,
+   "alignStart": 23.43,
+   "alignEnd": 24.1
+  },
+  {
+   "i": 63,
+   "text": "Roz",
+   "bare": "roz",
+   "scene": "S5",
+   "phrase": 13,
+   "sentence": 10,
+   "tokens": [
+    "roz"
+   ],
+   "start": 24.4,
+   "end": 24.8,
+   "alignStart": 24.4,
+   "alignEnd": 24.79
+  },
+  {
+   "i": 64,
+   "text": "hazaaron",
+   "bare": "hazaaron",
+   "scene": "S5",
+   "phrase": 13,
+   "sentence": 10,
+   "tokens": [
+    "hazaaron"
+   ],
+   "start": 24.8,
+   "end": 25.38,
+   "alignStart": 24.79,
+   "alignEnd": 25.36
+  },
+  {
+   "i": 65,
+   "text": "tiffin,",
+   "bare": "tiffin",
+   "scene": "S5",
+   "phrase": 13,
+   "sentence": 10,
+   "tokens": [
+    "tiffin"
+   ],
+   "start": 25.41,
+   "end": 25.76,
+   "alignStart": 25.36,
+   "alignEnd": 25.76
+  },
+  {
+   "i": 66,
+   "text": "ek",
+   "bare": "ek",
+   "scene": "S5",
+   "phrase": 13,
+   "sentence": 10,
+   "tokens": [
+    "ek"
+   ],
+   "start": 25.95,
+   "end": 26.17,
+   "alignStart": 25.96,
+   "alignEnd": 26.1
+  },
+  {
+   "i": 67,
+   "text": "ghar",
+   "bare": "ghar",
+   "scene": "S5",
+   "phrase": 13,
+   "sentence": 10,
+   "tokens": [
+    "ghar"
+   ],
+   "start": 26.22,
+   "end": 26.36,
+   "alignStart": 26.1,
+   "alignEnd": 26.31
+  },
+  {
+   "i": 68,
+   "text": "se",
+   "bare": "se",
+   "scene": "S5",
+   "phrase": 13,
+   "sentence": 10,
+   "tokens": [
+    "se"
+   ],
+   "start": 26.36,
+   "end": 26.45,
+   "alignStart": 26.31,
+   "alignEnd": 26.53
+  },
+  {
+   "i": 69,
+   "text": "doosre",
+   "bare": "doosre",
+   "scene": "S5",
+   "phrase": 13,
+   "sentence": 10,
+   "tokens": [
+    "doosre"
+   ],
+   "start": 26.47,
+   "end": 26.99,
+   "alignStart": 26.53,
+   "alignEnd": 26.92
+  },
+  {
+   "i": 70,
+   "text": "ghar.",
+   "bare": "ghar",
+   "scene": "S5",
+   "phrase": 13,
+   "sentence": 10,
+   "tokens": [
+    "ghar"
+   ],
+   "start": 27.01,
+   "end": 27.11,
+   "alignStart": 26.92,
+   "alignEnd": 27.1
+  },
+  {
+   "i": 71,
+   "text": "Socho",
+   "bare": "socho",
+   "scene": "S6",
+   "phrase": 14,
+   "sentence": 11,
+   "tokens": [
+    "socho"
+   ],
+   "start": 27.54,
+   "end": 27.86,
+   "alignStart": 27.49,
+   "alignEnd": 27.86
+  },
+  {
+   "i": 72,
+   "text": "ek",
+   "bare": "ek",
+   "scene": "S6",
+   "phrase": 14,
+   "sentence": 11,
+   "tokens": [
+    "ek"
+   ],
+   "start": 27.99,
+   "end": 28.15,
+   "alignStart": 28.09,
+   "alignEnd": 28.21
+  },
+  {
+   "i": 73,
+   "text": "tiffin",
+   "bare": "tiffin",
+   "scene": "S6",
+   "phrase": 14,
+   "sentence": 11,
+   "tokens": [
+    "tiffin"
+   ],
+   "start": 28.26,
+   "end": 28.55,
+   "alignStart": 28.21,
+   "alignEnd": 28.52
+  },
+  {
+   "i": 74,
+   "text": "wapas",
+   "bare": "wapas",
+   "scene": "S6",
+   "phrase": 14,
+   "sentence": 11,
+   "tokens": [
+    "wapas"
+   ],
+   "start": 28.55,
+   "end": 28.86,
+   "alignStart": 28.52,
+   "alignEnd": 28.87
+  },
+  {
+   "i": 75,
+   "text": "aata",
+   "bare": "aata",
+   "scene": "S6",
+   "phrase": 14,
+   "sentence": 11,
+   "tokens": [
+    "aata"
+   ],
+   "start": 28.86,
+   "end": 29.05,
+   "alignStart": 28.87,
+   "alignEnd": 29.1
+  },
+  {
+   "i": 76,
+   "text": "hai...",
+   "bare": "hai",
+   "scene": "S6",
+   "phrase": 14,
+   "sentence": 11,
+   "tokens": [
+    "hai"
+   ],
+   "start": 29.05,
+   "end": 29.31,
+   "alignStart": 29.1,
+   "alignEnd": 29.25
+  },
+  {
+   "i": 77,
+   "text": "aur",
+   "bare": "aur",
+   "scene": "S6",
+   "phrase": 15,
+   "sentence": 12,
+   "tokens": [
+    "aur"
+   ],
+   "start": 29.58,
+   "end": 29.72,
+   "alignStart": 29.52,
+   "alignEnd": 29.67
+  },
+  {
+   "i": 78,
+   "text": "uske",
+   "bare": "uske",
+   "scene": "S6",
+   "phrase": 15,
+   "sentence": 12,
+   "tokens": [
+    "uske"
+   ],
+   "start": 29.72,
+   "end": 30.0,
+   "alignStart": 29.67,
+   "alignEnd": 29.97
+  },
+  {
+   "i": 79,
+   "text": "andar",
+   "bare": "andar",
+   "scene": "S6",
+   "phrase": 15,
+   "sentence": 12,
+   "tokens": [
+    "andar"
+   ],
+   "start": 30.0,
+   "end": 30.28,
+   "alignStart": 29.97,
+   "alignEnd": 30.27
+  },
+  {
+   "i": 80,
+   "text": "pichhle",
+   "bare": "pichhle",
+   "scene": "S6",
+   "phrase": 15,
+   "sentence": 12,
+   "tokens": [
+    "pichhle"
+   ],
+   "start": 30.45,
+   "end": 30.78,
+   "alignStart": 30.27,
+   "alignEnd": 30.74
+  },
+  {
+   "i": 81,
+   "text": "ghar",
+   "bare": "ghar",
+   "scene": "S6",
+   "phrase": 15,
+   "sentence": 12,
+   "tokens": [
+    "ghar"
+   ],
+   "start": 30.78,
+   "end": 30.99,
+   "alignStart": 30.74,
+   "alignEnd": 30.95
+  },
+  {
+   "i": 82,
+   "text": "ki",
+   "bare": "ki",
+   "scene": "S6",
+   "phrase": 15,
+   "sentence": 12,
+   "tokens": [
+    "ki"
+   ],
+   "start": 31.02,
+   "end": 31.14,
+   "alignStart": 30.95,
+   "alignEnd": 31.17
+  },
+  {
+   "i": 83,
+   "text": "chaabi",
+   "bare": "chaabi",
+   "scene": "S6",
+   "phrase": 15,
+   "sentence": 12,
+   "tokens": [
+    "chaabi"
+   ],
+   "start": 31.25,
+   "end": 31.57,
+   "alignStart": 31.17,
+   "alignEnd": 31.58
+  },
+  {
+   "i": 84,
+   "text": "reh",
+   "bare": "reh",
+   "scene": "S6",
+   "phrase": 15,
+   "sentence": 12,
+   "tokens": [
+    "reh"
+   ],
+   "start": 31.57,
+   "end": 31.76,
+   "alignStart": 31.58,
+   "alignEnd": 31.72
+  },
+  {
+   "i": 85,
+   "text": "gayi.",
+   "bare": "gayi",
+   "scene": "S6",
+   "phrase": 15,
+   "sentence": 12,
+   "tokens": [
+    "gayi"
+   ],
+   "start": 31.77,
+   "end": 31.92,
+   "alignStart": 31.72,
+   "alignEnd": 31.96
+  },
+  {
+   "i": 86,
+   "text": "Agla",
+   "bare": "agla",
+   "scene": "S6",
+   "phrase": 16,
+   "sentence": 13,
+   "tokens": [
+    "agla"
+   ],
+   "start": 32.3,
+   "end": 32.52,
+   "alignStart": 32.29,
+   "alignEnd": 32.52
+  },
+  {
+   "i": 87,
+   "text": "aadmi",
+   "bare": "aadmi",
+   "scene": "S6",
+   "phrase": 16,
+   "sentence": 13,
+   "tokens": [
+    "aadmi"
+   ],
+   "start": 32.52,
+   "end": 32.89,
+   "alignStart": 32.52,
+   "alignEnd": 32.84
+  },
+  {
+   "i": 88,
+   "text": "dabba",
+   "bare": "dabba",
+   "scene": "S6",
+   "phrase": 16,
+   "sentence": 13,
+   "tokens": [
+    "dabba"
+   ],
+   "start": 32.89,
+   "end": 33.19,
+   "alignStart": 32.84,
+   "alignEnd": 33.14
+  },
+  {
+   "i": 89,
+   "text": "kholta",
+   "bare": "kholta",
+   "scene": "S6",
+   "phrase": 16,
+   "sentence": 13,
+   "tokens": [
+    "kholta"
+   ],
+   "start": 33.2,
+   "end": 33.57,
+   "alignStart": 33.14,
+   "alignEnd": 33.57
+  },
+  {
+   "i": 90,
+   "text": "hai...",
+   "bare": "hai",
+   "scene": "S6",
+   "phrase": 16,
+   "sentence": 13,
+   "tokens": [
+    "hai"
+   ],
+   "start": 33.57,
+   "end": 33.73,
+   "alignStart": 33.57,
+   "alignEnd": 33.7
+  },
+  {
+   "i": 91,
+   "text": "aur",
+   "bare": "aur",
+   "scene": "S6",
+   "phrase": 17,
+   "sentence": 14,
+   "tokens": [
+    "aur"
+   ],
+   "start": 33.99,
+   "end": 34.12,
+   "alignStart": 33.94,
+   "alignEnd": 34.07
+  },
+  {
+   "i": 92,
+   "text": "chaabi",
+   "bare": "chaabi",
+   "scene": "S6",
+   "phrase": 17,
+   "sentence": 14,
+   "tokens": [
+    "chaabi"
+   ],
+   "start": 34.15,
+   "end": 34.54,
+   "alignStart": 34.07,
+   "alignEnd": 34.62
+  },
+  {
+   "i": 93,
+   "text": "uske",
+   "bare": "uske",
+   "scene": "S6",
+   "phrase": 17,
+   "sentence": 14,
+   "tokens": [
+    "uske"
+   ],
+   "start": 34.63,
+   "end": 34.95,
+   "alignStart": 34.62,
+   "alignEnd": 34.91
+  },
+  {
+   "i": 94,
+   "text": "haath",
+   "bare": "haath",
+   "scene": "S6",
+   "phrase": 17,
+   "sentence": 14,
+   "tokens": [
+    "haath"
+   ],
+   "start": 34.95,
+   "end": 35.08,
+   "alignStart": 34.91,
+   "alignEnd": 35.18
+  },
+  {
+   "i": 95,
+   "text": "mein.",
+   "bare": "mein",
+   "scene": "S6",
+   "phrase": 17,
+   "sentence": 14,
+   "tokens": [
+    "mein"
+   ],
+   "start": 35.2,
+   "end": 35.29,
+   "alignStart": 35.18,
+   "alignEnd": 35.29
+  },
+  {
+   "i": 96,
+   "text": "PHP",
+   "bare": "php",
+   "scene": "S7",
+   "phrase": 18,
+   "sentence": 15,
+   "tokens": [
+    "pee",
+    "ech",
+    "pee"
+   ],
+   "start": 35.74,
+   "end": 36.14,
+   "alignStart": 35.62,
+   "alignEnd": 36.12
+  },
+  {
+   "i": 97,
+   "text": "server",
+   "bare": "server",
+   "scene": "S7",
+   "phrase": 18,
+   "sentence": 15,
+   "tokens": [
+    "server"
+   ],
+   "start": 36.14,
+   "end": 36.53,
+   "alignStart": 36.12,
+   "alignEnd": 36.49
+  },
+  {
+   "i": 98,
+   "text": "bhi",
+   "bare": "bhi",
+   "scene": "S7",
+   "phrase": 18,
+   "sentence": 15,
+   "tokens": [
+    "bhi"
+   ],
+   "start": 36.53,
+   "end": 36.7,
+   "alignStart": 36.49,
+   "alignEnd": 36.66
+  },
+  {
+   "i": 99,
+   "text": "kuch",
+   "bare": "kuch",
+   "scene": "S7",
+   "phrase": 18,
+   "sentence": 15,
+   "tokens": [
+    "kuch"
+   ],
+   "start": 36.71,
+   "end": 36.88,
+   "alignStart": 36.66,
+   "alignEnd": 36.97
+  },
+  {
+   "i": 100,
+   "text": "aisa",
+   "bare": "aisa",
+   "scene": "S7",
+   "phrase": 18,
+   "sentence": 15,
+   "tokens": [
+    "aisa"
+   ],
+   "start": 36.98,
+   "end": 37.17,
+   "alignStart": 36.97,
+   "alignEnd": 37.22
+  },
+  {
+   "i": 101,
+   "text": "hi",
+   "bare": "hi",
+   "scene": "S7",
+   "phrase": 18,
+   "sentence": 15,
+   "tokens": [
+    "hi"
+   ],
+   "start": 37.17,
+   "end": 37.39,
+   "alignStart": 37.22,
+   "alignEnd": 37.37
+  },
+  {
+   "i": 102,
+   "text": "karta",
+   "bare": "karta",
+   "scene": "S7",
+   "phrase": 18,
+   "sentence": 15,
+   "tokens": [
+    "karta"
+   ],
+   "start": 37.43,
+   "end": 37.83,
+   "alignStart": 37.37,
+   "alignEnd": 37.83
+  },
+  {
+   "i": 103,
+   "text": "hai.",
+   "bare": "hai",
+   "scene": "S7",
+   "phrase": 18,
+   "sentence": 15,
+   "tokens": [
+    "hai"
+   ],
+   "start": 37.83,
+   "end": 37.97,
+   "alignStart": 37.83,
+   "alignEnd": 37.97
+  },
+  {
+   "i": 104,
+   "text": "Har",
+   "bare": "har",
+   "scene": "S7",
+   "phrase": 19,
+   "sentence": 16,
+   "tokens": [
+    "har"
+   ],
+   "start": 38.2,
+   "end": 38.37,
+   "alignStart": 38.15,
+   "alignEnd": 38.37
+  },
+  {
+   "i": 105,
+   "text": "request",
+   "bare": "request",
+   "scene": "S7",
+   "phrase": 19,
+   "sentence": 16,
+   "tokens": [
+    "request"
+   ],
+   "start": 38.37,
+   "end": 38.89,
+   "alignStart": 38.37,
+   "alignEnd": 38.98
+  },
+  {
+   "i": 106,
+   "text": "ek",
+   "bare": "ek",
+   "scene": "S7",
+   "phrase": 19,
+   "sentence": 16,
+   "tokens": [
+    "ek"
+   ],
+   "start": 39.0,
+   "end": 39.09,
+   "alignStart": 38.98,
+   "alignEnd": 39.21
+  },
+  {
+   "i": 107,
+   "text": "tiffin",
+   "bare": "tiffin",
+   "scene": "S7",
+   "phrase": 19,
+   "sentence": 16,
+   "tokens": [
+    "tiffin"
+   ],
+   "start": 39.24,
+   "end": 39.52,
+   "alignStart": 39.21,
+   "alignEnd": 39.51
+  },
+  {
+   "i": 108,
+   "text": "hai.",
+   "bare": "hai",
+   "scene": "S7",
+   "phrase": 19,
+   "sentence": 16,
+   "tokens": [
+    "hai"
+   ],
+   "start": 39.52,
+   "end": 39.69,
+   "alignStart": 39.51,
+   "alignEnd": 39.66
+  },
+  {
+   "i": 109,
+   "text": "Aur",
+   "bare": "aur",
+   "scene": "S7",
+   "phrase": 20,
+   "sentence": 17,
+   "tokens": [
+    "aur"
+   ],
+   "start": 39.99,
+   "end": 40.07,
+   "alignStart": 39.96,
+   "alignEnd": 40.08
+  },
+  {
+   "i": 110,
+   "text": "yeh",
+   "bare": "yeh",
+   "scene": "S7",
+   "phrase": 20,
+   "sentence": 17,
+   "tokens": [
+    "yeh"
+   ],
+   "start": 40.07,
+   "end": 40.37,
+   "alignStart": 40.08,
+   "alignEnd": 40.33
+  },
+  {
+   "i": 111,
+   "text": "bug,",
+   "bare": "bug",
+   "scene": "S7",
+   "phrase": 20,
+   "sentence": 17,
+   "tokens": [
+    "bug"
+   ],
+   "start": 40.37,
+   "end": 40.62,
+   "alignStart": 40.33,
+   "alignEnd": 40.68
+  },
+  {
+   "i": 112,
+   "text": "pichhli",
+   "bare": "pichhli",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 17,
+   "tokens": [
+    "pichhli"
+   ],
+   "start": 40.9,
+   "end": 41.22,
+   "alignStart": 40.85,
+   "alignEnd": 41.2
+  },
+  {
+   "i": 113,
+   "text": "request",
+   "bare": "request",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 17,
+   "tokens": [
+    "request"
+   ],
+   "start": 41.22,
+   "end": 41.57,
+   "alignStart": 41.2,
+   "alignEnd": 41.61
+  },
+  {
+   "i": 114,
+   "text": "ka",
+   "bare": "ka",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 17,
+   "tokens": [
+    "ka"
+   ],
+   "start": 41.58,
+   "end": 41.78,
+   "alignStart": 41.61,
+   "alignEnd": 41.74
+  },
+  {
+   "i": 115,
+   "text": "bacha",
+   "bare": "bacha",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 17,
+   "tokens": [
+    "bacha"
+   ],
+   "start": 41.78,
+   "end": 42.08,
+   "alignStart": 41.74,
+   "alignEnd": 42.08
+  },
+  {
+   "i": 116,
+   "text": "hua",
+   "bare": "hua",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 17,
+   "tokens": [
+    "hua"
+   ],
+   "start": 42.08,
+   "end": 42.36,
+   "alignStart": 42.08,
+   "alignEnd": 42.31
+  },
+  {
+   "i": 117,
+   "text": "data...",
+   "bare": "data",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 17,
+   "tokens": [
+    "data"
+   ],
+   "start": 42.36,
+   "end": 42.73,
+   "alignStart": 42.31,
+   "alignEnd": 42.69
+  },
+  {
+   "i": 118,
+   "text": "agle",
+   "bare": "agle",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 18,
+   "tokens": [
+    "agle"
+   ],
+   "start": 42.92,
+   "end": 43.21,
+   "alignStart": 42.9,
+   "alignEnd": 43.18
+  },
+  {
+   "i": 119,
+   "text": "ke",
+   "bare": "ke",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 18,
+   "tokens": [
+    "ke"
+   ],
+   "start": 43.24,
+   "end": 43.34,
+   "alignStart": 43.18,
+   "alignEnd": 43.3
+  },
+  {
+   "i": 120,
+   "text": "haath",
+   "bare": "haath",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 18,
+   "tokens": [
+    "haath"
+   ],
+   "start": 43.34,
+   "end": 43.51,
+   "alignStart": 43.3,
+   "alignEnd": 43.52
+  },
+  {
+   "i": 121,
+   "text": "mein",
+   "bare": "mein",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 18,
+   "tokens": [
+    "mein"
+   ],
+   "start": 43.51,
+   "end": 43.7,
+   "alignStart": 43.52,
+   "alignEnd": 43.66
+  },
+  {
+   "i": 122,
+   "text": "de",
+   "bare": "de",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 18,
+   "tokens": [
+    "de"
+   ],
+   "start": 43.7,
+   "end": 43.84,
+   "alignStart": 43.66,
+   "alignEnd": 43.8
+  },
+  {
+   "i": 123,
+   "text": "sakta",
+   "bare": "sakta",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 18,
+   "tokens": [
+    "sakta"
+   ],
+   "start": 43.84,
+   "end": 43.95,
+   "alignStart": 43.8,
+   "alignEnd": 44.16
+  },
+  {
+   "i": 124,
+   "text": "hai.",
+   "bare": "hai",
+   "scene": "S7",
+   "phrase": 21,
+   "sentence": 18,
+   "tokens": [
+    "hai"
+   ],
+   "start": 44.07,
+   "end": 44.3,
+   "alignStart": 44.16,
+   "alignEnd": 44.28
+  },
+  {
+   "i": 125,
+   "text": "Password.",
+   "bare": "password",
+   "scene": "S7",
+   "phrase": 22,
+   "sentence": 19,
+   "tokens": [
+    "password"
+   ],
+   "start": 44.6,
+   "end": 45.21,
+   "alignStart": 44.48,
+   "alignEnd": 45.22
+  },
+  {
+   "i": 126,
+   "text": "Token.",
+   "bare": "token",
+   "scene": "S7",
+   "phrase": 23,
+   "sentence": 20,
+   "tokens": [
+    "token"
+   ],
+   "start": 45.45,
+   "end": 45.96,
+   "alignStart": 45.42,
+   "alignEnd": 45.97
+  },
+  {
+   "i": 127,
+   "text": "API",
+   "bare": "api",
+   "scene": "S7",
+   "phrase": 23,
+   "sentence": 21,
+   "tokens": [
+    "api"
+   ],
+   "start": 46.14,
+   "end": 46.61,
+   "alignStart": 46.14,
+   "alignEnd": 46.56
+  },
+  {
+   "i": 128,
+   "text": "keys.",
+   "bare": "keys",
+   "scene": "S7",
+   "phrase": 23,
+   "sentence": 21,
+   "tokens": [
+    "keys"
+   ],
+   "start": 46.62,
+   "end": 46.99,
+   "alignStart": 46.56,
+   "alignEnd": 47.06
+  },
+  {
+   "i": 129,
+   "text": "Aur",
+   "bare": "aur",
+   "scene": "S8",
+   "phrase": 24,
+   "sentence": 22,
+   "tokens": [
+    "aur"
+   ],
+   "start": 47.29,
+   "end": 47.45,
+   "alignStart": 47.26,
+   "alignEnd": 47.39
+  },
+  {
+   "i": 130,
+   "text": "kuch",
+   "bare": "kuch",
+   "scene": "S8",
+   "phrase": 24,
+   "sentence": 22,
+   "tokens": [
+    "kuch"
+   ],
+   "start": 47.46,
+   "end": 47.65,
+   "alignStart": 47.39,
+   "alignEnd": 47.65
+  },
+  {
+   "i": 131,
+   "text": "cases",
+   "bare": "cases",
+   "scene": "S8",
+   "phrase": 24,
+   "sentence": 22,
+   "tokens": [
+    "cases"
+   ],
+   "start": 47.7,
+   "end": 48.01,
+   "alignStart": 47.65,
+   "alignEnd": 48.03
+  },
+  {
+   "i": 132,
+   "text": "mein,",
+   "bare": "mein",
+   "scene": "S8",
+   "phrase": 24,
+   "sentence": 22,
+   "tokens": [
+    "mein"
+   ],
+   "start": 48.01,
+   "end": 48.27,
+   "alignStart": 48.03,
+   "alignEnd": 48.41
+  },
+  {
+   "i": 133,
+   "text": "hacker",
+   "bare": "hacker",
+   "scene": "S8",
+   "phrase": 24,
+   "sentence": 22,
+   "tokens": [
+    "hacker"
+   ],
+   "start": 48.48,
+   "end": 48.81,
+   "alignStart": 48.41,
+   "alignEnd": 48.77
+  },
+  {
+   "i": 134,
+   "text": "bina",
+   "bare": "bina",
+   "scene": "S8",
+   "phrase": 24,
+   "sentence": 22,
+   "tokens": [
+    "bina"
+   ],
+   "start": 48.81,
+   "end": 49.1,
+   "alignStart": 48.77,
+   "alignEnd": 49.11
+  },
+  {
+   "i": 135,
+   "text": "login",
+   "bare": "login",
+   "scene": "S8",
+   "phrase": 24,
+   "sentence": 22,
+   "tokens": [
+    "login"
+   ],
+   "start": 49.1,
+   "end": 49.54,
+   "alignStart": 49.11,
+   "alignEnd": 49.51
+  },
+  {
+   "i": 136,
+   "text": "kiye...",
+   "bare": "kiye",
+   "scene": "S8",
+   "phrase": 24,
+   "sentence": 22,
+   "tokens": [
+    "kiye"
+   ],
+   "start": 49.55,
+   "end": 49.84,
+   "alignStart": 49.51,
+   "alignEnd": 49.81
+  },
+  {
+   "i": 137,
+   "text": "poore",
+   "bare": "poore",
+   "scene": "S8",
+   "phrase": 25,
+   "sentence": 23,
+   "tokens": [
+    "poore"
+   ],
+   "start": 50.05,
+   "end": 50.32,
+   "alignStart": 49.93,
+   "alignEnd": 50.3
+  },
+  {
+   "i": 138,
+   "text": "server",
+   "bare": "server",
+   "scene": "S8",
+   "phrase": 25,
+   "sentence": 23,
+   "tokens": [
+    "server"
+   ],
+   "start": 50.32,
+   "end": 50.75,
+   "alignStart": 50.3,
+   "alignEnd": 50.71
+  },
+  {
+   "i": 139,
+   "text": "pe",
+   "bare": "pe",
+   "scene": "S8",
+   "phrase": 25,
+   "sentence": 23,
+   "tokens": [
+    "pe"
+   ],
+   "start": 50.77,
+   "end": 50.88,
+   "alignStart": 50.71,
+   "alignEnd": 50.83
+  },
+  {
+   "i": 140,
+   "text": "control",
+   "bare": "control",
+   "scene": "S8",
+   "phrase": 25,
+   "sentence": 23,
+   "tokens": [
+    "control"
+   ],
+   "start": 50.91,
+   "end": 51.3,
+   "alignStart": 50.83,
+   "alignEnd": 51.27
+  },
+  {
+   "i": 141,
+   "text": "le",
+   "bare": "le",
+   "scene": "S8",
+   "phrase": 25,
+   "sentence": 23,
+   "tokens": [
+    "le"
+   ],
+   "start": 51.3,
+   "end": 51.41,
+   "alignStart": 51.27,
+   "alignEnd": 51.38
+  },
+  {
+   "i": 142,
+   "text": "sakta",
+   "bare": "sakta",
+   "scene": "S8",
+   "phrase": 25,
+   "sentence": 23,
+   "tokens": [
+    "sakta"
+   ],
+   "start": 51.41,
+   "end": 51.53,
+   "alignStart": 51.38,
+   "alignEnd": 51.72
+  },
+  {
+   "i": 143,
+   "text": "hai.",
+   "bare": "hai",
+   "scene": "S8",
+   "phrase": 25,
+   "sentence": 23,
+   "tokens": [
+    "hai"
+   ],
+   "start": 51.66,
+   "end": 51.88,
+   "alignStart": 51.72,
+   "alignEnd": 51.85
+  },
+  {
+   "i": 144,
+   "text": "Isliye",
+   "bare": "isliye",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "isliye"
+   ],
+   "start": 52.21,
+   "end": 52.65,
+   "alignStart": 52.18,
+   "alignEnd": 52.63
+  },
+  {
+   "i": 145,
+   "text": "PHP",
+   "bare": "php",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "pee",
+    "aitch",
+    "pee"
+   ],
+   "start": 52.76,
+   "end": 53.18,
+   "alignStart": 52.63,
+   "alignEnd": 53.18
+  },
+  {
+   "i": 146,
+   "text": "ne",
+   "bare": "ne",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "ne"
+   ],
+   "start": 53.18,
+   "end": 53.37,
+   "alignStart": 53.18,
+   "alignEnd": 53.32
+  },
+  {
+   "i": 147,
+   "text": "isey",
+   "bare": "isey",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "isey"
+   ],
+   "start": 53.37,
+   "end": 53.66,
+   "alignStart": 53.32,
+   "alignEnd": 53.64
+  },
+  {
+   "i": 148,
+   "text": "10",
+   "bare": "10",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "das"
+   ],
+   "start": 53.7,
+   "end": 54.07,
+   "alignStart": 53.64,
+   "alignEnd": 54.07
+  },
+  {
+   "i": 149,
+   "text": "mein",
+   "bare": "mein",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "mein"
+   ],
+   "start": 54.07,
+   "end": 54.26,
+   "alignStart": 54.07,
+   "alignEnd": 54.22
+  },
+  {
+   "i": 150,
+   "text": "se",
+   "bare": "se",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "se"
+   ],
+   "start": 54.26,
+   "end": 54.41,
+   "alignStart": 54.22,
+   "alignEnd": 54.4
+  },
+  {
+   "i": 151,
+   "text": "9.2",
+   "bare": "9.2",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "nau",
+    "point",
+    "do"
+   ],
+   "start": 54.41,
+   "end": 55.62,
+   "alignStart": 54.4,
+   "alignEnd": 55.57
+  },
+  {
+   "i": 152,
+   "text": "ki",
+   "bare": "ki",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "ki"
+   ],
+   "start": 55.65,
+   "end": 55.75,
+   "alignStart": 55.57,
+   "alignEnd": 55.74
+  },
+  {
+   "i": 153,
+   "text": "critical",
+   "bare": "critical",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "critical"
+   ],
+   "start": 55.86,
+   "end": 56.25,
+   "alignStart": 55.74,
+   "alignEnd": 56.23
+  },
+  {
+   "i": 154,
+   "text": "rating",
+   "bare": "rating",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "rating"
+   ],
+   "start": 56.25,
+   "end": 56.6,
+   "alignStart": 56.23,
+   "alignEnd": 56.58
+  },
+  {
+   "i": 155,
+   "text": "di.",
+   "bare": "di",
+   "scene": "S9",
+   "phrase": 26,
+   "sentence": 24,
+   "tokens": [
+    "di"
+   ],
+   "start": 56.6,
+   "end": 56.74,
+   "alignStart": 56.58,
+   "alignEnd": 56.77
+  },
+  {
+   "i": 156,
+   "text": "21",
+   "bare": "21",
+   "scene": "S9",
+   "phrase": 27,
+   "sentence": 25,
+   "tokens": [
+    "ikkis"
+   ],
+   "start": 57.14,
+   "end": 57.46,
+   "alignStart": 57.11,
+   "alignEnd": 57.47
+  },
+  {
+   "i": 157,
+   "text": "October",
+   "bare": "october",
+   "scene": "S9",
+   "phrase": 27,
+   "sentence": 25,
+   "tokens": [
+    "october"
+   ],
+   "start": 57.46,
+   "end": 57.88,
+   "alignStart": 57.47,
+   "alignEnd": 57.85
+  },
+  {
+   "i": 158,
+   "text": "ko",
+   "bare": "ko",
+   "scene": "S9",
+   "phrase": 27,
+   "sentence": 25,
+   "tokens": [
+    "ko"
+   ],
+   "start": 57.91,
+   "end": 58.02,
+   "alignStart": 57.85,
+   "alignEnd": 57.98
+  },
+  {
+   "i": 159,
+   "text": "fix",
+   "bare": "fix",
+   "scene": "S9",
+   "phrase": 27,
+   "sentence": 25,
+   "tokens": [
+    "fix"
+   ],
+   "start": 58.02,
+   "end": 58.27,
+   "alignStart": 57.98,
+   "alignEnd": 58.28
+  },
+  {
+   "i": 160,
+   "text": "aaya...",
+   "bare": "aaya",
+   "scene": "S9",
+   "phrase": 27,
+   "sentence": 25,
+   "tokens": [
+    "aaya"
+   ],
+   "start": 58.27,
+   "end": 58.54,
+   "alignStart": 58.28,
+   "alignEnd": 58.58
+  },
+  {
+   "i": 161,
+   "text": "aur",
+   "bare": "aur",
+   "scene": "S9",
+   "phrase": 28,
+   "sentence": 26,
+   "tokens": [
+    "aur"
+   ],
+   "start": 58.8,
+   "end": 58.91,
+   "alignStart": 58.76,
+   "alignEnd": 58.89
+  },
+  {
+   "i": 162,
+   "text": "usi",
+   "bare": "usi",
+   "scene": "S9",
+   "phrase": 28,
+   "sentence": 26,
+   "tokens": [
+    "usi"
+   ],
+   "start": 59.02,
+   "end": 59.3,
+   "alignStart": 59.05,
+   "alignEnd": 59.27
+  },
+  {
+   "i": 163,
+   "text": "din",
+   "bare": "din",
+   "scene": "S9",
+   "phrase": 28,
+   "sentence": 26,
+   "tokens": [
+    "din"
+   ],
+   "start": 59.33,
+   "end": 59.57,
+   "alignStart": 59.27,
+   "alignEnd": 59.61
+  },
+  {
+   "i": 164,
+   "text": "attack",
+   "bare": "attack",
+   "scene": "S9",
+   "phrase": 28,
+   "sentence": 26,
+   "tokens": [
+    "attack"
+   ],
+   "start": 59.57,
+   "end": 59.92,
+   "alignStart": 59.61,
+   "alignEnd": 59.91
+  },
+  {
+   "i": 165,
+   "text": "ki",
+   "bare": "ki",
+   "scene": "S9",
+   "phrase": 28,
+   "sentence": 26,
+   "tokens": [
+    "ki"
+   ],
+   "start": 59.96,
+   "end": 60.08,
+   "alignStart": 59.91,
+   "alignEnd": 60.05
+  },
+  {
+   "i": 166,
+   "text": "koshishein",
+   "bare": "koshishein",
+   "scene": "S9",
+   "phrase": 28,
+   "sentence": 26,
+   "tokens": [
+    "koshishein"
+   ],
+   "start": 60.12,
+   "end": 60.45,
+   "alignStart": 60.05,
+   "alignEnd": 60.56
+  },
+  {
+   "i": 167,
+   "text": "bhi",
+   "bare": "bhi",
+   "scene": "S9",
+   "phrase": 28,
+   "sentence": 26,
+   "tokens": [
+    "bhi"
+   ],
+   "start": 60.46,
+   "end": 60.78,
+   "alignStart": 60.56,
+   "alignEnd": 60.65
+  },
+  {
+   "i": 168,
+   "text": "dikhne",
+   "bare": "dikhne",
+   "scene": "S9",
+   "phrase": 28,
+   "sentence": 26,
+   "tokens": [
+    "dikhne"
+   ],
+   "start": 60.8,
+   "end": 60.96,
+   "alignStart": 60.65,
+   "alignEnd": 60.95
+  },
+  {
+   "i": 169,
+   "text": "lagi.",
+   "bare": "lagi",
+   "scene": "S9",
+   "phrase": 28,
+   "sentence": 26,
+   "tokens": [
+    "lagi"
+   ],
+   "start": 60.96,
+   "end": 61.22,
+   "alignStart": 60.95,
+   "alignEnd": 61.26
+  },
+  {
+   "i": 170,
+   "text": "Lekin",
+   "bare": "lekin",
+   "scene": "S10",
+   "phrase": 29,
+   "sentence": 27,
+   "tokens": [
+    "lekin"
+   ],
+   "start": 61.58,
+   "end": 61.84,
+   "alignStart": 61.57,
+   "alignEnd": 61.8
+  },
+  {
+   "i": 171,
+   "text": "ab",
+   "bare": "ab",
+   "scene": "S10",
+   "phrase": 29,
+   "sentence": 27,
+   "tokens": [
+    "ab"
+   ],
+   "start": 61.84,
+   "end": 62.08,
+   "alignStart": 61.8,
+   "alignEnd": 62.09
+  },
+  {
+   "i": 172,
+   "text": "dar",
+   "bare": "dar",
+   "scene": "S10",
+   "phrase": 29,
+   "sentence": 27,
+   "tokens": [
+    "dar"
+   ],
+   "start": 62.14,
+   "end": 62.25,
+   "alignStart": 62.09,
+   "alignEnd": 62.23
+  },
+  {
+   "i": 173,
+   "text": "nahi,",
+   "bare": "nahi",
+   "scene": "S10",
+   "phrase": 29,
+   "sentence": 27,
+   "tokens": [
+    "nahi"
+   ],
+   "start": 62.25,
+   "end": 62.56,
+   "alignStart": 62.23,
+   "alignEnd": 62.59
+  },
+  {
+   "i": 174,
+   "text": "sach",
+   "bare": "sach",
+   "scene": "S10",
+   "phrase": 30,
+   "sentence": 27,
+   "tokens": [
+    "sach"
+   ],
+   "start": 62.81,
+   "end": 63.0,
+   "alignStart": 62.75,
+   "alignEnd": 63.05
+  },
+  {
+   "i": 175,
+   "text": "suniye.",
+   "bare": "suniye",
+   "scene": "S10",
+   "phrase": 30,
+   "sentence": 27,
+   "tokens": [
+    "suniye"
+   ],
+   "start": 63.0,
+   "end": 63.38,
+   "alignStart": 63.05,
+   "alignEnd": 63.41
+  },
+  {
+   "i": 176,
+   "text": "Abhi",
+   "bare": "abhi",
+   "scene": "S10",
+   "phrase": 31,
+   "sentence": 28,
+   "tokens": [
+    "abhi"
+   ],
+   "start": 63.74,
+   "end": 64.0,
+   "alignStart": 63.72,
+   "alignEnd": 63.95
+  },
+  {
+   "i": 177,
+   "text": "tak",
+   "bare": "tak",
+   "scene": "S10",
+   "phrase": 31,
+   "sentence": 28,
+   "tokens": [
+    "tak"
+   ],
+   "start": 64.02,
+   "end": 64.13,
+   "alignStart": 63.95,
+   "alignEnd": 64.26
+  },
+  {
+   "i": 178,
+   "text": "kisi",
+   "bare": "kisi",
+   "scene": "S10",
+   "phrase": 31,
+   "sentence": 28,
+   "tokens": [
+    "kisi"
+   ],
+   "start": 64.31,
+   "end": 64.63,
+   "alignStart": 64.26,
+   "alignEnd": 64.58
+  },
+  {
+   "i": 179,
+   "text": "bade",
+   "bare": "bade",
+   "scene": "S10",
+   "phrase": 31,
+   "sentence": 28,
+   "tokens": [
+    "bade"
+   ],
+   "start": 64.63,
+   "end": 64.91,
+   "alignStart": 64.58,
+   "alignEnd": 64.86
+  },
+  {
+   "i": 180,
+   "text": "hack",
+   "bare": "hack",
+   "scene": "S10",
+   "phrase": 31,
+   "sentence": 28,
+   "tokens": [
+    "hack"
+   ],
+   "start": 64.91,
+   "end": 65.1,
+   "alignStart": 64.86,
+   "alignEnd": 65.14
+  },
+  {
+   "i": 181,
+   "text": "ki",
+   "bare": "ki",
+   "scene": "S10",
+   "phrase": 31,
+   "sentence": 28,
+   "tokens": [
+    "ki"
+   ],
+   "start": 65.23,
+   "end": 65.31,
+   "alignStart": 65.14,
+   "alignEnd": 65.3
+  },
+  {
+   "i": 182,
+   "text": "confirm",
+   "bare": "confirm",
+   "scene": "S10",
+   "phrase": 31,
+   "sentence": 28,
+   "tokens": [
+    "confirm"
+   ],
+   "start": 65.41,
+   "end": 65.86,
+   "alignStart": 65.3,
+   "alignEnd": 65.84
+  },
+  {
+   "i": 183,
+   "text": "khabar",
+   "bare": "khabar",
+   "scene": "S10",
+   "phrase": 31,
+   "sentence": 28,
+   "tokens": [
+    "khabar"
+   ],
+   "start": 65.87,
+   "end": 66.13,
+   "alignStart": 65.84,
+   "alignEnd": 66.17
+  },
+  {
+   "i": 184,
+   "text": "nahi",
+   "bare": "nahi",
+   "scene": "S10",
+   "phrase": 31,
+   "sentence": 28,
+   "tokens": [
+    "nahi"
+   ],
+   "start": 66.13,
+   "end": 66.47,
+   "alignStart": 66.17,
+   "alignEnd": 66.42
+  },
+  {
+   "i": 185,
+   "text": "hai.",
+   "bare": "hai",
+   "scene": "S10",
+   "phrase": 31,
+   "sentence": 28,
+   "tokens": [
+    "hai"
+   ],
+   "start": 66.47,
+   "end": 66.6,
+   "alignStart": 66.42,
+   "alignEnd": 66.56
+  },
+  {
+   "i": 186,
+   "text": "Kuch",
+   "bare": "kuch",
+   "scene": "S10",
+   "phrase": 32,
+   "sentence": 29,
+   "tokens": [
+    "kuch"
+   ],
+   "start": 66.9,
+   "end": 67.09,
+   "alignStart": 66.85,
+   "alignEnd": 67.08
+  },
+  {
+   "i": 187,
+   "text": "companies",
+   "bare": "companies",
+   "scene": "S10",
+   "phrase": 32,
+   "sentence": 29,
+   "tokens": [
+    "companies"
+   ],
+   "start": 67.11,
+   "end": 67.53,
+   "alignStart": 67.08,
+   "alignEnd": 67.56
+  },
+  {
+   "i": 188,
+   "text": "ne",
+   "bare": "ne",
+   "scene": "S10",
+   "phrase": 32,
+   "sentence": 29,
+   "tokens": [
+    "ne"
+   ],
+   "start": 67.53,
+   "end": 67.73,
+   "alignStart": 67.56,
+   "alignEnd": 67.68
+  },
+  {
+   "i": 189,
+   "text": "safety",
+   "bare": "safety",
+   "scene": "S10",
+   "phrase": 32,
+   "sentence": 29,
+   "tokens": [
+    "safety"
+   ],
+   "start": 67.73,
+   "end": 68.18,
+   "alignStart": 67.68,
+   "alignEnd": 68.16
+  },
+  {
+   "i": 190,
+   "text": "ke",
+   "bare": "ke",
+   "scene": "S10",
+   "phrase": 32,
+   "sentence": 29,
+   "tokens": [
+    "ke"
+   ],
+   "start": 68.22,
+   "end": 68.35,
+   "alignStart": 68.16,
+   "alignEnd": 68.31
+  },
+  {
+   "i": 191,
+   "text": "liye",
+   "bare": "liye",
+   "scene": "S10",
+   "phrase": 32,
+   "sentence": 29,
+   "tokens": [
+    "liye"
+   ],
+   "start": 68.35,
+   "end": 68.52,
+   "alignStart": 68.31,
+   "alignEnd": 68.5
+  },
+  {
+   "i": 192,
+   "text": "services",
+   "bare": "services",
+   "scene": "S10",
+   "phrase": 32,
+   "sentence": 29,
+   "tokens": [
+    "services"
+   ],
+   "start": 68.52,
+   "end": 69.09,
+   "alignStart": 68.5,
+   "alignEnd": 69.05
+  },
+  {
+   "i": 193,
+   "text": "band",
+   "bare": "band",
+   "scene": "S10",
+   "phrase": 32,
+   "sentence": 29,
+   "tokens": [
+    "band"
+   ],
+   "start": 69.09,
+   "end": 69.35,
+   "alignStart": 69.05,
+   "alignEnd": 69.35
+  },
+  {
+   "i": 194,
+   "text": "ki.",
+   "bare": "ki",
+   "scene": "S10",
+   "phrase": 32,
+   "sentence": 29,
+   "tokens": [
+    "ki"
+   ],
+   "start": 69.45,
+   "end": 69.56,
+   "alignStart": 69.35,
+   "alignEnd": 69.59
+  },
+  {
+   "i": 195,
+   "text": "Aur",
+   "bare": "aur",
+   "scene": "S10",
+   "phrase": 33,
+   "sentence": 30,
+   "tokens": [
+    "aur"
+   ],
+   "start": 69.83,
+   "end": 69.95,
+   "alignStart": 69.79,
+   "alignEnd": 69.91
+  },
+  {
+   "i": 196,
+   "text": "fix",
+   "bare": "fix",
+   "scene": "S10",
+   "phrase": 33,
+   "sentence": 30,
+   "tokens": [
+    "fix"
+   ],
+   "start": 69.95,
+   "end": 70.28,
+   "alignStart": 69.91,
+   "alignEnd": 70.3
+  },
+  {
+   "i": 197,
+   "text": "aa",
+   "bare": "aa",
+   "scene": "S10",
+   "phrase": 33,
+   "sentence": 30,
+   "tokens": [
+    "aa"
+   ],
+   "start": 70.38,
+   "end": 70.54,
+   "alignStart": 70.3,
+   "alignEnd": 70.51
+  },
+  {
+   "i": 198,
+   "text": "chuka",
+   "bare": "chuka",
+   "scene": "S10",
+   "phrase": 33,
+   "sentence": 30,
+   "tokens": [
+    "chuka"
+   ],
+   "start": 70.57,
+   "end": 70.83,
+   "alignStart": 70.51,
+   "alignEnd": 70.81
+  },
+  {
+   "i": 199,
+   "text": "hai.",
+   "bare": "hai",
+   "scene": "S10",
+   "phrase": 33,
+   "sentence": 30,
+   "tokens": [
+    "hai"
+   ],
+   "start": 70.83,
+   "end": 70.97,
+   "alignStart": 70.81,
+   "alignEnd": 70.94
+  },
+  {
+   "i": 200,
+   "text": "Toh",
+   "bare": "toh",
+   "scene": "S11",
+   "phrase": 34,
+   "sentence": 31,
+   "tokens": [
+    "toh"
+   ],
+   "start": 71.29,
+   "end": 71.39,
+   "alignStart": 71.24,
+   "alignEnd": 71.42
+  },
+  {
+   "i": 201,
+   "text": "aaj",
+   "bare": "aaj",
+   "scene": "S11",
+   "phrase": 34,
+   "sentence": 31,
+   "tokens": [
+    "aaj"
+   ],
+   "start": 71.48,
+   "end": 71.75,
+   "alignStart": 71.42,
+   "alignEnd": 71.74
+  },
+  {
+   "i": 202,
+   "text": "hi",
+   "bare": "hi",
+   "scene": "S11",
+   "phrase": 34,
+   "sentence": 31,
+   "tokens": [
+    "hi"
+   ],
+   "start": 71.75,
+   "end": 71.86,
+   "alignStart": 71.74,
+   "alignEnd": 71.86
+  },
+  {
+   "i": 203,
+   "text": "apne",
+   "bare": "apne",
+   "scene": "S11",
+   "phrase": 34,
+   "sentence": 31,
+   "tokens": [
+    "apne"
+   ],
+   "start": 71.86,
+   "end": 72.1,
+   "alignStart": 71.86,
+   "alignEnd": 72.1
+  },
+  {
+   "i": 204,
+   "text": "hosting",
+   "bare": "hosting",
+   "scene": "S11",
+   "phrase": 34,
+   "sentence": 31,
+   "tokens": [
+    "hosting"
+   ],
+   "start": 72.1,
+   "end": 72.48,
+   "alignStart": 72.1,
+   "alignEnd": 72.53
+  },
+  {
+   "i": 205,
+   "text": "wale",
+   "bare": "wale",
+   "scene": "S11",
+   "phrase": 34,
+   "sentence": 31,
+   "tokens": [
+    "wale"
+   ],
+   "start": 72.48,
+   "end": 72.79,
+   "alignStart": 72.53,
+   "alignEnd": 72.76
+  },
+  {
+   "i": 206,
+   "text": "se",
+   "bare": "se",
+   "scene": "S11",
+   "phrase": 34,
+   "sentence": 31,
+   "tokens": [
+    "se"
+   ],
+   "start": 72.79,
+   "end": 72.97,
+   "alignStart": 72.76,
+   "alignEnd": 72.94
+  },
+  {
+   "i": 207,
+   "text": "ek",
+   "bare": "ek",
+   "scene": "S11",
+   "phrase": 34,
+   "sentence": 31,
+   "tokens": [
+    "ek"
+   ],
+   "start": 72.97,
+   "end": 73.12,
+   "alignStart": 72.94,
+   "alignEnd": 73.14
+  },
+  {
+   "i": 208,
+   "text": "sawaal",
+   "bare": "sawaal",
+   "scene": "S11",
+   "phrase": 34,
+   "sentence": 31,
+   "tokens": [
+    "sawaal"
+   ],
+   "start": 73.12,
+   "end": 73.52,
+   "alignStart": 73.14,
+   "alignEnd": 73.47
+  },
+  {
+   "i": 209,
+   "text": "pucho:",
+   "bare": "pucho",
+   "scene": "S11",
+   "phrase": 34,
+   "sentence": 31,
+   "tokens": [
+    "pucho"
+   ],
+   "start": 73.54,
+   "end": 73.86,
+   "alignStart": 73.47,
+   "alignEnd": 73.87
+  },
+  {
+   "i": 210,
+   "text": "Kya",
+   "bare": "kya",
+   "scene": "S11",
+   "phrase": 35,
+   "sentence": 32,
+   "tokens": [
+    "kya"
+   ],
+   "start": 74.2,
+   "end": 74.52,
+   "alignStart": 74.15,
+   "alignEnd": 74.49
+  },
+  {
+   "i": 211,
+   "text": "PHP",
+   "bare": "php",
+   "scene": "S11",
+   "phrase": 35,
+   "sentence": 32,
+   "tokens": [
+    "pee",
+    "aitch",
+    "pee"
+   ],
+   "start": 74.68,
+   "end": 75.07,
+   "alignStart": 74.49,
+   "alignEnd": 75.07
+  },
+  {
+   "i": 212,
+   "text": "update",
+   "bare": "update",
+   "scene": "S11",
+   "phrase": 35,
+   "sentence": 32,
+   "tokens": [
+    "update"
+   ],
+   "start": 75.07,
+   "end": 75.36,
+   "alignStart": 75.07,
+   "alignEnd": 75.37
+  },
+  {
+   "i": 213,
+   "text": "ho",
+   "bare": "ho",
+   "scene": "S11",
+   "phrase": 35,
+   "sentence": 32,
+   "tokens": [
+    "ho"
+   ],
+   "start": 75.36,
+   "end": 75.53,
+   "alignStart": 75.37,
+   "alignEnd": 75.51
+  },
+  {
+   "i": 214,
+   "text": "gaya?",
+   "bare": "gaya",
+   "scene": "S11",
+   "phrase": 35,
+   "sentence": 32,
+   "tokens": [
+    "gaya"
+   ],
+   "start": 75.53,
+   "end": 75.73,
+   "alignStart": 75.51,
+   "alignEnd": 75.7
+  },
+  {
+   "i": 215,
+   "text": "Naye",
+   "bare": "naye",
+   "scene": "S11",
+   "phrase": 36,
+   "sentence": 33,
+   "tokens": [
+    "naye"
+   ],
+   "start": 76.08,
+   "end": 76.38,
+   "alignStart": 76.07,
+   "alignEnd": 76.33
+  },
+  {
+   "i": 216,
+   "text": "versions",
+   "bare": "versions",
+   "scene": "S11",
+   "phrase": 36,
+   "sentence": 33,
+   "tokens": [
+    "versions"
+   ],
+   "start": 76.38,
+   "end": 76.74,
+   "alignStart": 76.33,
+   "alignEnd": 76.75
+  },
+  {
+   "i": 217,
+   "text": "screen",
+   "bare": "screen",
+   "scene": "S11",
+   "phrase": 36,
+   "sentence": 33,
+   "tokens": [
+    "screen"
+   ],
+   "start": 76.74,
+   "end": 77.09,
+   "alignStart": 76.75,
+   "alignEnd": 77.09
+  },
+  {
+   "i": 218,
+   "text": "pe",
+   "bare": "pe",
+   "scene": "S11",
+   "phrase": 36,
+   "sentence": 33,
+   "tokens": [
+    "pe"
+   ],
+   "start": 77.09,
+   "end": 77.165,
+   "alignStart": 77.09,
+   "alignEnd": 77.19
+  },
+  {
+   "i": 219,
+   "text": "hain.",
+   "bare": "hain",
+   "scene": "S11",
+   "phrase": 36,
+   "sentence": 33,
+   "tokens": [
+    "hain"
+   ],
+   "start": 77.165,
+   "end": 77.43,
+   "alignStart": 77.19,
+   "alignEnd": 77.45
+  },
+  {
+   "i": 220,
+   "text": "Aur",
+   "bare": "aur",
+   "scene": "S12",
+   "phrase": 37,
+   "sentence": 34,
+   "tokens": [
+    "aur"
+   ],
+   "start": 77.69,
+   "end": 77.83,
+   "alignStart": 77.67,
+   "alignEnd": 77.78
+  },
+  {
+   "i": 221,
+   "text": "dhyan",
+   "bare": "dhyan",
+   "scene": "S12",
+   "phrase": 37,
+   "sentence": 34,
+   "tokens": [
+    "dhyan"
+   ],
+   "start": 77.85,
+   "end": 78.07,
+   "alignStart": 77.78,
+   "alignEnd": 78.07
+  },
+  {
+   "i": 222,
+   "text": "rakhna...",
+   "bare": "rakhna",
+   "scene": "S12",
+   "phrase": 37,
+   "sentence": 34,
+   "tokens": [
+    "rakhna"
+   ],
+   "start": 78.07,
+   "end": 78.4,
+   "alignStart": 78.07,
+   "alignEnd": 78.37
+  },
+  {
+   "i": 223,
+   "text": "sirf",
+   "bare": "sirf",
+   "scene": "S12",
+   "phrase": 38,
+   "sentence": 35,
+   "tokens": [
+    "sirf"
+   ],
+   "start": 78.65,
+   "end": 78.88,
+   "alignStart": 78.6,
+   "alignEnd": 78.94
+  },
+  {
+   "i": 224,
+   "text": "plugin",
+   "bare": "plugin",
+   "scene": "S12",
+   "phrase": 38,
+   "sentence": 35,
+   "tokens": [
+    "plugin"
+   ],
+   "start": 79.08,
+   "end": 79.37,
+   "alignStart": 78.94,
+   "alignEnd": 79.38
+  },
+  {
+   "i": 225,
+   "text": "update",
+   "bare": "update",
+   "scene": "S12",
+   "phrase": 38,
+   "sentence": 35,
+   "tokens": [
+    "update"
+   ],
+   "start": 79.37,
+   "end": 79.73,
+   "alignStart": 79.38,
+   "alignEnd": 79.68
+  },
+  {
+   "i": 226,
+   "text": "karne",
+   "bare": "karne",
+   "scene": "S12",
+   "phrase": 38,
+   "sentence": 35,
+   "tokens": [
+    "karne"
+   ],
+   "start": 79.75,
+   "end": 80.06,
+   "alignStart": 79.68,
+   "alignEnd": 80.01
+  },
+  {
+   "i": 227,
+   "text": "se",
+   "bare": "se",
+   "scene": "S12",
+   "phrase": 38,
+   "sentence": 35,
+   "tokens": [
+    "se"
+   ],
+   "start": 80.06,
+   "end": 80.11,
+   "alignStart": 80.01,
+   "alignEnd": 80.16
+  },
+  {
+   "i": 228,
+   "text": "yeh",
+   "bare": "yeh",
+   "scene": "S12",
+   "phrase": 38,
+   "sentence": 35,
+   "tokens": [
+    "yeh"
+   ],
+   "start": 80.11,
+   "end": 80.37,
+   "alignStart": 80.16,
+   "alignEnd": 80.32
+  },
+  {
+   "i": 229,
+   "text": "theek",
+   "bare": "theek",
+   "scene": "S12",
+   "phrase": 38,
+   "sentence": 35,
+   "tokens": [
+    "theek"
+   ],
+   "start": 80.4,
+   "end": 80.59,
+   "alignStart": 80.32,
+   "alignEnd": 80.62
+  },
+  {
+   "i": 230,
+   "text": "nahi",
+   "bare": "nahi",
+   "scene": "S12",
+   "phrase": 38,
+   "sentence": 35,
+   "tokens": [
+    "nahi"
+   ],
+   "start": 80.59,
+   "end": 80.83,
+   "alignStart": 80.62,
+   "alignEnd": 80.83
+  },
+  {
+   "i": 231,
+   "text": "hota.",
+   "bare": "hota",
+   "scene": "S12",
+   "phrase": 38,
+   "sentence": 35,
+   "tokens": [
+    "hota"
+   ],
+   "start": 80.83,
+   "end": 81.19,
+   "alignStart": 80.83,
+   "alignEnd": 81.16
+  },
+  {
+   "i": 232,
+   "text": "PHP",
+   "bare": "php",
+   "scene": "S12",
+   "phrase": 39,
+   "sentence": 36,
+   "tokens": [
+    "pee",
+    "aitch",
+    "pee"
+   ],
+   "start": 81.46,
+   "end": 81.94,
+   "alignStart": 81.4,
+   "alignEnd": 81.9
+  },
+  {
+   "i": 233,
+   "text": "khud",
+   "bare": "khud",
+   "scene": "S12",
+   "phrase": 39,
+   "sentence": 36,
+   "tokens": [
+    "khud"
+   ],
+   "start": 81.99,
+   "end": 82.2,
+   "alignStart": 81.9,
+   "alignEnd": 82.23
+  },
+  {
+   "i": 234,
+   "text": "update",
+   "bare": "update",
+   "scene": "S12",
+   "phrase": 39,
+   "sentence": 36,
+   "tokens": [
+    "update"
+   ],
+   "start": 82.2,
+   "end": 82.56,
+   "alignStart": 82.23,
+   "alignEnd": 82.56
+  },
+  {
+   "i": 235,
+   "text": "karna",
+   "bare": "karna",
+   "scene": "S12",
+   "phrase": 39,
+   "sentence": 36,
+   "tokens": [
+    "karna"
+   ],
+   "start": 82.57,
+   "end": 82.85,
+   "alignStart": 82.56,
+   "alignEnd": 82.8
+  },
+  {
+   "i": 236,
+   "text": "padega.",
+   "bare": "padega",
+   "scene": "S12",
+   "phrase": 39,
+   "sentence": 36,
+   "tokens": [
+    "padega"
+   ],
+   "start": 82.87,
+   "end": 83.18,
+   "alignStart": 82.8,
+   "alignEnd": 83.25
+  },
+  {
+   "i": 237,
+   "text": "Apni",
+   "bare": "apni",
+   "scene": "S13",
+   "phrase": 40,
+   "sentence": 37,
+   "tokens": [
+    "apni"
+   ],
+   "start": 83.6,
+   "end": 83.85,
+   "alignStart": 83.59,
+   "alignEnd": 83.84
+  },
+  {
+   "i": 238,
+   "text": "website",
+   "bare": "website",
+   "scene": "S13",
+   "phrase": 40,
+   "sentence": 37,
+   "tokens": [
+    "website"
+   ],
+   "start": 83.85,
+   "end": 84.24,
+   "alignStart": 83.84,
+   "alignEnd": 84.26
+  },
+  {
+   "i": 239,
+   "text": "check",
+   "bare": "check",
+   "scene": "S13",
+   "phrase": 40,
+   "sentence": 37,
+   "tokens": [
+    "check"
+   ],
+   "start": 84.28,
+   "end": 84.41,
+   "alignStart": 84.26,
+   "alignEnd": 84.45
+  },
+  {
+   "i": 240,
+   "text": "karne",
+   "bare": "karne",
+   "scene": "S13",
+   "phrase": 40,
+   "sentence": 37,
+   "tokens": [
+    "karne"
+   ],
+   "start": 84.5,
+   "end": 84.77,
+   "alignStart": 84.45,
+   "alignEnd": 84.73
+  },
+  {
+   "i": 241,
+   "text": "ka",
+   "bare": "ka",
+   "scene": "S13",
+   "phrase": 40,
+   "sentence": 37,
+   "tokens": [
+    "ka"
+   ],
+   "start": 84.77,
+   "end": 84.89,
+   "alignStart": 84.73,
+   "alignEnd": 84.87
+  },
+  {
+   "i": 242,
+   "text": "simple",
+   "bare": "simple",
+   "scene": "S13",
+   "phrase": 40,
+   "sentence": 37,
+   "tokens": [
+    "simple"
+   ],
+   "start": 84.89,
+   "end": 85.34,
+   "alignStart": 84.87,
+   "alignEnd": 85.31
+  },
+  {
+   "i": 243,
+   "text": "tareeka",
+   "bare": "tareeka",
+   "scene": "S13",
+   "phrase": 40,
+   "sentence": 37,
+   "tokens": [
+    "tareeka"
+   ],
+   "start": 85.36,
+   "end": 85.66,
+   "alignStart": 85.31,
+   "alignEnd": 85.63
+  },
+  {
+   "i": 244,
+   "text": "chahiye?",
+   "bare": "chahiye",
+   "scene": "S13",
+   "phrase": 40,
+   "sentence": 37,
+   "tokens": [
+    "chahiye"
+   ],
+   "start": 85.71,
+   "end": 86.07,
+   "alignStart": 85.63,
+   "alignEnd": 86.03
+  },
+  {
+   "i": 245,
+   "text": "Comment",
+   "bare": "comment",
+   "scene": "S13",
+   "phrase": 41,
+   "sentence": 38,
+   "tokens": [
+    "comment"
+   ],
+   "start": 86.36,
+   "end": 86.64,
+   "alignStart": 86.31,
+   "alignEnd": 86.62
+  },
+  {
+   "i": 246,
+   "text": "karo",
+   "bare": "karo",
+   "scene": "S13",
+   "phrase": 41,
+   "sentence": 38,
+   "tokens": [
+    "karo"
+   ],
+   "start": 86.66,
+   "end": 86.88,
+   "alignStart": 86.62,
+   "alignEnd": 86.84
+  },
+  {
+   "i": 247,
+   "text": "PHP,",
+   "bare": "php",
+   "scene": "S13",
+   "phrase": 41,
+   "sentence": 38,
+   "tokens": [
+    "pee",
+    "ech",
+    "pee"
+   ],
+   "start": 86.92,
+   "end": 87.4,
+   "alignStart": 86.84,
+   "alignEnd": 87.43
+  },
+  {
+   "i": 248,
+   "text": "main",
+   "bare": "main",
+   "scene": "S13",
+   "phrase": 41,
+   "sentence": 38,
+   "tokens": [
+    "main"
+   ],
+   "start": 87.58,
+   "end": 87.76,
+   "alignStart": 87.57,
+   "alignEnd": 87.74
+  },
+  {
+   "i": 249,
+   "text": "bhej",
+   "bare": "bhej",
+   "scene": "S13",
+   "phrase": 41,
+   "sentence": 38,
+   "tokens": [
+    "bhej"
+   ],
+   "start": 87.76,
+   "end": 88.02,
+   "alignStart": 87.74,
+   "alignEnd": 87.98
+  },
+  {
+   "i": 250,
+   "text": "dunga.",
+   "bare": "dunga",
+   "scene": "S13",
+   "phrase": 41,
+   "sentence": 38,
+   "tokens": [
+    "dunga"
+   ],
+   "start": 88.04,
+   "end": 88.3,
+   "alignStart": 87.98,
+   "alignEnd": 88.33
+  },
+  {
+   "i": 251,
+   "text": "Aur",
+   "bare": "aur",
+   "scene": "S13",
+   "phrase": 42,
+   "sentence": 39,
+   "tokens": [
+    "aur"
+   ],
+   "start": 88.6,
+   "end": 88.74,
+   "alignStart": 88.57,
+   "alignEnd": 88.69
+  },
+  {
+   "i": 252,
+   "text": "yeh",
+   "bare": "yeh",
+   "scene": "S13",
+   "phrase": 42,
+   "sentence": 39,
+   "tokens": [
+    "yeh"
+   ],
+   "start": 88.74,
+   "end": 88.94,
+   "alignStart": 88.69,
+   "alignEnd": 88.9
+  },
+  {
+   "i": 253,
+   "text": "video",
+   "bare": "video",
+   "scene": "S13",
+   "phrase": 42,
+   "sentence": 39,
+   "tokens": [
+    "video"
+   ],
+   "start": 88.94,
+   "end": 89.28,
+   "alignStart": 88.9,
+   "alignEnd": 89.37
+  },
+  {
+   "i": 254,
+   "text": "us",
+   "bare": "us",
+   "scene": "S13",
+   "phrase": 42,
+   "sentence": 39,
+   "tokens": [
+    "us"
+   ],
+   "start": 89.38,
+   "end": 89.6,
+   "alignStart": 89.37,
+   "alignEnd": 89.56
+  },
+  {
+   "i": 255,
+   "text": "dost",
+   "bare": "dost",
+   "scene": "S13",
+   "phrase": 42,
+   "sentence": 39,
+   "tokens": [
+    "dost"
+   ],
+   "start": 89.6,
+   "end": 89.77,
+   "alignStart": 89.56,
+   "alignEnd": 89.83
+  },
+  {
+   "i": 256,
+   "text": "ko",
+   "bare": "ko",
+   "scene": "S13",
+   "phrase": 42,
+   "sentence": 39,
+   "tokens": [
+    "ko"
+   ],
+   "start": 89.88,
+   "end": 89.99,
+   "alignStart": 89.83,
+   "alignEnd": 89.94
+  },
+  {
+   "i": 257,
+   "text": "bhejo...",
+   "bare": "bhejo",
+   "scene": "S13",
+   "phrase": 42,
+   "sentence": 39,
+   "tokens": [
+    "bhejo"
+   ],
+   "start": 89.99,
+   "end": 90.35,
+   "alignStart": 89.94,
+   "alignEnd": 90.35
+  },
+  {
+   "i": 258,
+   "text": "jiski",
+   "bare": "jiski",
+   "scene": "S13",
+   "phrase": 43,
+   "sentence": 40,
+   "tokens": [
+    "jiski"
+   ],
+   "start": 90.58,
+   "end": 90.91,
+   "alignStart": 90.59,
+   "alignEnd": 90.88
+  },
+  {
+   "i": 259,
+   "text": "website",
+   "bare": "website",
+   "scene": "S13",
+   "phrase": 43,
+   "sentence": 40,
+   "tokens": [
+    "website"
+   ],
+   "start": 90.91,
+   "end": 91.35,
+   "alignStart": 90.88,
+   "alignEnd": 91.36
+  },
+  {
+   "i": 260,
+   "text": "hai.",
+   "bare": "hai",
+   "scene": "S13",
+   "phrase": 43,
+   "sentence": 40,
+   "tokens": [
+    "hai"
+   ],
+   "start": 91.35,
+   "end": 91.62,
+   "alignStart": 91.36,
+   "alignEnd": 91.58
+  }
+ ]
+}
