@@ -1,10 +1,10 @@
 // A server rack outline, shared by S7 (the houses morph into racks) and S8 (the hacker walks past the login; the racks turn red). Draw inside <Canvas>.
-// The "server hall" is the contract between S7 and S8: S7 ends with these five racks, S8 starts with the same five racks in the same places.
+// The "server hall" is the contract between S7 and S8: S7 ends with these six racks, S8 starts with the same six racks in the same places.
 import React from "react";
 import { C } from "../theme";
 import { Stroke, circle, line, rrect } from "./draw";
 
-export const HALL = { top: 470, h: 600, w: 130, xs: [200, 370, 540, 710, 880] } as const;
+export const HALL = { top: 470, h: 600, w: 110, xs: [180, 324, 468, 612, 756, 900] } as const;   // six racks, like the six houses they morph from
 
 export const ServerRack: React.FC<{
   x: number;                 // centre x

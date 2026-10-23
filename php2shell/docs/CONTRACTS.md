@@ -58,7 +58,7 @@ the brief forgot. Silence is a design element: do not put sound on everything, a
 - S1 -> S2 (S1's globe): `<Globe frame={f} cx=540 cy=800 R=330 lit=all 1 alarm=1 alarmGlow=exp(-(f - hit)/14)>` with the red servers, the red radial glow, and `globeRot(frame)`. S2 draws exactly that at its start, then dollies through it.
 - S2 -> S3 -> S4 (one browser window, then the PHP panel under it, the stack diagram, the bugs, the magnifier): same owner, so it is internal. S4 ends by dissolving its elements to dust (`Dust`, drifting up and out).
 - S4 -> S5: S5 starts from dust: the dots (the same kind: 2-3 px white) drift in and write/assemble the ground line and the dabbawala. S5 -> S6 -> S7 (the analogy world, the leaked key, the match cut to servers): same owner.
-- S7 -> S8: the **server hall**. S7 ends with five racks drawn with `ServerRack` at `HALL.xs` (x = 200, 370, 540, 710, 880), `top = HALL.top` (470), `w = HALL.w` (130), `h = HALL.h` (600), white. S8 starts with the same five racks
+- S7 -> S8: the **server hall**. S7 ends with six racks (the six houses of S5/S6 morph into them) drawn with `ServerRack` at `HALL.xs` (x = 180, 324, 468, 612, 756, 900), `top = HALL.top` (470), `w = HALL.w` (110), `h = HALL.h` (600), white. S8 starts with the same six racks
   in the same places (white, still), the hacker enters from an edge, the login box ("USERNAME / PASSWORD") stands in front of the racks. S8 -> S9 -> S10: same owner (red wave, the gauge, the turn).
 - S10 -> S11 -> S12 -> S13: S10 ends with the green headline and three fact cards; S11 starts after they leave (dissolve). S11 -> S12 -> S13 same owner.
 
