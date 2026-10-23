@@ -50,8 +50,11 @@ export const cameraAt = (f: number): number => {
   const i = SCENES.indexOf(sceneAt(f)), s = SCENES[i];
   const here = sceneScale(s, f);
   if (i === 0) return here;
-  const blend = smooth01((f - (s.start - ANTICIPATE)) / (DISSOLVE + ANTICIPATE));          // the camera eases from the end of the last scene into this one
-  return sceneScale(SCENES[i - 1], f) * (1 - blend) + here * blend;
+  const prev = sceneScale(SCENES[i - 1], f);
+  // the camera eases from the end of the last scene into this one; a big deliberate push-in is released over more frames (about 1 s for 0.07) so it never reads as a snap-back
+  const span = Math.max(DISSOLVE + ANTICIPATE, Math.round(Math.abs(prev - here) * 500));
+  const blend = smooth01((f - (s.start - ANTICIPATE)) / span);
+  return prev * (1 - blend) + here * blend;
 };
 /** the 2-frame micro-shake: a seeded offset (px) and roll (deg) on the hit frame and the one after */
 export const shakeAt = (f: number): { x: number; y: number; r: number } => {
