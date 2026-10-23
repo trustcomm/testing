@@ -21,11 +21,13 @@ export const START: Record<SceneId, number> = {
   S8: fw(wp(24, "aur")), S9: fw(wp(26, "isliye")), S10: fw(wp(29, "lekin")), S11: fw(wp(34, "toh")), S12: fw(wp(37, "aur")), S13: fw(wp(40, "apni")),
 };
 export const TOTAL = totalFrames();
+/** a scene may keep its layer alive longer than the default (S11's versions panel is held while S12 begins: its own exit finishes at `exitEnd`) */
+const LAYER_TO: Partial<Record<SceneId, number>> = { S11: c11.cue.exitEnd };
 export interface SceneInfo { id: SceneId; name: string; start: number; end: number; from: number; to: number }
 /** start/end: first word to the next scene's first word. from/to: the frames the scene's LAYER lives on (it starts ANTICIPATE frames early and dissolves over DISSOLVE frames). */
 export const SCENES: SceneInfo[] = SCENE_IDS.map((id, i) => {
   const next = SCENE_IDS[i + 1];
-  return { id, name: SCENE_NAMES[id], start: START[id], end: next ? START[next] : TOTAL, from: i === 0 ? 0 : START[id] - ANTICIPATE, to: next ? START[next] - ANTICIPATE + DISSOLVE : TOTAL };
+  return { id, name: SCENE_NAMES[id], start: START[id], end: next ? START[next] : TOTAL, from: i === 0 ? 0 : START[id] - ANTICIPATE, to: next ? Math.max(START[next] - ANTICIPATE + DISSOLVE, LAYER_TO[id] ?? 0) : TOTAL };
 });
 export const sceneAt = (frame: number): SceneInfo => [...SCENES].reverse().find((s) => frame >= s.start) ?? SCENES[0];
 
