@@ -47,12 +47,12 @@ export const cues: SceneCues = {
   ],
   cam: [
     key(cue.pullStart, onStation(2, 1.0), "HOLD"),
-    key(cue.pullEnd, mapView(0.15), "PULL", { ease: "swing" }),
-    key(cue.flyStart, mapView(0.15), "HOLD"),
+    key(cue.pullEnd, mapView(0.14), "PULL", { ease: "swing" }),
+    key(cue.flyStart, mapView(0.14), "HOLD"),
     key(cue.flyEnd, onStation(1, 1.0), "FLY-TO"),
     key(cue.dollyStart, onStation(1, 1.0), "HOLD"),
     key(cue.dollyEnd, { x: groundWorld.x, y: groundWorld.y, s: 8.0 }, "DOLLY-THROUGH", { ease: "swing", settle: false }),
   ],
   blur: [],
-  captionLift: [[3566, 3712]],
+  captionLift: [],
 };

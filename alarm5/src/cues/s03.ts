@@ -33,7 +33,7 @@ export const sfx: SfxEvent[] = [
   { id: "s3.quest", frame: cue.kaun, sfx: "quiz_pluck", gainDb: -4, pan: 0, note: "kaun?: the quizzical rising pluck, the big ? lands" },
 ];
 export const cues: SceneCues = {
-  cue, sfx, hero: cue.kaun + 20,
+  cue, sfx, hero: cue.kaun + 8,
   anchors: [
     { label: "paanch", frame: cue.numeral + 6, note: "the big 5 whole at screen centre (it shrinks into the HUD next)" },
     { label: "banks", frame: cue.banksPill + 8, note: "the bank outline with the US BANKS label" },

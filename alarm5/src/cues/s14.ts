@@ -26,7 +26,7 @@ export const sfx: SfxEvent[] = [
   { id: "s14.lock", frame: cue.lock + 6, sfx: "lock_click", gainDb: -14, pan: 0.1, pitch: 4, note: "the green lock clicks" },
 ];
 export const cues: SceneCues = {
-  cue, sfx, hero: cue.nope + 20,
+  cue, sfx, hero: cue.nope + 12,
   anchors: [
     { label: "isliye", frame: cue.pullStart + 40, note: "pulling further out: the whole map" },
     { label: "darna", frame: cue.route1 + 20, note: "the beacons and the route lines turning green in a wave" },
@@ -36,10 +36,10 @@ export const cues: SceneCues = {
     { label: "nahi", frame: cue.nope + 12, note: "the tiny robot shaking its head nope beside the green lock" },
   ],
   cam: [
-    key(cue.pullStart, mapView(0.15), "ORBIT", { ease: "swing", r: 2.0 }),
-    key(cue.pullEnd, mapView(0.14), "PULL", { ease: "swing", r: 2.0, settle: false }),
-    key(cue.pushStart, mapView(0.14), "HOLD", { r: 2.0 }),
-    key(cue.pushEnd, mapView(0.155), "HOLD", { ease: "swing", r: 0.5 }),
+    key(cue.pullStart, mapView(0.14), "ORBIT", { ease: "swing", r: 2.0 }),
+    key(cue.pullEnd, mapView(0.13), "PULL", { ease: "swing", r: 2.0, settle: false }),
+    key(cue.pushStart, mapView(0.13), "HOLD", { r: 2.0 }),
+    key(cue.pushEnd, mapView(0.145), "HOLD", { ease: "swing", r: 0.5 }),
   ],
-  captionLift: [[4498, 4915]],
+  captionLift: [],
 };

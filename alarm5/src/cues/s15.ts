@@ -31,8 +31,8 @@ export const cues: SceneCues = {
     { label: "dunga", frame: cue.dunga + 24, note: "the CTA complete, the sources line at the bottom edge" },
   ],
   cam: [
-    key(S("har"), mapView(0.152), "HOLD", { r: 0.5 }),
-    key(5302, mapView(0.158), "HOLD", { ease: "swing", r: 0 }),
+    key(S("har"), mapView(0.138), "HOLD", { r: 0.5 }),
+    key(5302, mapView(0.144), "HOLD", { ease: "swing", r: 0 }),
   ],
-  captionLift: [[4915, 5302]],
+  captionLift: [],
 };

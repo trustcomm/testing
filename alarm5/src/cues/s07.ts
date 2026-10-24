@@ -33,7 +33,7 @@ export const sfx: SfxEvent[] = [
   { id: "s7.sign", frame: cue.sign, sfx: "stamp_thud", gainDb: -9, pan: 0, pitch: 2, note: "the CLOSING sign swings in and settles" },
 ];
 export const cues: SceneCues = {
-  cue, sfx, hero: cue.sign + 28,
+  cue, sfx, hero: cue.sign + 10,
   anchors: [
     { label: "teen", frame: cue.numeral + 6, note: "the big 3 at screen centre, the camera has just arrived at the server city" },
     { label: "zeabur", frame: cue.zeabur + 14, note: "the skyline of server-rack buildings labelled ZEABUR" },

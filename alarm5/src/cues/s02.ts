@@ -24,7 +24,7 @@ export const cues: SceneCues = {
     { label: "shuru", frame: cue.flyStart + 36, note: "mid FLY-TO: the camera has zoomed out and travels left toward the bank, motion blur" },
   ],
   cam: [
-    key(cue.flyStart, mapView(0.15), "HOLD"),
+    key(cue.flyStart, mapView(0.14), "HOLD"),
     key(cue.flyEnd, onStation(5, 1.0), "FLY-TO"),
   ],
   blur: [],

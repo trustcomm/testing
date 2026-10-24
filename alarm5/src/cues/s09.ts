@@ -26,7 +26,7 @@ export const sfx: SfxEvent[] = [
   { id: "s9.heart", frame: cue.sun + 22, sfx: "heartbeat", gainDb: -2, pan: 0, note: "heartbeat on sakta" },
 ];
 export const cues: SceneCues = {
-  cue, sfx, hero: cue.sun + 30,
+  cue, sfx, hero: cue.sun - 8,
   anchors: [
     { label: "do", frame: cue.numeral + 6, note: "the big 2 at screen centre" },
     { label: "signal", frame: cue.phone + 20, note: "the phone outline with a call screen (Call, a red hang-up button)" },

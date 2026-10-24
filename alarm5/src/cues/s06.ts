@@ -23,7 +23,7 @@ export const sfx: SfxEvent[] = [
   { id: "s6.green", frame: cue.beaconGreen, sfx: "tink", gainDb: -4, pitch: 9, pan: 0.5, note: "the beacon flips red to green" },
 ];
 export const cues: SceneCues = {
-  cue, sfx, hero: cue.beaconGreen + 24,
+  cue, sfx, hero: cue.beaconGreen - 4,
   anchors: [
     { label: "developer", frame: cue.outStart + 24, note: "the camera pulling back out through the box: the dark interior shrinking" },
     { label: "version", frame: cue.line1 + 10, note: "the green action card, 1. Version check" },

@@ -17,7 +17,7 @@ export const sfx: SfxEvent[] = [
   { id: "s4.green", frame: cue.beaconGreen + 8, sfx: "tink", gainDb: -11, pitch: 9, pan: -0.5, note: "the beacon flips red to green" },
 ];
 export const cues: SceneCues = {
-  cue, sfx, hero: cue.lock + 24,
+  cue, sfx, hero: cue.lock + 2,
   anchors: [
     { label: "seekh", frame: cue.pullStart + 10, note: "the camera pulling back a little from the bank" },
     { label: "password", frame: cue.password + 8, note: "the green-outlined action card with the lock icon, 'password' underlined green" },

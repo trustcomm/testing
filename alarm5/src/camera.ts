@@ -78,8 +78,9 @@ export function makeCamera(keysIn: CamKey[], punches: Punch[], sentences: Senten
   };
   const at = (f: number): CamState & { sx: number; sy: number } => {
     const b = base(f);
-    // the sentence pushes add up while the camera holds; on the full map they saturate at about +6 % (the whole map must stay inside the safe zones), in close-ups they are free
-    const cap = 0.06 + 0.94 * smoothstep((b.s - 0.2) / 0.4), push = cap * Math.tanh(pushLog(f) / cap);
+    // the sentence pushes add up while the camera holds; they saturate at about +6 % on the full map (the whole map must stay inside the safe zones) and +12 % in a close-up (the station's beacon
+    // and the art stay inside the frame); the zoom the eye notices comes from the FLY-TO dips, the PUNCHes and the DOLLY-THROUGHs
+    const cap = 0.06 + 0.06 * smoothstep((b.s - 0.2) / 0.4), push = cap * Math.tanh(pushLog(f) / cap);
     const s = b.s * Math.exp(push) * punchFactor(f) * settleTerm(f);
     // drift: 4-second seeded noise; amplitude +-6 px (screen), +-0.2 deg
     const t = f / FPS / 4, dx = 6 * noise1(t, 3), dy = 6 * noise1(t, 4), dr = 0.2 * noise1(t, 5);

@@ -45,7 +45,8 @@ ok(SFX.every((e) => e.frame >= 0 && e.frame < TOTAL), "sfx: every event inside t
 const badA = ANCHORS.filter((a) => a.frame < START[a.scene] - 1 || a.frame >= TOTAL);
 ok(badA.length === 0, `anchors: all ${ANCHORS.length} QA anchors lie inside the film and not before their scene`, badA.map((a) => `${a.scene}:${a.label}@${a.frame}`).join(" "));
 ok(ANCHORS.every((a, _i, all) => all.filter((b) => b.frame === a.frame).length >= 1), "anchors: each has a frame");
-ok(SCENES.every((s) => HERO[s.id] > 0 && HERO[s.id] < TOTAL), "hero: every scene has a hero frame inside the film");
+ok(SCENES.every((s) => HERO[s.id] >= s.start && HERO[s.id] < s.end), "hero: every scene's hero frame lies inside that scene", SCENES.filter((s) => !(HERO[s.id] >= s.start && HERO[s.id] < s.end)).map((s) => `${s.id}:${HERO[s.id]} (${s.start}-${s.end})`).join(" "));
+ok(SCENES.every((s) => CAMERA.speed(HERO[s.id]) < 400), "hero: no hero frame is in the middle of a fast camera move", SCENES.filter((s) => CAMERA.speed(HERO[s.id]) >= 400).map((s) => `${s.id}:${HERO[s.id]}`).join(" "));
 ok(CAMERA.keys.every((k, i, a) => i === 0 || k.f > a[i - 1].f), `camera: ${CAMERA.keys.length} keys in order, ${CAMERA.travels.length} travelling moves, ${PUNCH_FRAMES.length} punches`);
 const short = CAMERA.keys.map((k, i, a) => ({ k, d: i ? k.f - a[i - 1].f : 99 })).filter((o) => o.k.move !== "HOLD" && o.k.move !== "START" && o.d < 8);
 ok(short.length === 0, "camera: no move shorter than 8 frames", short.map((o) => `${o.k.move}@${o.k.f} (${o.d})`).join(" "));

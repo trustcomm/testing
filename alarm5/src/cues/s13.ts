@@ -19,7 +19,7 @@ export const sfx: SfxEvent[] = [
   { id: "s13.chowki", frame: cue.chowkidaar, sfx: "tone_soft", gainDb: -11, frames: 80, pitch: 11, pan: 0.05, note: "chowkidaar: the high tone, station #1 (centre)" },
 ];
 export const cues: SceneCues = {
-  cue, sfx, hero: cue.chowkidaar + 40,
+  cue, sfx, hero: cue.chowkidaar + 34,
   anchors: [
     { label: "ab ek baat", frame: cue.pullEnd + 4, note: "the full map, five green beacons, the orbit drift starting" },
     { label: "teen", frame: cue.dim + 10, note: "stations #3 and #2 dim to 40 %" },
@@ -29,7 +29,7 @@ export const cues: SceneCues = {
   ],
   cam: [
     key(cue.pullStart, onStation(1, 0.92), "HOLD"),
-    key(cue.pullEnd, mapView(0.15), "PULL", { ease: "swing", r: 0 }),
+    key(cue.pullEnd, mapView(0.14), "PULL", { ease: "swing", r: 0 }),
   ],
-  captionLift: [[4170, 4530]],
+  captionLift: [],
 };

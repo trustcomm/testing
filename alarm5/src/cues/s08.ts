@@ -23,7 +23,7 @@ export const sfx: SfxEvent[] = [
   { id: "s8.green", frame: cue.beaconGreen + 6, sfx: "tink", gainDb: -13, pitch: 9, pan: -0.5, note: "the beacon flips red to green" },
 ];
 export const cues: SceneCues = {
-  cue, sfx, hero: cue.beaconGreen + 24,
+  cue, sfx, hero: cue.beaconGreen + 4,
   anchors: [
     { label: "wahan", frame: cue.glideStart + 30, note: "the camera gliding sideways: the closing city and the green safe server" },
     { label: "app", frame: cue.app + 10, note: "an app icon lit in the dark city" },
