@@ -39,7 +39,7 @@ export const cues: SceneCues = {
     key(cue.pullStart, mapView(0.14), "ORBIT", { ease: "swing", r: 2.0 }),
     key(cue.pullEnd, mapView(0.13), "PULL", { ease: "swing", r: 2.0, settle: false }),
     key(cue.pushStart, mapView(0.13), "HOLD", { r: 2.0 }),
-    key(cue.pushEnd, mapView(0.145), "HOLD", { ease: "swing", r: 0.5 }),
+    key(cue.pushEnd, mapView(0.14), "HOLD", { ease: "swing", r: 0.5 }),
   ],
   captionLift: [],
 };

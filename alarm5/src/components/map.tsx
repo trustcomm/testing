@@ -65,7 +65,7 @@ export const Beacon: React.FC<{ n: StationNo }> = ({ n }) => {
   const R = Math.max(20, 7 / cam.s);                   // 40 px at station zoom; never smaller than ~14 px on screen at map zoom
   const housing = 1 - smooth(ART.housingFade, ART.housingFade + 40, f);
   const wvT = f - WAVE[n], wv = wvT >= 0 && wvT < 48 ? Math.sin((Math.PI * wvT) / 48) : 0;
-  const halo = R * 7 * (1 + 1.4 * wv), g = st.green;
+  const halo = R * (4 + 3 * (1 - smooth(0.3, 0.9, cam.s))) * (1 + 1.4 * wv), g = st.green;   // the glow is a third smaller in a close-up: it must not bleed into the margins
   const layers: { color: string; a: number }[] = [{ color: C.alarm, a: 1 - g }, { color: C.trust, a: g }].filter((l) => l.a > 0.003);
   return (
     <>

@@ -88,7 +88,7 @@ export const S11Screen: React.FC = () => {
         </svg>
       )}
       {f >= cue.title - 4 && f < cue.titleOut + 30 && (
-        <div style={{ position: "absolute", left: 0, right: 0, top: 330, textAlign: "center", opacity: 1 - o, filter: o > 0 ? `blur(${o * 10}px)` : undefined }}>
+        <div style={{ position: "absolute", left: 0, right: 0, top: 372, textAlign: "center", opacity: 1 - o, filter: o > 0 ? `blur(${o * 10}px)` : undefined }}>
           <Rise at={cue.title} frames={26} dy={26}><div style={{ ...headline(158), letterSpacing: "-0.035em", textShadow: "0 0 60px rgba(255,59,48,0.35)" }}>PHP<span style={{ color: C.alarm }}>2</span>Shell</div></Rise>
         </div>
       )}

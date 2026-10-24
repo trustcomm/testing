@@ -85,7 +85,7 @@ export const S9World: React.FC = () => {
           {/* sound keeps radiating from the lit mic */}
           {micStarted && lit > 0.05 && [0, 1, 2, 3].map((i) => {
             const t = ((f - cue.micOn) / 64 + i * 0.25) % 1;
-            return <path key={i} d={arc(0, -322, 40 + t * 230, 200, 340)} fill="none" stroke={C.alarm} strokeWidth={3} strokeLinecap="round" opacity={(1 - t) * 0.75 * lit * smooth(0, 0.1, t)} />;
+            return <path key={i} d={arc(0, -322, 40 + t * 130, 200, 340)} fill="none" stroke={C.alarm} strokeWidth={3} strokeLinecap="round" opacity={(1 - t) * 0.75 * lit * smooth(0, 0.1, t)} />;
           })}
           {/* secure app: a white shield beside the phone; the bug flashes in red */}
           <Stroke d="M236 -230L286 -210V-160C286 -130 262 -112 236 -100C210 -112 186 -130 186 -160V-210Z" at={cue.secure} frames={32} />

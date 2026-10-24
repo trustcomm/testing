@@ -11,7 +11,19 @@ import { PNG } from "pngjs";
 const frames = process.argv.slice(2).map(Number);
 const W = 1080, H = 1920, TOP = 240, BOTTOM = H - 440, MARGIN = 24, THR = 48;
 // Deliberate exceptions, each with its reason (frame -> {re, why}); filled in after the first run, see the list printed at the end.
-const ALLOW = {};
+const ALLOW = {
+  424: { re: /top/, why: "S1: the alarm pulse rings expand through the top margin" }, 440: { re: /top/, why: "S1: the alarm pulse rings expand through the top margin" },
+  589: { re: /bottom/, why: "S2 -> S3: the FLY-TO is in full flight, the PHP station's art passes through the bottom" },
+  2918: { re: /bottom/, why: "S8 -> S9: the FLY-TO is in full flight" },
+  1064: { re: /top|left|right/, why: "S3: the PUNCH on 'brake' (x1.25) pushes the beacon's glow past the corner" },
+  2509: { re: /top|left|right/, why: "S7: the PUNCH on 'lakh' (x1.25) pushes the beacon's glow past the corner; the city's ground line runs past both sides" },
+  3318: { re: /top|left|right/, why: "S9: the PUNCH on 'sun' (x1.25): the call rings pass the top margin" },
+  3568: { re: /top|bottom/, why: "S11: the numeral reveal's particles gather from the whole frame" },
+  3582: { re: /top|left|right|captions/, why: "S11: the numeral's shock rings (full-frame by design) cross the margins as the 1 lands" },
+  2102: { re: /right/, why: "S6: the conveyor belt of the package scene runs past the right edge" }, 2203: { re: /right/, why: "S6 -> S7: the FLY-TO is in full flight" },
+};
+// the city skyline of S7 / S8 is scenery that continues past the frame (a ground line and buildings cut by the edge are part of it)
+for (const f of [2804, 2849, 2873, 2879]) ALLOW[f] = { re: /left|right/, why: "S8: the skyline of the Zeabur city continues past the left edge" };
 const browserExecutable = "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell";
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts"), publicDir: path.resolve("public") });
 const props = { bg: { mode: "bg", audio: false }, nocap: { mode: "full", captions: false, audio: false, routes: false }, full: { mode: "full", audio: false, routes: false } };
@@ -37,7 +49,7 @@ for (const f of frames) {
     const ov = box(content, Math.max(0, caps.x0 - 10), Math.max(0, caps.y0 - 10), Math.min(W, caps.x1 + 11), Math.min(H, caps.y1 + 11));
     if (ov && ov.n > 60) notes.push(`content overlaps the captions (${ov.n} px at x ${ov.x0}..${ov.x1} y ${ov.y0}..${ov.y1})`);
   }
-  const allowed = notes.filter((n) => ALLOW[f]?.re.test(n)), real = notes.filter((n) => !allowed.includes(n));
+  const allowed = process.env.NOALLOW ? [] : notes.filter((n) => ALLOW[f]?.re.test(n)), real = notes.filter((n) => !allowed.includes(n));
   if (real.length) bad++; else for (const k of Object.keys(props)) await rm(p[k]);   // only the flagged frames keep their PNGs (build/layout/)
   console.log(`${real.length ? "FLAG" : "ok  "}  frame ${String(f).padStart(4)}  content ${all ? `x ${all.x0}..${all.x1} y ${all.y0}..${all.y1}` : "-"}  captions ${caps ? `y ${caps.y0}..${caps.y1}` : "-"}  ${real.join("; ")}${allowed.length ? `  [by design: ${ALLOW[f].why}]` : ""}`);
 }

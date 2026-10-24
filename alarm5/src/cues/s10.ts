@@ -29,7 +29,7 @@ export const cues: SceneCues = {
     { label: "update", frame: cue.update + 14, note: "'Signal update karo' card plus the grey 'No known exploitation' line" },
   ],
   cam: [
-    key(cue.pullStart, onStation(2, 1.2), "HOLD"),
+    key(cue.pullStart, onStation(2, 1.08), "HOLD"),
     key(cue.pullEnd, onStation(2, 1.0), "PULL", { ease: "swing", settle: false }),
   ],
 };

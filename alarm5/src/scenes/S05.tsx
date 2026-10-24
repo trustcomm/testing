@@ -12,7 +12,7 @@ import { ART } from "../timeline";
 import { cue } from "../cues/s05";
 import { cue as c6 } from "../cues/s06";
 
-export const HATCH = { x: 430, y: -110 };                                        // interior units
+export const HATCH = { x: 372, y: -110 };                                        // interior units
 const PULLS = [cue.pull1, cue.pull2, cue.pull3, cue.pull4];
 const RISES = [cue.keyCloud - 14, cue.keyAi - 14, 1951, 1962];
 const KEYX = [-330, -110, 110, 330];
