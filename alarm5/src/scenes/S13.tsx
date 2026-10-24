@@ -10,10 +10,10 @@ import { CAMERA, START } from "../timeline";
 import { project } from "../world";
 import { cue } from "../cues/s13";
 
-const ITEMS: { n: StationNo; at: number; text: string; side: "below" | "left" }[] = [
+const ITEMS: { n: StationNo; at: number; text: string; side: "below" | "left" | "above" }[] = [
   { n: 5, at: cue.khatra, text: "AI AGENT = KHATRA", side: "below" },
   { n: 4, at: cue.target, text: "AI TOOL = TARGET", side: "left" },
-  { n: 1, at: cue.chowkidaar, text: "AI-ERA RESEARCH = CHOWKIDAAR", side: "left" },
+  { n: 1, at: cue.chowkidaar, text: "AI-ERA RESEARCH = CHOWKIDAAR", side: "above" },
 ];
 /** S13 in screen space (positions follow the camera): a thin white ring on each highlighted station, exactly on its word, and its pill */
 export const S13Screen: React.FC = () => {
@@ -26,7 +26,7 @@ export const S13Screen: React.FC = () => {
       <Canvas>{ITEMS.map((it) => { const p = project(cam, STATION[it.n].x, STATION[it.n].y, 1); return <Stroke key={it.n} d={circle(p.sx, p.sy, 62)} at={it.at - 14} frames={26} color={C.text} w={2.5} glow="rgba(245,245,247,0.35)" />; })}</Canvas>
       {ITEMS.map((it) => {
         const p = project(cam, STATION[it.n].x, STATION[it.n].y, 1), pw = it.text.length * 17.9 + 58;
-        const x = it.side === "below" ? p.sx : p.sx - 62 - 16 - pw / 2, y = it.side === "below" ? p.sy + 108 : p.sy;
+        const x = it.side === "left" ? p.sx - 62 - 16 - pw / 2 : p.sx, y = it.side === "below" ? p.sy + 108 : it.side === "above" ? p.sy - 100 : p.sy;
         return <div key={it.n} style={{ position: "absolute", left: x, top: y, transform: "translate(-50%, -50%)" }}><Pop at={it.at}><Pill size={28} style={{ background: "rgba(10,10,12,0.78)", borderColor: C.text }}>{it.text}</Pill></Pop></div>;
       })}
     </AbsoluteFill>

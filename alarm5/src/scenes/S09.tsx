@@ -45,7 +45,7 @@ export const Phone: React.FC<{ at: number; call: number; ended: number; micLit: 
       <Stroke d={rrect(-128, -268, 256, 500, 30)} at={at + 8} frames={40} color={C.secondary} />
       <Stroke d={line(-34, -284, 34, -284)} at={at + 14} frames={16} color={C.secondary} />
       {/* the call screen */}
-      <g opacity={smooth(at + 30, at + 50, f)}>
+      <g opacity={smooth(at + 30, at + 50, f) * (1 - 0.85 * smooth(c10.ringStart, c10.ringEnd, f))}>   {/* S10: the call screen steps back while the green check is drawn over it */}
         <Stroke d={circle(0, -185, 34)} at={at + 30} frames={26} />
         <Stroke d={arc(0, -112, 44, 215, 325)} at={at + 34} frames={26} />
         <g opacity={1 - endP}><text x={0} y={-34} textAnchor="middle" fontFamily={FONT.body} fontWeight={700} fontSize={42} fill={C.text}>Call</text></g>

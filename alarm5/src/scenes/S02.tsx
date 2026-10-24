@@ -16,7 +16,7 @@ export const S2Screen: React.FC = () => {
   const u = settle(clamp01((f - cue.underline) / 26));
   return (
     <AbsoluteFill style={{ opacity: 1 - o, filter: o > 0 ? `blur(${o * 8}px)` : undefined, pointerEvents: "none" }}>
-      <div style={{ position: "absolute", left: 0, right: 0, top: 640, display: "flex", justifyContent: "center", gap: "0 28px", ...headline(150), whiteSpace: "nowrap" }}>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 590, display: "flex", justifyContent: "center", gap: "0 28px", ...headline(150), whiteSpace: "nowrap" }}>
         <Rise at={cue.darr} frames={22}><span>Darr</span></Rise>
         <Rise at={cue.nahi} frames={22}><span>nahi,</span></Rise>
         <Rise at={cue.sach} frames={22}>

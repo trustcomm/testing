@@ -87,7 +87,7 @@ export const S7World: React.FC = () => {
       </Local>
       <WPill x={0} y={-300} at={cue.zeabur} size={32}>ZEABUR</WPill>
       <div style={{ opacity: 1 - smooth(cue.pullEnd - 44, cue.pullEnd - 8, f) }}>
-        <Abs x={0} y={262}><Rise at={cue.hosting} frames={22}><T size={24} mono color={C.secondary}>HOSTING PLATFORM</T></Rise></Abs>
+        <Abs x={0} y={222}><Rise at={cue.hosting} frames={22}><T size={24} mono color={C.secondary}>HOSTING PLATFORM</T></Rise></Abs>
         <Stamp x={-140} at={cue.aug} label="AUG" /><Stamp x={140} at={cue.oct} label="OCT" />
       </div>
       {/* the counter */}

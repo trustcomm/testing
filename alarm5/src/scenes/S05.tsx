@@ -83,10 +83,10 @@ export const S5World: React.FC = () => {
         <Inner x={0} y={40} scale={0.125} opacity={inner}>
           <div style={{ position: "absolute", left: -1400, top: -1500, width: 2800, height: 3000, background: "radial-gradient(ellipse 900px 1000px at 50% 50%, #0a0b0e 0%, #020203 70%)" }} />
           <Local>
-            {[0, 1, 2, 3, 4, 5].map((i) => { const w = 1700 - i * 250, h = 2300 - i * 340; return <Stroke key={i} d={rrect(-w / 2, -160 - h / 2, w, h, 40)} at={1806 + i * 4} frames={34} color={C.hair} w={2} />; })}
+            {[0, 1, 2, 3, 4, 5].map((i) => { const w = 1700 - i * 250, h = 2300 - i * 340; return <Stroke key={i} d={rrect(-w / 2, -160 - h / 2, w, h, 40)} at={1803 + i * 3} frames={22} color={C.hair} w={2} />; })}
             {/* the hidden hatch */}
-            <Stroke d={rrect(HATCH.x - 74, HATCH.y - 96, 148, 192, 14)} at={1812} frames={30} color={C.text} />
-            <Stroke d={line(HATCH.x - 74, HATCH.y, HATCH.x + 74, HATCH.y)} at={1820} frames={20} color={C.secondary} />
+            <Stroke d={rrect(HATCH.x - 74, HATCH.y - 96, 148, 192, 14)} at={1808} frames={22} color={C.text} />
+            <Stroke d={line(HATCH.x - 74, HATCH.y, HATCH.x + 74, HATCH.y)} at={1814} frames={16} color={C.secondary} />
             <circle cx={HATCH.x} cy={HATCH.y - 120} r={9} fill={C.alarm} opacity={0.6 + 0.4 * Math.sin(f / 10)} />
             {KEYX.map((kx, i) => {
               const rise = settle(clamp01((f - RISES[i]) / 46)), p = PULLS[i];
