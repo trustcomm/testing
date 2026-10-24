@@ -1,0 +1,3025 @@
+{
+ "duration": 87.5624375,
+ "tokens": [
+  {
+   "token": "iss",
+   "display": "Iss",
+   "di": 0,
+   "phrase": 0,
+   "scene": "S1",
+   "start": 0.03,
+   "end": 0.21,
+   "logp": -17.8
+  },
+  {
+   "token": "hafte",
+   "display": "hafte",
+   "di": 1,
+   "phrase": 0,
+   "scene": "S1",
+   "start": 0.21,
+   "end": 0.59,
+   "logp": -60.0
+  },
+  {
+   "token": "tech",
+   "display": "tech",
+   "di": 2,
+   "phrase": 0,
+   "scene": "S1",
+   "start": 0.59,
+   "end": 0.9,
+   "logp": -97.8
+  },
+  {
+   "token": "ki",
+   "display": "ki",
+   "di": 3,
+   "phrase": 0,
+   "scene": "S1",
+   "start": 0.9,
+   "end": 1.05,
+   "logp": -29.1
+  },
+  {
+   "token": "duniya",
+   "display": "duniya",
+   "di": 4,
+   "phrase": 0,
+   "scene": "S1",
+   "start": 1.05,
+   "end": 1.33,
+   "logp": -99.2
+  },
+  {
+   "token": "mein",
+   "display": "mein",
+   "di": 5,
+   "phrase": 0,
+   "scene": "S1",
+   "start": 1.33,
+   "end": 1.5,
+   "logp": -35.9
+  },
+  {
+   "token": "paanch",
+   "display": "paanch",
+   "di": 6,
+   "phrase": 0,
+   "scene": "S1",
+   "start": 1.5,
+   "end": 1.84,
+   "logp": -64.9
+  },
+  {
+   "token": "alarm",
+   "display": "alarm",
+   "di": 7,
+   "phrase": 0,
+   "scene": "S1",
+   "start": 1.84,
+   "end": 2.11,
+   "logp": -42.6
+  },
+  {
+   "token": "baje",
+   "display": "baje.",
+   "di": 8,
+   "phrase": 0,
+   "scene": "S1",
+   "start": 2.11,
+   "end": 2.31,
+   "logp": -77.1
+  },
+  {
+   "token": "zyaadatar",
+   "display": "Zyaadatar",
+   "di": 0,
+   "phrase": 1,
+   "scene": "S1",
+   "start": 2.56,
+   "end": 3.02,
+   "logp": -152.1
+  },
+  {
+   "token": "logon",
+   "display": "logon",
+   "di": 1,
+   "phrase": 1,
+   "scene": "S1",
+   "start": 3.02,
+   "end": 3.27,
+   "logp": -88.5
+  },
+  {
+   "token": "ne",
+   "display": "ne",
+   "di": 2,
+   "phrase": 1,
+   "scene": "S1",
+   "start": 3.27,
+   "end": 3.36,
+   "logp": -17.0
+  },
+  {
+   "token": "suna",
+   "display": "suna",
+   "di": 3,
+   "phrase": 1,
+   "scene": "S1",
+   "start": 3.36,
+   "end": 3.73,
+   "logp": -39.0
+  },
+  {
+   "token": "bhi",
+   "display": "bhi",
+   "di": 4,
+   "phrase": 1,
+   "scene": "S1",
+   "start": 3.73,
+   "end": 3.85,
+   "logp": -12.1
+  },
+  {
+   "token": "nahi",
+   "display": "nahi.",
+   "di": 5,
+   "phrase": 1,
+   "scene": "S1",
+   "start": 3.85,
+   "end": 4.12,
+   "logp": -65.7
+  },
+  {
+   "token": "lekin",
+   "display": "Lekin",
+   "di": 0,
+   "phrase": 2,
+   "scene": "S1",
+   "start": 4.12,
+   "end": 4.34,
+   "logp": -33.2
+  },
+  {
+   "token": "inmein",
+   "display": "inmein",
+   "di": 1,
+   "phrase": 2,
+   "scene": "S1",
+   "start": 4.34,
+   "end": 4.74,
+   "logp": -70.9
+  },
+  {
+   "token": "se",
+   "display": "se",
+   "di": 2,
+   "phrase": 2,
+   "scene": "S1",
+   "start": 4.74,
+   "end": 4.88,
+   "logp": -19.6
+  },
+  {
+   "token": "kam",
+   "display": "kam",
+   "di": 3,
+   "phrase": 2,
+   "scene": "S1",
+   "start": 4.88,
+   "end": 5.21,
+   "logp": -53.9
+  },
+  {
+   "token": "se",
+   "display": "se",
+   "di": 4,
+   "phrase": 2,
+   "scene": "S1",
+   "start": 5.21,
+   "end": 5.36,
+   "logp": -20.6
+  },
+  {
+   "token": "kam",
+   "display": "kam",
+   "di": 5,
+   "phrase": 2,
+   "scene": "S1",
+   "start": 5.36,
+   "end": 5.74,
+   "logp": -108.0
+  },
+  {
+   "token": "ek",
+   "display": "ek...",
+   "di": 6,
+   "phrase": 2,
+   "scene": "S1",
+   "start": 5.74,
+   "end": 6.2,
+   "logp": -225.8
+  },
+  {
+   "token": "seedhaa",
+   "display": "seedha",
+   "di": 0,
+   "phrase": 3,
+   "scene": "S1",
+   "start": 6.2,
+   "end": 6.57,
+   "logp": -46.6
+  },
+  {
+   "token": "aapko",
+   "display": "aapko",
+   "di": 1,
+   "phrase": 3,
+   "scene": "S1",
+   "start": 6.57,
+   "end": 6.79,
+   "logp": -58.0
+  },
+  {
+   "token": "chhoota",
+   "display": "chhoota",
+   "di": 2,
+   "phrase": 3,
+   "scene": "S1",
+   "start": 6.79,
+   "end": 7.14,
+   "logp": -62.6
+  },
+  {
+   "token": "hai",
+   "display": "hai.",
+   "di": 3,
+   "phrase": 3,
+   "scene": "S1",
+   "start": 7.14,
+   "end": 7.22,
+   "logp": -36.9
+  },
+  {
+   "token": "darr",
+   "display": "Darr",
+   "di": 0,
+   "phrase": 4,
+   "scene": "S2",
+   "start": 7.22,
+   "end": 7.5,
+   "logp": -132.7
+  },
+  {
+   "token": "nahi",
+   "display": "nahi,",
+   "di": 1,
+   "phrase": 4,
+   "scene": "S2",
+   "start": 7.5,
+   "end": 7.87,
+   "logp": -109.4
+  },
+  {
+   "token": "sach",
+   "display": "sach.",
+   "di": 2,
+   "phrase": 4,
+   "scene": "S2",
+   "start": 7.87,
+   "end": 8.37,
+   "logp": -81.6
+  },
+  {
+   "token": "number2",
+   "display": "Number",
+   "di": 0,
+   "phrase": 5,
+   "scene": "S2",
+   "start": 8.37,
+   "end": 8.67,
+   "logp": -32.3
+  },
+  {
+   "token": "paanch",
+   "display": "paanch",
+   "di": 1,
+   "phrase": 5,
+   "scene": "S2",
+   "start": 8.67,
+   "end": 9.02,
+   "logp": -37.2
+  },
+  {
+   "token": "se",
+   "display": "se",
+   "di": 2,
+   "phrase": 5,
+   "scene": "S2",
+   "start": 9.02,
+   "end": 9.12,
+   "logp": -24.3
+  },
+  {
+   "token": "shuru",
+   "display": "shuru",
+   "di": 3,
+   "phrase": 5,
+   "scene": "S2",
+   "start": 9.12,
+   "end": 9.39,
+   "logp": -71.2
+  },
+  {
+   "token": "karte",
+   "display": "karte",
+   "di": 4,
+   "phrase": 5,
+   "scene": "S2",
+   "start": 9.39,
+   "end": 9.66,
+   "logp": -73.8
+  },
+  {
+   "token": "hain",
+   "display": "hain.",
+   "di": 5,
+   "phrase": 5,
+   "scene": "S2",
+   "start": 9.66,
+   "end": 9.84,
+   "logp": -49.0
+  },
+  {
+   "token": "number2",
+   "display": "Number",
+   "di": 0,
+   "phrase": 6,
+   "scene": "S3",
+   "start": 9.84,
+   "end": 10.13,
+   "logp": -40.2
+  },
+  {
+   "token": "paanch",
+   "display": "paanch.",
+   "di": 1,
+   "phrase": 6,
+   "scene": "S3",
+   "start": 10.13,
+   "end": 10.67,
+   "logp": -112.5
+  },
+  {
+   "token": "america",
+   "display": "America",
+   "di": 0,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 10.67,
+   "end": 11.06,
+   "logp": -107.4
+  },
+  {
+   "token": "ke",
+   "display": "ke",
+   "di": 1,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 11.06,
+   "end": 11.21,
+   "logp": -26.9
+  },
+  {
+   "token": "bade",
+   "display": "bade",
+   "di": 2,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 11.21,
+   "end": 11.55,
+   "logp": -41.0
+  },
+  {
+   "token": "banks",
+   "display": "banks",
+   "di": 3,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 11.55,
+   "end": 11.93,
+   "logp": -47.2
+  },
+  {
+   "token": "ne",
+   "display": "ne",
+   "di": 4,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 11.93,
+   "end": 12.07,
+   "logp": -44.0
+  },
+  {
+   "token": "customers",
+   "display": "customers",
+   "di": 5,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 12.07,
+   "end": 12.69,
+   "logp": -81.0
+  },
+  {
+   "token": "ke",
+   "display": "ke",
+   "di": 6,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 12.69,
+   "end": 12.78,
+   "logp": -45.8
+  },
+  {
+   "token": "ey",
+   "display": "AI",
+   "di": 7,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 12.78,
+   "end": 13.02,
+   "logp": -42.4
+  },
+  {
+   "token": "ai",
+   "display": "AI",
+   "di": 7,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 13.02,
+   "end": 13.23,
+   "logp": -24.9
+  },
+  {
+   "token": "agents",
+   "display": "agents",
+   "di": 8,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 13.23,
+   "end": 13.71,
+   "logp": -65.7
+  },
+  {
+   "token": "pe",
+   "display": "pe",
+   "di": 9,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 13.71,
+   "end": 13.86,
+   "logp": -33.3
+  },
+  {
+   "token": "brake",
+   "display": "brake",
+   "di": 10,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 13.86,
+   "end": 14.24,
+   "logp": -50.1
+  },
+  {
+   "token": "laga",
+   "display": "laga",
+   "di": 11,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 14.24,
+   "end": 14.48,
+   "logp": -42.0
+  },
+  {
+   "token": "diya",
+   "display": "diya.",
+   "di": 12,
+   "phrase": 7,
+   "scene": "S3",
+   "start": 14.48,
+   "end": 14.84,
+   "logp": -114.4
+  },
+  {
+   "token": "account",
+   "display": "Account",
+   "di": 0,
+   "phrase": 8,
+   "scene": "S3",
+   "start": 14.84,
+   "end": 15.16,
+   "logp": -70.4
+  },
+  {
+   "token": "mein",
+   "display": "mein",
+   "di": 1,
+   "phrase": 8,
+   "scene": "S3",
+   "start": 15.16,
+   "end": 15.27,
+   "logp": -24.2
+  },
+  {
+   "token": "login",
+   "display": "login?",
+   "di": 2,
+   "phrase": 8,
+   "scene": "S3",
+   "start": 15.27,
+   "end": 15.74,
+   "logp": -91.6
+  },
+  {
+   "token": "mana",
+   "display": "Mana.",
+   "di": 0,
+   "phrase": 9,
+   "scene": "S3",
+   "start": 15.74,
+   "end": 16.08,
+   "logp": -33.7
+  },
+  {
+   "token": "paise",
+   "display": "Paise",
+   "di": 0,
+   "phrase": 10,
+   "scene": "S3",
+   "start": 16.08,
+   "end": 16.43,
+   "logp": -87.8
+  },
+  {
+   "token": "bhejna",
+   "display": "bhejna?",
+   "di": 1,
+   "phrase": 10,
+   "scene": "S3",
+   "start": 16.43,
+   "end": 16.94,
+   "logp": -98.0
+  },
+  {
+   "token": "bilkul",
+   "display": "Bilkul",
+   "di": 0,
+   "phrase": 11,
+   "scene": "S3",
+   "start": 16.94,
+   "end": 17.45,
+   "logp": -74.1
+  },
+  {
+   "token": "mana",
+   "display": "mana.",
+   "di": 1,
+   "phrase": 11,
+   "scene": "S3",
+   "start": 17.45,
+   "end": 17.7,
+   "logp": -24.7
+  },
+  {
+   "token": "kyunki",
+   "display": "Kyunki",
+   "di": 0,
+   "phrase": 12,
+   "scene": "S3",
+   "start": 17.7,
+   "end": 18.03,
+   "logp": -82.4
+  },
+  {
+   "token": "galat",
+   "display": "galat",
+   "di": 1,
+   "phrase": 12,
+   "scene": "S3",
+   "start": 18.03,
+   "end": 18.35,
+   "logp": -59.7
+  },
+  {
+   "token": "transaction",
+   "display": "transaction",
+   "di": 2,
+   "phrase": 12,
+   "scene": "S3",
+   "start": 18.35,
+   "end": 18.87,
+   "logp": -66.1
+  },
+  {
+   "token": "hua",
+   "display": "hua...",
+   "di": 3,
+   "phrase": 12,
+   "scene": "S3",
+   "start": 18.87,
+   "end": 19.22,
+   "logp": -44.8
+  },
+  {
+   "token": "toh",
+   "display": "toh",
+   "di": 0,
+   "phrase": 13,
+   "scene": "S3",
+   "start": 19.22,
+   "end": 19.4,
+   "logp": -44.1
+  },
+  {
+   "token": "zimmedaar",
+   "display": "zimmedaar",
+   "di": 1,
+   "phrase": 13,
+   "scene": "S3",
+   "start": 19.4,
+   "end": 19.83,
+   "logp": -105.3
+  },
+  {
+   "token": "kaun",
+   "display": "kaun?",
+   "di": 2,
+   "phrase": 13,
+   "scene": "S3",
+   "start": 19.83,
+   "end": 20.23,
+   "logp": -76.1
+  },
+  {
+   "token": "seekh",
+   "display": "Seekh",
+   "di": 0,
+   "phrase": 14,
+   "scene": "S4",
+   "start": 20.23,
+   "end": 20.51,
+   "logp": -20.4
+  },
+  {
+   "token": "simple",
+   "display": "simple",
+   "di": 1,
+   "phrase": 14,
+   "scene": "S4",
+   "start": 20.51,
+   "end": 20.88,
+   "logp": -67.8
+  },
+  {
+   "token": "hai",
+   "display": "hai.",
+   "di": 2,
+   "phrase": 14,
+   "scene": "S4",
+   "start": 20.88,
+   "end": 21.02,
+   "logp": -27.5
+  },
+  {
+   "token": "apna",
+   "display": "Apna",
+   "di": 0,
+   "phrase": 15,
+   "scene": "S4",
+   "start": 21.02,
+   "end": 21.34,
+   "logp": -85.3
+  },
+  {
+   "token": "bank",
+   "display": "bank",
+   "di": 1,
+   "phrase": 15,
+   "scene": "S4",
+   "start": 21.34,
+   "end": 21.73,
+   "logp": -28.7
+  },
+  {
+   "token": "password",
+   "display": "password",
+   "di": 2,
+   "phrase": 15,
+   "scene": "S4",
+   "start": 21.73,
+   "end": 22.21,
+   "logp": -117.3
+  },
+  {
+   "token": "kabhi",
+   "display": "kabhi",
+   "di": 3,
+   "phrase": 15,
+   "scene": "S4",
+   "start": 22.21,
+   "end": 22.61,
+   "logp": -35.9
+  },
+  {
+   "token": "kisi",
+   "display": "kisi",
+   "di": 4,
+   "phrase": 15,
+   "scene": "S4",
+   "start": 22.61,
+   "end": 23.13,
+   "logp": -89.2
+  },
+  {
+   "token": "ay",
+   "display": "AI",
+   "di": 5,
+   "phrase": 15,
+   "scene": "S4",
+   "start": 23.13,
+   "end": 23.16,
+   "logp": -10.6
+  },
+  {
+   "token": "eye",
+   "display": "AI",
+   "di": 5,
+   "phrase": 15,
+   "scene": "S4",
+   "start": 23.16,
+   "end": 23.3,
+   "logp": -13.7
+  },
+  {
+   "token": "agent",
+   "display": "agent",
+   "di": 6,
+   "phrase": 15,
+   "scene": "S4",
+   "start": 23.3,
+   "end": 23.62,
+   "logp": -50.1
+  },
+  {
+   "token": "ko",
+   "display": "ko",
+   "di": 7,
+   "phrase": 15,
+   "scene": "S4",
+   "start": 23.62,
+   "end": 23.77,
+   "logp": -24.5
+  },
+  {
+   "token": "mat",
+   "display": "mat",
+   "di": 8,
+   "phrase": 15,
+   "scene": "S4",
+   "start": 23.77,
+   "end": 24.1,
+   "logp": -57.3
+  },
+  {
+   "token": "do",
+   "display": "do.",
+   "di": 9,
+   "phrase": 15,
+   "scene": "S4",
+   "start": 24.1,
+   "end": 24.34,
+   "logp": -57.1
+  },
+  {
+   "token": "number",
+   "display": "Number",
+   "di": 0,
+   "phrase": 16,
+   "scene": "S5",
+   "start": 24.34,
+   "end": 24.59,
+   "logp": -31.1
+  },
+  {
+   "token": "chaar",
+   "display": "chaar.",
+   "di": 1,
+   "phrase": 16,
+   "scene": "S5",
+   "start": 24.59,
+   "end": 25.05,
+   "logp": -95.1
+  },
+  {
+   "token": "lite",
+   "display": "LiteLLM,",
+   "di": 0,
+   "phrase": 17,
+   "scene": "S5",
+   "start": 25.05,
+   "end": 25.41,
+   "logp": -38.4
+  },
+  {
+   "token": "el",
+   "display": "LiteLLM,",
+   "di": 0,
+   "phrase": 17,
+   "scene": "S5",
+   "start": 25.41,
+   "end": 25.5,
+   "logp": -27.6
+  },
+  {
+   "token": "el",
+   "display": "LiteLLM,",
+   "di": 0,
+   "phrase": 17,
+   "scene": "S5",
+   "start": 25.5,
+   "end": 25.64,
+   "logp": -68.1
+  },
+  {
+   "token": "em",
+   "display": "LiteLLM,",
+   "di": 0,
+   "phrase": 17,
+   "scene": "S5",
+   "start": 25.64,
+   "end": 25.93,
+   "logp": -78.4
+  },
+  {
+   "token": "developers",
+   "display": "developers",
+   "di": 1,
+   "phrase": 17,
+   "scene": "S5",
+   "start": 25.93,
+   "end": 26.49,
+   "logp": -54.9
+  },
+  {
+   "token": "ka",
+   "display": "ka",
+   "di": 2,
+   "phrase": 17,
+   "scene": "S5",
+   "start": 26.49,
+   "end": 26.6,
+   "logp": -21.3
+  },
+  {
+   "token": "popular",
+   "display": "popular",
+   "di": 3,
+   "phrase": 17,
+   "scene": "S5",
+   "start": 26.6,
+   "end": 27.17,
+   "logp": -110.7
+  },
+  {
+   "token": "ay",
+   "display": "AI",
+   "di": 4,
+   "phrase": 17,
+   "scene": "S5",
+   "start": 27.17,
+   "end": 27.33,
+   "logp": -27.0
+  },
+  {
+   "token": "eye",
+   "display": "AI",
+   "di": 4,
+   "phrase": 17,
+   "scene": "S5",
+   "start": 27.33,
+   "end": 27.46,
+   "logp": -31.3
+  },
+  {
+   "token": "tool",
+   "display": "tool.",
+   "di": 5,
+   "phrase": 17,
+   "scene": "S5",
+   "start": 27.46,
+   "end": 27.8,
+   "logp": -87.2
+  },
+  {
+   "token": "uske",
+   "display": "Uske",
+   "di": 0,
+   "phrase": 18,
+   "scene": "S5",
+   "start": 27.8,
+   "end": 28.06,
+   "logp": -77.0
+  },
+  {
+   "token": "ek",
+   "display": "ek",
+   "di": 1,
+   "phrase": 18,
+   "scene": "S5",
+   "start": 28.06,
+   "end": 28.42,
+   "logp": -167.5
+  },
+  {
+   "token": "version",
+   "display": "version",
+   "di": 2,
+   "phrase": 18,
+   "scene": "S5",
+   "start": 28.42,
+   "end": 28.75,
+   "logp": -87.4
+  },
+  {
+   "token": "mein",
+   "display": "mein",
+   "di": 3,
+   "phrase": 18,
+   "scene": "S5",
+   "start": 28.75,
+   "end": 28.99,
+   "logp": -47.2
+  },
+  {
+   "token": "chupke",
+   "display": "chupke",
+   "di": 4,
+   "phrase": 18,
+   "scene": "S5",
+   "start": 28.99,
+   "end": 29.42,
+   "logp": -58.5
+  },
+  {
+   "token": "se",
+   "display": "se",
+   "di": 5,
+   "phrase": 18,
+   "scene": "S5",
+   "start": 29.42,
+   "end": 29.59,
+   "logp": -38.8
+  },
+  {
+   "token": "chor",
+   "display": "chor",
+   "di": 6,
+   "phrase": 18,
+   "scene": "S5",
+   "start": 29.59,
+   "end": 29.96,
+   "logp": -46.6
+  },
+  {
+   "token": "code",
+   "display": "code",
+   "di": 7,
+   "phrase": 18,
+   "scene": "S5",
+   "start": 29.96,
+   "end": 30.18,
+   "logp": -87.3
+  },
+  {
+   "token": "daal",
+   "display": "daal",
+   "di": 8,
+   "phrase": 18,
+   "scene": "S5",
+   "start": 30.18,
+   "end": 30.36,
+   "logp": -46.8
+  },
+  {
+   "token": "diya",
+   "display": "diya",
+   "di": 9,
+   "phrase": 18,
+   "scene": "S5",
+   "start": 30.36,
+   "end": 30.54,
+   "logp": -90.0
+  },
+  {
+   "token": "gaya",
+   "display": "gaya...",
+   "di": 10,
+   "phrase": 18,
+   "scene": "S5",
+   "start": 30.54,
+   "end": 30.85,
+   "logp": -187.5
+  },
+  {
+   "token": "jo",
+   "display": "jo",
+   "di": 0,
+   "phrase": 19,
+   "scene": "S5",
+   "start": 30.85,
+   "end": 30.97,
+   "logp": -23.7
+  },
+  {
+   "token": "cloud",
+   "display": "cloud",
+   "di": 1,
+   "phrase": 19,
+   "scene": "S5",
+   "start": 30.97,
+   "end": 31.42,
+   "logp": -106.1
+  },
+  {
+   "token": "aur",
+   "display": "aur",
+   "di": 2,
+   "phrase": 19,
+   "scene": "S5",
+   "start": 31.42,
+   "end": 31.74,
+   "logp": -100.2
+  },
+  {
+   "token": "ey",
+   "display": "AI",
+   "di": 3,
+   "phrase": 19,
+   "scene": "S5",
+   "start": 31.74,
+   "end": 31.85,
+   "logp": -13.6
+  },
+  {
+   "token": "ai",
+   "display": "AI",
+   "di": 3,
+   "phrase": 19,
+   "scene": "S5",
+   "start": 31.85,
+   "end": 32.03,
+   "logp": -58.0
+  },
+  {
+   "token": "ki",
+   "display": "ki",
+   "di": 4,
+   "phrase": 19,
+   "scene": "S5",
+   "start": 32.03,
+   "end": 32.25,
+   "logp": -27.3
+  },
+  {
+   "token": "keys",
+   "display": "keys",
+   "di": 5,
+   "phrase": 19,
+   "scene": "S5",
+   "start": 32.25,
+   "end": 32.58,
+   "logp": -28.7
+  },
+  {
+   "token": "chura",
+   "display": "chura",
+   "di": 6,
+   "phrase": 19,
+   "scene": "S5",
+   "start": 32.58,
+   "end": 32.79,
+   "logp": -57.3
+  },
+  {
+   "token": "raha",
+   "display": "raha",
+   "di": 7,
+   "phrase": 19,
+   "scene": "S5",
+   "start": 32.79,
+   "end": 33.02,
+   "logp": -80.9
+  },
+  {
+   "token": "tha",
+   "display": "tha.",
+   "di": 8,
+   "phrase": 19,
+   "scene": "S5",
+   "start": 33.02,
+   "end": 33.25,
+   "logp": -86.6
+  },
+  {
+   "token": "developer",
+   "display": "Developer",
+   "di": 0,
+   "phrase": 20,
+   "scene": "S6",
+   "start": 33.25,
+   "end": 33.72,
+   "logp": -104.9
+  },
+  {
+   "token": "ho",
+   "display": "ho?",
+   "di": 1,
+   "phrase": 20,
+   "scene": "S6",
+   "start": 33.72,
+   "end": 34.06,
+   "logp": -80.1
+  },
+  {
+   "token": "version",
+   "display": "Version",
+   "di": 0,
+   "phrase": 21,
+   "scene": "S6",
+   "start": 34.06,
+   "end": 34.43,
+   "logp": -81.0
+  },
+  {
+   "token": "check",
+   "display": "check",
+   "di": 1,
+   "phrase": 21,
+   "scene": "S6",
+   "start": 34.43,
+   "end": 34.66,
+   "logp": -26.7
+  },
+  {
+   "token": "karo",
+   "display": "karo,",
+   "di": 2,
+   "phrase": 21,
+   "scene": "S6",
+   "start": 34.66,
+   "end": 34.91,
+   "logp": -38.4
+  },
+  {
+   "token": "aur",
+   "display": "aur",
+   "di": 3,
+   "phrase": 21,
+   "scene": "S6",
+   "start": 34.91,
+   "end": 35.02,
+   "logp": -16.8
+  },
+  {
+   "token": "saari",
+   "display": "saari",
+   "di": 4,
+   "phrase": 21,
+   "scene": "S6",
+   "start": 35.02,
+   "end": 35.51,
+   "logp": -63.6
+  },
+  {
+   "token": "keys",
+   "display": "keys",
+   "di": 5,
+   "phrase": 21,
+   "scene": "S6",
+   "start": 35.51,
+   "end": 35.79,
+   "logp": -23.4
+  },
+  {
+   "token": "badal",
+   "display": "badal",
+   "di": 6,
+   "phrase": 21,
+   "scene": "S6",
+   "start": 35.79,
+   "end": 36.09,
+   "logp": -36.7
+  },
+  {
+   "token": "do",
+   "display": "do.",
+   "di": 7,
+   "phrase": 21,
+   "scene": "S6",
+   "start": 36.09,
+   "end": 36.3,
+   "logp": -64.9
+  },
+  {
+   "token": "number",
+   "display": "Number",
+   "di": 0,
+   "phrase": 22,
+   "scene": "S7",
+   "start": 36.3,
+   "end": 36.57,
+   "logp": -29.5
+  },
+  {
+   "token": "teen",
+   "display": "teen.",
+   "di": 1,
+   "phrase": 22,
+   "scene": "S7",
+   "start": 36.57,
+   "end": 36.99,
+   "logp": -64.2
+  },
+  {
+   "token": "zeabor",
+   "display": "Zeabur,",
+   "di": 0,
+   "phrase": 23,
+   "scene": "S7",
+   "start": 36.99,
+   "end": 37.55,
+   "logp": -117.2
+  },
+  {
+   "token": "ek",
+   "display": "ek",
+   "di": 1,
+   "phrase": 23,
+   "scene": "S7",
+   "start": 37.55,
+   "end": 37.71,
+   "logp": -14.0
+  },
+  {
+   "token": "hosting",
+   "display": "hosting",
+   "di": 2,
+   "phrase": 23,
+   "scene": "S7",
+   "start": 37.71,
+   "end": 38.14,
+   "logp": -33.4
+  },
+  {
+   "token": "platform",
+   "display": "platform.",
+   "di": 3,
+   "phrase": 23,
+   "scene": "S7",
+   "start": 38.14,
+   "end": 38.65,
+   "logp": -82.3
+  },
+  {
+   "token": "do",
+   "display": "Do",
+   "di": 0,
+   "phrase": 24,
+   "scene": "S7",
+   "start": 38.65,
+   "end": 38.96,
+   "logp": -80.0
+  },
+  {
+   "token": "mahine",
+   "display": "mahine",
+   "di": 1,
+   "phrase": 24,
+   "scene": "S7",
+   "start": 38.96,
+   "end": 39.31,
+   "logp": -56.4
+  },
+  {
+   "token": "mein",
+   "display": "mein",
+   "di": 2,
+   "phrase": 24,
+   "scene": "S7",
+   "start": 39.31,
+   "end": 39.48,
+   "logp": -44.1
+  },
+  {
+   "token": "doosri",
+   "display": "doosri",
+   "di": 3,
+   "phrase": 24,
+   "scene": "S7",
+   "start": 39.48,
+   "end": 39.98,
+   "logp": -102.7
+  },
+  {
+   "token": "baar",
+   "display": "baar",
+   "di": 4,
+   "phrase": 24,
+   "scene": "S7",
+   "start": 39.98,
+   "end": 40.2,
+   "logp": -31.3
+  },
+  {
+   "token": "breach",
+   "display": "breach.",
+   "di": 5,
+   "phrase": 24,
+   "scene": "S7",
+   "start": 40.2,
+   "end": 40.76,
+   "logp": -71.7
+  },
+  {
+   "token": "batees",
+   "display": "Battees",
+   "di": 0,
+   "phrase": 25,
+   "scene": "S7",
+   "start": 40.76,
+   "end": 41.29,
+   "logp": -66.0
+  },
+  {
+   "token": "lakh",
+   "display": "lakh",
+   "di": 1,
+   "phrase": 25,
+   "scene": "S7",
+   "start": 41.29,
+   "end": 41.66,
+   "logp": -68.8
+  },
+  {
+   "token": "se",
+   "display": "se",
+   "di": 2,
+   "phrase": 25,
+   "scene": "S7",
+   "start": 41.66,
+   "end": 41.77,
+   "logp": -12.9
+  },
+  {
+   "token": "zyaada",
+   "display": "zyaada",
+   "di": 3,
+   "phrase": 25,
+   "scene": "S7",
+   "start": 41.77,
+   "end": 42.07,
+   "logp": -86.5
+  },
+  {
+   "token": "secret",
+   "display": "secret",
+   "di": 4,
+   "phrase": 25,
+   "scene": "S7",
+   "start": 42.07,
+   "end": 42.56,
+   "logp": -50.1
+  },
+  {
+   "token": "records",
+   "display": "records",
+   "di": 5,
+   "phrase": 25,
+   "scene": "S7",
+   "start": 42.56,
+   "end": 42.96,
+   "logp": -76.0
+  },
+  {
+   "token": "leak",
+   "display": "leak...",
+   "di": 6,
+   "phrase": 25,
+   "scene": "S7",
+   "start": 42.96,
+   "end": 43.28,
+   "logp": -61.8
+  },
+  {
+   "token": "aur",
+   "display": "aur",
+   "di": 0,
+   "phrase": 26,
+   "scene": "S7",
+   "start": 43.28,
+   "end": 43.47,
+   "logp": -27.2
+  },
+  {
+   "token": "ab",
+   "display": "ab",
+   "di": 1,
+   "phrase": 26,
+   "scene": "S7",
+   "start": 43.47,
+   "end": 43.71,
+   "logp": -31.7
+  },
+  {
+   "token": "company",
+   "display": "company",
+   "di": 2,
+   "phrase": 26,
+   "scene": "S7",
+   "start": 43.71,
+   "end": 44.1,
+   "logp": -44.6
+  },
+  {
+   "token": "hi",
+   "display": "hi",
+   "di": 3,
+   "phrase": 26,
+   "scene": "S7",
+   "start": 44.1,
+   "end": 44.22,
+   "logp": -15.1
+  },
+  {
+   "token": "band",
+   "display": "band",
+   "di": 4,
+   "phrase": 26,
+   "scene": "S7",
+   "start": 44.22,
+   "end": 44.43,
+   "logp": -28.7
+  },
+  {
+   "token": "ho",
+   "display": "ho",
+   "di": 5,
+   "phrase": 26,
+   "scene": "S7",
+   "start": 44.43,
+   "end": 44.51,
+   "logp": -36.0
+  },
+  {
+   "token": "rahi",
+   "display": "rahi",
+   "di": 6,
+   "phrase": 26,
+   "scene": "S7",
+   "start": 44.51,
+   "end": 44.76,
+   "logp": -84.6
+  },
+  {
+   "token": "hai",
+   "display": "hai.",
+   "di": 7,
+   "phrase": 26,
+   "scene": "S7",
+   "start": 44.76,
+   "end": 44.83,
+   "logp": -68.1
+  },
+  {
+   "token": "wahan",
+   "display": "Wahan",
+   "di": 0,
+   "phrase": 27,
+   "scene": "S8",
+   "start": 44.93,
+   "end": 45.16,
+   "logp": -97.9
+  },
+  {
+   "token": "aapka",
+   "display": "aapka",
+   "di": 1,
+   "phrase": 27,
+   "scene": "S8",
+   "start": 45.16,
+   "end": 45.37,
+   "logp": -47.4
+  },
+  {
+   "token": "app",
+   "display": "app",
+   "di": 2,
+   "phrase": 27,
+   "scene": "S8",
+   "start": 45.37,
+   "end": 45.63,
+   "logp": -16.6
+  },
+  {
+   "token": "hai",
+   "display": "hai?",
+   "di": 3,
+   "phrase": 27,
+   "scene": "S8",
+   "start": 45.63,
+   "end": 45.72,
+   "logp": -15.9
+  },
+  {
+   "token": "abhi",
+   "display": "Abhi",
+   "di": 0,
+   "phrase": 28,
+   "scene": "S8",
+   "start": 45.72,
+   "end": 46.06,
+   "logp": -105.1
+  },
+  {
+   "token": "shift",
+   "display": "shift",
+   "di": 1,
+   "phrase": 28,
+   "scene": "S8",
+   "start": 46.06,
+   "end": 46.34,
+   "logp": -35.5
+  },
+  {
+   "token": "karo",
+   "display": "karo,",
+   "di": 2,
+   "phrase": 28,
+   "scene": "S8",
+   "start": 46.34,
+   "end": 46.65,
+   "logp": -39.8
+  },
+  {
+   "token": "aur",
+   "display": "aur",
+   "di": 3,
+   "phrase": 28,
+   "scene": "S8",
+   "start": 46.65,
+   "end": 46.79,
+   "logp": -24.9
+  },
+  {
+   "token": "passwords",
+   "display": "passwords",
+   "di": 4,
+   "phrase": 28,
+   "scene": "S8",
+   "start": 46.79,
+   "end": 47.37,
+   "logp": -88.5
+  },
+  {
+   "token": "badlo",
+   "display": "badlo.",
+   "di": 5,
+   "phrase": 28,
+   "scene": "S8",
+   "start": 47.37,
+   "end": 47.74,
+   "logp": -58.3
+  },
+  {
+   "token": "number",
+   "display": "Number",
+   "di": 0,
+   "phrase": 29,
+   "scene": "S9",
+   "start": 47.74,
+   "end": 48.03,
+   "logp": -38.1
+  },
+  {
+   "token": "do",
+   "display": "do.",
+   "di": 1,
+   "phrase": 29,
+   "scene": "S9",
+   "start": 48.03,
+   "end": 48.35,
+   "logp": -46.7
+  },
+  {
+   "token": "signal",
+   "display": "Signal,",
+   "di": 0,
+   "phrase": 30,
+   "scene": "S9",
+   "start": 48.35,
+   "end": 48.83,
+   "logp": -57.1
+  },
+  {
+   "token": "jise",
+   "display": "jise",
+   "di": 1,
+   "phrase": 30,
+   "scene": "S9",
+   "start": 48.83,
+   "end": 49.17,
+   "logp": -80.3
+  },
+  {
+   "token": "sabse",
+   "display": "sabse",
+   "di": 2,
+   "phrase": 30,
+   "scene": "S9",
+   "start": 49.17,
+   "end": 49.65,
+   "logp": -65.2
+  },
+  {
+   "token": "secure",
+   "display": "secure",
+   "di": 3,
+   "phrase": 30,
+   "scene": "S9",
+   "start": 49.65,
+   "end": 50.18,
+   "logp": -45.2
+  },
+  {
+   "token": "app",
+   "display": "app",
+   "di": 4,
+   "phrase": 30,
+   "scene": "S9",
+   "start": 50.18,
+   "end": 50.34,
+   "logp": -13.3
+  },
+  {
+   "token": "maana",
+   "display": "maana",
+   "di": 5,
+   "phrase": 30,
+   "scene": "S9",
+   "start": 50.34,
+   "end": 50.58,
+   "logp": -35.3
+  },
+  {
+   "token": "jaata",
+   "display": "jaata",
+   "di": 6,
+   "phrase": 30,
+   "scene": "S9",
+   "start": 50.58,
+   "end": 50.89,
+   "logp": -73.9
+  },
+  {
+   "token": "hai",
+   "display": "hai.",
+   "di": 7,
+   "phrase": 30,
+   "scene": "S9",
+   "start": 50.89,
+   "end": 50.99,
+   "logp": -59.6
+  },
+  {
+   "token": "usmein",
+   "display": "Usmein",
+   "di": 0,
+   "phrase": 31,
+   "scene": "S9",
+   "start": 51.1,
+   "end": 51.42,
+   "logp": -33.7
+  },
+  {
+   "token": "bug",
+   "display": "bug",
+   "di": 1,
+   "phrase": 31,
+   "scene": "S9",
+   "start": 51.42,
+   "end": 51.67,
+   "logp": -33.8
+  },
+  {
+   "token": "mila",
+   "display": "mila...",
+   "di": 2,
+   "phrase": 31,
+   "scene": "S9",
+   "start": 51.67,
+   "end": 52.05,
+   "logp": -113.2
+  },
+  {
+   "token": "jisse",
+   "display": "jisse",
+   "di": 0,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 52.05,
+   "end": 52.31,
+   "logp": -35.1
+  },
+  {
+   "token": "call",
+   "display": "call",
+   "di": 1,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 52.31,
+   "end": 52.67,
+   "logp": -93.3
+  },
+  {
+   "token": "kaatne",
+   "display": "kaatne",
+   "di": 2,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 52.67,
+   "end": 53.0,
+   "logp": -50.6
+  },
+  {
+   "token": "ke",
+   "display": "ke",
+   "di": 3,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 53.0,
+   "end": 53.14,
+   "logp": -28.6
+  },
+  {
+   "token": "baad",
+   "display": "baad",
+   "di": 4,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 53.14,
+   "end": 53.51,
+   "logp": -35.7
+  },
+  {
+   "token": "bhi",
+   "display": "bhi",
+   "di": 5,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 53.51,
+   "end": 53.75,
+   "logp": -26.5
+  },
+  {
+   "token": "saamne",
+   "display": "saamne",
+   "di": 6,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 53.75,
+   "end": 54.23,
+   "logp": -38.4
+  },
+  {
+   "token": "wala",
+   "display": "wala",
+   "di": 7,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 54.23,
+   "end": 54.49,
+   "logp": -59.5
+  },
+  {
+   "token": "aapko",
+   "display": "aapko",
+   "di": 8,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 54.49,
+   "end": 54.82,
+   "logp": -36.9
+  },
+  {
+   "token": "sun",
+   "display": "sun",
+   "di": 9,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 54.82,
+   "end": 55.12,
+   "logp": -39.4
+  },
+  {
+   "token": "sakta",
+   "display": "sakta",
+   "di": 10,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 55.12,
+   "end": 55.46,
+   "logp": -34.9
+  },
+  {
+   "token": "tha",
+   "display": "tha.",
+   "di": 11,
+   "phrase": 32,
+   "scene": "S9",
+   "start": 55.46,
+   "end": 55.73,
+   "logp": -104.2
+  },
+  {
+   "token": "achhi",
+   "display": "Achhi",
+   "di": 0,
+   "phrase": 33,
+   "scene": "S10",
+   "start": 55.73,
+   "end": 55.96,
+   "logp": -60.4
+  },
+  {
+   "token": "khabar",
+   "display": "khabar,",
+   "di": 1,
+   "phrase": 33,
+   "scene": "S10",
+   "start": 55.96,
+   "end": 56.22,
+   "logp": -36.8
+  },
+  {
+   "token": "fix",
+   "display": "fix",
+   "di": 2,
+   "phrase": 33,
+   "scene": "S10",
+   "start": 56.22,
+   "end": 56.54,
+   "logp": -63.3
+  },
+  {
+   "token": "aa",
+   "display": "aa",
+   "di": 3,
+   "phrase": 33,
+   "scene": "S10",
+   "start": 56.54,
+   "end": 56.73,
+   "logp": -33.0
+  },
+  {
+   "token": "chuka",
+   "display": "chuka",
+   "di": 4,
+   "phrase": 33,
+   "scene": "S10",
+   "start": 56.73,
+   "end": 57.01,
+   "logp": -49.5
+  },
+  {
+   "token": "hai",
+   "display": "hai.",
+   "di": 5,
+   "phrase": 33,
+   "scene": "S10",
+   "start": 57.01,
+   "end": 57.15,
+   "logp": -39.8
+  },
+  {
+   "token": "signal",
+   "display": "Signal",
+   "di": 0,
+   "phrase": 34,
+   "scene": "S10",
+   "start": 57.15,
+   "end": 57.68,
+   "logp": -137.9
+  },
+  {
+   "token": "abhi",
+   "display": "abhi",
+   "di": 1,
+   "phrase": 34,
+   "scene": "S10",
+   "start": 57.68,
+   "end": 57.91,
+   "logp": -35.7
+  },
+  {
+   "token": "update",
+   "display": "update",
+   "di": 2,
+   "phrase": 34,
+   "scene": "S10",
+   "start": 57.91,
+   "end": 58.27,
+   "logp": -69.5
+  },
+  {
+   "token": "karo",
+   "display": "karo.",
+   "di": 3,
+   "phrase": 34,
+   "scene": "S10",
+   "start": 58.27,
+   "end": 58.51,
+   "logp": -46.8
+  },
+  {
+   "token": "aur",
+   "display": "Aur",
+   "di": 0,
+   "phrase": 35,
+   "scene": "S11",
+   "start": 58.51,
+   "end": 58.69,
+   "logp": -19.8
+  },
+  {
+   "token": "number",
+   "display": "number",
+   "di": 1,
+   "phrase": 35,
+   "scene": "S11",
+   "start": 58.69,
+   "end": 58.92,
+   "logp": -43.7
+  },
+  {
+   "token": "ek",
+   "display": "ek...",
+   "di": 2,
+   "phrase": 35,
+   "scene": "S11",
+   "start": 58.92,
+   "end": 59.03,
+   "logp": -31.0
+  },
+  {
+   "token": "pee",
+   "display": "PHP2Shell.",
+   "di": 0,
+   "phrase": 36,
+   "scene": "S11",
+   "start": 59.03,
+   "end": 59.58,
+   "logp": -251.7
+  },
+  {
+   "token": "aitch",
+   "display": "PHP2Shell.",
+   "di": 0,
+   "phrase": 36,
+   "scene": "S11",
+   "start": 59.58,
+   "end": 59.78,
+   "logp": -32.8
+  },
+  {
+   "token": "pee",
+   "display": "PHP2Shell.",
+   "di": 0,
+   "phrase": 36,
+   "scene": "S11",
+   "start": 59.78,
+   "end": 59.92,
+   "logp": -24.6
+  },
+  {
+   "token": "two",
+   "display": "PHP2Shell.",
+   "di": 0,
+   "phrase": 36,
+   "scene": "S11",
+   "start": 59.92,
+   "end": 60.05,
+   "logp": -21.9
+  },
+  {
+   "token": "shell",
+   "display": "PHP2Shell.",
+   "di": 0,
+   "phrase": 36,
+   "scene": "S11",
+   "start": 60.05,
+   "end": 60.41,
+   "logp": -56.3
+  },
+  {
+   "token": "woh",
+   "display": "Woh",
+   "di": 0,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 60.41,
+   "end": 60.77,
+   "logp": -97.9
+  },
+  {
+   "token": "bug",
+   "display": "bug",
+   "di": 1,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 60.77,
+   "end": 61.09,
+   "logp": -50.1
+  },
+  {
+   "token": "jo",
+   "display": "jo",
+   "di": 2,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 61.09,
+   "end": 61.25,
+   "logp": -27.7
+  },
+  {
+   "token": "wordpress2",
+   "display": "WordPress",
+   "di": 3,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 61.25,
+   "end": 61.85,
+   "logp": -47.7
+  },
+  {
+   "token": "jaisi",
+   "display": "jaisi",
+   "di": 4,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 61.85,
+   "end": 62.14,
+   "logp": -79.4
+  },
+  {
+   "token": "websites",
+   "display": "websites",
+   "di": 5,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 62.14,
+   "end": 62.63,
+   "logp": -99.5
+  },
+  {
+   "token": "ki",
+   "display": "ki",
+   "di": 6,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 62.63,
+   "end": 62.77,
+   "logp": -17.0
+  },
+  {
+   "token": "neev",
+   "display": "neev,",
+   "di": 7,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 62.77,
+   "end": 63.2,
+   "logp": -26.7
+  },
+  {
+   "token": "pee",
+   "display": "PHP,",
+   "di": 8,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 63.2,
+   "end": 63.35,
+   "logp": -17.8
+  },
+  {
+   "token": "ech",
+   "display": "PHP,",
+   "di": 8,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 63.35,
+   "end": 63.54,
+   "logp": -23.4
+  },
+  {
+   "token": "pee",
+   "display": "PHP,",
+   "di": 8,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 63.54,
+   "end": 63.92,
+   "logp": -54.3
+  },
+  {
+   "token": "mein",
+   "display": "mein",
+   "di": 9,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 63.92,
+   "end": 64.08,
+   "logp": -25.2
+  },
+  {
+   "token": "das",
+   "display": "das",
+   "di": 10,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 64.08,
+   "end": 64.46,
+   "logp": -31.9
+  },
+  {
+   "token": "saal",
+   "display": "saal",
+   "di": 11,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 64.46,
+   "end": 64.75,
+   "logp": -41.9
+  },
+  {
+   "token": "se",
+   "display": "se",
+   "di": 12,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 64.75,
+   "end": 64.87,
+   "logp": -30.1
+  },
+  {
+   "token": "chhupa",
+   "display": "chhupa",
+   "di": 13,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 64.87,
+   "end": 65.18,
+   "logp": -37.4
+  },
+  {
+   "token": "tha",
+   "display": "tha.",
+   "di": 14,
+   "phrase": 37,
+   "scene": "S11",
+   "start": 65.18,
+   "end": 65.43,
+   "logp": -118.7
+  },
+  {
+   "token": "website",
+   "display": "Website",
+   "di": 0,
+   "phrase": 38,
+   "scene": "S12",
+   "start": 65.43,
+   "end": 65.81,
+   "logp": -58.1
+  },
+  {
+   "token": "hai",
+   "display": "hai?",
+   "di": 1,
+   "phrase": 38,
+   "scene": "S12",
+   "start": 65.81,
+   "end": 65.99,
+   "logp": -52.3
+  },
+  {
+   "token": "pee",
+   "display": "PHP",
+   "di": 0,
+   "phrase": 39,
+   "scene": "S12",
+   "start": 65.99,
+   "end": 66.18,
+   "logp": -37.5
+  },
+  {
+   "token": "ech",
+   "display": "PHP",
+   "di": 0,
+   "phrase": 39,
+   "scene": "S12",
+   "start": 66.18,
+   "end": 66.34,
+   "logp": -17.4
+  },
+  {
+   "token": "pee",
+   "display": "PHP",
+   "di": 0,
+   "phrase": 39,
+   "scene": "S12",
+   "start": 66.34,
+   "end": 66.5,
+   "logp": -27.4
+  },
+  {
+   "token": "update",
+   "display": "update",
+   "di": 1,
+   "phrase": 39,
+   "scene": "S12",
+   "start": 66.5,
+   "end": 66.9,
+   "logp": -60.9
+  },
+  {
+   "token": "karo",
+   "display": "karo.",
+   "di": 2,
+   "phrase": 39,
+   "scene": "S12",
+   "start": 66.9,
+   "end": 67.1,
+   "logp": -49.7
+  },
+  {
+   "token": "poori",
+   "display": "Poori",
+   "di": 0,
+   "phrase": 40,
+   "scene": "S12",
+   "start": 67.1,
+   "end": 67.42,
+   "logp": -41.4
+  },
+  {
+   "token": "kahani",
+   "display": "kahani",
+   "di": 1,
+   "phrase": 40,
+   "scene": "S12",
+   "start": 67.42,
+   "end": 67.77,
+   "logp": -67.6
+  },
+  {
+   "token": "meri",
+   "display": "meri",
+   "di": 2,
+   "phrase": 40,
+   "scene": "S12",
+   "start": 67.77,
+   "end": 67.98,
+   "logp": -89.3
+  },
+  {
+   "token": "pichhli",
+   "display": "pichhli",
+   "di": 3,
+   "phrase": 40,
+   "scene": "S12",
+   "start": 67.98,
+   "end": 68.42,
+   "logp": -70.8
+  },
+  {
+   "token": "reel",
+   "display": "reel",
+   "di": 4,
+   "phrase": 40,
+   "scene": "S12",
+   "start": 68.42,
+   "end": 68.63,
+   "logp": -75.3
+  },
+  {
+   "token": "mein",
+   "display": "mein",
+   "di": 5,
+   "phrase": 40,
+   "scene": "S12",
+   "start": 68.63,
+   "end": 68.74,
+   "logp": -35.1
+  },
+  {
+   "token": "hai",
+   "display": "hai.",
+   "di": 6,
+   "phrase": 40,
+   "scene": "S12",
+   "start": 68.74,
+   "end": 68.93,
+   "logp": -106.8
+  },
+  {
+   "token": "ab",
+   "display": "Ab",
+   "di": 0,
+   "phrase": 41,
+   "scene": "S13",
+   "start": 68.93,
+   "end": 69.16,
+   "logp": -66.8
+  },
+  {
+   "token": "ek",
+   "display": "ek",
+   "di": 1,
+   "phrase": 41,
+   "scene": "S13",
+   "start": 69.16,
+   "end": 69.36,
+   "logp": -54.0
+  },
+  {
+   "token": "baat",
+   "display": "baat",
+   "di": 2,
+   "phrase": 41,
+   "scene": "S13",
+   "start": 69.36,
+   "end": 69.56,
+   "logp": -27.1
+  },
+  {
+   "token": "notice",
+   "display": "notice",
+   "di": 3,
+   "phrase": 41,
+   "scene": "S13",
+   "start": 69.56,
+   "end": 69.87,
+   "logp": -45.5
+  },
+  {
+   "token": "karo",
+   "display": "karo.",
+   "di": 4,
+   "phrase": 41,
+   "scene": "S13",
+   "start": 69.87,
+   "end": 70.04,
+   "logp": -48.0
+  },
+  {
+   "token": "paanch",
+   "display": "Paanch",
+   "di": 0,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 70.04,
+   "end": 70.41,
+   "logp": -42.8
+  },
+  {
+   "token": "mein",
+   "display": "mein",
+   "di": 1,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 70.41,
+   "end": 70.53,
+   "logp": -30.6
+  },
+  {
+   "token": "se",
+   "display": "se",
+   "di": 2,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 70.53,
+   "end": 70.67,
+   "logp": -24.5
+  },
+  {
+   "token": "teen",
+   "display": "teen",
+   "di": 3,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 70.67,
+   "end": 70.99,
+   "logp": -36.4
+  },
+  {
+   "token": "kahaniyon",
+   "display": "kahaniyon",
+   "di": 4,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 70.99,
+   "end": 71.48,
+   "logp": -109.4
+  },
+  {
+   "token": "mein",
+   "display": "mein",
+   "di": 5,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 71.48,
+   "end": 71.59,
+   "logp": -68.7
+  },
+  {
+   "token": "ey",
+   "display": "AI",
+   "di": 6,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 71.59,
+   "end": 71.78,
+   "logp": -47.5
+  },
+  {
+   "token": "ai",
+   "display": "AI",
+   "di": 6,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 71.78,
+   "end": 72.01,
+   "logp": -59.4
+  },
+  {
+   "token": "ya",
+   "display": "ya",
+   "di": 7,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 72.01,
+   "end": 72.18,
+   "logp": -28.0
+  },
+  {
+   "token": "toh",
+   "display": "toh",
+   "di": 8,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 72.18,
+   "end": 72.32,
+   "logp": -21.2
+  },
+  {
+   "token": "khatra",
+   "display": "khatra",
+   "di": 9,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 72.32,
+   "end": 72.73,
+   "logp": -88.9
+  },
+  {
+   "token": "tha",
+   "display": "tha...",
+   "di": 10,
+   "phrase": 42,
+   "scene": "S13",
+   "start": 72.73,
+   "end": 73.01,
+   "logp": -92.4
+  },
+  {
+   "token": "ya",
+   "display": "ya",
+   "di": 0,
+   "phrase": 43,
+   "scene": "S13",
+   "start": 73.01,
+   "end": 73.15,
+   "logp": -48.5
+  },
+  {
+   "token": "target",
+   "display": "target...",
+   "di": 1,
+   "phrase": 43,
+   "scene": "S13",
+   "start": 73.15,
+   "end": 73.74,
+   "logp": -123.4
+  },
+  {
+   "token": "ya",
+   "display": "ya",
+   "di": 0,
+   "phrase": 44,
+   "scene": "S13",
+   "start": 73.74,
+   "end": 73.86,
+   "logp": -29.4
+  },
+  {
+   "token": "chowkidaar",
+   "display": "chowkidaar.",
+   "di": 1,
+   "phrase": 44,
+   "scene": "S13",
+   "start": 73.86,
+   "end": 74.43,
+   "logp": -136.9
+  },
+  {
+   "token": "isliye",
+   "display": "Isliye",
+   "di": 0,
+   "phrase": 45,
+   "scene": "S14",
+   "start": 74.56,
+   "end": 74.95,
+   "logp": -61.6
+  },
+  {
+   "token": "aye",
+   "display": "AI",
+   "di": 1,
+   "phrase": 45,
+   "scene": "S14",
+   "start": 75.14,
+   "end": 75.23,
+   "logp": -89.0
+  },
+  {
+   "token": "aye",
+   "display": "AI",
+   "di": 1,
+   "phrase": 45,
+   "scene": "S14",
+   "start": 75.23,
+   "end": 75.34,
+   "logp": -19.1
+  },
+  {
+   "token": "se",
+   "display": "se",
+   "di": 2,
+   "phrase": 45,
+   "scene": "S14",
+   "start": 75.34,
+   "end": 75.48,
+   "logp": -15.7
+  },
+  {
+   "token": "darna",
+   "display": "darna",
+   "di": 3,
+   "phrase": 45,
+   "scene": "S14",
+   "start": 75.48,
+   "end": 75.9,
+   "logp": -77.1
+  },
+  {
+   "token": "nahi",
+   "display": "nahi",
+   "di": 4,
+   "phrase": 45,
+   "scene": "S14",
+   "start": 75.9,
+   "end": 76.17,
+   "logp": -49.4
+  },
+  {
+   "token": "hai",
+   "display": "hai.",
+   "di": 5,
+   "phrase": 45,
+   "scene": "S14",
+   "start": 76.17,
+   "end": 76.34,
+   "logp": -69.7
+  },
+  {
+   "token": "samajhdaari",
+   "display": "Samajhdaari",
+   "di": 0,
+   "phrase": 46,
+   "scene": "S14",
+   "start": 76.34,
+   "end": 76.99,
+   "logp": -103.5
+  },
+  {
+   "token": "se",
+   "display": "se",
+   "di": 1,
+   "phrase": 46,
+   "scene": "S14",
+   "start": 76.99,
+   "end": 77.11,
+   "logp": -31.7
+  },
+  {
+   "token": "use",
+   "display": "use",
+   "di": 2,
+   "phrase": 46,
+   "scene": "S14",
+   "start": 77.11,
+   "end": 77.36,
+   "logp": -18.8
+  },
+  {
+   "token": "karna",
+   "display": "karna",
+   "di": 3,
+   "phrase": 46,
+   "scene": "S14",
+   "start": 77.36,
+   "end": 77.66,
+   "logp": -69.1
+  },
+  {
+   "token": "hai",
+   "display": "hai.",
+   "di": 4,
+   "phrase": 46,
+   "scene": "S14",
+   "start": 77.66,
+   "end": 77.75,
+   "logp": -54.9
+  },
+  {
+   "token": "update",
+   "display": "Update",
+   "di": 0,
+   "phrase": 47,
+   "scene": "S14",
+   "start": 77.82,
+   "end": 78.19,
+   "logp": -53.1
+  },
+  {
+   "token": "karo",
+   "display": "karo.",
+   "di": 1,
+   "phrase": 47,
+   "scene": "S14",
+   "start": 78.19,
+   "end": 78.49,
+   "logp": -44.1
+  },
+  {
+   "token": "keys",
+   "display": "Keys",
+   "di": 0,
+   "phrase": 48,
+   "scene": "S14",
+   "start": 78.49,
+   "end": 78.81,
+   "logp": -42.5
+  },
+  {
+   "token": "badlo",
+   "display": "badlo.",
+   "di": 1,
+   "phrase": 48,
+   "scene": "S14",
+   "start": 78.81,
+   "end": 79.18,
+   "logp": -34.5
+  },
+  {
+   "token": "aur",
+   "display": "Aur",
+   "di": 0,
+   "phrase": 49,
+   "scene": "S14",
+   "start": 79.18,
+   "end": 79.32,
+   "logp": -31.4
+  },
+  {
+   "token": "password",
+   "display": "password",
+   "di": 1,
+   "phrase": 49,
+   "scene": "S14",
+   "start": 79.32,
+   "end": 79.86,
+   "logp": -63.8
+  },
+  {
+   "token": "kisi",
+   "display": "kisi",
+   "di": 2,
+   "phrase": 49,
+   "scene": "S14",
+   "start": 79.86,
+   "end": 80.17,
+   "logp": -38.3
+  },
+  {
+   "token": "ko",
+   "display": "ko",
+   "di": 3,
+   "phrase": 49,
+   "scene": "S14",
+   "start": 80.17,
+   "end": 80.29,
+   "logp": -15.5
+  },
+  {
+   "token": "mat",
+   "display": "mat",
+   "di": 4,
+   "phrase": 49,
+   "scene": "S14",
+   "start": 80.29,
+   "end": 80.5,
+   "logp": -23.3
+  },
+  {
+   "token": "do",
+   "display": "do...",
+   "di": 5,
+   "phrase": 49,
+   "scene": "S14",
+   "start": 80.5,
+   "end": 80.73,
+   "logp": -84.4
+  },
+  {
+   "token": "ay",
+   "display": "AI",
+   "di": 0,
+   "phrase": 50,
+   "scene": "S14",
+   "start": 80.73,
+   "end": 80.85,
+   "logp": -14.2
+  },
+  {
+   "token": "eye",
+   "display": "AI",
+   "di": 0,
+   "phrase": 50,
+   "scene": "S14",
+   "start": 80.85,
+   "end": 80.94,
+   "logp": -34.4
+  },
+  {
+   "token": "ko",
+   "display": "ko",
+   "di": 1,
+   "phrase": 50,
+   "scene": "S14",
+   "start": 80.94,
+   "end": 81.09,
+   "logp": -18.7
+  },
+  {
+   "token": "bhi",
+   "display": "bhi",
+   "di": 2,
+   "phrase": 50,
+   "scene": "S14",
+   "start": 81.09,
+   "end": 81.21,
+   "logp": -13.7
+  },
+  {
+   "token": "nahi",
+   "display": "nahi.",
+   "di": 3,
+   "phrase": 50,
+   "scene": "S14",
+   "start": 81.21,
+   "end": 81.43,
+   "logp": -46.2
+  },
+  {
+   "token": "har",
+   "display": "Har",
+   "di": 0,
+   "phrase": 51,
+   "scene": "S15",
+   "start": 81.43,
+   "end": 81.64,
+   "logp": -99.0
+  },
+  {
+   "token": "hafte",
+   "display": "hafte",
+   "di": 1,
+   "phrase": 51,
+   "scene": "S15",
+   "start": 81.64,
+   "end": 82.14,
+   "logp": -98.2
+  },
+  {
+   "token": "aise",
+   "display": "aise",
+   "di": 2,
+   "phrase": 51,
+   "scene": "S15",
+   "start": 82.14,
+   "end": 82.41,
+   "logp": -55.1
+  },
+  {
+   "token": "alarm",
+   "display": "alarm,",
+   "di": 3,
+   "phrase": 51,
+   "scene": "S15",
+   "start": 82.41,
+   "end": 82.82,
+   "logp": -70.8
+  },
+  {
+   "token": "simple",
+   "display": "simple",
+   "di": 4,
+   "phrase": 51,
+   "scene": "S15",
+   "start": 82.82,
+   "end": 83.2,
+   "logp": -45.9
+  },
+  {
+   "token": "bhasha",
+   "display": "bhasha",
+   "di": 5,
+   "phrase": 51,
+   "scene": "S15",
+   "start": 83.2,
+   "end": 83.48,
+   "logp": -42.9
+  },
+  {
+   "token": "mein",
+   "display": "mein",
+   "di": 6,
+   "phrase": 51,
+   "scene": "S15",
+   "start": 83.48,
+   "end": 83.61,
+   "logp": -28.7
+  },
+  {
+   "token": "chahiye",
+   "display": "chahiye?",
+   "di": 7,
+   "phrase": 51,
+   "scene": "S15",
+   "start": 83.61,
+   "end": 83.94,
+   "logp": -80.9
+  },
+  {
+   "token": "follow",
+   "display": "Follow",
+   "di": 0,
+   "phrase": 52,
+   "scene": "S15",
+   "start": 83.94,
+   "end": 84.26,
+   "logp": -132.0
+  },
+  {
+   "token": "karo",
+   "display": "karo.",
+   "di": 1,
+   "phrase": 52,
+   "scene": "S15",
+   "start": 84.26,
+   "end": 84.5,
+   "logp": -47.2
+  },
+  {
+   "token": "aur",
+   "display": "Aur",
+   "di": 0,
+   "phrase": 53,
+   "scene": "S15",
+   "start": 84.5,
+   "end": 84.62,
+   "logp": -18.6
+  },
+  {
+   "token": "comment",
+   "display": "comment",
+   "di": 1,
+   "phrase": 53,
+   "scene": "S15",
+   "start": 84.62,
+   "end": 85.01,
+   "logp": -59.3
+  },
+  {
+   "token": "karo",
+   "display": "karo",
+   "di": 2,
+   "phrase": 53,
+   "scene": "S15",
+   "start": 85.01,
+   "end": 85.38,
+   "logp": -58.5
+  },
+  {
+   "token": "alert",
+   "display": "ALERT...",
+   "di": 3,
+   "phrase": 53,
+   "scene": "S15",
+   "start": 85.38,
+   "end": 85.84,
+   "logp": -88.4
+  },
+  {
+   "token": "main",
+   "display": "main",
+   "di": 0,
+   "phrase": 54,
+   "scene": "S15",
+   "start": 85.84,
+   "end": 85.96,
+   "logp": -27.3
+  },
+  {
+   "token": "paanchon",
+   "display": "paanchon",
+   "di": 1,
+   "phrase": 54,
+   "scene": "S15",
+   "start": 85.96,
+   "end": 86.39,
+   "logp": -64.7
+  },
+  {
+   "token": "ka",
+   "display": "ka",
+   "di": 2,
+   "phrase": 54,
+   "scene": "S15",
+   "start": 86.39,
+   "end": 86.51,
+   "logp": -36.7
+  },
+  {
+   "token": "checklist",
+   "display": "checklist",
+   "di": 3,
+   "phrase": 54,
+   "scene": "S15",
+   "start": 86.51,
+   "end": 86.99,
+   "logp": -78.1
+  },
+  {
+   "token": "bhej",
+   "display": "bhej",
+   "di": 4,
+   "phrase": 54,
+   "scene": "S15",
+   "start": 86.99,
+   "end": 87.2,
+   "logp": -61.0
+  },
+  {
+   "token": "dunga",
+   "display": "dunga.",
+   "di": 5,
+   "phrase": 54,
+   "scene": "S15",
+   "start": 87.2,
+   "end": 87.49,
+   "logp": -83.2
+  }
+ ]
+}

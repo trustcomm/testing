@@ -1,0 +1,12 @@
+node_modules/
+build/
+out/*.mp4
+out/*.wav
+__pycache__/
+*.pyc
+public/sfx/*.wav
+public/mix.wav
+public/music*.wav
+public/mix_report.json
+node_modules
+docs/*.tmp

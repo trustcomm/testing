@@ -1,0 +1,1022 @@
+{
+ "beacon_bip": {
+  "file": "beacon_bip.wav",
+  "dur": 1.6,
+  "hit": 0.000771,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -18.75,
+  "dc": 0.00088852,
+  "centroidHz": 69.1,
+  "layers": {
+   "T": -27.4,
+   "B": -16.3,
+   "A": -31.7
+  }
+ },
+ "pullback_whoosh": {
+  "file": "pullback_whoosh.wav",
+  "dur": 3.2,
+  "hit": 1.141833,
+  "stereo": true,
+  "hitKind": "peak",
+  "audibleStart": 0.2111,
+  "peakDb": -1.0,
+  "rmsDb": -19.37,
+  "dc": -1.9e-07,
+  "centroidHz": 1749.9,
+  "layers": {
+   "T": -90.0,
+   "B": -6.1,
+   "A": -11.2
+  }
+ },
+ "reverse_riser": {
+  "file": "reverse_riser.wav",
+  "dur": 0.5,
+  "hit": 0.461292,
+  "stereo": false,
+  "hitKind": "end",
+  "audibleStart": 0.1085,
+  "peakDb": -1.0,
+  "rmsDb": -18.14,
+  "dc": 0.00026869,
+  "centroidHz": 12855.3,
+  "layers": {
+   "T": -90.0,
+   "B": -9.6,
+   "A": -35.1
+  }
+ },
+ "punch_hit": {
+  "file": "punch_hit.wav",
+  "dur": 1.6,
+  "hit": 0.004208,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -18.6,
+  "dc": -0.00010714,
+  "centroidHz": 70.2,
+  "layers": {
+   "T": -42.3,
+   "B": -15.9,
+   "A": -14.0
+  }
+ },
+ "heartbeat": {
+  "file": "heartbeat.wav",
+  "dur": 0.9,
+  "hit": 0.001417,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -16.35,
+  "dc": 0.00027207,
+  "centroidHz": 75.8,
+  "layers": {
+   "T": -44.7,
+   "B": -14.4,
+   "A": -12.2
+  }
+ },
+ "flyto_whoosh": {
+  "file": "flyto_whoosh.wav",
+  "dur": 2.0,
+  "hit": 0.711812,
+  "stereo": false,
+  "hitKind": "peak",
+  "audibleStart": 0.1184,
+  "peakDb": -1.0,
+  "rmsDb": -18.5,
+  "dc": -1.667e-05,
+  "centroidHz": 2978.6,
+  "layers": {
+   "T": -180.0,
+   "B": -6.0,
+   "A": -9.7
+  }
+ },
+ "dolly_dive": {
+  "file": "dolly_dive.wav",
+  "dur": 1.5,
+  "hit": 0.27749,
+  "stereo": true,
+  "hitKind": "peak",
+  "audibleStart": 0.0416,
+  "peakDb": -1.0,
+  "rmsDb": -20.3,
+  "dc": -4.92e-06,
+  "centroidHz": 2106.5,
+  "layers": {
+   "T": -90.0,
+   "B": -8.4,
+   "A": -11.8
+  }
+ },
+ "dolly_out": {
+  "file": "dolly_out.wav",
+  "dur": 1.6,
+  "hit": 0.73801,
+  "stereo": true,
+  "hitKind": "peak",
+  "audibleStart": 0.1495,
+  "peakDb": -1.0,
+  "rmsDb": -18.18,
+  "dc": -4.908e-05,
+  "centroidHz": 997.5,
+  "layers": {
+   "T": -90.0,
+   "B": -7.3,
+   "A": -6.3
+  }
+ },
+ "number_reveal": {
+  "file": "number_reveal.wav",
+  "dur": 2.4,
+  "hit": 0.457375,
+  "stereo": false,
+  "hitKind": "mark",
+  "audibleStart": 0.2288,
+  "peakDb": -1.0,
+  "rmsDb": -20.74,
+  "dc": -5.23e-06,
+  "centroidHz": 170.1,
+  "layers": {
+   "T": -26.0,
+   "B": -13.0,
+   "A": -24.6
+  }
+ },
+ "number_reveal_big": {
+  "file": "number_reveal_big.wav",
+  "dur": 3.4,
+  "hit": 1.008479,
+  "stereo": false,
+  "hitKind": "mark",
+  "audibleStart": 0.5973,
+  "peakDb": -1.0,
+  "rmsDb": -13.77,
+  "dc": 8.494e-05,
+  "centroidHz": 80.9,
+  "layers": {
+   "T": -24.8,
+   "B": -5.9,
+   "A": -9.4
+  }
+ },
+ "piano_tick": {
+  "file": "piano_tick.wav",
+  "dur": 2.0,
+  "hit": 0.001604,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -11.98,
+  "dc": 1.661e-05,
+  "centroidHz": 270.3,
+  "layers": {
+   "T": -55.6,
+   "B": -14.6,
+   "A": -19.5
+  }
+ },
+ "action_chime": {
+  "file": "action_chime.wav",
+  "dur": 2.2,
+  "hit": 0.001563,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -16.37,
+  "dc": 2.756e-05,
+  "centroidHz": 724.4,
+  "layers": {
+   "T": -63.8,
+   "B": -8.6,
+   "A": -8.3
+  }
+ },
+ "tink": {
+  "file": "tink.wav",
+  "dur": 0.8,
+  "hit": 0.0,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -15.58,
+  "dc": 0.00010182,
+  "centroidHz": 2660.6,
+  "layers": {
+   "T": -55.8,
+   "B": -14.3,
+   "A": -15.3
+  }
+ },
+ "lock_click": {
+  "file": "lock_click.wav",
+  "dur": 0.7,
+  "hit": 0.0,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -24.53,
+  "dc": 0.00152602,
+  "centroidHz": 2258.6,
+  "layers": {
+   "T": -45.5,
+   "B": -20.3,
+   "A": -35.9
+  }
+ },
+ "ui_click": {
+  "file": "ui_click.wav",
+  "dur": 0.4,
+  "hit": 0.000146,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -22.47,
+  "dc": 0.00062205,
+  "centroidHz": 208.2,
+  "layers": {
+   "T": -45.5,
+   "B": -21.6,
+   "A": -34.1
+  }
+ },
+ "card_slide": {
+  "file": "card_slide.wav",
+  "dur": 0.9,
+  "hit": 0.175313,
+  "stereo": false,
+  "hitKind": "peak",
+  "audibleStart": 0.0262,
+  "peakDb": -1.0,
+  "rmsDb": -19.47,
+  "dc": -1.5e-07,
+  "centroidHz": 3389.7,
+  "layers": {
+   "T": -180.0,
+   "B": -13.8,
+   "A": -22.6
+  }
+ },
+ "play_tap": {
+  "file": "play_tap.wav",
+  "dur": 0.5,
+  "hit": 0.0,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -15.65,
+  "dc": 2.8e-05,
+  "centroidHz": 393.0,
+  "layers": {
+   "T": -45.1,
+   "B": -16.6,
+   "A": -20.8
+  }
+ },
+ "type_click": {
+  "file": "type_click.wav",
+  "dur": 0.15,
+  "hit": 0.000104,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -20.85,
+  "dc": 0.00311085,
+  "centroidHz": 292.4,
+  "layers": {
+   "T": -33.8,
+   "B": -19.2,
+   "A": -46.4
+  }
+ },
+ "checklist_tick": {
+  "file": "checklist_tick.wav",
+  "dur": 0.5,
+  "hit": 0.000333,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -13.49,
+  "dc": 4.632e-05,
+  "centroidHz": 1723.9,
+  "layers": {
+   "T": -52.3,
+   "B": -12.2,
+   "A": -14.0
+  }
+ },
+ "crowd_flat": {
+  "file": "crowd_flat.wav",
+  "dur": 2.0,
+  "hit": 0.108417,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0891,
+  "peakDb": -1.0,
+  "rmsDb": -16.01,
+  "dc": -2.06e-06,
+  "centroidHz": 252.5,
+  "layers": {
+   "T": -180.0,
+   "B": -27.1,
+   "A": -27.3
+  }
+ },
+ "robot_step": {
+  "file": "robot_step.wav",
+  "dur": 0.25,
+  "hit": 0.0,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -21.49,
+  "dc": 0.00118067,
+  "centroidHz": 402.5,
+  "layers": {
+   "T": -42.7,
+   "B": -18.9,
+   "A": -57.5
+  }
+ },
+ "brake_squeal": {
+  "file": "brake_squeal.wav",
+  "dur": 0.8,
+  "hit": 0.03675,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0135,
+  "peakDb": -1.0,
+  "rmsDb": -14.6,
+  "dc": -0.0,
+  "centroidHz": 1088.8,
+  "layers": {
+   "T": -27.1,
+   "B": -19.3,
+   "A": -32.0
+  }
+ },
+ "glass_thunk": {
+  "file": "glass_thunk.wav",
+  "dur": 1.4,
+  "hit": 0.000979,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -20.66,
+  "dc": 2.758e-05,
+  "centroidHz": 1659.8,
+  "layers": {
+   "T": -51.0,
+   "B": -16.4,
+   "A": -22.9
+  }
+ },
+ "buzzer_blip": {
+  "file": "buzzer_blip.wav",
+  "dur": 0.5,
+  "hit": 0.020083,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -12.48,
+  "dc": 0.00179648,
+  "centroidHz": 206.0,
+  "layers": {
+   "T": -46.6,
+   "B": -16.2,
+   "A": -32.1
+  }
+ },
+ "coin_bounce": {
+  "file": "coin_bounce.wav",
+  "dur": 1.1,
+  "hit": 0.001208,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -21.01,
+  "dc": -0.00075,
+  "centroidHz": 2883.9,
+  "layers": {
+   "T": -55.5,
+   "B": -17.8,
+   "A": -22.6
+  }
+ },
+ "quiz_pluck": {
+  "file": "quiz_pluck.wav",
+  "dur": 1.2,
+  "hit": 0.001458,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -11.81,
+  "dc": -0.0003273,
+  "centroidHz": 498.8,
+  "layers": {
+   "T": -60.1,
+   "B": -10.2,
+   "A": -15.9
+  }
+ },
+ "conveyor_hum": {
+  "file": "conveyor_hum.wav",
+  "dur": 5.0,
+  "hit": 0.114792,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0754,
+  "peakDb": -1.0,
+  "rmsDb": -7.62,
+  "dc": 3e-08,
+  "centroidHz": 74.4,
+  "layers": {
+   "T": -180.0,
+   "B": -10.4,
+   "A": -20.8
+  }
+ },
+ "creak": {
+  "file": "creak.wav",
+  "dur": 1.0,
+  "hit": 0.141708,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0704,
+  "peakDb": -1.0,
+  "rmsDb": -16.76,
+  "dc": 1.527e-05,
+  "centroidHz": 1262.7,
+  "layers": {
+   "T": -62.4,
+   "B": -9.3,
+   "A": -23.8
+  }
+ },
+ "glassy_pluck": {
+  "file": "glassy_pluck.wav",
+  "dur": 1.0,
+  "hit": 0.000896,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -14.11,
+  "dc": 0.00020611,
+  "centroidHz": 1724.1,
+  "layers": {
+   "T": -58.2,
+   "B": -9.7,
+   "A": -30.1
+  }
+ },
+ "key_ratchet": {
+  "file": "key_ratchet.wav",
+  "dur": 0.7,
+  "hit": 0.0,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -25.31,
+  "dc": 0.00094923,
+  "centroidHz": 2006.6,
+  "layers": {
+   "T": -58.9,
+   "B": -25.5,
+   "A": -43.8
+  }
+ },
+ "stamp_thud": {
+  "file": "stamp_thud.wav",
+  "dur": 0.9,
+  "hit": 0.000667,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -18.12,
+  "dc": -4.105e-05,
+  "centroidHz": 68.1,
+  "layers": {
+   "T": -38.3,
+   "B": -14.0,
+   "A": -22.1
+  }
+ },
+ "counter_roll": {
+  "file": "counter_roll.wav",
+  "dur": 1.3,
+  "hit": 1.001833,
+  "stereo": false,
+  "hitKind": "mark",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -14.53,
+  "dc": 0.00086786,
+  "centroidHz": 2444.0,
+  "layers": {
+   "T": -180.0,
+   "B": -11.9,
+   "A": -18.4
+  }
+ },
+ "spark_crackle": {
+  "file": "spark_crackle.wav",
+  "dur": 1.6,
+  "hit": 0.004708,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -20.22,
+  "dc": 9.623e-05,
+  "centroidHz": 6461.2,
+  "layers": {
+   "T": -58.6,
+   "B": -13.2,
+   "A": -24.4
+  }
+ },
+ "window_click": {
+  "file": "window_click.wav",
+  "dur": 0.2,
+  "hit": 0.0,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -20.79,
+  "dc": 0.00051971,
+  "centroidHz": 423.0,
+  "layers": {
+   "T": -39.1,
+   "B": -20.3,
+   "A": -53.9
+  }
+ },
+ "sad_drop": {
+  "file": "sad_drop.wav",
+  "dur": 2.4,
+  "hit": 0.085604,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0499,
+  "peakDb": -1.0,
+  "rmsDb": -13.86,
+  "dc": -2.78e-06,
+  "centroidHz": 172.7,
+  "layers": {
+   "T": -64.4,
+   "B": -8.4,
+   "A": -2.0
+  }
+ },
+ "lift_whoop": {
+  "file": "lift_whoop.wav",
+  "dur": 0.7,
+  "hit": 0.023438,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -13.42,
+  "dc": 0.00015561,
+  "centroidHz": 937.2,
+  "layers": {
+   "T": -48.0,
+   "B": -13.0,
+   "A": -21.9
+  }
+ },
+ "arc_whoosh": {
+  "file": "arc_whoosh.wav",
+  "dur": 1.1,
+  "hit": 0.35274,
+  "stereo": false,
+  "hitKind": "peak",
+  "audibleStart": 0.0597,
+  "peakDb": -1.0,
+  "rmsDb": -18.04,
+  "dc": 1.06e-06,
+  "centroidHz": 3250.8,
+  "layers": {
+   "T": -180.0,
+   "B": -7.4,
+   "A": -14.3
+  }
+ },
+ "land_tap": {
+  "file": "land_tap.wav",
+  "dur": 0.5,
+  "hit": 0.000479,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -16.93,
+  "dc": 0.00045109,
+  "centroidHz": 144.4,
+  "layers": {
+   "T": -44.3,
+   "B": -15.3,
+   "A": -24.6
+  }
+ },
+ "call_tone": {
+  "file": "call_tone.wav",
+  "dur": 1.8,
+  "hit": 0.002333,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -10.78,
+  "dc": 4.32e-06,
+  "centroidHz": 454.7,
+  "layers": {
+   "T": -72.3,
+   "B": -11.6,
+   "A": -11.7
+  }
+ },
+ "hangup_blip": {
+  "file": "hangup_blip.wav",
+  "dur": 0.5,
+  "hit": 0.00025,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -14.75,
+  "dc": 0.00019153,
+  "centroidHz": 589.2,
+  "layers": {
+   "T": -48.2,
+   "B": -14.8,
+   "A": -30.0
+  }
+ },
+ "room_tone": {
+  "file": "room_tone.wav",
+  "dur": 7.0,
+  "hit": 0.0,
+  "stereo": true,
+  "hitKind": "start",
+  "audibleStart": 0.1538,
+  "peakDb": -1.0,
+  "rmsDb": -12.97,
+  "dc": 1e-08,
+  "centroidHz": 2560.0,
+  "layers": {
+   "T": -90.0,
+   "B": -23.6,
+   "A": -90.0
+  }
+ },
+ "relief_swell": {
+  "file": "relief_swell.wav",
+  "dur": 3.0,
+  "hit": 0.906146,
+  "stereo": true,
+  "hitKind": "peak",
+  "audibleStart": 0.0962,
+  "peakDb": -1.0,
+  "rmsDb": -15.66,
+  "dc": 2.134e-05,
+  "centroidHz": 389.8,
+  "layers": {
+   "T": -73.6,
+   "B": -13.9,
+   "A": -15.5
+  }
+ },
+ "ring_fill": {
+  "file": "ring_fill.wav",
+  "dur": 1.6,
+  "hit": 1.404271,
+  "stereo": false,
+  "hitKind": "end",
+  "audibleStart": 0.2886,
+  "peakDb": -1.0,
+  "rmsDb": -18.96,
+  "dc": 2.775e-05,
+  "centroidHz": 2634.4,
+  "layers": {
+   "T": -28.0,
+   "B": -180.0,
+   "A": -28.5
+  }
+ },
+ "ding_done": {
+  "file": "ding_done.wav",
+  "dur": 2.0,
+  "hit": 0.000937,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -12.56,
+  "dc": 0.00025584,
+  "centroidHz": 1371.5,
+  "layers": {
+   "T": -62.3,
+   "B": -9.0,
+   "A": -7.5
+  }
+ },
+ "scuttle_s": {
+  "file": "scuttle_s.wav",
+  "dur": 0.8,
+  "hit": 0.000604,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -26.81,
+  "dc": -0.00075826,
+  "centroidHz": 6274.2,
+  "layers": {
+   "T": -58.6,
+   "B": -37.5,
+   "A": -48.8
+  }
+ },
+ "dust_swell": {
+  "file": "dust_swell.wav",
+  "dur": 2.0,
+  "hit": 1.274312,
+  "stereo": false,
+  "hitKind": "peak",
+  "audibleStart": 0.2375,
+  "peakDb": -1.0,
+  "rmsDb": -19.4,
+  "dc": 2.4e-07,
+  "centroidHz": 3285.5,
+  "layers": {
+   "T": -180.0,
+   "B": -17.9,
+   "A": -32.8
+  }
+ },
+ "dig_drop": {
+  "file": "dig_drop.wav",
+  "dur": 1.4,
+  "hit": 0.325344,
+  "stereo": false,
+  "hitKind": "peak",
+  "audibleStart": 0.0537,
+  "peakDb": -1.0,
+  "rmsDb": -18.55,
+  "dc": 2.1e-07,
+  "centroidHz": 641.7,
+  "layers": {
+   "T": -15.9,
+   "B": -11.1,
+   "A": -18.7
+  }
+ },
+ "up_whoosh": {
+  "file": "up_whoosh.wav",
+  "dur": 1.2,
+  "hit": 0.606406,
+  "stereo": false,
+  "hitKind": "peak",
+  "audibleStart": 0.0936,
+  "peakDb": -1.0,
+  "rmsDb": -16.94,
+  "dc": -3.732e-05,
+  "centroidHz": 2521.2,
+  "layers": {
+   "T": -28.8,
+   "B": -6.3,
+   "A": -14.4
+  }
+ },
+ "piano_low": {
+  "file": "piano_low.wav",
+  "dur": 4.0,
+  "hit": 0.002417,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -17.64,
+  "dc": 6.154e-05,
+  "centroidHz": 181.6,
+  "layers": {
+   "T": -63.5,
+   "B": -14.4,
+   "A": -19.5
+  }
+ },
+ "tone_soft": {
+  "file": "tone_soft.wav",
+  "dur": 2.4,
+  "hit": 0.004917,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -10.94,
+  "dc": -0.00012819,
+  "centroidHz": 405.6,
+  "layers": {
+   "T": -64.8,
+   "B": -10.1,
+   "A": -8.1
+  }
+ },
+ "pad_bloom": {
+  "file": "pad_bloom.wav",
+  "dur": 4.5,
+  "hit": 1.975292,
+  "stereo": true,
+  "hitKind": "peak",
+  "audibleStart": 0.2242,
+  "peakDb": -1.0,
+  "rmsDb": -16.01,
+  "dc": 2.04e-06,
+  "centroidHz": 337.5,
+  "layers": {
+   "T": -90.0,
+   "B": -8.7,
+   "A": -7.0
+  }
+ },
+ "green_tink": {
+  "file": "green_tink.wav",
+  "dur": 0.9,
+  "hit": 0.0,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -18.82,
+  "dc": -0.00078527,
+  "centroidHz": 3259.5,
+  "layers": {
+   "T": -59.3,
+   "B": -14.2,
+   "A": -18.5
+  }
+ },
+ "hit_firm": {
+  "file": "hit_firm.wav",
+  "dur": 1.0,
+  "hit": 0.001,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -16.07,
+  "dc": 0.00011299,
+  "centroidHz": 101.9,
+  "layers": {
+   "T": -45.2,
+   "B": -13.4,
+   "A": -17.3
+  }
+ },
+ "boop": {
+  "file": "boop.wav",
+  "dur": 0.5,
+  "hit": 0.001083,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -14.24,
+  "dc": -1.13e-05,
+  "centroidHz": 1012.9,
+  "layers": {
+   "T": -67.6,
+   "B": -14.3,
+   "A": -26.2
+  }
+ },
+ "pluck_resolve": {
+  "file": "pluck_resolve.wav",
+  "dur": 2.2,
+  "hit": 0.002271,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -11.51,
+  "dc": 1.315e-05,
+  "centroidHz": 521.9,
+  "layers": {
+   "T": -66.2,
+   "B": -8.0,
+   "A": -7.4
+  }
+ },
+ "pop": {
+  "file": "pop.wav",
+  "dur": 0.4,
+  "hit": 6.3e-05,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -18.37,
+  "dc": 0.00071223,
+  "centroidHz": 819.5,
+  "layers": {
+   "T": -58.1,
+   "B": -17.3,
+   "A": -35.1
+  }
+ },
+ "page_flip": {
+  "file": "page_flip.wav",
+  "dur": 0.6,
+  "hit": 0.042896,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.001,
+  "peakDb": -1.0,
+  "rmsDb": -18.87,
+  "dc": 5.446e-05,
+  "centroidHz": 3967.9,
+  "layers": {
+   "T": -45.1,
+   "B": -13.5,
+   "A": -28.2
+  }
+ },
+ "final_chime": {
+  "file": "final_chime.wav",
+  "dur": 4.0,
+  "hit": 0.001229,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -15.97,
+  "dc": 0.00011868,
+  "centroidHz": 1022.9,
+  "layers": {
+   "T": -68.1,
+   "B": -9.2,
+   "A": -7.0
+  }
+ },
+ "whoosh": {
+  "file": "whoosh.wav",
+  "dur": 1.0,
+  "hit": 0.347521,
+  "stereo": false,
+  "hitKind": "peak",
+  "audibleStart": 0.0552,
+  "peakDb": -1.0,
+  "rmsDb": -17.78,
+  "dc": -2.35e-06,
+  "centroidHz": 2641.7,
+  "layers": {
+   "T": -180.0,
+   "B": -7.4,
+   "A": -17.5
+  }
+ },
+ "tick": {
+  "file": "tick.wav",
+  "dur": 0.3,
+  "hit": 0.0,
+  "stereo": false,
+  "hitKind": "start",
+  "audibleStart": 0.0,
+  "peakDb": -1.0,
+  "rmsDb": -22.72,
+  "dc": 0.00104435,
+  "centroidHz": 1513.7,
+  "layers": {
+   "T": -43.9,
+   "B": -24.2,
+   "A": -56.4
+  }
+ }
+}
