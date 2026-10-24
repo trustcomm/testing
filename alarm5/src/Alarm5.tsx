@@ -64,8 +64,9 @@ export const Alarm5: React.FC<Alarm5Props> = ({ mode = "full", captions = true, 
   return (
     <AbsoluteFill style={{ background: C.black }}>
       {audio && <Audio src={staticFile("mix.wav")} />}
-      <Background />
-      {mode === "full" && <MotionBlur extra={BLUR}><WorldLayers routes={routes} /></MotionBlur>}
+      {/* the background is part of every motion-blur sample: each sample is then an opaque picture and their running average is exact */}
+      {mode === "bg" && <Background />}
+      {mode === "full" && <MotionBlur extra={BLUR}><Background /><WorldLayers routes={routes} /></MotionBlur>}
       {mode === "full" && <ScreenLayers />}
       {mode === "full" && <Hud />}
       <Vignette />

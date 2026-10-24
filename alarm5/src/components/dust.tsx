@@ -7,12 +7,13 @@ import { swing as easeInOutCubic } from "../easing";
 export interface Pt { x: number; y: number }
 /** points of text, sampled from an off-screen canvas (the fonts are loaded before the first frame renders) */
 export const textPoints = (text: string, o: { font: string; x: number; y: number; align?: CanvasTextAlign; step?: number; maxW?: number }): Pt[] => {
-  const c = document.createElement("canvas"); c.width = W; c.height = 420;
+  const px = Number(/(\d+(?:\.\d+)?)px/.exec(o.font)?.[1] ?? 100), CH = Math.max(420, Math.ceil(px * 1.5)), MID = CH / 2;   // the canvas is as tall as the type needs (a 760 px numeral is taller than 420 px)
+  const c = document.createElement("canvas"); c.width = W; c.height = CH;
   const g = c.getContext("2d")!; g.font = o.font; g.textAlign = o.align ?? "center"; g.textBaseline = "middle"; g.fillStyle = "#fff";
-  g.fillText(text, o.align === "left" ? 0 : o.align === "right" ? W : W / 2, 210, o.maxW);
-  const img = g.getImageData(0, 0, W, 420).data, step = o.step ?? 4, out: Pt[] = [];
+  g.fillText(text, o.align === "left" ? 0 : o.align === "right" ? W : W / 2, MID, o.maxW);
+  const img = g.getImageData(0, 0, W, CH).data, step = o.step ?? 4, out: Pt[] = [];
   const dx = (o.align === "left" ? o.x : o.align === "right" ? o.x - W : o.x - W / 2);
-  for (let y = 0; y < 420; y += step) for (let x = 0; x < W; x += step) if (img[(y * W + x) * 4 + 3] > 128) out.push({ x: x + dx, y: y + o.y - 210 });
+  for (let y = 0; y < CH; y += step) for (let x = 0; x < W; x += step) if (img[(y * W + x) * 4 + 3] > 128) out.push({ x: x + dx, y: y + o.y - MID });
   return out;
 };
 

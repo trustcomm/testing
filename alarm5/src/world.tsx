@@ -64,7 +64,8 @@ export const MotionBlur: React.FC<{ extra?: [number, number][]; children: React.
     <AbsoluteFill>
       {Array.from({ length: N }, (_, i) => {
         const o = (i / (N - 1) - 0.5) * shutter;
-        return <AbsoluteFill key={i} style={{ opacity: 1 / N, mixBlendMode: i === 0 ? "normal" : "plus-lighter" }}><ClockProvider frame={f + o}>{children}</ClockProvider></AbsoluteFill>;
+        // a running average with plain "normal" blending: sample i goes over the stack at 1 / (i + 1), which makes the stack the mean of the samples (mix-blend-mode: plus-lighter adds the page background again)
+        return <AbsoluteFill key={i} style={{ opacity: 1 / (i + 1) }}><ClockProvider frame={f + o}>{children}</ClockProvider></AbsoluteFill>;
       })}
     </AbsoluteFill>
   );

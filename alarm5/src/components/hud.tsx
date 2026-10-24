@@ -19,13 +19,13 @@ const Reveal: React.FC<{ n: number; at: number; end: number; bigger?: boolean }>
   const gather = 1 - settle(clamp01((f - (at - 26)) / 26));            // 1 (dust) -> 0 (whole), done on the hit
   const shrink = glide(clamp01((f - (at + 22)) / 34));                  // from the hold into the HUD
   const x = lerp(W / 2, HUD_POS.x, shrink), y = lerp(H / 2 - 40, HUD_POS.y, shrink), sc = lerp(1, 0.085 * (bigger ? 1.1 : 1), shrink);
-  const whole = f >= at - 4;
+  const whole = f >= at - 12;                                           // the solid numeral fades in over the last 11 frames of the gathering (no gap, no pop)
   const o = 1 - smooth(end - 6, end, f);
   if (f < at - 28 || f > end) return null;
   const pop = f >= at && f < at + 14 ? 1 + 0.03 * Math.sin(((f - at) / 14) * Math.PI) : 1;       // a tiny settle on the hit
   return (
     <AbsoluteFill style={{ opacity: o, pointerEvents: "none" }}>
-      {gather > 0.001 && <Dust points={pts} p={gather} seed={n * 7} size={3.2} drift={340} dir={-Math.PI / 2} spread={Math.PI} stagger={0.5} color={C.text} />}
+      {f < at && <Dust points={pts} p={gather} seed={n * 7} size={3.2} drift={340} dir={-Math.PI / 2} spread={Math.PI} stagger={0.5} color={C.text} alpha={1 - smooth(at - 9, at - 1, f)} />}
       {whole && (
         <div style={{ position: "absolute", left: x, top: y, transform: `translate(-50%, -52%) scale(${sc * pop})`, fontFamily: FONT.display, fontWeight: 700, fontSize: size, lineHeight: 1, letterSpacing: "-0.04em", color: C.text, opacity: smooth(at - 12, at - 1, f), textShadow: `0 0 ${60 * (1 - shrink)}px rgba(255,179,64,${0.5 * (1 - shrink)}), 0 0 ${18}px rgba(255,179,64,${0.25 * (1 - shrink)})` }}>{n}</div>
       )}

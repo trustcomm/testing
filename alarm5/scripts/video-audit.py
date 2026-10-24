@@ -23,7 +23,7 @@ while True:
 d = np.array(d); lvl = np.array(lvl)
 print(f"{n} frames decoded (expected {t['meta']['totalFrames']})")
 moving = np.zeros(n, bool)
-for a, b in t["camera"]["travels"]: moving[a:b + 1] = True
+for tr in t["camera"]["travels"]: moving[tr["from"]:tr["to"] + 1] = True
 punch = np.zeros(n, bool)
 for f in t["camera"]["punches"]: punch[f:f + 20] = True
 spikes = []
