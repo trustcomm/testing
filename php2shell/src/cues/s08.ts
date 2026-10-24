@@ -47,10 +47,8 @@ const sfx: SfxEvent[] = [
   pulse(0, cue.walkStart + 2), pulse(1, cue.walkStart + 24), pulse(2, cue.walkStart + 46), pulse(3, cue.walkEnd + 2),
   { id: "s8.denied", frame: cue.strike, sfx: "denied_buzz", gainDb: -4, note: "kiye: the red strike-through wipes across the login box" },
   { id: "s8.hit", frame: cue.hit, sfx: "big_hit", gainDb: 0, note: "control: big low hit, micro-shake, push-in" },
-  { id: "s8.zap", frame: cue.hit, sfx: "zap_sweep", gainDb: -4, note: "control: the red wave rises through every rack, bottom to top" },
-  { id: "s8.cursor", frame: cue.cursor, sfx: "ui_click", gainDb: -8, pitch: -2, note: "the red cursor pops in" },
-  { id: "s8.click", frame: cue.click, sfx: "ui_click", gainDb: -7, pitch: 3, note: "the cursor clicks: a ring leaves its tip" },
-  { id: "s8.dust", frame: cue.dissolve + 8, sfx: "whoosh", gainDb: -20, note: "the red hall dissolves into dust" },
+  { id: "s8.zap", frame: cue.hit, sfx: "zap_sweep", gainDb: -10, frames: 15, note: "control: the red wave rises through every rack, bottom to top" },
+  { id: "s8.click", frame: cue.click, sfx: "ui_click", gainDb: -12, pitch: 3, note: "the cursor clicks: a ring leaves its tip" },
 ];
 
 const A = (label: string, frame: number, expect: string) => ({ label, frame, expect });

@@ -284,6 +284,19 @@ def run_qa(timeline_path: Path, out_dir: Path | None, md_path: Path, strict: boo
                 af = act / SPF
                 df = af - e["frame"]
                 row.update(actual=af, df=df, dms=df * 1000 / FPS, a=a, status="ok" if abs(df) <= TOL_FRAMES else "FAIL")
+                if row["status"] == "FAIL":  # identical or louder neighbours can pull the matched filter off: cancel their exact renders from the stem and look again
+                    neigh = [(o, st_, hs_) for k, o2 in enumerate(tl["sfx"]) if o2 is not e and abs(o2["frame"] - e["frame"]) <= 24
+                             for o, st_, hs_, _ in [bm.render_event(o2, index, vpk)] if len(o)]
+                    resid = sfx_mono.copy()
+                    for o, st_, _hs in neigh:
+                        a0, a1 = max(0, st_), min(len(resid), st_ + len(o))
+                        if a1 > a0:
+                            resid[a0:a1] -= o.mean(axis=1)[a0 - st_:a1 - st_]
+                    act2, a2, _n2 = locate(resid, out, start, hit_sample, post=2.0 if index[e['sfx']]['hit'] < 0.05 and index[e['sfx']]['dur'] > 2.0 else 0.4)
+                    if act2 is not None and a2 >= 0.4 and abs(act2 / SPF - e["frame"]) <= TOL_FRAMES:
+                        af = act2 / SPF
+                        df = af - e["frame"]
+                        row.update(actual=af, df=df, dms=df * 1000 / FPS, a=a2, status=f"ok (cancelled {len(neigh)} neighbours)")
         rows.append(row)
     audible = [r for r in rows if r["status"] != "inaudible"]
     fails = [r for r in audible if r["status"].startswith("FAIL")]

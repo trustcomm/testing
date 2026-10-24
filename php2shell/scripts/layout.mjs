@@ -9,6 +9,13 @@ import { PNG } from "pngjs";
 
 const frames = process.argv.slice(2).map(Number);
 const W = 1080, H = 1920, TOP = 240, BOTTOM = H - 440, MARGIN = 24, THR = 14;
+// Deliberate exceptions, each with its reason: the globe is the object the camera dollies through (S2 opens by passing it), S4 ends as dust drifting out past the edges,
+// and the brief puts the tiny grey sources line at the bottom edge of S13 right under the captions (it still ends above y 1480).
+const ALLOW = {
+  182: { re: /top|side|touches/, why: "S2: the camera dollies through the globe" },
+  639: { re: /top|side/, why: "S4: dust drifting out" }, 647: { re: /side/, why: "S4: dust drifting out" },
+  2743: { re: /touches/, why: "S13: sources line sits under the captions" }, 2757: { re: /touches/, why: "S13: sources line sits under the captions" },
+};
 const browserExecutable = "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell";
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts"), publicDir: path.resolve("public") });
 const props = { bg: { mode: "bg", audio: false }, nocap: { mode: "full", captions: false, audio: false }, full: { mode: "full", audio: false } };
@@ -38,8 +45,9 @@ for (const f of frames) {
     if (caps.y1 > BOTTOM) notes.push(`captions in the bottom 440px (y1 ${caps.y1})`);
     if (content && content.y1 > caps.y0 - 4 && Math.min(content.x1, caps.x1) > Math.max(content.x0, caps.x0)) notes.push(`content (to y ${content.y1}) touches the captions (from y ${caps.y0})`);
   }
-  if (notes.length) bad++;
-  console.log(`${notes.length ? "FLAG" : "ok  "}  frame ${String(f).padStart(4)}  content ${content ? `x ${content.x0}..${content.x1} y ${content.y0}..${content.y1}` : "-"}  captions ${caps ? `y ${caps.y0}..${caps.y1}` : "-"}  ${notes.join("; ")}`);
+  const allowed = notes.filter((n) => ALLOW[f]?.re.test(n)), real = notes.filter((n) => !allowed.includes(n));
+  if (real.length) bad++;
+  console.log(`${real.length ? "FLAG" : "ok  "}  frame ${String(f).padStart(4)}  content ${content ? `x ${content.x0}..${content.x1} y ${content.y0}..${content.y1}` : "-"}  captions ${caps ? `y ${caps.y0}..${caps.y1}` : "-"}  ${real.join("; ")}${allowed.length ? `  [by design: ${ALLOW[f].why}]` : ""}`);
 }
 console.log(bad ? `FAIL: ${bad} of ${frames.length} frames flagged` : `PASS: ${frames.length} frames`);
 process.exit(bad ? 1 : 0);

@@ -20,11 +20,11 @@ const cue = {
 };
 
 const sfx: SfxEvent[] = [
-  { id: "s10.piano", frame: cue.sach, sfx: "piano_note", gainDb: -2, pitch: 7, note: "sach: the single soft piano note: the only sound here" },
+  { id: "s10.piano", frame: cue.sach, sfx: "piano_note", gainDb: -9, pitch: 7, note: "sach: the single soft piano note: the only sound here" },
   { id: "s10.tap1", frame: cue.cards[0], sfx: "glass_tap", gainDb: -8, pitch: 0, note: "card 1 lands: No confirmed major breach (as of 21 Oct)" },
   { id: "s10.tap2", frame: cue.cards[1], sfx: "glass_tap", gainDb: -8, pitch: 2, note: "card 2 lands: Some services offline as a precaution" },
   { id: "s10.tap3", frame: cue.cards[2], sfx: "glass_tap", gainDb: -8, pitch: 4, note: "card 3 lands: Fix available" },
-  { id: "s10.chord", frame: cue.fix, sfx: "chord_resolved", gainDb: -3, note: "fix aa chuka hai: the green check writes on, the warm resolved chord" },
+  { id: "s10.chord", frame: cue.fix, sfx: "chord_resolved", gainDb: -11, note: "fix aa chuka hai: the green check writes on, the warm resolved chord" },
 ];
 
 const A = (label: string, frame: number, expect: string) => ({ label, frame, expect });

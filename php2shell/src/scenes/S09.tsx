@@ -12,7 +12,7 @@ import { TARGET, needleAt } from "../cues/s09";
 
 // the shield (top-left of the gauge) and the four attacks that bounce off it
 const SH = { x: 214, y: 486 };
-const SOURCES: { x: number; y: number }[] = [{ x: 66, y: 470 }, { x: 116, y: 300 }, { x: 380, y: 284 }, { x: 960, y: 346 }];
+const SOURCES: { x: number; y: number }[] = [{ x: 66, y: 470 }, { x: 116, y: 340 }, { x: 380, y: 336 }, { x: 960, y: 346 }];
 const impactPoint = (s: { x: number; y: number }) => { const dx = s.x - SH.x, dy = s.y - SH.y, l = Math.hypot(dx, dy); return { x: SH.x + (dx / l) * 56, y: SH.y + (dy / l) * 60, nx: dx / l, ny: dy / l }; };
 
 const Arrow: React.FC<{ k: number; hitFrame: number; flight: number }> = ({ k, hitFrame, flight }) => {
