@@ -9,9 +9,10 @@ import { PNG } from "pngjs";
 
 const frames = process.argv.slice(2).map(Number);
 const W = 1080, H = 1920, TOP = 240, BOTTOM = H - 440, MARGIN = 24, THR = 14;
-// Deliberate exceptions, each with its reason: the globe is the object the camera dollies through (S2 opens by passing it), S4 ends as dust drifting out past the edges,
+// Deliberate exceptions, each with its reason: the alarm shockwave ring of S1 expands past the frame on the hit, the globe is the object the camera dollies through (S2 opens by passing it), S4 ends as dust drifting out past the edges,
 // and the brief puts the tiny grey sources line at the bottom edge of S13 right under the captions (it still ends above y 1480).
 const ALLOW = {
+  160: { re: /top|bottom|side|touches/, why: "S1: the alarm shockwave ring leaves the frame" }, 161: { re: /top|bottom|side|touches/, why: "S1: the alarm shockwave ring leaves the frame" },
   182: { re: /top|side|touches/, why: "S2: the camera dollies through the globe" },
   639: { re: /top|side/, why: "S4: dust drifting out" }, 647: { re: /side/, why: "S4: dust drifting out" },
   2743: { re: /touches/, why: "S13: sources line sits under the captions" }, 2757: { re: /touches/, why: "S13: sources line sits under the captions" },

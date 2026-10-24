@@ -7,7 +7,7 @@ OUT=${1:-out/php2shell.mp4}
 B=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell
 mkdir -p out build
 [ -f public/mix.wav ] || python3 scripts/build_mix.py
-npx remotion render src/index.ts Php2Shell build/video.mp4 --props='{"audio":false}' --codec=h264 --muted --pixel-format=yuv420p --video-bitrate=${VIDEO_BITRATE:-14M} --x264-preset=slow --browser-executable=$B
+npx remotion render src/index.ts Php2Shell build/video.mp4 --props='{"audio":false}' --codec=h264 --muted --pixel-format=yuv420p --video-bitrate=${VIDEO_BITRATE:-14M} --x264-preset=slow --concurrency=${CONCURRENCY:-4} --browser-executable=$B
 ffmpeg -y -v error -i public/mix.wav -ar 48000 -c:a aac -b:a 320k -aac_coder fast -cutoff 20000 build/master.m4a
 D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 build/video.mp4)
 ffmpeg -y -v error -i build/video.mp4 -i build/master.m4a -map 0:v -map 1:a -c copy -t "$D" -movflags +faststart "$OUT"

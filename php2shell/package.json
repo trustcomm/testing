@@ -10,7 +10,7 @@
     "audio": "npm run timeline && python3 scripts/build_mix.py",
     "stills": "node scripts/stills.mjs",
     "render": "sh scripts/render.sh",
-    "verify": "tsx scripts/verify-sync.ts && node scripts/verify-layout.mjs"
+    "qa": "sh scripts/qa.sh"
   },
   "dependencies": {
     "@fontsource/instrument-serif": "^5.2.0",

@@ -14,7 +14,7 @@ const composition = await selectComposition({ serveUrl, id: "Php2Shell", inputPr
 mkdirSync("out/stills", { recursive: true });
 const files = [];
 for (const s of t.scenes) {
-  const out = `out/stills/${s.id.replace("S", "S").padStart(3, "S").replace(/^S(\d)$/, "S0$1")}.png`;
+  const out = `out/stills/S${s.id.slice(1).padStart(2, "0")}.png`;
   await renderStill({ composition, serveUrl, inputProps, frame: s.hero, browserExecutable, output: out, imageFormat: "png" });
   files.push({ id: s.id, out, frame: s.hero, name: s.name });
 }
