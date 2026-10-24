@@ -30,6 +30,6 @@ export const cues: SceneCues = {
   ],
   cam: [
     key(cue.pullStart, onStation(2, 1.2), "HOLD"),
-    key(cue.pullEnd, onStation(2, 1.0), "PULL", { ease: "swing" }),
+    key(cue.pullEnd, onStation(2, 1.0), "PULL", { ease: "swing", settle: false }),
   ],
 };

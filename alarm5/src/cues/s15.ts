@@ -22,7 +22,7 @@ export const sfx: SfxEvent[] = [
   { id: "s15.final", frame: cue.dunga + 22, sfx: "final_chime", gainDb: -10, pan: 0, note: "dunga.: the final gentle chime with a long tail" },
 ];
 export const cues: SceneCues = {
-  cue, sfx, hero: cue.dunga + 50,
+  cue, sfx, hero: cue.dunga + 34,
   anchors: [
     { label: "har hafte", frame: S("har") + 20, note: "the green constellation, DRIFT" },
     { label: "follow", frame: cue.follow + 12, note: "the pill 'Follow @baqur.ai'" },
@@ -31,8 +31,8 @@ export const cues: SceneCues = {
     { label: "dunga", frame: cue.dunga + 24, note: "the CTA complete, the sources line at the bottom edge" },
   ],
   cam: [
-    key(S("har"), mapView(0.17), "HOLD", { r: 0.5 }),
-    key(5302, mapView(0.175), "HOLD", { ease: "swing", r: 0 }),
+    key(S("har"), mapView(0.152), "HOLD", { r: 0.5 }),
+    key(5302, mapView(0.158), "HOLD", { ease: "swing", r: 0 }),
   ],
   captionLift: [[4915, 5302]],
 };

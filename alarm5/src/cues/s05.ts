@@ -24,7 +24,7 @@ export const sfx: SfxEvent[] = [
   { id: "s5.conveyor", frame: cue.box + 4, sfx: "conveyor_hum", gainDb: -16, pan: 0, note: "the conveyor starts to hum" },
   { id: "s5.label", frame: cue.label + 6, sfx: "tink", gainDb: -7, pitch: 4, pan: 0.1, note: "LiteLLM 1.107.0 label pops" },
   { id: "s5.creak", frame: cue.wormIn, sfx: "creak", gainDb: -9, pan: 0.15, note: "chupke se: the red worm-line slips inside the box seam" },
-  { id: "s5.dive", frame: leadFrame("dolly_dive", cue.dollyStart), sfx: "dolly_dive", gainDb: -2, pan: 0, note: "DOLLY-THROUGH the package: the camera dives through it" },
+  { id: "s5.dive", frame: leadFrame("dolly_dive", cue.dollyStart, 7), sfx: "dolly_dive", gainDb: -2, pan: 0, note: "DOLLY-THROUGH the package: the camera dives through it" },
   { id: "s5.key1", frame: cue.pull1, sfx: "glassy_pluck", gainDb: -5, pitch: 0, pan: -0.4, note: "the first stolen key leaves through the hatch" },
   { id: "s5.key2", frame: cue.pull2, sfx: "glassy_pluck", gainDb: -5, pitch: 4, pan: 0.3, note: "the second key" },
   { id: "s5.key3", frame: cue.pull3, sfx: "glassy_pluck", gainDb: -6, pitch: 7, pan: -0.2, note: "the third key" },
@@ -44,7 +44,7 @@ export const cues: SceneCues = {
     key(cue.flyStart, onStation(5, 0.77), "HOLD"),
     key(cue.flyEnd, onStation(4, 1.0), "FLY-TO", { dip: 0.35 }),
     key(cue.dollyStart, onStation(4, 1.0), "HOLD"),
-    key(cue.dollyEnd, { x: boxWorld.x, y: boxWorld.y, s: 8.0 }, "DOLLY-THROUGH", { ease: "launch", settle: false }),
+    key(cue.dollyEnd, { x: boxWorld.x, y: boxWorld.y, s: 8.0 }, "DOLLY-THROUGH", { ease: "swing", settle: false }),
   ],
   blur: [],
 };

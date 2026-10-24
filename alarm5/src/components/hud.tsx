@@ -40,12 +40,12 @@ const HudNumber: React.FC<{ n: number; from: number; to: number }> = ({ n, from,
   const i = settle(clamp01((f - from) / 20)), o = swing(clamp01((f - (to - 20)) / 20));
   const ring = 0.5 + 0.5 * Math.sin(f / 16);
   return (
-    <div style={{ position: "absolute", left: HUD_POS.x, top: HUD_POS.y, transform: "translate(-50%, -50%)", opacity: i * (1 - o), filter: o > 0 ? `blur(${o * 8}px)` : i < 1 ? `blur(${(1 - i) * 8}px)` : undefined }}>
-      <svg width={150} height={150} viewBox="-75 -75 150 150" style={{ position: "absolute", left: -75 + 0, top: -75, overflow: "visible" }}>
+    <div style={{ position: "absolute", left: HUD_POS.x, top: HUD_POS.y, width: 0, height: 0, opacity: i * (1 - o), filter: o > 0 ? `blur(${o * 8}px)` : i < 1 ? `blur(${(1 - i) * 8}px)` : undefined }}>
+      <svg width={150} height={150} viewBox="-75 -75 150 150" style={{ position: "absolute", left: -75, top: -75, overflow: "visible" }}>
         <circle r={62} fill="none" stroke={C.amber} strokeOpacity={0.5} strokeWidth={3} />
         <circle r={62 + 7 * ring} fill="none" stroke={C.amber} strokeOpacity={0.14 + 0.1 * (1 - ring)} strokeWidth={2} />
       </svg>
-      <div style={{ position: "relative", width: 124, textAlign: "center", fontFamily: FONT.mono, fontWeight: 700, fontSize: 64, lineHeight: "124px", height: 124, marginLeft: -62, marginTop: -62 + 62, color: C.amber, textShadow: "0 0 22px rgba(255,179,64,0.55)" }}>{String(n).padStart(2, "0")}</div>
+      <div style={{ position: "absolute", left: -62, top: -62, width: 124, height: 124, textAlign: "center", fontFamily: FONT.mono, fontWeight: 700, fontSize: 64, lineHeight: "124px", color: C.amber, textShadow: "0 0 22px rgba(255,179,64,0.55)" }}>{String(n).padStart(2, "0")}</div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ const t = JSON.parse(readFileSync("public/timeline.json", "utf8"));
 const browserExecutable = "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell";
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.ts"), publicDir: path.resolve("public") });
 const inputProps = { mode: "full", audio: false };
-const composition = await selectComposition({ serveUrl, id: "Php2Shell", inputProps, browserExecutable });
+const composition = await selectComposition({ serveUrl, id: "Alarm5", inputProps, browserExecutable });
 mkdirSync("out/stills", { recursive: true });
 const files = [];
 for (const s of t.scenes) {

@@ -94,7 +94,7 @@ export const S9World: React.FC = () => {
         <BugGlyph x={-250} y={-200} s={1.25} at={cue.bug} />
       </Local>
       <div style={{ opacity: 1 - fade10 }}>
-        <WPill x={0} y={400} at={cue.fact} size={26} tone="danger">Signal call bug · CVE-2026-113380</WPill>
+        <WPill x={0} y={338} at={cue.fact} out={cue.sun - 24} size={26} tone="danger" style={{ textTransform: "none", letterSpacing: "0.02em" }}>Signal call bug · CVE-2026-113380</WPill>
       </div>
     </Obj>
   );

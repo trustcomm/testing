@@ -43,7 +43,7 @@ export const cues: SceneCues = {
   cam: [
     key(0, { x: b1[0], y: b1[1], s: 3.0 }, "START"),
     key(cue.pullStart, { x: b1[0], y: b1[1], s: 3.0 }, "HOLD"),
-    key(cue.pullEnd, mapView(0.165), "PULL", { ease: "swing" }),
+    key(cue.pullEnd, mapView(0.15), "PULL", { ease: "swing" }),
   ],
   punches: [{ f: cue.aapko, amount: 0.25, id: "s1.aapko" }],
   blur: [[cue.seedha, cue.aapko + 8]],

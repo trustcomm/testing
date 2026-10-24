@@ -25,13 +25,14 @@ import { S13Screen } from "./scenes/S13";
 import { S14Screen } from "./scenes/S14";
 import { S15Screen } from "./scenes/S15";
 
-export type Alarm5Props = { mode?: "full" | "bg"; captions?: boolean; audio?: boolean };
+/** routes: false hides the map's grid and the dotted route paths (they run off the frame on purpose); only scripts/layout.mjs turns it off */
+export type Alarm5Props = { mode?: "full" | "bg"; captions?: boolean; audio?: boolean; routes?: boolean };
 
 /** the world layers (they move with the camera; motion-blurred while it moves fast) */
-const WorldLayers: React.FC = () => (
+const WorldLayers: React.FC<{ routes: boolean }> = ({ routes }) => (
   <World>
-    <Grid />
-    <Routes />
+    {routes && <Grid />}
+    {routes && <Routes />}
     <StationIcons />
     <Beacons />
     <S3World />
@@ -58,13 +59,13 @@ const ScreenLayers: React.FC = () => (
   </>
 );
 
-export const Alarm5: React.FC<Alarm5Props> = ({ mode = "full", captions = true, audio = true }) => {
+export const Alarm5: React.FC<Alarm5Props> = ({ mode = "full", captions = true, audio = true, routes = true }) => {
   useFrame();
   return (
     <AbsoluteFill style={{ background: C.black }}>
       {audio && <Audio src={staticFile("mix.wav")} />}
       <Background />
-      {mode === "full" && <MotionBlur extra={BLUR}><WorldLayers /></MotionBlur>}
+      {mode === "full" && <MotionBlur extra={BLUR}><WorldLayers routes={routes} /></MotionBlur>}
       {mode === "full" && <ScreenLayers />}
       {mode === "full" && <Hud />}
       <Vignette />

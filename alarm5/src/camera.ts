@@ -52,8 +52,9 @@ export function makeCamera(keysIn: CamKey[], punches: Punch[], sentences: Senten
     let sum = 0;
     for (const s of sentences) {
       if (s.end <= A || s.start > f) continue;
-      const st = Math.max(s.start, A), p = clamp01((f - st) / Math.max(1, s.end - st));
-      sum += 0.04 * ease("swing", p);
+      // the rate of the push never changes: after a travel ends the part of the sentence that is left continues from where the push stood at that moment (no compressed lurch)
+      const len = Math.max(1, s.end - s.start), p = clamp01((f - s.start) / len), p0 = clamp01((A - s.start) / len);
+      sum += 0.04 * Math.max(0, ease("swing", p) - ease("swing", p0));
     }
     let rel = 1;
     for (const t of travels) if (f >= t.from && f < t.to) rel *= 1 - smoothstep((f - t.from) / (0.4 * (t.to - t.from)));
@@ -77,7 +78,9 @@ export function makeCamera(keysIn: CamKey[], punches: Punch[], sentences: Senten
   };
   const at = (f: number): CamState & { sx: number; sy: number } => {
     const b = base(f);
-    const s = b.s * Math.exp(pushLog(f)) * punchFactor(f) * settleTerm(f);
+    // the sentence pushes add up while the camera holds; on the full map they saturate at about +6 % (the whole map must stay inside the safe zones), in close-ups they are free
+    const cap = 0.06 + 0.94 * smoothstep((b.s - 0.2) / 0.4), push = cap * Math.tanh(pushLog(f) / cap);
+    const s = b.s * Math.exp(push) * punchFactor(f) * settleTerm(f);
     // drift: 4-second seeded noise; amplitude +-6 px (screen), +-0.2 deg
     const t = f / FPS / 4, dx = 6 * noise1(t, 3), dy = 6 * noise1(t, 4), dr = 0.2 * noise1(t, 5);
     const sh = shake(f);

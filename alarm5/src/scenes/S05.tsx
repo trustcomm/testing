@@ -75,7 +75,7 @@ export const S5World: React.FC = () => {
         <div style={{ position: "absolute", left: 0, top: 0, transform: `translate(${bx}px, 0px)` }}>
           <Abs x={0} y={70}><Rise at={1522} frames={20}><div style={{ textAlign: "center" }}><T size={26} mono color={C.text}>LiteLLM</T><T size={32} mono color={C.secondary} style={{ marginTop: 6 }}>1.107.0</T></div></Rise></Abs>
         </div>
-        <WPill x={0} y={-112} at={cue.label} size={30}>LiteLLM 1.107.0</WPill>
+        <WPill x={0} y={-112} at={cue.label} size={30} style={{ textTransform: "none", letterSpacing: "0.02em" }}>LiteLLM 1.107.0</WPill>
         <Abs x={-340} y={-300}><Rise at={cue.others} frames={20}><T size={22} mono color={C.secondary}>PyPI · Docker</T></Rise></Abs>
       </div>
       {/* the dark inner world: only visible while the camera is inside the box */}

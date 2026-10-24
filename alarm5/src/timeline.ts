@@ -70,6 +70,10 @@ export const ART = {
 export const PULSE: [number, number][] = [[k1.crowd, k1.crowdOut]];
 /** S14: the green wave along the route: the frame each beacon pulses */
 export const WAVE: Record<StationNo, number> = { 5: k14.wave, 4: k14.wave + 22, 3: k14.wave + 44, 2: k14.wave + 66, 1: k14.wave + 88 };
+/** the frames the S14 words are stacked on screen: the map icons step back meanwhile */
+export const S14_STACK: [number, number] = [k14.update, START.S15 + 4];
+/** the frames the S11 title PHP2Shell sits over the map: the icons it covers (#5, #4) step back meanwhile */
+export const S11_TITLE: [number, number] = [k11.title - 4, k11.titleOut + 14];
 export const NUMERALS: { n: number; at: number; hudFrom?: number; hudEnd?: number }[] = [
   { n: 5, at: k3.numeral, hudFrom: k2.hud }, { n: 4, at: k5.numeral }, { n: 3, at: k7.numeral }, { n: 2, at: k9.numeral }, { n: 1, at: k11.numeral, hudEnd: START.S13 + 6 },
 ];

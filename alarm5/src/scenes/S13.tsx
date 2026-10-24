@@ -25,9 +25,9 @@ export const S13Screen: React.FC = () => {
     <AbsoluteFill style={{ opacity: 1 - o, filter: o > 0 ? `blur(${o * 8}px)` : undefined, pointerEvents: "none" }}>
       <Canvas>{ITEMS.map((it) => { const p = project(cam, STATION[it.n].x, STATION[it.n].y, 1); return <Stroke key={it.n} d={circle(p.sx, p.sy, 62)} at={it.at - 14} frames={26} color={C.text} w={2.5} glow="rgba(245,245,247,0.35)" />; })}</Canvas>
       {ITEMS.map((it) => {
-        const p = project(cam, STATION[it.n].x, STATION[it.n].y, 1), pw = it.text.length * 15.4 + 50;
+        const p = project(cam, STATION[it.n].x, STATION[it.n].y, 1), pw = it.text.length * 17.9 + 58;
         const x = it.side === "below" ? p.sx : p.sx - 62 - 16 - pw / 2, y = it.side === "below" ? p.sy + 108 : p.sy;
-        return <div key={it.n} style={{ position: "absolute", left: x, top: y, transform: "translate(-50%, -50%)" }}><Pop at={it.at}><Pill size={24} style={{ background: "rgba(10,10,12,0.78)", borderColor: C.text }}>{it.text}</Pill></Pop></div>;
+        return <div key={it.n} style={{ position: "absolute", left: x, top: y, transform: "translate(-50%, -50%)" }}><Pop at={it.at}><Pill size={28} style={{ background: "rgba(10,10,12,0.78)", borderColor: C.text }}>{it.text}</Pill></Pop></div>;
       })}
     </AbsoluteFill>
   );

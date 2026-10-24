@@ -46,7 +46,7 @@ export const cues: SceneCues = {
     key(cue.flyStart, onStation(4, 1.0, 0, 0), "HOLD"),
     key(cue.flyEnd, onStation(3, 1.0), "FLY-TO", { dip: 0.35 }),
     key(cue.pullStart, onStation(3, 1.0), "HOLD"),
-    key(cue.pullEnd, onStation(3, 0.86), "PULL", { ease: "swing" }),
+    key(cue.pullEnd, onStation(3, 0.86), "PULL", { ease: "swing", settle: false }),
   ],
   punches: [{ f: cue.lakh, amount: 0.25, id: "s7.lakh" }],
 };

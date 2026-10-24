@@ -36,10 +36,10 @@ export const cues: SceneCues = {
     { label: "nahi", frame: cue.nope + 12, note: "the tiny robot shaking its head nope beside the green lock" },
   ],
   cam: [
-    key(cue.pullStart, mapView(0.165), "HOLD", { r: 2.0 }),
-    key(cue.pullEnd, mapView(0.15), "PULL", { ease: "swing", r: 2.0 }),
-    key(cue.pushStart, mapView(0.15), "HOLD", { r: 2.0 }),
-    key(cue.pushEnd, mapView(0.17), "HOLD", { ease: "swing", r: 0.5 }),
+    key(cue.pullStart, mapView(0.15), "ORBIT", { ease: "swing", r: 2.0 }),
+    key(cue.pullEnd, mapView(0.14), "PULL", { ease: "swing", r: 2.0, settle: false }),
+    key(cue.pushStart, mapView(0.14), "HOLD", { r: 2.0 }),
+    key(cue.pushEnd, mapView(0.155), "HOLD", { ease: "swing", r: 0.5 }),
   ],
   captionLift: [[4498, 4915]],
 };

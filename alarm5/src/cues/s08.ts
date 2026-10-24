@@ -33,6 +33,6 @@ export const cues: SceneCues = {
   ],
   cam: [
     key(cue.glideStart, onStation(3, 0.86), "HOLD"),
-    key(cue.glideEnd, onStation(3, 0.86, 340, 0), "GLIDE", { ease: "glide" }),
+    key(cue.glideEnd, onStation(3, 0.86, 340, 0), "GLIDE", { ease: "swing" }),
   ],
 };

@@ -66,6 +66,15 @@ for k in range(1, n):
     nxt = starts[k + 1] if k + 1 < n else burst / 100 + 1
     if burst / 100 - starts[k - 1] < 0.10 or nxt - burst / 100 < 0.10: continue
     starts[k] = burst / 100; ends[k - 1] = min(dip / 100, starts[k])
+# Hand-checked on the envelope (10 ms steps): the aligner is ~100 ms late on "agents pe" and the plosive snap of "pe" lands on the closure of the "b" of "brake"
+# (the closure of /t/ in "agents" ends at 13.55, the "p" burst of "pe" is at 13.57, the "b" closure is 13.71-13.76 and its burst at 13.78).
+FIX = [("agents", 13.28, None, 13.55), ("pe", 13.78, 13.56, 13.73), ("brake", 13.88, 13.77, None)]
+for tok, near, st, en in FIX:
+    k = next(i for i in range(n) if T[i]["token"] == tok and abs(starts[i] - near) < 0.15)
+    if st is not None: starts[k] = st
+    if en is not None: ends[k] = en
+    if st is not None and k: ends[k - 1] = min(ends[k - 1], st)
+    if en is not None and k + 1 < n: starts[k + 1] = max(en, starts[k + 1]) if en > starts[k + 1] else starts[k + 1]
 first_loud = int(np.argmax(db > SIL)) / 100; last_loud = (len(db) - int(np.argmax(db[::-1] > SIL))) / 100
 starts[0] = max(0.0, min(first_loud, starts[0] if starts[0] > 0 else first_loud)); ends[-1] = last_loud
 for k in range(n):                                # sanity: positive lengths, in order; else fall back to the aligner for that token

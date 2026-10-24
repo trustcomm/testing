@@ -6,7 +6,7 @@ import { clamp01, lerp, smooth } from "../motion";
 import { glide, settle, springT } from "../easing";
 import { Local, Stroke, circle, line, poly, rrect, useScale, arc } from "./draw";
 import { Obj, useCam } from "../world";
-import { BEACON, ROUTE, ART, PULSE, WAVE } from "../timeline";
+import { BEACON, ROUTE, ART, PULSE, WAVE, S14_STACK, S11_TITLE } from "../timeline";
 import { FPS } from "../theme";
 import { beaconPoint, stationPoint } from "../geometry";
 
@@ -108,7 +108,7 @@ export const StationIcon: React.FC<{ n: StationNo }> = ({ n }) => {
   if (vis <= 0.01 || cam.s > 0.9) return null;
   const lod = 1 - smooth(0.55, 0.9, cam.s);
   return (
-    <Local style={{ opacity: vis * lod * dimK(n, f), transform: `scale(${Math.max(1, 0.27 / cam.s)})` }}>
+    <Local style={{ opacity: vis * lod * dimK(n, f) * (1 - 0.65 * smooth(S14_STACK[0] - 8, S14_STACK[0] + 16, f) * (1 - smooth(S14_STACK[1], S14_STACK[1] + 22, f))) * (n >= 4 ? 1 - 0.8 * smooth(S11_TITLE[0], S11_TITLE[0] + 14, f) * (1 - smooth(S11_TITLE[1], S11_TITLE[1] + 22, f)) : 1), transform: `scale(${Math.max(1, 0.27 / cam.s)})` }}>
       {ICON[n].map((d, i) => <Stroke key={i} d={d} p={1} color={C.text} w={3} opacity={0.55} />)}
       {n === 1 && <text x={0} y={-4} textAnchor="middle" fontFamily={FONT.mono} fontWeight={700} fontSize={104} fill={C.secondary}>PHP</text>}
     </Local>

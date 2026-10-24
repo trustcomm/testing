@@ -23,7 +23,7 @@ const Person: React.FC<{ x: number; y: number; s: number; at: number }> = ({ x, 
 /** S1 in screen space: the headline, the crowd under a flat sound wave, the red dotted line that shoots at the camera, the YOU pill */
 export const S1Screen: React.FC = () => {
   const f = useFrame();
-  const ex = START.S2 + 10;
+  const ex = cue.aapko + 36;
   // the red dotted line: from beacon #1's place on the map to the camera (dots swell as they come at the viewer)
   const cam = CAMERA.at(cue.seedha);
   const p0 = project(cam, beaconPoint(1)[0], beaconPoint(1)[1], 1);
