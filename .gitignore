@@ -11,3 +11,8 @@ dots-reel/renders/draft*.mp4
 dots-reel/renders/frames/
 __pycache__/
 dots-reel/renders/video-render.mp4
+alien-creature/frames*/
+alien-creature/out/
+alien-creature/qa/*.png
+alien-creature/qa/*.txt
+alien-creature/qa/*.log

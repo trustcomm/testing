@@ -1,0 +1,10 @@
+{
+  "title": "XENOFORM",
+  "count_label": "PTS",
+  "statement": ["No footage. No AI.", "Just dots and cosine waves."],
+  "formulas": [
+    ["x ∝ s^1.5 cos(5.5s − 3ωt + φ)", "arms"],
+    ["r ∝ 1 − .24 c(5ωt − 1.4v)", "bell"],
+    ["red where q ≥ 0.9", "frond tips"]
+  ]
+}

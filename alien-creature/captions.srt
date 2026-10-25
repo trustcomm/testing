@@ -1,0 +1,15 @@
+1
+00:00:00,000 --> 00:00:03,650
+No footage. No AI.
+Just dots and cosine waves.
+
+2
+00:00:03,900 --> 00:00:10,550
+x ∝ s^1.5 cos(5.5s − 3ωt + φ) — arms
+r ∝ 1 − .24 c(5ωt − 1.4v) — bell
+red where q ≥ 0.9 — frond tips
+
+3
+00:00:10,900 --> 00:00:12,000
+No footage. No AI.
+Just dots and cosine waves.
