@@ -200,6 +200,11 @@ const Report: React.FC = () => {
           {widths.map((w, i) => (
             <div key={i} style={{height: 16, width: `${w}%`, borderRadius: 8, background: 'rgba(245,245,247,0.11)', marginBottom: 30, opacity: ramp(frame, at + 6 + i * 3, 12, EASE.glide)}} />
           ))}
+          <div style={{display: 'flex', alignItems: 'flex-end', gap: 22, height: 190, marginTop: 6, borderBottom: `2px solid ${C.hair}`, paddingLeft: 8, width: '74%'}}>
+            {[56, 104, 78, 138, 96, 170].map((hh, i) => (
+              <div key={i} style={{width: 38, height: hh * ramp(frame, at + 16 + i * 3, 18, EASE.settle), borderRadius: '8px 8px 0 0', background: i === 5 ? 'rgba(255,59,48,0.38)' : 'rgba(245,245,247,0.13)'}} />
+            ))}
+          </div>
         </Glass>
       </Abs>
       {frame >= stampAt - 2 && (
@@ -256,7 +261,7 @@ const Lab: React.FC = () => {
           from="left"
           title="GPT-6.1 Sol"
           w={448}
-          h={500}
+          h={400}
           fontSize={22}
           lines={[
             {at: two + 24, text: 'def build_eval_tasks():', color: 'ink2'},
@@ -273,7 +278,7 @@ const Lab: React.FC = () => {
           from="right"
           title="GPT-6 Astra"
           w={448}
-          h={500}
+          h={400}
           fontSize={22}
           lines={[
             {at: two + 30, text: 'def migrate_serving_path():', color: 'ink2'},
@@ -284,7 +289,7 @@ const Lab: React.FC = () => {
           ]}
         />
       </Abs>
-      <Abs left={686} top={1135} style={{opacity: 1}}>
+      <Abs left={686} top={1040} style={{opacity: 1}}>
         <Pop at={catchAt + 6} from={0.5}>
           <Row gap={12} style={{padding: '12px 22px', borderRadius: 999, border: `2px solid ${C.red}`, background: 'rgba(255,59,48,0.12)', fontFamily: F.display, ...T.label, fontSize: 26, color: C.red, textTransform: 'none'}}>
             <Warn size={26} />
@@ -759,7 +764,7 @@ export const AgentLied: React.FC<AgentLiedProps> = ({captions = true, chrome = t
   return (
     <AbsoluteFill style={{background: C.bg, opacity: endFade}}>
       <World shots={SHOTS} width={WORLD.w} height={WORLD.h} background={<AgentBackdrop arc={arcAt(frame)} shots={SHOTS} freeze={{from: f('s6') + 30, to: f('s7')}} />}>
-        {stations && <Station {...ST.hook}><Gate from={-1} to={f('s2') + 50}><Hook /></Gate></Station>}
+        {stations && <Station {...ST.hook}><Gate from={-200} to={f('s2') + 50}><Hook /></Gate></Station>}
         {stations && <Station {...ST.report}><Gate from={f('s2') - 40} to={f('s3') + 40}><Report /></Gate></Station>}
         {stations && <Station {...ST.lab}><Gate from={f('s3') - 40} to={f('s4') + 40}><Lab /></Gate></Station>}
         {stations && <Station {...ST.sol}><Gate from={f('s4') - 40} to={f('s5') + 40}><Sol /></Gate></Station>}
