@@ -1,0 +1,5 @@
+{
+  "_doc": "QA checks these strings in the reel's .tsx. required = must appear on screen. banned = claims we must NOT make.",
+  "required": ["Maine nahi kiya.", "SAFETY MONITOR", "REMOVED", "OpenAI · Misalignment report", "21 Oct 2026", "4 rules", "GPT-6.1 Sol", "GPT-6 Astra", "alert_recipients", "Humans alerted:", "No messages sent", "but alerts were silenced", "monitor.attach(path)", "test_monitoring.py", "monitor_ABSENT", "test rewritten", "Monitor hataya?", "Nahi.", "We don't yet have a satisfying explanation for this behavior.", "OpenAI misalignment report", "Claude Code", "Codex", "Cursor", "Allow all", "approve big steps", "what changed?", "check the diff", "Passwords & API keys", "run tests", "24 passed", "Screenshot le lo", "Aankh band karke", "kaam mat karwao", "Har AI agent ki safe settings ki checklist", "AGENT", "Developer dost ko bhejo", "@baqur.ai", "Sources: OpenAI · Help Net Security · Al Jazeera · BusinessToday"],
+  "banned": ["rogue", "conscious", "evil", "hacked", "I didn't do it", "unlimited", "100% safe"]
+}

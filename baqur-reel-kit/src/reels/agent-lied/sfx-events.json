@@ -1,0 +1,552 @@
+{
+ "reel": "agent-lied",
+ "duration": 81,
+ "events": [
+  {
+   "cue": "s1",
+   "type": "sub",
+   "t": 0.12,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s1",
+   "type": "scan",
+   "t": 0.12,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s1_task",
+   "type": "type",
+   "t": 1.78,
+   "pan": -0.2,
+   "gain": 1
+  },
+  {
+   "cue": "s1_secret",
+   "type": "tick",
+   "t": 3.06,
+   "pan": 0.1,
+   "gain": 0.7
+  },
+  {
+   "cue": "s1_monitor",
+   "type": "pop",
+   "t": 4.24,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s1_remove",
+   "type": "hit",
+   "t": 4.9,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s1_remove",
+   "type": "glitch",
+   "t": 4.9,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s1_ask",
+   "type": "pop",
+   "t": 5.5,
+   "pan": 0.35,
+   "gain": 1
+  },
+  {
+   "cue": "s1_deny",
+   "type": "deny",
+   "t": 6.7,
+   "pan": -0.2,
+   "gain": 1
+  },
+  {
+   "cue": "s2",
+   "type": "whoosh",
+   "t": 7.7,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s2_report",
+   "type": "paper",
+   "t": 8.72,
+   "pan": 0.1,
+   "gain": 1
+  },
+  {
+   "cue": "s2_stamp",
+   "type": "stamp",
+   "t": 10.16,
+   "pan": 0.1,
+   "gain": 1
+  },
+  {
+   "cue": "s2_rules",
+   "type": "pop",
+   "t": 11.32,
+   "pan": 0.4,
+   "gain": 1
+  },
+  {
+   "cue": "s2_rules",
+   "type": "tick",
+   "t": 11.32,
+   "pan": 0.4,
+   "gain": 1
+  },
+  {
+   "cue": "s2_user",
+   "type": "tick",
+   "t": 13.04,
+   "pan": 0.4,
+   "gain": 0.8
+  },
+  {
+   "cue": "s3",
+   "type": "whoosh",
+   "t": 14.46,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s3_two",
+   "type": "swish",
+   "t": 15.6,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s3_monitor",
+   "type": "scan",
+   "t": 17.88,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s3_monitor",
+   "type": "pop",
+   "t": 17.88,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s3_catch",
+   "type": "alert",
+   "t": 19.06,
+   "pan": 0.25,
+   "gain": 0.8
+  },
+  {
+   "cue": "s4",
+   "type": "whoosh",
+   "t": 20.46,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s4_sol",
+   "type": "hit",
+   "t": 22.9,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s4_list",
+   "type": "type",
+   "t": 24.06,
+   "pan": -0.1,
+   "gain": 1
+  },
+  {
+   "cue": "s4_empty",
+   "type": "glitch",
+   "t": 25.26,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s4_empty",
+   "type": "tick",
+   "t": 25.26,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s4_catching",
+   "type": "scan",
+   "t": 25.92,
+   "pan": 0.5,
+   "gain": 1
+  },
+  {
+   "cue": "s4_human",
+   "type": "alert",
+   "t": 27.78,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s4_human",
+   "type": "sub",
+   "t": 27.78,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s4_lie",
+   "type": "pop",
+   "t": 29.72,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s4_msg",
+   "type": "check",
+   "t": 31.6,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s5",
+   "type": "whoosh",
+   "t": 32.84,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s5_astra",
+   "type": "hit",
+   "t": 34.48,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s5_remove",
+   "type": "swish",
+   "t": 35.68,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s5_remove",
+   "type": "glitch",
+   "t": 35.68,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s5_test",
+   "type": "pop",
+   "t": 36.56,
+   "pan": -0.2,
+   "gain": 1
+  },
+  {
+   "cue": "s5_check",
+   "type": "flip",
+   "t": 36.94,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s6",
+   "type": "whoosh",
+   "t": 39.02,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s6_q",
+   "type": "pop",
+   "t": 39.84,
+   "pan": 0.3,
+   "gain": 0.8
+  },
+  {
+   "cue": "s6_q",
+   "type": "heartbeat",
+   "t": 39.84,
+   "pan": 0.3,
+   "gain": 0.8
+  },
+  {
+   "cue": "s6_wait",
+   "type": "heartbeat",
+   "t": 40.82,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s6_no",
+   "type": "deny",
+   "t": 41.86,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s6_no",
+   "type": "hit",
+   "t": 41.86,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s6_no",
+   "type": "sub",
+   "t": 41.86,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s7",
+   "type": "swish",
+   "t": 42.38,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s7_admit",
+   "type": "tick",
+   "t": 43.2,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s7_quote",
+   "type": "paper2",
+   "t": 44.28,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s8",
+   "type": "whoosh",
+   "t": 47,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s8_aap",
+   "type": "hit",
+   "t": 47.34,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s8_t1",
+   "type": "pop",
+   "t": 47.82,
+   "pan": -0.35,
+   "gain": 1
+  },
+  {
+   "cue": "s8_t2",
+   "type": "pop",
+   "t": 48.66,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s8_t3",
+   "type": "pop",
+   "t": 49.42,
+   "pan": 0.35,
+   "gain": 1
+  },
+  {
+   "cue": "s8_rules",
+   "type": "hit",
+   "t": 51.98,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s8_rules",
+   "type": "tick",
+   "t": 51.98,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s8_fly",
+   "type": "whoosh",
+   "t": 52.8,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s9_1",
+   "type": "chime",
+   "t": 53.28,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s9_1",
+   "type": "pop",
+   "t": 53.28,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s9_allow",
+   "type": "toggle",
+   "t": 54.66,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s9_approve",
+   "type": "tick",
+   "t": 56.72,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s9_2",
+   "type": "pop",
+   "t": 57.48,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s9_diff",
+   "type": "type",
+   "t": 59.68,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s9_diff",
+   "type": "tick",
+   "t": 59.68,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s9_3",
+   "type": "pop",
+   "t": 60.9,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s9_keys",
+   "type": "swish",
+   "t": 62.62,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s9_lock",
+   "type": "lock",
+   "t": 64.319,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s9_4",
+   "type": "pop",
+   "t": 64.819,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s9_report",
+   "type": "tick",
+   "t": 65.5,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s9_tests",
+   "type": "check",
+   "t": 67.56,
+   "pan": 0.3,
+   "gain": 1
+  },
+  {
+   "cue": "s10",
+   "type": "whoosh",
+   "t": 68.96,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s10_eye",
+   "type": "scan",
+   "t": 70.86,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s10_eye",
+   "type": "chime",
+   "t": 70.86,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s11",
+   "type": "swish",
+   "t": 72.52,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s11_checklist",
+   "type": "pop",
+   "t": 74.38,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s11_comment",
+   "type": "pop",
+   "t": 75.2,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s11_kw",
+   "type": "hit",
+   "t": 75.84,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s11_kw",
+   "type": "chime",
+   "t": 75.84,
+   "pan": 0,
+   "gain": 1
+  },
+  {
+   "cue": "s11_friend",
+   "type": "swish",
+   "t": 77.36,
+   "pan": 0.2,
+   "gain": 1
+  },
+  {
+   "cue": "s11_friend",
+   "type": "pop",
+   "t": 77.36,
+   "pan": 0.2,
+   "gain": 1
+  },
+  {
+   "cue": "s11_handle",
+   "type": "pop",
+   "t": 78.38,
+   "pan": 0,
+   "gain": 1
+  }
+ ]
+}

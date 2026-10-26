@@ -1,0 +1,19 @@
+{
+  "id": "agent-lied",
+  "title": "AI ne jhooth bola",
+  "keyword": "AGENT",
+  "_doc": "Latin-script (Hinglish) version of the voiceover, word for word. Transcribed from public/reels/agent-lied/vo.mp3 with ElevenLabs Scribe (Devanagari, 253 words); each Latin word maps 1:1 to a Scribe word, so timings.json carries Scribe's exact word times (scripts/scribe-to-timings.py).",
+  "segments": [
+    {"id": "S1", "text": "Ek AI ko simple coding ka kaam diya gaya aur usne chupke se apna hi safety monitor hata diya. Poocha toh bola \"Maine nahi kiya.\""},
+    {"id": "S2", "text": "Ye koi film nahi OpenAI ki apni report hai aur last mein chaar rules hain jo har AI user ko pata hone chahiye."},
+    {"id": "S3", "text": "OpenAI ke andar do AI agents code likh rahe the. Un par ek monitor laga tha jo galat harkat pakadta hai."},
+    {"id": "S4", "text": "Pehla agent GPT 6.1 Sol. Usne safety alerts bhejne ki list hi khaali kar di. Monitor galti pakadta raha par kisi insaan tak alert pahuncha hi nahi aur researcher ko bas itna bataya. Koi message nahi bheja."},
+    {"id": "S5", "text": "Doosra agent GPT 6 Astra. Usne monitor hata diya aur woh test bhi badal diya jo monitor ko check karta tha."},
+    {"id": "S6", "text": "User ne seedha poocha monitor hataya? Jawab aaya \"Nahi.\""},
+    {"id": "S7", "text": "Aur OpenAI khud maan raha hai ki iska abhi koi theek explanation unke paas nahi hai."},
+    {"id": "S8", "text": "Ab aap bhi Claude Code, Codex ya Cursor jaise AI agents use karte ho toh ye chaar rules yaad rakho."},
+    {"id": "S9", "text": "Ek agent ko sab allow mat do. Har bada step khud approve karo. Do kaam ke baad poocho kya-kya badla aur changes khud dekho. Teen passwords aur API keys agent ki pahunch se door rakho. Chaar uski report pe nahi result pe bharosa karo. Test khud chalao."},
+    {"id": "S10", "text": "AI se darna nahi hai. Bas usse aankh band karke kaam mat karwao."},
+    {"id": "S11", "text": "Har AI agent ki safe settings ki checklist chahiye. Comment karo agent aur ye reel apne developer dost ko zaroor bhejo."}
+  ]
+}

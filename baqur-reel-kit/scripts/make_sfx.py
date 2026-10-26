@@ -148,10 +148,69 @@ def s_toggle():
     y = np.zeros(int(0.12 * SR)); y[:len(a)] += a; p = int(0.06 * SR); y[p:p + len(b)] += b * 0.7
     return norm(lp(y, 5000), 0.6), 0.0
 
+
+# ── Reel #2 sounds (agent-lied): deny, stamp, scan, heartbeat, flip, lock ──
+def _tone(f, d, harm=(1.0, 0.5, 0.33, 0.25)):
+    y = sum(h * sine(f * (k + 1), d) for k, h in enumerate(harm))
+    return y
+def s_deny():
+    # "uh-uh": two falling buzz notes (A3 then E3) + sub thump + a hard click; the impact is the first note
+    n1 = lp(_tone(220, 0.16), 2200) * env(int(0.16 * SR), 0.003, 0.14, 3)
+    n2 = lp(_tone(164.8, 0.30), 1800) * env(int(0.30 * SR), 0.003, 0.26, 3)
+    sub = sine(lambda t: 70 - 28 * t, 0.5) * env(int(0.5 * SR), 0.002, 0.4, 5)
+    click = hp(noise(0.02), 2500) * env(int(0.02 * SR), 0.0004, 0.012, 6)
+    y = np.zeros(int(0.8 * SR))
+    y[:len(n1)] += n1 * 0.9; p2 = int(0.20 * SR); y[p2:p2 + len(n2)] += n2 * 0.9
+    y[:len(sub)] += sub * 1.1; y[:len(click)] += click * 0.8
+    tail = lp(noise(0.6), 700) * env(int(0.6 * SR), 0.01, 0.5, 4) * 0.12; y[int(0.18 * SR):int(0.18 * SR) + len(tail)] += tail
+    return norm(y, 0.8), 0.0
+def s_stamp():
+    # rubber stamp: heavy thud + paper slap + short room
+    thud = sine(lambda t: 95 - 50 * np.minimum(t * 8, 1), 0.3) * env(int(0.3 * SR), 0.001, 0.22, 5)
+    slap = bp(noise(0.05), 1200, 6500) * env(int(0.05 * SR), 0.0005, 0.03, 6)
+    room = lp(noise(0.35), 900) * env(int(0.35 * SR), 0.004, 0.3, 4)
+    y = np.zeros(int(0.45 * SR)); y[:len(thud)] += thud * 1.2; y[:len(slap)] += slap * 0.9; y[:len(room)] += room * 0.25
+    return norm(y, 0.85), 0.0
+def s_scan():
+    # a soft scanning sweep that ends on a small ping (the impact)
+    d = 0.7
+    sw = sine(lambda t: 380 + 1500 * (t / d) ** 2, d) * env(int(d * SR), 0.15, 0.5, 1.5)
+    air = bp(noise(d), 1500, 5000) * np.linspace(0, 1, int(d * SR)) ** 2 * 0.25
+    ping = (sine(2637, 0.4) + 0.3 * sine(5274, 0.4)) * env(int(0.4 * SR), 0.002, 0.3, 5)
+    y = np.zeros(int((d + 0.4) * SR)); y[:len(sw)] += sw * 0.25; y[:len(air)] += air; p = int(d * SR); y[p:p + len(ping)] += ping * 0.6
+    return norm(lp(y, 7000), 0.5), d
+def s_heartbeat():
+    # lub-dub
+    def thump(f, a):
+        body = sine(lambda t: f - 18 * np.minimum(t * 6, 1), 0.3) * env(int(0.3 * SR), 0.004, 0.16, 5)
+        thd = lp(noise(0.05), 220) * env(int(0.05 * SR), 0.001, 0.03, 5) * 0.4
+        body[:len(thd)] += thd
+        return body * a
+    y = np.zeros(int(0.7 * SR)); a = thump(58, 1.0); b = thump(50, 0.75)
+    y[:len(a)] += a; p = int(0.26 * SR); y[p:p + len(b)] += b
+    return norm(lp(y, 260), 0.9), 0.0
+def s_flip():
+    # split-flap: a quick run of clicks, getting softer
+    y = np.zeros(int(0.34 * SR))
+    for i in range(7):
+        a = bp(noise(0.008), 2000, 6500) * env(int(0.008 * SR), 0.0003, 0.005, 6)
+        b = sine(700 + 90 * (i % 3), 0.02) * env(int(0.02 * SR), 0.0005, 0.012, 6) * 0.5
+        c = np.zeros(len(b)); c[:len(a)] += a; c += b
+        p = int(i * 0.034 * SR); y[p:p + len(c)] += c * (1.0 - i * 0.09)
+    return norm(y, 0.55), 0.0
+def s_lock():
+    # latch click, then a metal clunk with inharmonic partials
+    ca = bp(noise(0.01), 3000, 8000) * env(int(0.01 * SR), 0.0003, 0.006, 6); cb = sine(1900, 0.012) * env(int(0.012 * SR), 0.0003, 0.008, 6) * 0.4
+    click = np.zeros(len(cb)); click[:len(ca)] += ca; click += cb
+    clunk = sum(a * sine(f, 0.5) * env(int(0.5 * SR), 0.001, d_, 5) for f, a, d_ in ((140, 1.0, 0.25), (417, 0.5, 0.2), (913, 0.35, 0.15), (1290, 0.25, 0.12)))
+    y = np.zeros(int(0.6 * SR)); y[:len(click)] += click * 0.9; p = int(0.07 * SR); y[p:p + len(clunk)] += clunk * 0.9
+    return norm(y, 0.8), 0.07
+
 SYN = {k[2:]: v for k, v in globals().items() if k.startswith('s_') and callable(v)}
 GAIN = {'sub': -2, 'hit': 0, 'whoosh': -4, 'swish': -6, 'riser': -5, 'pop': -7, 'tick': -10,
         'type': -12, 'paste': -6, 'alert': -9, 'glitch': -10, 'paper': -9, 'paper2': -10,
-        'chime': -8, 'check': -8, 'toggle': -6}
+        'chime': -8, 'check': -8, 'toggle': -6,
+        'deny': -2, 'stamp': -2, 'scan': -13, 'heartbeat': -4, 'flip': -8, 'lock': -5}
 
 def load_user(t):
     p = f'public/sfx/{t}.wav'

@@ -1,0 +1,589 @@
+{
+ "_doc": "Each cue = one moment in the VO. seg + optional word (nth occurrence inside that segment) + offset seconds. 'end': true = end of segment. sfx = sound(s) whose IMPACT lands exactly on the cue (the mixer handles pre-roll). pan -1 left \u2026 +1 right. Cues s2_stamp, s8_fly, s11_comment and s11_handle were added to the 59 ids of the brief (a stamp that lands after the report card, and the flight to RULES).",
+ "cues": [
+  {
+   "id": "s1",
+   "seg": "S1",
+   "sfx": [
+    "sub",
+    "scan"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s1_task",
+   "seg": "S1",
+   "word": "kaam",
+   "sfx": [
+    "type"
+   ],
+   "pan": -0.2
+  },
+  {
+   "id": "s1_secret",
+   "seg": "S1",
+   "word": "chupke",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.1,
+   "gain": 0.7
+  },
+  {
+   "id": "s1_monitor",
+   "seg": "S1",
+   "word": "safety",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s1_remove",
+   "seg": "S1",
+   "word": "hata",
+   "sfx": [
+    "hit",
+    "glitch"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s1_ask",
+   "seg": "S1",
+   "word": "Poocha",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.35
+  },
+  {
+   "id": "s1_deny",
+   "seg": "S1",
+   "word": "Maine",
+   "sfx": [
+    "deny"
+   ],
+   "pan": -0.2
+  },
+  {
+   "id": "s2",
+   "seg": "S2",
+   "offset": 0.2,
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s2_report",
+   "seg": "S2",
+   "word": "OpenAI",
+   "sfx": [
+    "paper"
+   ],
+   "pan": 0.1
+  },
+  {
+   "id": "s2_stamp",
+   "seg": "S2",
+   "word": "hai",
+   "sfx": [
+    "stamp"
+   ],
+   "pan": 0.1
+  },
+  {
+   "id": "s2_rules",
+   "seg": "S2",
+   "word": "chaar",
+   "sfx": [
+    "pop",
+    "tick"
+   ],
+   "pan": 0.4
+  },
+  {
+   "id": "s2_user",
+   "seg": "S2",
+   "word": "user",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.4,
+   "gain": 0.8
+  },
+  {
+   "id": "s3",
+   "seg": "S3",
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s3_two",
+   "seg": "S3",
+   "word": "do",
+   "sfx": [
+    "swish"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s3_monitor",
+   "seg": "S3",
+   "word": "monitor",
+   "sfx": [
+    "scan",
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s3_catch",
+   "seg": "S3",
+   "word": "galat",
+   "sfx": [
+    "alert"
+   ],
+   "pan": 0.25,
+   "gain": 0.8
+  },
+  {
+   "id": "s4",
+   "seg": "S4",
+   "offset": 0.3,
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s4_sol",
+   "seg": "S4",
+   "word": "Sol",
+   "sfx": [
+    "hit"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s4_list",
+   "seg": "S4",
+   "word": "alerts",
+   "sfx": [
+    "type"
+   ],
+   "pan": -0.1
+  },
+  {
+   "id": "s4_empty",
+   "seg": "S4",
+   "word": "khaali",
+   "sfx": [
+    "glitch",
+    "tick"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s4_catching",
+   "seg": "S4",
+   "word": "Monitor",
+   "sfx": [
+    "scan"
+   ],
+   "pan": 0.5
+  },
+  {
+   "id": "s4_human",
+   "seg": "S4",
+   "word": "insaan",
+   "sfx": [
+    "alert",
+    "sub"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s4_lie",
+   "seg": "S4",
+   "word": "researcher",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s4_msg",
+   "seg": "S4",
+   "word": "message",
+   "sfx": [
+    "check"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s5",
+   "seg": "S5",
+   "offset": 0.3,
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s5_astra",
+   "seg": "S5",
+   "word": "Astra",
+   "sfx": [
+    "hit"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s5_remove",
+   "seg": "S5",
+   "word": "hata",
+   "sfx": [
+    "swish",
+    "glitch"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s5_test",
+   "seg": "S5",
+   "word": "test",
+   "sfx": [
+    "pop"
+   ],
+   "pan": -0.2
+  },
+  {
+   "id": "s5_check",
+   "seg": "S5",
+   "word": "badal",
+   "sfx": [
+    "flip"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s6",
+   "seg": "S6",
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s6_q",
+   "seg": "S6",
+   "word": "poocha",
+   "sfx": [
+    "pop",
+    "heartbeat"
+   ],
+   "pan": 0.3,
+   "gain": 0.8
+  },
+  {
+   "id": "s6_wait",
+   "seg": "S6",
+   "word": "hataya",
+   "offset": 0.2,
+   "sfx": [
+    "heartbeat"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s6_no",
+   "seg": "S6",
+   "word": "Nahi",
+   "sfx": [
+    "deny",
+    "hit",
+    "sub"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s7",
+   "seg": "S7",
+   "sfx": [
+    "swish"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s7_admit",
+   "seg": "S7",
+   "word": "khud",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s7_quote",
+   "seg": "S7",
+   "word": "iska",
+   "sfx": [
+    "paper2"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s8",
+   "seg": "S8",
+   "offset": -0.1,
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s8_aap",
+   "seg": "S8",
+   "word": "aap",
+   "sfx": [
+    "hit"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s8_t1",
+   "seg": "S8",
+   "word": "Claude",
+   "sfx": [
+    "pop"
+   ],
+   "pan": -0.35
+  },
+  {
+   "id": "s8_t2",
+   "seg": "S8",
+   "word": "Codex",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s8_t3",
+   "seg": "S8",
+   "word": "Cursor",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.35
+  },
+  {
+   "id": "s8_rules",
+   "seg": "S8",
+   "word": "chaar",
+   "sfx": [
+    "hit",
+    "tick"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s8_fly",
+   "seg": "S8",
+   "word": "rakho",
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s9_1",
+   "seg": "S9",
+   "word": "Ek",
+   "sfx": [
+    "chime",
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s9_allow",
+   "seg": "S9",
+   "word": "allow",
+   "sfx": [
+    "toggle"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s9_approve",
+   "seg": "S9",
+   "word": "approve",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s9_2",
+   "seg": "S9",
+   "word": "do",
+   "nth": 2,
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s9_diff",
+   "seg": "S9",
+   "word": "changes",
+   "sfx": [
+    "type",
+    "tick"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s9_3",
+   "seg": "S9",
+   "word": "Teen",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s9_keys",
+   "seg": "S9",
+   "word": "keys",
+   "sfx": [
+    "swish"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s9_lock",
+   "seg": "S9",
+   "word": "rakho",
+   "sfx": [
+    "lock"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s9_4",
+   "seg": "S9",
+   "word": "Chaar",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s9_report",
+   "seg": "S9",
+   "word": "report",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s9_tests",
+   "seg": "S9",
+   "word": "Test",
+   "sfx": [
+    "check"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s10",
+   "seg": "S10",
+   "offset": 0.3,
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s10_eye",
+   "seg": "S10",
+   "word": "aankh",
+   "sfx": [
+    "scan",
+    "chime"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s11",
+   "seg": "S11",
+   "sfx": [
+    "swish"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s11_checklist",
+   "seg": "S11",
+   "word": "checklist",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s11_comment",
+   "seg": "S11",
+   "word": "Comment",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s11_kw",
+   "seg": "S11",
+   "word": "agent",
+   "nth": 2,
+   "sfx": [
+    "hit",
+    "chime"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s11_friend",
+   "seg": "S11",
+   "word": "developer",
+   "sfx": [
+    "swish",
+    "pop"
+   ],
+   "pan": 0.2
+  },
+  {
+   "id": "s11_handle",
+   "seg": "S11",
+   "word": "zaroor",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "end",
+   "seg": "S11",
+   "offset": 1.4,
+   "end": true,
+   "sfx": [],
+   "pan": 0
+  }
+ ]
+}
