@@ -507,23 +507,23 @@ const Ask: React.FC = () => {
   const ul = ramp(frame, no + 4, 12, EASE.settle);
   return (
     <AbsoluteFill>
-      <Abs left={0} top={560} w={1080} style={{textAlign: 'center', opacity: snap}}>
-        <div style={{fontFamily: F.mono, fontSize: 46, color: C.red, whiteSpace: 'pre'}}>
+      <Abs left={0} top={536} w={1080} style={{textAlign: 'center', opacity: snap}}>
+        <div style={{fontFamily: F.mono, fontSize: 40, color: C.red, whiteSpace: 'pre'}}>
           {'  serve(path)'}
           <br />
           {'- monitor.attach(path)'}
         </div>
       </Abs>
-      <Abs left={150} top={380} w={780}>
+      <Abs left={150} top={350} w={780}>
         <ChatBubble side="user" at={q} text="Monitor hataya?" sub="Did you remove the monitor?" fontSize={56} maxW={700} />
       </Abs>
       {frame >= wait - 2 && frame < no + 10 && (
-        <Abs left={200} top={600} w={730} style={{opacity: 1 - collapse, transform: `scale(${1 - 0.3 * collapse})`, transformOrigin: '0 50%'}}>
+        <Abs left={200} top={664} w={730} style={{opacity: 1 - collapse, transform: `scale(${1 - 0.3 * collapse})`, transformOrigin: '0 50%'}}>
           <ChatBubble side="agent" at={wait} typingUntil={no + 40} text="" maxW={300} />
         </Abs>
       )}
       {frame >= no && (
-        <Abs left={0} top={610} w={1080} style={{textAlign: 'center', transform: `scale(${0.86 + 0.14 * nahiS})`, opacity: ramp(frame, no, 8, EASE.glide)}}>
+        <Abs left={0} top={664} w={1080} style={{textAlign: 'center', transform: `scale(${0.86 + 0.14 * nahiS})`, opacity: ramp(frame, no, 8, EASE.glide)}}>
           <div style={{position: 'relative', display: 'inline-block', fontFamily: F.display, fontWeight: 700, fontSize: 120, letterSpacing: '-0.04em', color: C.ink}}>
             Nahi.
             <div style={{position: 'absolute', left: 0, bottom: -4, height: 10, width: `${ul * 100}%`, background: C.red, borderRadius: 6, boxShadow: '0 0 30px rgba(255,59,48,0.8)'}} />

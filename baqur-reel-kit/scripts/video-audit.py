@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Audit of the ENCODED video: every frame decoded at 270x480 gray; flags
  - brightness jumps: the mean level changes by more than 4 grey levels from one frame to the next (a flash / a pop of the whole picture);
- - stalls: a frame identical to the previous one (a dropped or doubled frame; the camera drift keeps the picture alive, so none are expected);
+ - stalls: a frame exactly identical to the previous one (a dropped or doubled frame; the camera drift keeps the picture alive, so none are expected);
  - spikes: a frame-to-frame step more than 2.5x the median of the steps around it, away from the PUNCH cues and the hit cues (a pop).
 usage: python3 scripts/video-audit.py out/agent-lied.mp4 agent-lied"""
 import json, subprocess, sys
@@ -22,7 +22,7 @@ hits = [round(c["t"] * 60) for k, c in t["cues"].items() if any(s in ("hit", "de
 near = np.zeros(n, bool)
 for h in hits: near[max(0, h - 30):h + 24] = True       # whooshes start 30 frames before their cue (the camera flight), hits kick the camera
 jumps = [(i, round(float(lvl[i] - lvl[i - 1]), 1)) for i in range(1, n) if abs(lvl[i] - lvl[i - 1]) > 4 and not near[i]]
-stalls = [i for i in range(1, n) if d[i] < 0.005]
+stalls = [i for i in range(1, n) if d[i] == 0.0]   # exactly identical at 270x480; the camera drift moves a still picture by ~0.1 px per frame, which the downscale can hide, so only exact zeros count
 spikes = []
 for i in range(3, n - 3):
     nb = np.concatenate([d[max(1, i - 8):i - 1], d[i + 2:i + 9]]); base = np.median(nb) if len(nb) else 0
