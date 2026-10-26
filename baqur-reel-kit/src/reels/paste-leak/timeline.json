@@ -1,0 +1,1734 @@
+{
+ "reel": "paste-leak",
+ "source": "estimated",
+ "duration": 88.814,
+ "segments": [
+  {
+   "id": "S1",
+   "text": "Ek employee ne AI mein ek file paste ki... aur teen hazaar ek sau bayaasi logon ka data leak ho gaya.",
+   "start": 0.25,
+   "end": 6.684,
+   "words": [
+    {
+     "w": "Ek",
+     "start": 0.25,
+     "end": 0.434
+    },
+    {
+     "w": "employee",
+     "start": 0.464,
+     "end": 0.9
+    },
+    {
+     "w": "ne",
+     "start": 0.93,
+     "end": 1.114
+    },
+    {
+     "w": "AI",
+     "start": 1.144,
+     "end": 1.328
+    },
+    {
+     "w": "mein",
+     "start": 1.358,
+     "end": 1.626
+    },
+    {
+     "w": "ek",
+     "start": 1.656,
+     "end": 1.84
+    },
+    {
+     "w": "file",
+     "start": 1.87,
+     "end": 2.138
+    },
+    {
+     "w": "paste",
+     "start": 2.168,
+     "end": 2.478
+    },
+    {
+     "w": "ki...",
+     "start": 2.508,
+     "end": 2.692
+    },
+    {
+     "w": "aur",
+     "start": 3.222,
+     "end": 3.448
+    },
+    {
+     "w": "teen",
+     "start": 3.478,
+     "end": 3.746
+    },
+    {
+     "w": "hazaar",
+     "start": 3.776,
+     "end": 4.128
+    },
+    {
+     "w": "ek",
+     "start": 4.158,
+     "end": 4.342
+    },
+    {
+     "w": "sau",
+     "start": 4.372,
+     "end": 4.598
+    },
+    {
+     "w": "bayaasi",
+     "start": 4.628,
+     "end": 5.022
+    },
+    {
+     "w": "logon",
+     "start": 5.052,
+     "end": 5.362
+    },
+    {
+     "w": "ka",
+     "start": 5.392,
+     "end": 5.576
+    },
+    {
+     "w": "data",
+     "start": 5.606,
+     "end": 5.874
+    },
+    {
+     "w": "leak",
+     "start": 5.904,
+     "end": 6.172
+    },
+    {
+     "w": "ho",
+     "start": 6.202,
+     "end": 6.386
+    },
+    {
+     "w": "gaya.",
+     "start": 6.416,
+     "end": 6.684
+    }
+   ]
+  },
+  {
+   "id": "S2",
+   "text": "Aur last mein ek tip hai, jo zyaadatar log nahi jaante. Usse miss mat karna.",
+   "start": 7.334,
+   "end": 12.192,
+   "words": [
+    {
+     "w": "Aur",
+     "start": 7.334,
+     "end": 7.56
+    },
+    {
+     "w": "last",
+     "start": 7.59,
+     "end": 7.858
+    },
+    {
+     "w": "mein",
+     "start": 7.888,
+     "end": 8.156
+    },
+    {
+     "w": "ek",
+     "start": 8.186,
+     "end": 8.37
+    },
+    {
+     "w": "tip",
+     "start": 8.4,
+     "end": 8.626
+    },
+    {
+     "w": "hai,",
+     "start": 8.656,
+     "end": 8.882
+    },
+    {
+     "w": "jo",
+     "start": 9.052,
+     "end": 9.236
+    },
+    {
+     "w": "zyaadatar",
+     "start": 9.266,
+     "end": 9.744
+    },
+    {
+     "w": "log",
+     "start": 9.774,
+     "end": 10
+    },
+    {
+     "w": "nahi",
+     "start": 10.03,
+     "end": 10.298
+    },
+    {
+     "w": "jaante.",
+     "start": 10.328,
+     "end": 10.68
+    },
+    {
+     "w": "Usse",
+     "start": 11.03,
+     "end": 11.298
+    },
+    {
+     "w": "miss",
+     "start": 11.328,
+     "end": 11.596
+    },
+    {
+     "w": "mat",
+     "start": 11.626,
+     "end": 11.852
+    },
+    {
+     "w": "karna.",
+     "start": 11.882,
+     "end": 12.192
+    }
+   ]
+  },
+  {
+   "id": "S3",
+   "text": "America ka ek bada hospital. Ek staff member ne kaam jaldi khatam karne ke liye... patients ki spreadsheet ek public AI tool mein daal di.",
+   "start": 12.842,
+   "end": 21.46,
+   "words": [
+    {
+     "w": "America",
+     "start": 12.842,
+     "end": 13.236
+    },
+    {
+     "w": "ka",
+     "start": 13.266,
+     "end": 13.45
+    },
+    {
+     "w": "ek",
+     "start": 13.48,
+     "end": 13.664
+    },
+    {
+     "w": "bada",
+     "start": 13.694,
+     "end": 13.962
+    },
+    {
+     "w": "hospital.",
+     "start": 13.992,
+     "end": 14.428
+    },
+    {
+     "w": "Ek",
+     "start": 14.778,
+     "end": 14.962
+    },
+    {
+     "w": "staff",
+     "start": 14.992,
+     "end": 15.302
+    },
+    {
+     "w": "member",
+     "start": 15.332,
+     "end": 15.684
+    },
+    {
+     "w": "ne",
+     "start": 15.714,
+     "end": 15.898
+    },
+    {
+     "w": "kaam",
+     "start": 15.928,
+     "end": 16.196
+    },
+    {
+     "w": "jaldi",
+     "start": 16.226,
+     "end": 16.536
+    },
+    {
+     "w": "khatam",
+     "start": 16.566,
+     "end": 16.918
+    },
+    {
+     "w": "karne",
+     "start": 16.948,
+     "end": 17.258
+    },
+    {
+     "w": "ke",
+     "start": 17.288,
+     "end": 17.472
+    },
+    {
+     "w": "liye...",
+     "start": 17.502,
+     "end": 17.77
+    },
+    {
+     "w": "patients",
+     "start": 18.3,
+     "end": 18.736
+    },
+    {
+     "w": "ki",
+     "start": 18.766,
+     "end": 18.95
+    },
+    {
+     "w": "spreadsheet",
+     "start": 18.98,
+     "end": 19.542
+    },
+    {
+     "w": "ek",
+     "start": 19.572,
+     "end": 19.756
+    },
+    {
+     "w": "public",
+     "start": 19.786,
+     "end": 20.138
+    },
+    {
+     "w": "AI",
+     "start": 20.168,
+     "end": 20.352
+    },
+    {
+     "w": "tool",
+     "start": 20.382,
+     "end": 20.65
+    },
+    {
+     "w": "mein",
+     "start": 20.68,
+     "end": 20.948
+    },
+    {
+     "w": "daal",
+     "start": 20.978,
+     "end": 21.246
+    },
+    {
+     "w": "di.",
+     "start": 21.276,
+     "end": 21.46
+    }
+   ]
+  },
+  {
+   "id": "S4",
+   "text": "Naam. Medical record number. Dawaiyan. Doctor ke naam. Sab kuch.",
+   "start": 22.11,
+   "end": 26.76,
+   "words": [
+    {
+     "w": "Naam.",
+     "start": 22.11,
+     "end": 22.378
+    },
+    {
+     "w": "Medical",
+     "start": 22.728,
+     "end": 23.122
+    },
+    {
+     "w": "record",
+     "start": 23.152,
+     "end": 23.504
+    },
+    {
+     "w": "number.",
+     "start": 23.534,
+     "end": 23.886
+    },
+    {
+     "w": "Dawaiyan.",
+     "start": 24.236,
+     "end": 24.672
+    },
+    {
+     "w": "Doctor",
+     "start": 25.022,
+     "end": 25.374
+    },
+    {
+     "w": "ke",
+     "start": 25.404,
+     "end": 25.588
+    },
+    {
+     "w": "naam.",
+     "start": 25.618,
+     "end": 25.886
+    },
+    {
+     "w": "Sab",
+     "start": 26.236,
+     "end": 26.462
+    },
+    {
+     "w": "kuch.",
+     "start": 26.492,
+     "end": 26.76
+    }
+   ]
+  },
+  {
+   "id": "S5",
+   "text": "Hospital ko pata chala... aur ab har patient ko letter jaa raha hai.",
+   "start": 27.41,
+   "end": 31.754,
+   "words": [
+    {
+     "w": "Hospital",
+     "start": 27.41,
+     "end": 27.846
+    },
+    {
+     "w": "ko",
+     "start": 27.876,
+     "end": 28.06
+    },
+    {
+     "w": "pata",
+     "start": 28.09,
+     "end": 28.358
+    },
+    {
+     "w": "chala...",
+     "start": 28.388,
+     "end": 28.698
+    },
+    {
+     "w": "aur",
+     "start": 29.228,
+     "end": 29.454
+    },
+    {
+     "w": "ab",
+     "start": 29.484,
+     "end": 29.668
+    },
+    {
+     "w": "har",
+     "start": 29.698,
+     "end": 29.924
+    },
+    {
+     "w": "patient",
+     "start": 29.954,
+     "end": 30.348
+    },
+    {
+     "w": "ko",
+     "start": 30.378,
+     "end": 30.562
+    },
+    {
+     "w": "letter",
+     "start": 30.592,
+     "end": 30.944
+    },
+    {
+     "w": "jaa",
+     "start": 30.974,
+     "end": 31.2
+    },
+    {
+     "w": "raha",
+     "start": 31.23,
+     "end": 31.498
+    },
+    {
+     "w": "hai.",
+     "start": 31.528,
+     "end": 31.754
+    }
+   ]
+  },
+  {
+   "id": "S6",
+   "text": "Ab sach bataun? Aap bhi roz yahi karte ho. Office ki file, client ka data, salary sheet... seedha AI mein.",
+   "start": 32.404,
+   "end": 39.712,
+   "words": [
+    {
+     "w": "Ab",
+     "start": 32.404,
+     "end": 32.588
+    },
+    {
+     "w": "sach",
+     "start": 32.618,
+     "end": 32.886
+    },
+    {
+     "w": "bataun?",
+     "start": 32.916,
+     "end": 33.268
+    },
+    {
+     "w": "Aap",
+     "start": 33.618,
+     "end": 33.844
+    },
+    {
+     "w": "bhi",
+     "start": 33.874,
+     "end": 34.1
+    },
+    {
+     "w": "roz",
+     "start": 34.13,
+     "end": 34.356
+    },
+    {
+     "w": "yahi",
+     "start": 34.386,
+     "end": 34.654
+    },
+    {
+     "w": "karte",
+     "start": 34.684,
+     "end": 34.994
+    },
+    {
+     "w": "ho.",
+     "start": 35.024,
+     "end": 35.208
+    },
+    {
+     "w": "Office",
+     "start": 35.558,
+     "end": 35.91
+    },
+    {
+     "w": "ki",
+     "start": 35.94,
+     "end": 36.124
+    },
+    {
+     "w": "file,",
+     "start": 36.154,
+     "end": 36.422
+    },
+    {
+     "w": "client",
+     "start": 36.592,
+     "end": 36.944
+    },
+    {
+     "w": "ka",
+     "start": 36.974,
+     "end": 37.158
+    },
+    {
+     "w": "data,",
+     "start": 37.188,
+     "end": 37.456
+    },
+    {
+     "w": "salary",
+     "start": 37.626,
+     "end": 37.978
+    },
+    {
+     "w": "sheet...",
+     "start": 38.008,
+     "end": 38.318
+    },
+    {
+     "w": "seedha",
+     "start": 38.848,
+     "end": 39.2
+    },
+    {
+     "w": "AI",
+     "start": 39.23,
+     "end": 39.414
+    },
+    {
+     "w": "mein.",
+     "start": 39.444,
+     "end": 39.712
+    }
+   ]
+  },
+  {
+   "id": "S7",
+   "text": "Toh yaad rakho. Paanch cheezein kabhi public AI mein paste mat karo.",
+   "start": 40.362,
+   "end": 44.522,
+   "words": [
+    {
+     "w": "Toh",
+     "start": 40.362,
+     "end": 40.588
+    },
+    {
+     "w": "yaad",
+     "start": 40.618,
+     "end": 40.886
+    },
+    {
+     "w": "rakho.",
+     "start": 40.916,
+     "end": 41.226
+    },
+    {
+     "w": "Paanch",
+     "start": 41.576,
+     "end": 41.928
+    },
+    {
+     "w": "cheezein",
+     "start": 41.958,
+     "end": 42.394
+    },
+    {
+     "w": "kabhi",
+     "start": 42.424,
+     "end": 42.734
+    },
+    {
+     "w": "public",
+     "start": 42.764,
+     "end": 43.116
+    },
+    {
+     "w": "AI",
+     "start": 43.146,
+     "end": 43.33
+    },
+    {
+     "w": "mein",
+     "start": 43.36,
+     "end": 43.628
+    },
+    {
+     "w": "paste",
+     "start": 43.658,
+     "end": 43.968
+    },
+    {
+     "w": "mat",
+     "start": 43.998,
+     "end": 44.224
+    },
+    {
+     "w": "karo.",
+     "start": 44.254,
+     "end": 44.522
+    }
+   ]
+  },
+  {
+   "id": "S8",
+   "text": "Ek. Client ya customer ka data. Do. Aadhaar, PAN, bank details. Teen. Passwords aur API keys. Chaar. Company ke financials aur salary. Paanch. Contract ya unreleased kaam.",
+   "start": 45.172,
+   "end": 57.398,
+   "words": [
+    {
+     "w": "Ek.",
+     "start": 45.172,
+     "end": 45.356
+    },
+    {
+     "w": "Client",
+     "start": 45.706,
+     "end": 46.058
+    },
+    {
+     "w": "ya",
+     "start": 46.088,
+     "end": 46.272
+    },
+    {
+     "w": "customer",
+     "start": 46.302,
+     "end": 46.738
+    },
+    {
+     "w": "ka",
+     "start": 46.768,
+     "end": 46.952
+    },
+    {
+     "w": "data.",
+     "start": 46.982,
+     "end": 47.25
+    },
+    {
+     "w": "Do.",
+     "start": 47.6,
+     "end": 47.784
+    },
+    {
+     "w": "Aadhaar,",
+     "start": 48.134,
+     "end": 48.528
+    },
+    {
+     "w": "PAN,",
+     "start": 48.698,
+     "end": 48.924
+    },
+    {
+     "w": "bank",
+     "start": 49.094,
+     "end": 49.362
+    },
+    {
+     "w": "details.",
+     "start": 49.392,
+     "end": 49.786
+    },
+    {
+     "w": "Teen.",
+     "start": 50.136,
+     "end": 50.404
+    },
+    {
+     "w": "Passwords",
+     "start": 50.754,
+     "end": 51.232
+    },
+    {
+     "w": "aur",
+     "start": 51.262,
+     "end": 51.488
+    },
+    {
+     "w": "API",
+     "start": 51.518,
+     "end": 51.744
+    },
+    {
+     "w": "keys.",
+     "start": 51.774,
+     "end": 52.042
+    },
+    {
+     "w": "Chaar.",
+     "start": 52.392,
+     "end": 52.702
+    },
+    {
+     "w": "Company",
+     "start": 53.052,
+     "end": 53.446
+    },
+    {
+     "w": "ke",
+     "start": 53.476,
+     "end": 53.66
+    },
+    {
+     "w": "financials",
+     "start": 53.69,
+     "end": 54.21
+    },
+    {
+     "w": "aur",
+     "start": 54.24,
+     "end": 54.466
+    },
+    {
+     "w": "salary.",
+     "start": 54.496,
+     "end": 54.848
+    },
+    {
+     "w": "Paanch.",
+     "start": 55.198,
+     "end": 55.55
+    },
+    {
+     "w": "Contract",
+     "start": 55.9,
+     "end": 56.336
+    },
+    {
+     "w": "ya",
+     "start": 56.366,
+     "end": 56.55
+    },
+    {
+     "w": "unreleased",
+     "start": 56.58,
+     "end": 57.1
+    },
+    {
+     "w": "kaam.",
+     "start": 57.13,
+     "end": 57.398
+    }
+   ]
+  },
+  {
+   "id": "S9",
+   "text": "Toh safe tareeka kya hai? Pehla, company ka approved AI tool use karo. Doosra, paste karne se pehle naam aur numbers hata do.",
+   "start": 58.048,
+   "end": 66.044,
+   "words": [
+    {
+     "w": "Toh",
+     "start": 58.048,
+     "end": 58.274
+    },
+    {
+     "w": "safe",
+     "start": 58.304,
+     "end": 58.572
+    },
+    {
+     "w": "tareeka",
+     "start": 58.602,
+     "end": 58.996
+    },
+    {
+     "w": "kya",
+     "start": 59.026,
+     "end": 59.252
+    },
+    {
+     "w": "hai?",
+     "start": 59.282,
+     "end": 59.508
+    },
+    {
+     "w": "Pehla,",
+     "start": 59.858,
+     "end": 60.168
+    },
+    {
+     "w": "company",
+     "start": 60.338,
+     "end": 60.732
+    },
+    {
+     "w": "ka",
+     "start": 60.762,
+     "end": 60.946
+    },
+    {
+     "w": "approved",
+     "start": 60.976,
+     "end": 61.412
+    },
+    {
+     "w": "AI",
+     "start": 61.442,
+     "end": 61.626
+    },
+    {
+     "w": "tool",
+     "start": 61.656,
+     "end": 61.924
+    },
+    {
+     "w": "use",
+     "start": 61.954,
+     "end": 62.18
+    },
+    {
+     "w": "karo.",
+     "start": 62.21,
+     "end": 62.478
+    },
+    {
+     "w": "Doosra,",
+     "start": 62.828,
+     "end": 63.18
+    },
+    {
+     "w": "paste",
+     "start": 63.35,
+     "end": 63.66
+    },
+    {
+     "w": "karne",
+     "start": 63.69,
+     "end": 64
+    },
+    {
+     "w": "se",
+     "start": 64.03,
+     "end": 64.214
+    },
+    {
+     "w": "pehle",
+     "start": 64.244,
+     "end": 64.554
+    },
+    {
+     "w": "naam",
+     "start": 64.584,
+     "end": 64.852
+    },
+    {
+     "w": "aur",
+     "start": 64.882,
+     "end": 65.108
+    },
+    {
+     "w": "numbers",
+     "start": 65.138,
+     "end": 65.532
+    },
+    {
+     "w": "hata",
+     "start": 65.562,
+     "end": 65.83
+    },
+    {
+     "w": "do.",
+     "start": 65.86,
+     "end": 66.044
+    }
+   ]
+  },
+  {
+   "id": "S10",
+   "text": "Aur teesra... woh tip jo zyaadatar log nahi jaante. AI ki settings mein jaake, chat history ya training wala option band karo. Warna aapki baatein... model sudharne mein bhi use ho sakti hain.",
+   "start": 66.694,
+   "end": 79.034,
+   "words": [
+    {
+     "w": "Aur",
+     "start": 66.694,
+     "end": 66.92
+    },
+    {
+     "w": "teesra...",
+     "start": 66.95,
+     "end": 67.302
+    },
+    {
+     "w": "woh",
+     "start": 67.832,
+     "end": 68.058
+    },
+    {
+     "w": "tip",
+     "start": 68.088,
+     "end": 68.314
+    },
+    {
+     "w": "jo",
+     "start": 68.344,
+     "end": 68.528
+    },
+    {
+     "w": "zyaadatar",
+     "start": 68.558,
+     "end": 69.036
+    },
+    {
+     "w": "log",
+     "start": 69.066,
+     "end": 69.292
+    },
+    {
+     "w": "nahi",
+     "start": 69.322,
+     "end": 69.59
+    },
+    {
+     "w": "jaante.",
+     "start": 69.62,
+     "end": 69.972
+    },
+    {
+     "w": "AI",
+     "start": 70.322,
+     "end": 70.506
+    },
+    {
+     "w": "ki",
+     "start": 70.536,
+     "end": 70.72
+    },
+    {
+     "w": "settings",
+     "start": 70.75,
+     "end": 71.186
+    },
+    {
+     "w": "mein",
+     "start": 71.216,
+     "end": 71.484
+    },
+    {
+     "w": "jaake,",
+     "start": 71.514,
+     "end": 71.824
+    },
+    {
+     "w": "chat",
+     "start": 71.994,
+     "end": 72.262
+    },
+    {
+     "w": "history",
+     "start": 72.292,
+     "end": 72.686
+    },
+    {
+     "w": "ya",
+     "start": 72.716,
+     "end": 72.9
+    },
+    {
+     "w": "training",
+     "start": 72.93,
+     "end": 73.366
+    },
+    {
+     "w": "wala",
+     "start": 73.396,
+     "end": 73.664
+    },
+    {
+     "w": "option",
+     "start": 73.694,
+     "end": 74.046
+    },
+    {
+     "w": "band",
+     "start": 74.076,
+     "end": 74.344
+    },
+    {
+     "w": "karo.",
+     "start": 74.374,
+     "end": 74.642
+    },
+    {
+     "w": "Warna",
+     "start": 74.992,
+     "end": 75.302
+    },
+    {
+     "w": "aapki",
+     "start": 75.332,
+     "end": 75.642
+    },
+    {
+     "w": "baatein...",
+     "start": 75.672,
+     "end": 76.066
+    },
+    {
+     "w": "model",
+     "start": 76.596,
+     "end": 76.906
+    },
+    {
+     "w": "sudharne",
+     "start": 76.936,
+     "end": 77.372
+    },
+    {
+     "w": "mein",
+     "start": 77.402,
+     "end": 77.67
+    },
+    {
+     "w": "bhi",
+     "start": 77.7,
+     "end": 77.926
+    },
+    {
+     "w": "use",
+     "start": 77.956,
+     "end": 78.182
+    },
+    {
+     "w": "ho",
+     "start": 78.212,
+     "end": 78.396
+    },
+    {
+     "w": "sakti",
+     "start": 78.426,
+     "end": 78.736
+    },
+    {
+     "w": "hain.",
+     "start": 78.766,
+     "end": 79.034
+    }
+   ]
+  },
+  {
+   "id": "S11",
+   "text": "Poori checklist chahiye, har AI app ke liye? Comment karo SAFE. Aur yeh reel apne office group mein zaroor daalo.",
+   "start": 79.684,
+   "end": 86.814,
+   "words": [
+    {
+     "w": "Poori",
+     "start": 79.684,
+     "end": 79.994
+    },
+    {
+     "w": "checklist",
+     "start": 80.024,
+     "end": 80.502
+    },
+    {
+     "w": "chahiye,",
+     "start": 80.532,
+     "end": 80.926
+    },
+    {
+     "w": "har",
+     "start": 81.096,
+     "end": 81.322
+    },
+    {
+     "w": "AI",
+     "start": 81.352,
+     "end": 81.536
+    },
+    {
+     "w": "app",
+     "start": 81.566,
+     "end": 81.792
+    },
+    {
+     "w": "ke",
+     "start": 81.822,
+     "end": 82.006
+    },
+    {
+     "w": "liye?",
+     "start": 82.036,
+     "end": 82.304
+    },
+    {
+     "w": "Comment",
+     "start": 82.654,
+     "end": 83.048
+    },
+    {
+     "w": "karo",
+     "start": 83.078,
+     "end": 83.346
+    },
+    {
+     "w": "SAFE.",
+     "start": 83.376,
+     "end": 83.644
+    },
+    {
+     "w": "Aur",
+     "start": 83.994,
+     "end": 84.22
+    },
+    {
+     "w": "yeh",
+     "start": 84.25,
+     "end": 84.476
+    },
+    {
+     "w": "reel",
+     "start": 84.506,
+     "end": 84.774
+    },
+    {
+     "w": "apne",
+     "start": 84.804,
+     "end": 85.072
+    },
+    {
+     "w": "office",
+     "start": 85.102,
+     "end": 85.454
+    },
+    {
+     "w": "group",
+     "start": 85.484,
+     "end": 85.794
+    },
+    {
+     "w": "mein",
+     "start": 85.824,
+     "end": 86.092
+    },
+    {
+     "w": "zaroor",
+     "start": 86.122,
+     "end": 86.474
+    },
+    {
+     "w": "daalo.",
+     "start": 86.504,
+     "end": 86.814
+    }
+   ]
+  }
+ ],
+ "cues": {
+  "s1": {
+   "t": 0.25,
+   "seg": "S1",
+   "sfx": [
+    "sub",
+    "type"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s1_paste": {
+   "t": 2.168,
+   "seg": "S1",
+   "sfx": [
+    "paste"
+   ],
+   "pan": 0.1,
+   "gain": 1
+  },
+  "s1_counter": {
+   "t": 3.478,
+   "seg": "S1",
+   "sfx": [
+    "riser"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s1_leak": {
+   "t": 5.904,
+   "seg": "S1",
+   "sfx": [
+    "hit",
+    "alert"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s2": {
+   "t": 7.334,
+   "seg": "S2",
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0.6,
+   "gain": 1
+  },
+  "s2_tip": {
+   "t": 8.4,
+   "seg": "S2",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.4,
+   "gain": 1
+  },
+  "s2_miss": {
+   "t": 11.328,
+   "seg": "S2",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.4,
+   "gain": 1
+  },
+  "s2_out": {
+   "t": 12.492,
+   "seg": "S2",
+   "sfx": [
+    "swish"
+   ],
+   "pan": 0.5,
+   "gain": 1
+  },
+  "s3": {
+   "t": 12.842,
+   "seg": "S3",
+   "sfx": [
+    "whoosh",
+    "sub"
+   ],
+   "pan": -0.5,
+   "gain": 1
+  },
+  "s3_staff": {
+   "t": 14.992,
+   "seg": "S3",
+   "sfx": [
+    "pop"
+   ],
+   "pan": -0.3,
+   "gain": 1
+  },
+  "s3_rush": {
+   "t": 16.226,
+   "seg": "S3",
+   "sfx": [
+    "tick"
+   ],
+   "pan": -0.3,
+   "gain": 1
+  },
+  "s3_sheet": {
+   "t": 18.98,
+   "seg": "S3",
+   "sfx": [
+    "type"
+   ],
+   "pan": -0.2,
+   "gain": 1
+  },
+  "s3_ai": {
+   "t": 19.786,
+   "seg": "S3",
+   "sfx": [
+    "hit",
+    "glitch"
+   ],
+   "pan": 0.2,
+   "gain": 1
+  },
+  "s3_daal": {
+   "t": 20.978,
+   "seg": "S3",
+   "sfx": [
+    "paste"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s4": {
+   "t": 22.11,
+   "seg": "S4",
+   "sfx": [],
+   "pan": 0,
+   "gain": 1
+  },
+  "s4_c1": {
+   "t": 22.11,
+   "seg": "S4",
+   "sfx": [
+    "pop"
+   ],
+   "pan": -0.5,
+   "gain": 1
+  },
+  "s4_c2": {
+   "t": 22.728,
+   "seg": "S4",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.5,
+   "gain": 1
+  },
+  "s4_c3": {
+   "t": 24.236,
+   "seg": "S4",
+   "sfx": [
+    "pop"
+   ],
+   "pan": -0.5,
+   "gain": 1
+  },
+  "s4_c4": {
+   "t": 25.022,
+   "seg": "S4",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.5,
+   "gain": 1
+  },
+  "s4_all": {
+   "t": 26.236,
+   "seg": "S4",
+   "sfx": [
+    "hit",
+    "alert"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s5": {
+   "t": 27.41,
+   "seg": "S5",
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0.5,
+   "gain": 1
+  },
+  "s5_pata": {
+   "t": 28.09,
+   "seg": "S5",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.4,
+   "gain": 1
+  },
+  "s5_letter": {
+   "t": 30.592,
+   "seg": "S5",
+   "sfx": [
+    "paper",
+    "paper2"
+   ],
+   "pan": 0.4,
+   "gain": 1
+  },
+  "s5_raha": {
+   "t": 31.23,
+   "seg": "S5",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.3,
+   "gain": 1
+  },
+  "s6": {
+   "t": 32.404,
+   "seg": "S6",
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": -0.4,
+   "gain": 1
+  },
+  "s6_aap": {
+   "t": 33.618,
+   "seg": "S6",
+   "sfx": [
+    "hit"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s6_f1": {
+   "t": 35.558,
+   "seg": "S6",
+   "sfx": [
+    "swish"
+   ],
+   "pan": -0.6,
+   "gain": 1
+  },
+  "s6_f2": {
+   "t": 36.592,
+   "seg": "S6",
+   "sfx": [
+    "swish"
+   ],
+   "pan": 0.6,
+   "gain": 1
+  },
+  "s6_f3": {
+   "t": 37.626,
+   "seg": "S6",
+   "sfx": [
+    "swish"
+   ],
+   "pan": -0.3,
+   "gain": 1
+  },
+  "s6_ai": {
+   "t": 38.848,
+   "seg": "S6",
+   "sfx": [
+    "paste"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s7": {
+   "t": 40.362,
+   "seg": "S7",
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0.5,
+   "gain": 1
+  },
+  "s7_five": {
+   "t": 41.576,
+   "seg": "S7",
+   "sfx": [
+    "hit"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s7_never": {
+   "t": 42.424,
+   "seg": "S7",
+   "sfx": [
+    "alert"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s8_1": {
+   "t": 45.172,
+   "seg": "S8",
+   "sfx": [
+    "tick",
+    "pop"
+   ],
+   "pan": -0.2,
+   "gain": 1
+  },
+  "s8_2": {
+   "t": 47.6,
+   "seg": "S8",
+   "sfx": [
+    "tick",
+    "pop"
+   ],
+   "pan": -0.1,
+   "gain": 1
+  },
+  "s8_3": {
+   "t": 50.136,
+   "seg": "S8",
+   "sfx": [
+    "tick",
+    "pop"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s8_4": {
+   "t": 52.392,
+   "seg": "S8",
+   "sfx": [
+    "tick",
+    "pop"
+   ],
+   "pan": 0.1,
+   "gain": 1
+  },
+  "s8_5": {
+   "t": 55.198,
+   "seg": "S8",
+   "sfx": [
+    "tick",
+    "pop"
+   ],
+   "pan": 0.2,
+   "gain": 1
+  },
+  "s9": {
+   "t": 58.048,
+   "seg": "S9",
+   "sfx": [
+    "whoosh",
+    "chime"
+   ],
+   "pan": -0.5,
+   "gain": 1
+  },
+  "s9_kya": {
+   "t": 59.026,
+   "seg": "S9",
+   "sfx": [
+    "pop"
+   ],
+   "pan": -0.3,
+   "gain": 1
+  },
+  "s9_1": {
+   "t": 59.858,
+   "seg": "S9",
+   "sfx": [
+    "check"
+   ],
+   "pan": -0.2,
+   "gain": 1
+  },
+  "s9_approved": {
+   "t": 60.976,
+   "seg": "S9",
+   "sfx": [
+    "tick"
+   ],
+   "pan": -0.2,
+   "gain": 1
+  },
+  "s9_2": {
+   "t": 62.828,
+   "seg": "S9",
+   "sfx": [
+    "check"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s9_erase": {
+   "t": 65.562,
+   "seg": "S9",
+   "sfx": [
+    "swish"
+   ],
+   "pan": 0.3,
+   "gain": 1
+  },
+  "s10": {
+   "t": 66.694,
+   "seg": "S10",
+   "sfx": [
+    "riser"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s10_3": {
+   "t": 66.95,
+   "seg": "S10",
+   "sfx": [
+    "hit"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s10_tip": {
+   "t": 68.088,
+   "seg": "S10",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.2,
+   "gain": 1
+  },
+  "s10_settings": {
+   "t": 70.75,
+   "seg": "S10",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.2,
+   "gain": 1
+  },
+  "s10_history": {
+   "t": 72.292,
+   "seg": "S10",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.2,
+   "gain": 1
+  },
+  "s10_off": {
+   "t": 74.076,
+   "seg": "S10",
+   "sfx": [
+    "toggle",
+    "chime"
+   ],
+   "pan": 0.3,
+   "gain": 1
+  },
+  "s10_warn": {
+   "t": 74.992,
+   "seg": "S10",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s10_model": {
+   "t": 76.596,
+   "seg": "S10",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s10_use": {
+   "t": 77.956,
+   "seg": "S10",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s11": {
+   "t": 79.684,
+   "seg": "S11",
+   "sfx": [
+    "whoosh",
+    "sub"
+   ],
+   "pan": 0.5,
+   "gain": 1
+  },
+  "s11_checklist": {
+   "t": 80.024,
+   "seg": "S11",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.3,
+   "gain": 1
+  },
+  "s11_comment": {
+   "t": 82.654,
+   "seg": "S11",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s11_safe": {
+   "t": 83.376,
+   "seg": "S11",
+   "sfx": [
+    "hit",
+    "chime"
+   ],
+   "pan": 0,
+   "gain": 1
+  },
+  "s11_group": {
+   "t": 85.484,
+   "seg": "S11",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.3,
+   "gain": 1
+  },
+  "end": {
+   "t": 88.014,
+   "seg": "S11",
+   "sfx": [],
+   "pan": 0,
+   "gain": 1
+  }
+ }
+}

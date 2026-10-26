@@ -1,0 +1,5 @@
+{
+  "_doc": "QA checks these strings in the reel's .tsx. required = must appear on screen. banned = claims we must NOT make.",
+  "required": ["3182", "US hospital", "NOT APPROVED", "Names", "Medical record no.", "Medicines", "Doctors", "22 Oct 2026", "WMAR 2 News", "Baltimore Sun", "Client / customer data", "Aadhaar", "Passwords & API keys", "Financials & salary", "Contracts / unreleased work", "approved AI tool", "Naam & numbers", "History / training OFF", "use ho sakti hain", "SAFE"],
+  "banned": ["SSN", "Social Security", "bank details leaked", "unlimited", "100% safe", "hacked"]
+}

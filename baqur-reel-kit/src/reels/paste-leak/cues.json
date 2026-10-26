@@ -1,0 +1,539 @@
+{
+ "_doc": "Each cue = one moment in the VO. seg + optional word (nth occurrence inside that segment) + offset seconds. 'end': true = end of segment. sfx = sound(s) whose IMPACT lands exactly on the cue (the mixer handles pre-roll). pan -1 left \u2026 +1 right.",
+ "cues": [
+  {
+   "id": "s1",
+   "seg": "S1",
+   "sfx": [
+    "sub",
+    "type"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s1_paste",
+   "seg": "S1",
+   "word": "paste",
+   "sfx": [
+    "paste"
+   ],
+   "pan": 0.1
+  },
+  {
+   "id": "s1_counter",
+   "seg": "S1",
+   "word": "teen",
+   "sfx": [
+    "riser"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s1_leak",
+   "seg": "S1",
+   "word": "leak",
+   "sfx": [
+    "hit",
+    "alert"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s2",
+   "seg": "S2",
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0.6
+  },
+  {
+   "id": "s2_tip",
+   "seg": "S2",
+   "word": "tip",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.4
+  },
+  {
+   "id": "s2_miss",
+   "seg": "S2",
+   "word": "miss",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.4
+  },
+  {
+   "id": "s2_out",
+   "seg": "S2",
+   "end": true,
+   "offset": 0.3,
+   "sfx": [
+    "swish"
+   ],
+   "pan": 0.5
+  },
+  {
+   "id": "s3",
+   "seg": "S3",
+   "sfx": [
+    "whoosh",
+    "sub"
+   ],
+   "pan": -0.5
+  },
+  {
+   "id": "s3_staff",
+   "seg": "S3",
+   "word": "staff",
+   "sfx": [
+    "pop"
+   ],
+   "pan": -0.3
+  },
+  {
+   "id": "s3_rush",
+   "seg": "S3",
+   "word": "jaldi",
+   "sfx": [
+    "tick"
+   ],
+   "pan": -0.3
+  },
+  {
+   "id": "s3_sheet",
+   "seg": "S3",
+   "word": "spreadsheet",
+   "sfx": [
+    "type"
+   ],
+   "pan": -0.2
+  },
+  {
+   "id": "s3_ai",
+   "seg": "S3",
+   "word": "public",
+   "sfx": [
+    "hit",
+    "glitch"
+   ],
+   "pan": 0.2
+  },
+  {
+   "id": "s3_daal",
+   "seg": "S3",
+   "word": "daal",
+   "sfx": [
+    "paste"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s4",
+   "seg": "S4",
+   "sfx": [],
+   "pan": 0
+  },
+  {
+   "id": "s4_c1",
+   "seg": "S4",
+   "word": "naam",
+   "sfx": [
+    "pop"
+   ],
+   "pan": -0.5
+  },
+  {
+   "id": "s4_c2",
+   "seg": "S4",
+   "word": "medical",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.5
+  },
+  {
+   "id": "s4_c3",
+   "seg": "S4",
+   "word": "dawaiyan",
+   "sfx": [
+    "pop"
+   ],
+   "pan": -0.5
+  },
+  {
+   "id": "s4_c4",
+   "seg": "S4",
+   "word": "doctor",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.5
+  },
+  {
+   "id": "s4_all",
+   "seg": "S4",
+   "word": "sab",
+   "sfx": [
+    "hit",
+    "alert"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s5",
+   "seg": "S5",
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0.5
+  },
+  {
+   "id": "s5_pata",
+   "seg": "S5",
+   "word": "pata",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.4
+  },
+  {
+   "id": "s5_letter",
+   "seg": "S5",
+   "word": "letter",
+   "sfx": [
+    "paper",
+    "paper2"
+   ],
+   "pan": 0.4
+  },
+  {
+   "id": "s5_raha",
+   "seg": "S5",
+   "word": "raha",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s6",
+   "seg": "S6",
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": -0.4
+  },
+  {
+   "id": "s6_aap",
+   "seg": "S6",
+   "word": "aap",
+   "sfx": [
+    "hit"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s6_f1",
+   "seg": "S6",
+   "word": "office",
+   "sfx": [
+    "swish"
+   ],
+   "pan": -0.6
+  },
+  {
+   "id": "s6_f2",
+   "seg": "S6",
+   "word": "client",
+   "sfx": [
+    "swish"
+   ],
+   "pan": 0.6
+  },
+  {
+   "id": "s6_f3",
+   "seg": "S6",
+   "word": "salary",
+   "sfx": [
+    "swish"
+   ],
+   "pan": -0.3
+  },
+  {
+   "id": "s6_ai",
+   "seg": "S6",
+   "word": "seedha",
+   "sfx": [
+    "paste"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s7",
+   "seg": "S7",
+   "sfx": [
+    "whoosh"
+   ],
+   "pan": 0.5
+  },
+  {
+   "id": "s7_five",
+   "seg": "S7",
+   "word": "paanch",
+   "sfx": [
+    "hit"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s7_never",
+   "seg": "S7",
+   "word": "kabhi",
+   "sfx": [
+    "alert"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s8_1",
+   "seg": "S8",
+   "word": "ek",
+   "sfx": [
+    "tick",
+    "pop"
+   ],
+   "pan": -0.2
+  },
+  {
+   "id": "s8_2",
+   "seg": "S8",
+   "word": "do",
+   "sfx": [
+    "tick",
+    "pop"
+   ],
+   "pan": -0.1
+  },
+  {
+   "id": "s8_3",
+   "seg": "S8",
+   "word": "teen",
+   "sfx": [
+    "tick",
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s8_4",
+   "seg": "S8",
+   "word": "chaar",
+   "sfx": [
+    "tick",
+    "pop"
+   ],
+   "pan": 0.1
+  },
+  {
+   "id": "s8_5",
+   "seg": "S8",
+   "word": "paanch",
+   "sfx": [
+    "tick",
+    "pop"
+   ],
+   "pan": 0.2
+  },
+  {
+   "id": "s9",
+   "seg": "S9",
+   "sfx": [
+    "whoosh",
+    "chime"
+   ],
+   "pan": -0.5
+  },
+  {
+   "id": "s9_kya",
+   "seg": "S9",
+   "word": "kya",
+   "sfx": [
+    "pop"
+   ],
+   "pan": -0.3
+  },
+  {
+   "id": "s9_1",
+   "seg": "S9",
+   "word": "pehla",
+   "sfx": [
+    "check"
+   ],
+   "pan": -0.2
+  },
+  {
+   "id": "s9_approved",
+   "seg": "S9",
+   "word": "approved",
+   "sfx": [
+    "tick"
+   ],
+   "pan": -0.2
+  },
+  {
+   "id": "s9_2",
+   "seg": "S9",
+   "word": "doosra",
+   "sfx": [
+    "check"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s9_erase",
+   "seg": "S9",
+   "word": "hata",
+   "sfx": [
+    "swish"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s10",
+   "seg": "S10",
+   "sfx": [
+    "riser"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s10_3",
+   "seg": "S10",
+   "word": "teesra",
+   "sfx": [
+    "hit"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s10_tip",
+   "seg": "S10",
+   "word": "tip",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.2
+  },
+  {
+   "id": "s10_settings",
+   "seg": "S10",
+   "word": "settings",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.2
+  },
+  {
+   "id": "s10_history",
+   "seg": "S10",
+   "word": "history",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0.2
+  },
+  {
+   "id": "s10_off",
+   "seg": "S10",
+   "word": "band",
+   "sfx": [
+    "toggle",
+    "chime"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s10_warn",
+   "seg": "S10",
+   "word": "warna",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s10_model",
+   "seg": "S10",
+   "word": "model",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s10_use",
+   "seg": "S10",
+   "word": "use",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s11",
+   "seg": "S11",
+   "sfx": [
+    "whoosh",
+    "sub"
+   ],
+   "pan": 0.5
+  },
+  {
+   "id": "s11_checklist",
+   "seg": "S11",
+   "word": "checklist",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "s11_comment",
+   "seg": "S11",
+   "word": "comment",
+   "sfx": [
+    "tick"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s11_safe",
+   "seg": "S11",
+   "word": "safe",
+   "sfx": [
+    "hit",
+    "chime"
+   ],
+   "pan": 0
+  },
+  {
+   "id": "s11_group",
+   "seg": "S11",
+   "word": "group",
+   "sfx": [
+    "pop"
+   ],
+   "pan": 0.3
+  },
+  {
+   "id": "end",
+   "seg": "S11",
+   "end": true,
+   "offset": 1.2,
+   "sfx": [],
+   "pan": 0
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "paste-leak",
+  "title": "Ek paste, 3,182 log",
+  "keyword": "SAFE",
+  "segments": [
+    {"id": "S1", "text": "Ek employee ne AI mein ek file paste ki... aur teen hazaar ek sau bayaasi logon ka data leak ho gaya."},
+    {"id": "S2", "text": "Aur last mein ek tip hai, jo zyaadatar log nahi jaante. Usse miss mat karna."},
+    {"id": "S3", "text": "America ka ek bada hospital. Ek staff member ne kaam jaldi khatam karne ke liye... patients ki spreadsheet ek public AI tool mein daal di."},
+    {"id": "S4", "text": "Naam. Medical record number. Dawaiyan. Doctor ke naam. Sab kuch."},
+    {"id": "S5", "text": "Hospital ko pata chala... aur ab har patient ko letter jaa raha hai."},
+    {"id": "S6", "text": "Ab sach bataun? Aap bhi roz yahi karte ho. Office ki file, client ka data, salary sheet... seedha AI mein."},
+    {"id": "S7", "text": "Toh yaad rakho. Paanch cheezein kabhi public AI mein paste mat karo."},
+    {"id": "S8", "text": "Ek. Client ya customer ka data. Do. Aadhaar, PAN, bank details. Teen. Passwords aur API keys. Chaar. Company ke financials aur salary. Paanch. Contract ya unreleased kaam."},
+    {"id": "S9", "text": "Toh safe tareeka kya hai? Pehla, company ka approved AI tool use karo. Doosra, paste karne se pehle naam aur numbers hata do."},
+    {"id": "S10", "text": "Aur teesra... woh tip jo zyaadatar log nahi jaante. AI ki settings mein jaake, chat history ya training wala option band karo. Warna aapki baatein... model sudharne mein bhi use ho sakti hain."},
+    {"id": "S11", "text": "Poori checklist chahiye, har AI app ke liye? Comment karo SAFE. Aur yeh reel apne office group mein zaroor daalo."}
+  ]
+}
