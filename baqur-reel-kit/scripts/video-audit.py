@@ -30,7 +30,7 @@ for i in range(3, n - 3):
 print(f"frame-to-frame mean difference: median {np.median(d):.2f}, p99 {np.percentile(d, 99):.2f}, max {d.max():.2f} at frame {int(d.argmax())}")
 print(f"brightness jumps > 4 grey levels outside the hit/flight windows: {len(jumps)} {jumps[:8]}")
 print(f"stalled (identical) frames: {len(stalls)} {stalls[:8]}")
-print(f"spikes outside the hit/flight windows: {len(spikes)} {spikes[:8]}")
+print(f"spikes outside the hit/flight windows: {len(spikes)} {spikes}")
 ok = not jumps and not stalls and not spikes
 print("PASS" if ok else "REVIEW: look at the frames listed")
 sys.exit(0 if ok else 1)

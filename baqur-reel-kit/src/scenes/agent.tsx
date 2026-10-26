@@ -493,11 +493,12 @@ export const AgentCaptions: React.FC<{tl: TL; arcAt: (frame: number) => number; 
   return (
     <div style={{position: 'absolute', left: SAFE.side, right: SAFE.side, bottom: SAFE.bottom + 20, textAlign: 'center', fontFamily: F.display, fontSize: 58, fontWeight: 700, letterSpacing: '-0.02em', lineHeight: 1.15, opacity: lineIn, transform: `translateY(${(1 - lineIn) * 12}px)`}}>
       {line.map((w, i) => {
-        const on = frame >= w.from && frame < w.to + 6;
+        const nextIn = i + 1 < line.length && frame >= line[i + 1].from;   // only the newest word is lit: two scaled neighbours would close the gap between them
+        const on = frame >= w.from && frame < w.to + 6 && !nextIn;
         const said = frame >= w.from;
         const big = on && bigWord && w.w.toLowerCase().replace(/[^a-z]/g, '') === bigWord.toLowerCase();
         return (
-          <span key={i} style={{color: on ? col : said ? C.ink : C.ink3, textShadow: on ? `0 0 26px ${col}88` : '0 4px 20px rgba(0,0,0,0.8)', marginRight: 16, display: 'inline-block', transform: `scale(${big ? 1.15 : on ? 1.06 : 1})`}}>
+          <span key={i} style={{color: on ? col : said ? C.ink : C.ink3, textShadow: on ? `0 0 26px ${col}88` : '0 4px 20px rgba(0,0,0,0.8)', marginRight: 20, display: 'inline-block', transform: `scale(${big ? 1.15 : on ? 1.06 : 1})`}}>
             {w.w.replace(/\.\.\.$/, '…')}
           </span>
         );
