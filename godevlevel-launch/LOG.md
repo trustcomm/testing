@@ -1,1 +1,2 @@
 2026-11-13 · project created (MotionSmith motion-video-director 3.7.0) · VO received assets/vo/vo_v1.mp3 (46.9 s) · transcribed, all 15 lines present
+2026-11-13 · final v1 rendered · renders/final/GoDevLevel Launch v1.mp4 · 2910 frames 60 fps in 5m31s, software (CPU) drawing + libx264 (no GPU in this machine) · QA measured: 1080x1920 h264 yuv420p 48.5 s, -14.1 LUFS, peak -1.3 dBFS, 0 black segments, 0 duplicate frames; judged from stills: safe zones, seams, colour. Not done: earshot critique (install blocked), plan/preview approval gates.
