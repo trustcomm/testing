@@ -1,0 +1,501 @@
+{
+ "duration": 48.5,
+ "fps": 60,
+ "out": "../../renders/audio",
+ "voice": "../vo/vo_v1.mp3",
+ "cues": [
+  {
+   "t": 0.02,
+   "file": "swish.wav",
+   "gain": -17,
+   "align": "start"
+  },
+  {
+   "t": 2.3,
+   "file": "swish.wav",
+   "gain": -14,
+   "align": "peak"
+  },
+  {
+   "t": 3.12,
+   "file": "toggle.wav",
+   "gain": -19,
+   "align": "onset",
+   "rate": 1.0
+  },
+  {
+   "t": 3.2,
+   "file": "whoosh.wav",
+   "gain": -16,
+   "align": "peak"
+  },
+  {
+   "t": 4.14,
+   "file": "toggle.wav",
+   "gain": -19,
+   "align": "onset",
+   "rate": 1.03
+  },
+  {
+   "t": 5.42,
+   "file": "toggle.wav",
+   "gain": -19,
+   "align": "onset",
+   "rate": 1.06
+  },
+  {
+   "t": 5.46,
+   "file": "glitch.wav",
+   "gain": -19,
+   "align": "onset"
+  },
+  {
+   "t": 7.02,
+   "file": "swish.wav",
+   "gain": -19,
+   "align": "peak"
+  },
+  {
+   "t": 8.86,
+   "file": "whoosh.wav",
+   "gain": -11,
+   "align": "peak"
+  },
+  {
+   "t": 9.05,
+   "file": "flip.wav",
+   "gain": -17,
+   "align": "onset"
+  },
+  {
+   "t": 10.62,
+   "file": "riser.wav",
+   "gain": -16,
+   "align": "end",
+   "fadein": 0.3
+  },
+  {
+   "t": 10.63,
+   "file": "hit.wav",
+   "gain": -9,
+   "align": "onset"
+  },
+  {
+   "t": 10.63,
+   "file": "sub.wav",
+   "gain": -9,
+   "align": "onset"
+  },
+  {
+   "t": 12.0,
+   "file": "swish.wav",
+   "gain": -19,
+   "align": "peak"
+  },
+  {
+   "t": 12.04,
+   "file": "pop.wav",
+   "gain": -21,
+   "align": "onset",
+   "rate": 1.0
+  },
+  {
+   "t": 12.11,
+   "file": "pop.wav",
+   "gain": -21,
+   "align": "onset",
+   "rate": 1.04
+  },
+  {
+   "t": 12.18,
+   "file": "pop.wav",
+   "gain": -21,
+   "align": "onset",
+   "rate": 1.08
+  },
+  {
+   "t": 12.66,
+   "file": "whoosh.wav",
+   "gain": -12,
+   "align": "peak"
+  },
+  {
+   "t": 12.82,
+   "file": "flip.wav",
+   "gain": -19,
+   "align": "onset"
+  },
+  {
+   "t": 13.45,
+   "file": "pop.wav",
+   "gain": -21,
+   "align": "onset"
+  },
+  {
+   "t": 13.6,
+   "file": "type.wav",
+   "gain": -23,
+   "align": "start",
+   "dur": 0.55
+  },
+  {
+   "t": 14.15,
+   "file": "type.wav",
+   "gain": -23,
+   "align": "start",
+   "dur": 0.55
+  },
+  {
+   "t": 14.33,
+   "file": "check.wav",
+   "gain": -20,
+   "align": "onset",
+   "rate": 1.0
+  },
+  {
+   "t": 14.7,
+   "file": "type.wav",
+   "gain": -23,
+   "align": "start",
+   "dur": 0.55
+  },
+  {
+   "t": 14.84,
+   "file": "check.wav",
+   "gain": -20,
+   "align": "onset",
+   "rate": 1.04
+  },
+  {
+   "t": 15.25,
+   "file": "type.wav",
+   "gain": -23,
+   "align": "start",
+   "dur": 0.55
+  },
+  {
+   "t": 15.36,
+   "file": "check.wav",
+   "gain": -20,
+   "align": "onset",
+   "rate": 1.08
+  },
+  {
+   "t": 15.79,
+   "file": "check.wav",
+   "gain": -20,
+   "align": "onset",
+   "rate": 1.12
+  },
+  {
+   "t": 15.95,
+   "file": "swish.wav",
+   "gain": -19,
+   "align": "peak"
+  },
+  {
+   "t": 16.3,
+   "file": "whoosh.wav",
+   "gain": -15,
+   "align": "peak"
+  },
+  {
+   "t": 16.56,
+   "file": "chime.wav",
+   "gain": -13,
+   "align": "onset"
+  },
+  {
+   "t": 17.5,
+   "file": "swish.wav",
+   "gain": -17,
+   "align": "peak"
+  },
+  {
+   "t": 17.52,
+   "file": "toggle.wav",
+   "gain": -19,
+   "align": "onset"
+  },
+  {
+   "t": 18.86,
+   "file": "flip.wav",
+   "gain": -19,
+   "align": "onset",
+   "rate": 1.0
+  },
+  {
+   "t": 19.52,
+   "file": "flip.wav",
+   "gain": -19,
+   "align": "onset",
+   "rate": 1.04
+  },
+  {
+   "t": 20.14,
+   "file": "flip.wav",
+   "gain": -19,
+   "align": "onset",
+   "rate": 1.08
+  },
+  {
+   "t": 21.15,
+   "file": "whoosh.wav",
+   "gain": -13,
+   "align": "peak"
+  },
+  {
+   "t": 21.34,
+   "file": "pop.wav",
+   "gain": -21,
+   "align": "onset",
+   "rate": 1.0
+  },
+  {
+   "t": 21.43,
+   "file": "pop.wav",
+   "gain": -21,
+   "align": "onset",
+   "rate": 1.04
+  },
+  {
+   "t": 21.52,
+   "file": "pop.wav",
+   "gain": -21,
+   "align": "onset",
+   "rate": 1.08
+  },
+  {
+   "t": 23.3,
+   "file": "whoosh.wav",
+   "gain": -13,
+   "align": "peak"
+  },
+  {
+   "t": 24.86,
+   "file": "scan.wav",
+   "gain": -19,
+   "align": "start"
+  },
+  {
+   "t": 25.86,
+   "file": "lock.wav",
+   "gain": -11,
+   "align": "onset"
+  },
+  {
+   "t": 26.6,
+   "file": "whoosh.wav",
+   "gain": -13,
+   "align": "peak"
+  },
+  {
+   "t": 27.3,
+   "file": "pop.wav",
+   "gain": -16,
+   "align": "onset",
+   "rate": 0.8
+  },
+  {
+   "t": 27.9,
+   "file": "swish.wav",
+   "gain": -18,
+   "align": "peak"
+  },
+  {
+   "t": 28.91,
+   "file": "pop.wav",
+   "gain": -17,
+   "align": "onset",
+   "rate": 0.7
+  },
+  {
+   "t": 30.08,
+   "file": "chime.wav",
+   "gain": -13,
+   "align": "onset"
+  },
+  {
+   "t": 30.08,
+   "file": "pop.wav",
+   "gain": -17,
+   "align": "onset"
+  },
+  {
+   "t": 31.15,
+   "file": "whoosh.wav",
+   "gain": -13,
+   "align": "peak"
+  },
+  {
+   "t": 31.56,
+   "file": "type.wav",
+   "gain": -22,
+   "align": "start",
+   "dur": 1.0
+  },
+  {
+   "t": 32.66,
+   "file": "toggle.wav",
+   "gain": -15,
+   "align": "onset"
+  },
+  {
+   "t": 32.72,
+   "file": "scan.wav",
+   "gain": -21,
+   "align": "start"
+  },
+  {
+   "t": 32.92,
+   "file": "check.wav",
+   "gain": -17,
+   "align": "onset",
+   "rate": 1.0
+  },
+  {
+   "t": 33.36,
+   "file": "check.wav",
+   "gain": -17,
+   "align": "onset",
+   "rate": 1.05
+  },
+  {
+   "t": 33.8,
+   "file": "check.wav",
+   "gain": -17,
+   "align": "onset",
+   "rate": 1.1
+  },
+  {
+   "t": 34.5,
+   "file": "swish.wav",
+   "gain": -17,
+   "align": "peak"
+  },
+  {
+   "t": 35.9,
+   "file": "whoosh.wav",
+   "gain": -13,
+   "align": "peak"
+  },
+  {
+   "t": 35.95,
+   "file": "sub.wav",
+   "gain": -9,
+   "align": "onset"
+  },
+  {
+   "t": 35.95,
+   "file": "hit.wav",
+   "gain": -12,
+   "align": "onset"
+  },
+  {
+   "t": 36.3,
+   "file": "tick.wav",
+   "gain": -18,
+   "align": "onset",
+   "rate": 1.0
+  },
+  {
+   "t": 36.58,
+   "file": "tick.wav",
+   "gain": -18,
+   "align": "onset",
+   "rate": 1.06
+  },
+  {
+   "t": 36.86,
+   "file": "tick.wav",
+   "gain": -18,
+   "align": "onset",
+   "rate": 1.12
+  },
+  {
+   "t": 37.36,
+   "file": "swish.wav",
+   "gain": -17,
+   "align": "peak"
+  },
+  {
+   "t": 38.84,
+   "file": "check.wav",
+   "gain": -18,
+   "align": "onset"
+  },
+  {
+   "t": 39.85,
+   "file": "whoosh.wav",
+   "gain": -12,
+   "align": "peak"
+  },
+  {
+   "t": 39.96,
+   "file": "flip.wav",
+   "gain": -20,
+   "align": "onset"
+  },
+  {
+   "t": 42.33,
+   "file": "toggle.wav",
+   "gain": -12,
+   "align": "onset"
+  },
+  {
+   "t": 42.36,
+   "file": "hit.wav",
+   "gain": -4,
+   "align": "onset"
+  },
+  {
+   "t": 42.36,
+   "file": "sub.wav",
+   "gain": -5,
+   "align": "onset"
+  },
+  {
+   "t": 42.52,
+   "file": "whoosh.wav",
+   "gain": -9,
+   "align": "peak"
+  },
+  {
+   "t": 43.3,
+   "file": "swish.wav",
+   "gain": -16,
+   "align": "peak"
+  },
+  {
+   "t": 43.4,
+   "file": "chime.wav",
+   "gain": -12,
+   "align": "onset"
+  },
+  {
+   "t": 44.92,
+   "file": "pop.wav",
+   "gain": -20,
+   "align": "onset"
+  },
+  {
+   "t": 45.36,
+   "file": "type.wav",
+   "gain": -21,
+   "align": "start",
+   "dur": 1.0
+  },
+  {
+   "t": 46.78,
+   "file": "toggle.wav",
+   "gain": -14,
+   "align": "onset"
+  },
+  {
+   "t": 46.79,
+   "file": "lock.wav",
+   "gain": -15,
+   "align": "onset"
+  }
+ ]
+}

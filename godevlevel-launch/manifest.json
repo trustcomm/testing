@@ -1,0 +1,8 @@
+[
+ {"path": "assets/vo/vo_v1.mp3", "type": "voice-over", "source_url": "provided by the owner (ElevenLabs)", "author": "owner", "license": "owner's own", "used_in": "whole film"},
+ {"path": "assets/refs/", "type": "reference screenshots", "source_url": "https://godevlevel.in/", "author": "GoDevLevel", "license": "owner's own site; reference only", "used_in": "palette, type, copy"},
+ {"path": "assets/style/saas-launch/fonts/", "type": "fonts (Inter, Inter Tight)", "source_url": "MotionSmith style saas-launch", "author": "Rasmus Andersson", "license": "SIL OFL 1.1", "license_file": "assets/style/saas-launch/fonts/OFL.txt", "used_in": "all text"},
+ {"path": "assets/fonts/JetBrainsMono/", "type": "font", "source_url": "MotionSmith pack font-jetbrains-mono", "author": "JetBrains", "license": "SIL OFL 1.1", "license_file": "assets/fonts/JetBrainsMono/OFL.txt", "used_in": "code and labels"},
+ {"path": "assets/style/saas-launch/lib/", "type": "style runtime", "source_url": "MotionSmith style saas-launch", "author": "MotionSmith", "license": "MotionSmith plan", "used_in": "easing and helpers"},
+ {"path": "assets/sfx/*.wav", "type": "sound effects", "source_url": "synthesised by baqur-reel-kit/scripts/make_sfx.py (this repo)", "author": "generated", "license": "owner's own", "used_in": "assets/sfx/cues.json"}
+]
