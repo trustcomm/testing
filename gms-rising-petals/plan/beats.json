@@ -1,0 +1,15 @@
+{
+  "source": "assets/vo/vo_v2.mp3 — faster-whisper word timestamps, line starts checked against silences",
+  "duration": 46.5,
+  "beats": {
+    "every": 0.0, "dream": 0.86, "begins": 1.28, "tiny": 2.62, "seed": 2.96,
+    "your": 3.99, "school": 4.96, "where": 5.66, "begins2": 6.4, "grow": 7.14,
+    "welcome": 7.92, "g": 8.6, "m": 8.88, "s": 9.0, "rising": 9.22, "petals": 9.72,
+    "caring": 10.69, "space": 11.9, "right": 12.52, "tumkur": 13.38,
+    "little": 14.32, "play": 15.0, "explore": 15.94, "learn": 17.06, "everyday": 17.46,
+    "safe": 19.37, "activity": 21.07, "islamic": 22.68, "educators": 25.1, "everylittle": 27.36,
+    "playhome": 28.82, "nursery": 29.46, "december": 31.1, "lkg": 31.95, "ukg": 32.86, "nextyear": 34.0,
+    "admissions": 35.55, "open": 36.6, "call": 37.52, "whatsapp": 38.06, "today": 38.72,
+    "gms": 39.5, "rp": 40.16, "littlepetals": 41.64, "bigdreams": 42.74, "vo_end": 43.96
+  }
+}
