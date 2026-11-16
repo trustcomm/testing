@@ -17,7 +17,7 @@ Status: built at the owner's request after story approval ("approved"); look loc
 - Pops with 6–9 % overshoot; stems grow from the ground; children bob, sway, peek and jump.
 
 ## 4. Sound
-- Music bed ducked 7 dB under the voice; 69 SFX cues (assets/sfx/cues.json) synthesised by the Baqur reel kit synth (scripts/render_sfx.py). Climax: "Open!" (hit + sub + chime). Master −13.5 LUFS, −1.5 dBTP.
+- Music: assets/music/music_bed_joyful.wav (scripts/music_bed.py: the track's full 24–45 s section looped on bars, +12% tempo via rubberband, brighter, light clap + shaker groove at 89 BPM from 3.9 s). Voice normalised to −16 LUFS; music ≈10 dB under speech, rises ≈5 dB between lines. 69 SFX cues (assets/sfx/cues.json), synth sounds. Climax "Open!". Master −13.9 LUFS, −1.5 dBTP.
 
 ## 5. Technical
 - Render: `MVD_TOOLKIT=/opt/node-tools node src/render.js --fps 60 --scale 1 --out renders/final --name "<name>" --audio renders/audio/mix.wav`

@@ -1,13 +1,13 @@
 {
  "duration": 46.5,
  "fps": 60,
- "out": "../../renders/audio",
- "voice": "../vo/vo_v2.mp3",
+ "out": "../../renders/audio_v2",
+ "voice": "../vo/vo_v2_norm.wav",
  "music": {
-  "file": "../music/music_bed_cut.wav",
-  "gain": -8,
+  "file": "../music/music_bed_joyful.wav",
+  "gain": -3.4,
   "offset": 0,
-  "duck": 7
+  "duck": 6
  },
  "cues": [
   {
