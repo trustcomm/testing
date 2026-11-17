@@ -1,0 +1,2 @@
+2026-11-17 · project built: capture, storyboard, Hinglish VO received (41.1 s), 9 assets keyed, 8 scenes, 71-cue SFX mix; final v1 render started
+2026-11-17 · final v1: renders/final/Trustcomm Reel v1.mp4 · 2556 frames 60 fps in 6m36s, software (CPU) + libx264 · measured 1080x1920 h264 42.6 s, -14.1 LUFS, -1.5 dBTP, 0 black segments; judged from contact sheets: safe zones, seams, readability. Not done: earshot critique (install blocked).

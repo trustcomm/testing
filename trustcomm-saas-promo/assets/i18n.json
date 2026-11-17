@@ -1,0 +1,104 @@
+{
+ "English": {
+  "sub": "Under a minute · no sign-in",
+  "food": "How was the food?",
+  "service": "How was the service?",
+  "mention": "What should the review mention?",
+  "pick": "Pick only what you want mentioned. Nothing is ticked for you.",
+  "chips": [
+   "The food",
+   "How long it took",
+   "The price",
+   "How clean it was",
+   "The staff",
+   "The portions"
+  ],
+  "had": "What did you have?",
+  "cont": "Continue"
+ },
+ "Hinglish": {
+  "sub": "Ek minute se kam · no sign-in",
+  "food": "Khana kaisa tha?",
+  "service": "Service kaisi thi?",
+  "mention": "Review mein kya aana chahiye?",
+  "pick": "Sirf wahi chunein jo aap likhwana chahte hain. Kuch bhi pehle se tick nahi hai.",
+  "chips": [
+   "Khana",
+   "Kitni der lagi",
+   "Daam",
+   "Saaf safai",
+   "Staff",
+   "Quantity"
+  ],
+  "had": "Aapne kya khaya?",
+  "cont": "Aage badhein"
+ },
+ "हिन्दी": {
+  "sub": "एक मिनट से कम · साइन-इन नहीं",
+  "food": "खाना कैसा था?",
+  "service": "सर्विस कैसी थी?",
+  "mention": "रिव्यू में क्या आना चाहिए?",
+  "pick": "सिर्फ़ वही चुनें जो आप लिखवाना चाहते हैं। कुछ भी पहले से टिक नहीं है।",
+  "chips": [
+   "खाना",
+   "कितनी देर लगी",
+   "दाम",
+   "साफ़-सफ़ाई",
+   "स्टाफ़",
+   "मात्रा"
+  ],
+  "had": "आपने क्या खाया?",
+  "cont": "आगे बढ़ें"
+ },
+ "ಕನ್ನಡ": {
+  "sub": "ಒಂದು ನಿಮಿಷಕ್ಕಿಂತ ಕಡಿಮೆ · ಸೈನ್-ಇನ್ ಇಲ್ಲ",
+  "food": "ಊಟ ಹೇಗಿತ್ತು?",
+  "service": "ಸೇವೆ ಹೇಗಿತ್ತು?",
+  "mention": "ವಿಮರ್ಶೆಯಲ್ಲಿ ಏನು ಬರಬೇಕು?",
+  "pick": "ನೀವು ಹೇಳಲು ಬಯಸುವುದನ್ನು ಮಾತ್ರ ಆರಿಸಿ. ಏನೂ ಮೊದಲೇ ಗುರುತಿಸಿಲ್ಲ.",
+  "chips": [
+   "ಊಟ",
+   "ಎಷ್ಟು ಸಮಯ ಆಯ್ತು",
+   "ಬೆಲೆ",
+   "ಸ್ವಚ್ಛತೆ",
+   "ಸಿಬ್ಬಂದಿ",
+   "ಪ್ರಮಾಣ"
+  ],
+  "had": "ನೀವು ಏನು ತಿಂದಿರಿ?",
+  "cont": "ಮುಂದುವರಿಸಿ"
+ },
+ "தமிழ்": {
+  "sub": "ஒரு நிமிடத்திற்கும் குறைவு · சைன்-இன் இல்லை",
+  "food": "சாப்பாடு எப்படி இருந்தது?",
+  "service": "சேவை எப்படி இருந்தது?",
+  "mention": "விமர்சனத்தில் என்ன இருக்க வேண்டும்?",
+  "pick": "நீங்கள் சொல்ல விரும்புவதை மட்டும் தேர்ந்தெடுங்கள். எதுவும் முன்பே தேர்வாகவில்லை.",
+  "chips": [
+   "உணவு",
+   "எவ்வளவு நேரம்",
+   "விலை",
+   "சுத்தம்",
+   "ஊழியர்கள்",
+   "அளவு"
+  ],
+  "had": "நீங்கள் என்ன சாப்பிட்டீர்கள்?",
+  "cont": "தொடரவும்"
+ },
+ "తెలుగు": {
+  "sub": "ఒక నిమిషం కంటే తక్కువ · సైన్-ఇన్ లేదు",
+  "food": "భోజనం ఎలా ఉంది?",
+  "service": "సర్వీస్ ఎలా ఉంది?",
+  "mention": "రివ్యూలో ఏం ఉండాలి?",
+  "pick": "మీరు చెప్పాలనుకున్నది మాత్రమే ఎంచుకోండి. ఏదీ ముందుగా ఎంపిక కాలేదు.",
+  "chips": [
+   "భోజనం",
+   "ఎంత సమయం",
+   "ధర",
+   "శుభ్రత",
+   "సిబ్బంది",
+   "పరిమాణం"
+  ],
+  "had": "మీరు ఏమి తిన్నారు?",
+  "cont": "కొనసాగించండి"
+ }
+}
