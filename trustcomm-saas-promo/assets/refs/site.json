@@ -1,0 +1,88 @@
+{
+ "title": "Trustcomm — hear from more of your customers",
+ "meta": "A QR code for your counter. Customers rate their visit in their own language, then post on Google or message you privately. 14 days free, then ₹699 a month.",
+ "txt": "Free score\nPricing\nFAQ\nContact\nSign in\nMore Google reviews from your real customers.\n\nHear from more of your customers, not just the loudest ones. One QR code on your counter — customers rate their visit in their own language, then post on Google or tell you privately.\n\nStart your 14-day free trial\nCheck your Google score — free →\nSee what customers see →\n\nNo card needed to start · Launch price: ₹699/month after the trial\n\nHow it works\n\nMeera's Tiffin Room\n\n1\nPrint your QR code\n\nSet up your shop in a few steps and download a QR code with your name and colours.\n\nM\nMeera's Tiffin Room\nUnder a minute · no sign-in\nHow was the food?\nHow was the service?\nWhat should the review mention?\nPick only what you want mentioned. Nothing is ticked for you.\nThe food\nHow long it took\nThe price\nHow clean it was\nThe staff\n✓ The staff\nThe portions\nWhat did you have?\nMasala Dosa\n✓ Masala Dosa\nFilter Coffee\n✓ Filter Coffee\nIdli Vada\nThali\nContinue\n2\nCustomers scan and rate\n\nNo app, no sign-in. English, Hinglish, Hindi, Kannada, Tamil or Telugu.\n\n3\nA draft for Google, and a private line to you\n\nCustomers get a draft built from what they tapped, edit it, and post it on Google themselves. Anyone can also leave you a private note — never instead of Google.\n\nStraight to the owner\nFeedback\nLoved the food. The table by the door gets cold in the evening — maybe keep it shut?\nOn Google\nThe filter coffee and masala dosa were excellent. Friendly service too.\n\nLaunch price: ₹699/month — ₹999/month from 1 January 2027. Launch prices are locked in for as long as you stay subscribed. Offer ends 31 December 2026.\n\nYearly plan coming soon.\n\nStart your 14-day free trial\nSee pricing\n\nTrustcomm helps genuine customers share feedback. Reviews are written and posted by customers on Google. We do not create reviews for people who have not visited your business.\n\nHome\nPricing\nFree Google score\nFAQ\nContact\nSign in\nStart your 14-day free trial\nPrivacy\nTerms\nRefunds & cancellation\nAcceptable use\nDelivery\n\nTrustcomm is built by GoDevLevel, Tumkur.",
+ "links": [
+  "https://trustcomm.app/",
+  "https://trustcomm.app/score",
+  "https://trustcomm.app/pricing",
+  "https://trustcomm.app/faq",
+  "https://trustcomm.app/contact",
+  "https://trustcomm.app/sign-in",
+  "https://trustcomm.app/start",
+  "https://trustcomm.app/r/demo",
+  "https://trustcomm.app/legal/privacy",
+  "https://trustcomm.app/legal/terms",
+  "https://trustcomm.app/legal/refunds",
+  "https://trustcomm.app/legal/acceptable-use",
+  "https://trustcomm.app/legal/delivery"
+ ],
+ "body": {
+  "font": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", \"Noto Sans\", Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+  "size": "16px",
+  "weight": "400",
+  "color": "rgb(18, 21, 28)",
+  "bg": "rgb(250, 249, 246)"
+ },
+ "h1": [
+  {
+   "t": "More Google reviews from your real customers.",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\"",
+   "size": "76px",
+   "weight": "800",
+   "color": "rgb(18, 21, 28)",
+   "bg": "rgba(0, 0, 0, 0)"
+  },
+  {
+   "t": "How it works",
+   "font": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\"",
+   "size": "44px",
+   "weight": "800",
+   "color": "rgb(18, 21, 28)",
+   "bg": "rgba(0, 0, 0, 0)"
+  }
+ ],
+ "colors": [
+  [
+   "rgb(18, 21, 28)",
+   522
+  ],
+  [
+   "rgb(102, 112, 133)",
+   91
+  ],
+  [
+   "rgb(0, 0, 0)",
+   78
+  ],
+  [
+   "rgb(31, 94, 255)",
+   18
+  ],
+  [
+   "rgb(255, 255, 255)",
+   16
+  ],
+  [
+   "rgba(18, 21, 28, 0.08)",
+   12
+  ],
+  [
+   "rgb(250, 249, 246)",
+   6
+  ],
+  [
+   "color(srgb 0.885922 0.909608 0.968588)",
+   1
+  ],
+  [
+   "rgba(250, 249, 246, 0.95)",
+   1
+  ],
+  [
+   "rgba(18, 21, 28, 0.08) rgb(18, 21, 28) rgb(18, 21, 28)",
+   1
+  ]
+ ],
+ "imgs": []
+}
