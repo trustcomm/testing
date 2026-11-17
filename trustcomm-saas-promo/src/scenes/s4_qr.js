@@ -13,8 +13,10 @@ export function standFace(ctx, x0, y0, w, h, T) { // card content, in frame px
 export function drawStand(ctx, T, rise = 1) {
   const img = IMG.qr_stand, h = img.height * STAND.w / img.width, x0 = STAND.x - STAND.w / 2, y0 = STAND.base - h + (1 - rise) * 260;
   ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, STAND.base + 4); ctx.clip();
-  const k = STAND.w / img.width; standFace(ctx, x0 + 70 * k, y0 + 60 * k, 825 * k, 1010 * k, T);
-  ctx.drawImage(img, x0, y0, STAND.w, h); ctx.restore();
+  const k = STAND.w / img.width; ctx.drawImage(img, x0, y0, STAND.w, h);
+  standFace(ctx, x0 + 70 * k, y0 + 60 * k, 825 * k, 1010 * k, T);
+  const g = ctx.createLinearGradient(x0, y0, x0 + STAND.w, y0 + h * 0.6); g.addColorStop(0, 'rgba(255,255,255,0.22)'); g.addColorStop(0.35, 'rgba(255,255,255,0)'); g.addColorStop(1, 'rgba(255,255,255,0.08)');
+  ctx.fillStyle = g; ctx.fillRect(x0 + 70 * k, y0 + 60 * k, 825 * k, 1010 * k); ctx.restore();
 }
 export function draw(ctx, _t, {t: T}) {
   const up = P(T, 12.95, 0.6, 'camera'), cam = CAM(T);

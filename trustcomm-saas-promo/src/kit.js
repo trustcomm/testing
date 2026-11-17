@@ -17,7 +17,7 @@ export const env = (T, t0, t1, din = 0.3, dout = 0.25) => P(T, t0, din, 'out') *
 export const rgba = (hex, a) => { const n = parseInt(hex.slice(1), 16); return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a})`; };
 export const mixHex = (a, b, p) => { const A = parseInt(a.slice(1), 16), B2 = parseInt(b.slice(1), 16); const ch = s => Math.round(lerp((A >> s) & 255, (B2 >> s) & 255, clamp(p))); return `rgb(${ch(16)},${ch(8)},${ch(0)})`; };
 
-export const IMG = {}, B = {}, I18N = {}, SCR = {};
+export const IMG = {}, B = {}, I18N = {}, SCR = {}, QRM = {rows: []};
 const LIST = ['counter_plate', 'customers_leaving', 'customers_smiling', 'food_coffee', 'food_dosa', 'hand_phone_scan', 'owner_meera', 'phone_front', 'qr_stand'];
 let ready;
 export function initKit() {
@@ -28,6 +28,7 @@ export function initKit() {
     Object.assign(B, (await (await fetch('/assets/beats.json')).json()).beats);
     Object.assign(I18N, await (await fetch('/assets/i18n.json')).json());
     Object.assign(SCR, await (await fetch('/assets/images/cut/screens.json')).json());
+    Object.assign(QRM, await (await fetch('/assets/qr.json')).json());
     await Promise.all(LIST.map(k => new Promise((ok, no) => { const i = new Image(); i.onload = () => { IMG[k] = i; ok(); }; i.onerror = () => no(Error('missing ' + k)); i.src = `/assets/images/cut/${k}.png`; })));
   })();
 }
@@ -110,13 +111,12 @@ export function wordmark(ctx, cx, y, size, {reveal = 1, tail = 0, tailLen = 300,
   let end = [tx, ty]; if (tail > 0) end = drawPath(ctx, bezierPts([tx, ty], [tx + size * 0.05, ty + tailLen * 0.4], [tx, ty + tailLen * 0.7], [tx - size * 0.02, ty + tailLen]), tail, {lw: size * 0.085});
   return end;
 }
-/** deterministic QR-looking pattern (decorative, not scannable) */
+/** a real, scannable QR code (assets/qr.json → https://trustcomm.app/r/demo); p reveals it diagonally */
 export function qr(ctx, x, y, s, p = 1, color = C.ink) {
-  const n = 25, c = s / n; ctx.save(); ctx.fillStyle = color;
-  const finder = (fx, fy) => { rr(ctx, x + fx * c, y + fy * c, 7 * c, 7 * c, c * 1.2); ctx.fill(); ctx.fillStyle = '#fff'; rr(ctx, x + (fx + 1) * c, y + (fy + 1) * c, 5 * c, 5 * c, c * 0.8); ctx.fill(); ctx.fillStyle = color; rr(ctx, x + (fx + 2) * c, y + (fy + 2) * c, 3 * c, 3 * c, c * 0.6); ctx.fill(); };
-  const inF = (i, j) => (i < 8 && j < 8) || (i > n - 9 && j < 8) || (i < 8 && j > n - 9);
-  for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) { if (inF(i, j)) continue; if (hash(i * 31.7 + j * 7.3) > 0.52 && (i + j) / (2 * n) < p * 1.15) { ctx.fillRect(x + i * c + 0.5, y + j * c + 0.5, c - 1, c - 1); } }
-  if (p > 0.1) { ctx.globalAlpha = clamp((p - 0.1) * 4); finder(0, 0); finder(n - 7, 0); finder(0, n - 7); }
+  const rows = QRM.rows, n = rows.length; if (!n) return; const c = s / n; ctx.save();
+  ctx.fillStyle = '#ffffff'; ctx.fillRect(x - c * 2, y - c * 2, s + c * 4, s + c * 4);   // quiet zone
+  ctx.fillStyle = color;
+  for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) if (rows[j][i] === '1' && (i + j) / (2 * n - 2) <= p * 1.02) ctx.fillRect(x + i * c, y + j * c, c + 0.6, c + 0.6);
   ctx.restore();
 }
 /** sprite drawn by centre (x, y) at width w */

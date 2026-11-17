@@ -1,7 +1,7 @@
 // 14.5–22.9 s · "Customer scan karta hai — na app, na sign-in. Apni bhasha mein — Kannada, Tamil, Telugu, Hindi…
 // Phir unke taps se…" A hand brings a phone over the stand; the blue scan line sweeps; the real customer page opens.
 // Stars fill, the language row switches with each spoken language, chips tick and the dishes pop out as food stickers.
-import {W, H, C, F, B, P, env, IMG, initKit, cover, sprite, pill, text, tick, tap, phoneWithPage, finish, clamp, lerp, rgba} from '../kit.js';
+import {W, H, C, F, B, P, env, IMG, initKit, cover, sprite, pill, text, tick, tap, phoneWithPage, qr, finish, clamp, lerp, rgba} from '../kit.js';
 import {CAM, drawStand, STAND} from './s4_qr.js';
 export const init = initKit;
 const PH = {key: 'hand_phone_scan', cx: 545, w: 1050};
@@ -24,8 +24,7 @@ export function draw(ctx, _t, {t: T}) {
   const scr = phoneWithPage(ctx, T, {...PH, cy}, st, page < 1 ? {under: (c, x, y, w, h) => {
       // camera view of the QR with the blue scan line
       c.fillStyle = '#20252e'; c.fillRect(x, y, w, h); const q = w * 0.62, qx = x + (w - q) / 2, qy = y + h * 0.3;
-      c.fillStyle = '#fff'; c.fillRect(qx - 20, qy - 20, q + 40, q + 40);
-      c.save(); c.translate(qx, qy); c.fillStyle = '#12151c'; for (let j = 0; j < 21; j++) for (let i = 0; i < 21; i++) if (((i * 7 + j * 13) % 5) < 2 || (i < 7 && j < 7) || (i > 13 && j < 7) || (i < 7 && j > 13)) c.fillRect(i * q / 21, j * q / 21, q / 21 - 1, q / 21 - 1); c.restore();
+      c.fillStyle = '#fff'; c.fillRect(qx - 30, qy - 30, q + 60, q + 60); qr(c, qx, qy, q, 1);
       c.strokeStyle = '#fff'; c.lineWidth = 8; c.lineCap = 'round'; const m = 60; [[qx - 40, qy - 40, 1, 1], [qx + q + 40, qy - 40, -1, 1], [qx - 40, qy + q + 40, 1, -1], [qx + q + 40, qy + q + 40, -1, -1]].forEach(([a, b, dx, dy]) => { c.beginPath(); c.moveTo(a, b + dy * m); c.lineTo(a, b); c.lineTo(a + dx * m, b); c.stroke(); });
       const sy = qy - 30 + (q + 60) * P(T, 15.0, 0.5, 'inOut'); c.fillStyle = C.blue; c.shadowColor = C.blue; c.shadowBlur = 24; c.fillRect(qx - 30, sy, q + 60, 8); c.shadowBlur = 0;
       if (page > 0) { c.globalAlpha = page; c.fillStyle = C.stage; c.fillRect(x, y, w, h); }

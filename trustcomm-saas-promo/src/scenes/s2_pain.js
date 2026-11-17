@@ -9,8 +9,19 @@ export function draw(ctx, _t, {t: T}) {
   cover(ctx, IMG.counter_plate, {s: 1.06 + 0.04 * P(T, 5.8, 5, 'out'), fy: 1100, blur: 5 + 4 * P(T, 8.4, 0.6, 'out')});
   ctx.fillStyle = `rgba(250,249,246,${0.16 + 0.3 * P(T, 8.4, 0.6, 'out') + 0.5 * out})`; ctx.fillRect(0, 0, W, H);
   // the family walks away into the shop
-  const w = P(T, 5.9, 2.5, 'inOut'), step = Math.abs(Math.sin(T * Math.PI * 1.8)), gone = P(T, 7.9, 0.6, 'in');
-  sprite(ctx, IMG.customers_leaving, lerp(560, 640, w), lerp(1380, 1150, w) - step * 10, lerp(760, 430, w), {a: (1 - gone) * clamp((T - 5.7) / 0.2), rot: Math.sin(T * Math.PI * 1.8) * 0.01});
+  // daylight from the doorway on the left, where the family leaves
+  const door = P(T, 5.7, 0.8, 'out');
+  if (door > 0) { // an open doorway on the left wall: bright daylight, light spill on the floor
+    ctx.save(); ctx.globalAlpha *= door; const dx = -30, dy = 470, dw = 250, dh = 800;
+    ctx.shadowColor = 'rgba(255,244,210,1)'; ctx.shadowBlur = 160; const g = ctx.createLinearGradient(0, dy, 0, dy + dh); g.addColorStop(0, '#fffdf6'); g.addColorStop(1, '#fff1cf');
+    rr(ctx, dx, dy, dw, dh, 26); ctx.fillStyle = g; ctx.fill(); ctx.shadowBlur = 0;
+    ctx.strokeStyle = 'rgba(110,62,26,0.9)'; ctx.lineWidth = 22; rr(ctx, dx, dy, dw, dh, 26); ctx.stroke();
+    const sp = ctx.createLinearGradient(0, dy + dh, 520, dy + dh + 300); sp.addColorStop(0, 'rgba(255,240,205,0.75)'); sp.addColorStop(1, 'rgba(255,240,205,0)');
+    ctx.fillStyle = sp; ctx.beginPath(); ctx.moveTo(dx, dy + dh); ctx.lineTo(dx + dw, dy + dh); ctx.lineTo(620, H); ctx.lineTo(-60, H); ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+  // the family walks out toward the light, getting smaller, then fades into it
+  const w = P(T, 5.9, 2.4, 'inOut'), step = Math.abs(Math.sin(T * Math.PI * 1.8)), gone = P(T, 7.75, 0.6, 'in');
+  sprite(ctx, IMG.customers_leaving, lerp(640, 110, w), lerp(1400, 1095, w) - step * 10, lerp(760, 330, w), {a: (1 - gone) * clamp((T - 5.7) / 0.2), rot: -0.04 * w + Math.sin(T * Math.PI * 1.8) * 0.01, blur: gone * 6});
   // headline on a frosted card
   const ha = P(T, 5.4, 0.3, 'out') * (1 - out);
   if (ha > 0) { ctx.save(); ctx.globalAlpha *= ha; ctx.filter = 'blur(0px)'; card(ctx, 70, 270, 940, 300, 44, {fill: 'rgba(255,255,255,0.86)', stroke: null, shadow: 0.08}); ctx.restore(); }
